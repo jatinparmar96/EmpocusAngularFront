@@ -1,22 +1,33 @@
 import { Router } from '@angular/router';
-import {HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {JwtModule} from '@auth0/angular-jwt';
-import {ApiService} from '../services/api.service';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ApiService } from '../services/api.service';
+import { JwtHelper} from 'angular2-jwt';
+
+import { ShareService } from '../services/share.service';
+
 export const endPoint= 'http://127.0.0.1:8000/api/';
 
 @Injectable()
 export class AuthService {
-  token:any;
-  constructor(private http:HttpClient,private apiService:ApiService) {}
+  jwtHelper: JwtHelper = new JwtHelper();
+  token:any = null;
+  constructor(
+        private http:HttpClient,
+        private apiService:ApiService,
+        private shareService:ShareService
+  ) {}
 
   signupUser(user) {
    let registered:any =0;
      return new Promise((register,error)=>{
-       console.log('Promise in Auth Service');
-       this.apiService.post('auth/register',user).then((data)=>{
-         console.log('User Registered '+data);
-          register(data);
+       
+       this.apiService.post('auth/signup',user).then((data)=>{
+        let user:any = data;
+        this.token = user;
+        this.updateToken(user.token)
+         register(user);
        }).catch((er)=>
        {
            error(er);
@@ -25,14 +36,33 @@ export class AuthService {
   }
 
   signinUser(user) {
-    return new Promise((login,reject)=>{
-      this.apiService.post('auth/login',user).then((data)=>{
-        console.log(data);
-        login(data);
-      }).catch((error)=>{
-        reject(error);
+      return new Promise((login,reject)=>{
+        this.apiService.post('auth/login',user).then((data)=>{
+            let user :any = data;
+            console.log(user);
+            if (user.status) {
+               this.token = user;
+              this.updateToken(user.token)
+            }
+
+            else {
+                this.token = null;
+            }
+            login(user);
+
+          }).catch((error)=>{
+              this.token = null;
+              reject(error);
+          })
       })
-    })
+  }
+
+  updateToken(token){
+    let decode_user = this.jwtHelper.decodeToken(token);
+    this.shareService.setCurrentUser(decode_user);
+    localStorage.setItem('x-auth-token',token);
+   
+    return decode_user;
   }
 
   logout() {   
@@ -44,7 +74,13 @@ export class AuthService {
   }
 
   isAuthenticated() {
+  
+      if (this.token!==null) {
+        return true;
+      }
+      else{
+        return false;
+      }
     
-    return true;
   }
 }

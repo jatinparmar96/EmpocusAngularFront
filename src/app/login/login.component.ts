@@ -12,10 +12,8 @@ import{AuthService} from '../shared/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
       user: FormGroup;
-  	//   profileForm = new FormGroup({
-   //    email:new FormControl(''),
-   //    password:new FormControl('')
-   // });
+      errors:any;
+      isProcessing:boolean = false;  
   constructor(fb: FormBuilder,private router:Router,private authService:AuthService) {
           this.user = fb.group({
             "email": ["",Validators.required],
@@ -27,17 +25,25 @@ export class LoginComponent implements OnInit {
       
   }
   onSubmit(user) {
+    this.isProcessing= true;
      this.authService.signinUser(user.value).then((data)=>{
        let user:any = data
+       console.log(user);
        if (user.status) {
+         console.log(this.errors);
+         this.isProcessing=false;
+
          this.router.navigateByUrl('/dashboard');
        }
        else{
-         alert(user.message);
+          this.isProcessing=false;
+          this.errors = user.message;
+          console.log(this.errors);
        }
      }).catch((error)=>{
-        console.log(error);
-       alert(error.message);
+       this.isProcessing=false;
+        console.log(this.errors);
+       this.errors = error.statusText;
      });
            
     

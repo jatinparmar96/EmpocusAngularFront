@@ -4,11 +4,12 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 import { ContentLayoutComponent } from "./layouts/content/content-layout.component";
 import {RegisterComponent} from "./register/register.component";
+import {SetupCompanyComponent} from "./pages/setup-company/setup-company.component";
 import {LoginComponent} from "./login/login.component";
 import { Full_ROUTES } from "./shared/routes/full-layout.routes";
 import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
-
 import { AuthGuard } from './shared/auth/auth-guard.service';
+
 
 const appRoutes: Routes = [
   {
@@ -29,16 +30,39 @@ const appRoutes: Routes = [
   	data:{
   		title:'Register New User'
   	}
+    
   },
   {
-    path:'dashboard',
-    component:FullLayoutComponent,
+    path:'setupCompany',
+    component:SetupCompanyComponent,
     data:{
-      title:'Dashboard'
+      title:'Setup Company'
     }
   },
-  { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES, canActivate: [AuthGuard] },
-  { path: '', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES, canActivate: [AuthGuard] },
+  {
+      path:'dashboard',
+      component:FullLayoutComponent,
+      data:{
+      title:'Dashboard'
+      },
+      canActivate: [AuthGuard] 
+  },
+  { 
+    path: '',
+    component: FullLayoutComponent, 
+    data: { title: 'full Views' },
+    children: Full_ROUTES, 
+    canActivate: [AuthGuard] 
+  },
+
+  { 
+    path: '', 
+    component: ContentLayoutComponent, 
+    data: { title: 'content Views' },
+    children: CONTENT_ROUTES, 
+    canActivate: [AuthGuard] 
+ },
+
 ];
 
 @NgModule({

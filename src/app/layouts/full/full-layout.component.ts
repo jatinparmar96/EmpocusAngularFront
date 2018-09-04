@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
+import {ShareService } from '../../shared/services/share.service';
 @Component({
     selector: 'app-full-layout',
     templateUrl: './full-layout.component.html',
@@ -11,4 +11,10 @@ export class FullLayoutComponent {
     options = {
         direction: 'ltr'
     };
+    constructor(
+    	private shareService:ShareService){}
+
+    ngOnInit(){
+    	this.shareService.getCurrentUser();
+    }
 }

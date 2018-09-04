@@ -12,26 +12,30 @@ import {Router} from '@angular/router';
 export class RegisterComponent implements OnInit {
 
 	 user: FormGroup;	
-
+   errors:any;
+   isProcessing:boolean = false;
   constructor(fb:FormBuilder,private authService:AuthService, private router:Router) {
   		this.user = fb.group({
   			"name":["",Validators.required],
   			"email": ["",Validators.required],
   			"mobile":["",Validators.required],
-            "password": ["",Validators.required],
+        "password": ["",Validators.required],
   			});
    }
 
   ngOnInit() {
   }
   register(user){
+    this.isProcessing= true;
   	 this.authService.signupUser(user.value).then((data)=>{
-         if (data==='success') {
+         let user:any = data;
+         if (user==='success') {
             this.router.navigateByUrl('/dashboard');
          }
      })
      .catch((error)=>{
-        alert('Please check the fields '+ error.statusText);
+       this.isProcessing= false;
+        this.errors = error.statusText;
      })
      
      

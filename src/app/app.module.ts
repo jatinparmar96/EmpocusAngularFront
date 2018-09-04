@@ -15,12 +15,14 @@ import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
-import {ApiService} from './shared/services/api.service';
+import { ApiService } from './shared/services/api.service';
+import { ShareService } from './shared/services/share.service';
 
 import * as $ from 'jquery';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { SetupCompanyComponent } from './pages/setup-company/setup-company.component';
 
 
 export function tokenGetter() {
@@ -32,7 +34,8 @@ export function tokenGetter() {
         FullLayoutComponent,
         ContentLayoutComponent,
         RegisterComponent,
-        LoginComponent
+        LoginComponent,
+        SetupCompanyComponent
     ],
     imports: [
         BrowserModule,
@@ -54,7 +57,8 @@ export function tokenGetter() {
     providers: [
         AuthService,
         AuthGuard,
-        ApiService
+        ApiService,
+        ShareService
 
     ],
     bootstrap: [AppComponent]
