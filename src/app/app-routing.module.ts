@@ -6,6 +6,8 @@ import { ContentLayoutComponent } from "./layouts/content/content-layout.compone
 import {RegisterComponent} from "./register/register.component";
 import {SetupCompanyComponent} from "./pages/setup-company/setup-company.component";
 import {LoginComponent} from "./login/login.component";
+import {CompanyInfoComponent} from "./pages/setup-company/company-info/company-info.component";
+import {HeadOfficeInfoComponent} from "./pages/setup-company/head-office-info/head-office-info.component";
 import { Full_ROUTES } from "./shared/routes/full-layout.routes";
 import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
 import { AuthGuard } from './shared/auth/auth-guard.service';
@@ -37,7 +39,18 @@ const appRoutes: Routes = [
     component:SetupCompanyComponent,
     data:{
       title:'Setup Company'
-    }
+    },
+    children: [
+      {
+        path:'BranchDetails',
+        component:HeadOfficeInfoComponent
+      },
+      {
+        path:'',
+        component:CompanyInfoComponent
+      }
+    ]
+   
   },
   {
       path:'dashboard',

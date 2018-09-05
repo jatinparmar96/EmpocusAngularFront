@@ -11,13 +11,13 @@ import{AuthService} from '../shared/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-      user: FormGroup;
-      errors:any;
-      isProcessing:boolean = false;  
+        user: FormGroup;
+        errors:any;
+        isProcessing:boolean = false;  
   constructor(fb: FormBuilder,private router:Router,private authService:AuthService) {
           this.user = fb.group({
-            "email": ["",Validators.required],
-            "password": ["",Validators.required],
+            "email": ["demo@cis.com",Validators.required],
+            "password": ["123",Validators.required],
           });
      }
 

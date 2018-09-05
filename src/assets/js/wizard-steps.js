@@ -10,6 +10,7 @@
 
 // Wizard tabs with icons setup
 $(document).ready( function(){
+    let created = false;
     $(".icons-tab-steps").steps({
         headerTag: "h6",
         bodyTag: "fieldset",
@@ -18,11 +19,20 @@ $(document).ready( function(){
         labels: {
             finish: 'Submit'
         },
+        onStepChanged:function (event, currentIndex){
+         
+         
+          
+        },
         onFinished: function (event, currentIndex) {
-            alert("Form submitted.");
+            if (!created) {
+               $(".icons-tab-steps").find("a[href='#finish']").after("<input id='submitButton' type='submit'>");
+               created = true;
+           }
+           $("#submitButton").hide().click();
         }
     });
 
     // To select event date
-  //  $('.pickadate').pickadate();
+    // $('.pickadate').pickadate();
  });

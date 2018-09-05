@@ -17,12 +17,15 @@ import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
 import { ApiService } from './shared/services/api.service';
 import { ShareService } from './shared/services/share.service';
+import {FormDataService} from './shared/services/form-data.service';
 
 import * as $ from 'jquery';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { SetupCompanyComponent } from './pages/setup-company/setup-company.component';
+import {CompanyInfoComponent} from './pages/setup-company/company-info/company-info.component';
+import { HeadOfficeInfoComponent } from './pages/setup-company/head-office-info/head-office-info.component';
 
 
 export function tokenGetter() {
@@ -35,19 +38,21 @@ export function tokenGetter() {
         ContentLayoutComponent,
         RegisterComponent,
         LoginComponent,
-        SetupCompanyComponent
-    ],
+        SetupCompanyComponent,
+        CompanyInfoComponent,
+        HeadOfficeInfoComponent
+        ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        AppRoutingModule,
         SharedModule,
+        AppRoutingModule,
          HttpClientModule,
         NgbModule.forRoot(),
        JwtModule.forRoot({
-      config: {
+       config: {
         tokenGetter: tokenGetter,
         whitelistedDomains: ['localhost:4000'],
         blacklistedRoutes: ['localhost:4000/api/auth']
