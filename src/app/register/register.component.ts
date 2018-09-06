@@ -29,13 +29,15 @@ export class RegisterComponent implements OnInit {
     this.isProcessing= true;
   	 this.authService.signupUser(user.value).then((data)=>{
          let user:any = data;
-         if (user==='success') {
-            this.router.navigateByUrl('/dashboard');
+         console.log(user);
+         if (user.status==='ok') {
+            this.router.navigateByUrl('/setupCompany');
          }
      })
      .catch((error)=>{
        this.isProcessing= false;
-        this.errors = error.statusText;
+
+        this.errors = Object.keys(error).map(i=>error[i])
      })
      
      

@@ -26,6 +26,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { SetupCompanyComponent } from './pages/setup-company/setup-company.component';
 import {CompanyInfoComponent} from './pages/setup-company/company-info/company-info.component';
 import { HeadOfficeInfoComponent } from './pages/setup-company/head-office-info/head-office-info.component';
+import { BankDetailsComponent } from './pages/setup-company/bank-details/bank-details.component';
+import { CompanyOtherDetailsComponent } from './pages/setup-company/company-other-details/company-other-details.component';
 
 
 export function tokenGetter() {
@@ -40,7 +42,9 @@ export function tokenGetter() {
         LoginComponent,
         SetupCompanyComponent,
         CompanyInfoComponent,
-        HeadOfficeInfoComponent
+        HeadOfficeInfoComponent,
+        BankDetailsComponent,
+        CompanyOtherDetailsComponent
         ],
     imports: [
         BrowserModule,
@@ -60,10 +64,11 @@ export function tokenGetter() {
     })
     ],
     providers: [
+        ShareService,
         AuthService,
         AuthGuard,
-        ApiService,
-        ShareService
+        ApiService
+      
 
     ],
     bootstrap: [AppComponent]

@@ -19,17 +19,22 @@ export class FormDataService {
     this.stepCounter = steps;
   }
 
-  toNext(data:any)
+  toNext(data:any,currentStep)
   {
-   
-      this.formData[this.currentStep] = data;
-      this.currentStep++;
-   
+      this.formData[currentStep] = data;
   }
-  toPrevious(data:any)
+
+  toPrevious(data:any,currentStep)
   {
-      this.currentStep--;
+      this.formData[currentStep] = data;  
   }
+  
+  getStepData(step:number)
+  {
+      let data = this.formData[step];
+      return data;
+  }
+
   getData()
   {
     let data:any=[this.currentStep,this.stepCounter,this.formData];

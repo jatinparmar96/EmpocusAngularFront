@@ -22,7 +22,6 @@ export class AuthService {
   signupUser(user) {
    let registered:any =0;
      return new Promise((register,error)=>{
-       
        this.apiService.post('auth/signup',user).then((data)=>{
         let user:any = data;
         this.token = user;
@@ -30,7 +29,8 @@ export class AuthService {
          register(user);
        }).catch((er)=>
        {
-           error(er);
+         console.log(er.error.error.errors)
+           error(er.error.error.errors);
        }) 
      })
   }
@@ -58,10 +58,10 @@ export class AuthService {
   }
 
   updateToken(token){
+
     let decode_user = this.jwtHelper.decodeToken(token);
     this.shareService.setCurrentUser(decode_user);
     localStorage.setItem('x-auth-token',token);
-   
     return decode_user;
   }
 
@@ -81,6 +81,5 @@ export class AuthService {
       else{
         return false;
       }
-    
   }
 }

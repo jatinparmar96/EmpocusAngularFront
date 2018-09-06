@@ -16,86 +16,67 @@
           <div class="card">
             <div class="card-header">
               <div class="col-lg-12 pl-0">
-                <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Company
-                  Address</p>
+                <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Other
+                  Details</p>
               </div>
             </div>
             <div class="card-body">
               <div class="card-block">
-                <form [formGroup]="company_data" (ngSubmit)='toNext(company_data)'>
-
+                <form [formGroup]="company_data">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="bbn">Block No./ Building Name</label>
-                        <input type="text" class="form-control" formControlName="company_address_building_name" id="bbn"
-                          name="bbn">
+                        <label for="PAN">PAN Number</label>
+                        <input type="text" formControlName="company_pan_number" class="form-control" id="PAN" name="PAN"
+                          required>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="inputRName">Road Name</label>
-                        <input type="text" class="form-control" formControlName="company_address_road_name" id="inputRName"
-                          name="inputRNamev">
+                        <label for="TAN">TAN Number</label>
+                        <input type="text" formControlName="company_tan_number" class="form-control" id="TAN" name="TAN"
+                          required>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="lmark">Landmark</label>
-                        <input type="text" class="form-control" formControlName="company_address_landmark" id="lmark"
-                          name="lmark">
+                        <label for="gstn">GST Number</label>
+                        <input type="text" formControlName="company_gst_number" class="form-control" id="gstn" name="gstn"
+                          required>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="pincode">Pincode</label>
-                        <input type="text" class="form-control" id="pincode" formControlName="company_address_pincode"
-                          name="pincode">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="countrySelect">Country</label>
-                        <select formControlName="company_address_country" class="form-control" id="countrySelect">
-                          <option>Select Option</option>
-                          <option>India</option>
-                          <option>China</option>
-                          <option>Nepal</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="stateSelect">State</label>
-                        <select formControlName="company_address_state" class="form-control" id="stateSelect">
-                          <option>Select Option</option>
-                          <option>Maharashtra</option>
-                          <option>Gujarat</option>
-                          <option>Rajasthan</option>
-                        </select>
+                        <label for="ENumber">E.C.C Number</label>
+                        <input type="text" formControlName="company_ecc_number" class="form-control" id="ENumber" name="ENumber">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="City">City</label>
-                        <select formControlName="company_address_city" class="form-control" id="CitySelect">
-                          <option>Select Option</option>
-                          <option>Mumbai</option>
-                          <option>Nagpur</option>
-                          <option>Thane</option>
-                        </select>
+                        <label for="Dcode">Division Code</label>
+                        <input type="text" formControlName="company_division_code" class="form-control" id="Dcode" name="Dcode">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="CNumber">CIN Number</label>
+                        <input type="text" formControlName="company_cin_number" class="form-control" id="CNumber" name="CNumber">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="basicInputFile">Select Logo</label>
+                        <input type="file" formControlName="company_logo" class="form-control-file" id="basicInputFile">
                       </div>
                     </div>
                   </div>
                   <div class=" d-flex justify-content-between">
                     <div>
-                      <p>2/4</p>
+                      <p>4/4</p>
                     </div>
                     <div>
                       <button (click)="toPrevious(company_data)" value="Previous" class="btn btn-raised btn-danger">

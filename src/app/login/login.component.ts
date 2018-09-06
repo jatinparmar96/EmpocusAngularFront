@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
        if (user.status) {
          console.log(this.errors);
          this.isProcessing=false;
-
          this.router.navigateByUrl('/dashboard');
        }
        else{

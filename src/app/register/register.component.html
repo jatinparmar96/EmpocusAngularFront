@@ -19,7 +19,7 @@
                             <div class="col-12 col-sm-12 col-md-6 d-flex align-items-center">
                                 <div class="card-block mx-auto">
                                     <div class="alert bg-danger alert-icon-left text-white" [hidden]="!errors" role='alert'>
-                                      Please Check the Fields {{errors}}
+                                      {{errors}}
                                     </div>
                                     <form autocomplete="off" [formGroup]='user' (ngSubmit)=register(user)>
                                         <div class="input-group mb-3">

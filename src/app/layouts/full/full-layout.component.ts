@@ -15,6 +15,6 @@ export class FullLayoutComponent {
     	private shareService:ShareService){}
 
     ngOnInit(){
-    	this.shareService.getCurrentUser();
+    console.log(this.shareService.getCurrentUser());
     }
 }

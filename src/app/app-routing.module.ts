@@ -8,9 +8,14 @@ import {SetupCompanyComponent} from "./pages/setup-company/setup-company.compone
 import {LoginComponent} from "./login/login.component";
 import {CompanyInfoComponent} from "./pages/setup-company/company-info/company-info.component";
 import {HeadOfficeInfoComponent} from "./pages/setup-company/head-office-info/head-office-info.component";
+
+
 import { Full_ROUTES } from "./shared/routes/full-layout.routes";
 import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
+
 import { AuthGuard } from './shared/auth/auth-guard.service';
+import { BankDetailsComponent } from './pages/setup-company/bank-details/bank-details.component';
+import { CompanyOtherDetailsComponent } from './pages/setup-company/company-other-details/company-other-details.component';
 
 
 const appRoutes: Routes = [
@@ -40,17 +45,26 @@ const appRoutes: Routes = [
     data:{
       title:'Setup Company'
     },
+    canActivate: [AuthGuard],
     children: [
-      {
-        path:'BranchDetails',
-        component:HeadOfficeInfoComponent
-      },
+        {
+          path:'BranchDetails',
+          component:HeadOfficeInfoComponent
+        },
+        {
+          path:"BankDetails",
+          component:BankDetailsComponent
+        },
+        {
+          path:"OtherDetails",
+          component:CompanyOtherDetailsComponent
+        },
       {
         path:'',
         component:CompanyInfoComponent
       }
+     
     ]
-   
   },
   {
       path:'dashboard',

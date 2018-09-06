@@ -13,7 +13,7 @@ export const ROLES = {
 
 @Injectable()
 export class ShareService {
-	data = {};
+	private data = {};
 	constructor(location: PlatformLocation) { 
 		
 	}
@@ -34,7 +34,7 @@ export class ShareService {
 		this.set("__currentUser__",currentUser);
 	}
 	getCurrentUser(){
-		return this.get("__currentUser__") || false;
+		return this.get("__currentUser__")||false ;
 	}
 	isLoggedIn(){
 		return !!this.getCurrentUser();

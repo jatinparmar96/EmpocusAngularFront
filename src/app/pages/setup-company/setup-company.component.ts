@@ -13,7 +13,7 @@ export class SetupCompanyComponent implements OnInit {
     company_data: FormGroup;
   constructor(private fb:FormBuilder, private formService:FormDataService) {
   		
-       formService.createNewForm(2);
+       formService.createNewForm(4);
           // this.company_data = fb.group({
           //   "company_name": ["CIS",Validators.required],
           //   "company_display_name": ["CIS",Validators.required],

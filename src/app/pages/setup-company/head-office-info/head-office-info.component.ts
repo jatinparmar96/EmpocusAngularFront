@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
 import{FormDataService} from '../../../shared/services/form-data.service';
+import { Router } from '@angular/router';
 
-
+const current_step = 1;
 @Component({
   selector: 'app-head-office-info',
   templateUrl: './head-office-info.component.html',
@@ -10,17 +11,22 @@ import{FormDataService} from '../../../shared/services/form-data.service';
 })
 export class HeadOfficeInfoComponent implements OnInit {
  company_data:FormGroup;
-  constructor(private fb:FormBuilder,private fdService:FormDataService) { 
-
+  constructor(private fb:FormBuilder,private fdService:FormDataService,private router:Router) { 
+    let data:any = this.fdService.getStepData(current_step); 
+    let buffer:any=['','','','']
+    if(data !== undefined)
+    {
+      buffer = Object.keys(data).map(i => data[i]);
+    }
 
   		  this.company_data = fb.group({
-            "company_address_building_name":["",Validators.required],
-            "company_address_road_name":["",Validators.required],
-            "company_address_landmark":["",Validators.required],
-            "company_address_pincode":["",Validators.required],
-            "company_address_country":["",Validators.required],
-            "company_address_state":["",Validators.required],
-            "company_address_city":["",Validators.required],
+            "company_address_building_name":[buffer[0],Validators.required],
+            "company_address_road_name":[buffer[1],Validators.required],
+            "company_address_landmark":[buffer[2],Validators.required],
+            "company_address_pincode":[buffer[3],Validators.required],
+            "company_address_country":[buffer[4],Validators.required],
+            "company_address_state":[buffer[5],Validators.required],
+            "company_address_city":[buffer[6],Validators.required],
           });
   }
 
@@ -29,8 +35,15 @@ export class HeadOfficeInfoComponent implements OnInit {
 
   toNext(data)
   {
-    this.fdService.toNext(data.value);
+    this.fdService.toNext(data.value,current_step);
   	console.log(this.fdService.getData());
-   // this.router.navigateByUrl('setupCompany/BranchDetails');
+    this.router.navigateByUrl('setupCompany/BankDetails');
+  }
+  toPrevious(data)
+  {
+   
+   this.fdService.toPrevious(data.value,current_step);
+   console.log(this.fdService.getData());
+   this.router.navigateByUrl('setupCompany');
   }
 }
