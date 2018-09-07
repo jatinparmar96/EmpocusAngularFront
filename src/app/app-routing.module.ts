@@ -56,7 +56,7 @@ const appRoutes: Routes = [
           component:BankDetailsComponent
         },
         {
-          path:"OtherDetails",
+          path:"OtherDetails/:id",
           component:CompanyOtherDetailsComponent
         },
       {

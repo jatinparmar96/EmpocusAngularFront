@@ -44,6 +44,6 @@ export class HeadOfficeInfoComponent implements OnInit {
    
    this.fdService.toPrevious(data.value,current_step);
    console.log(this.fdService.getData());
-   this.router.navigateByUrl('setupCompany');
+   this.router.navigateByUrl('setupCompany/OtherDetails');
   }
 }

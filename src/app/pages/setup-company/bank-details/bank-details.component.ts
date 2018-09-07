@@ -32,13 +32,12 @@ export class BankDetailsComponent implements OnInit {
   toNext(data)
   {
     this.fdService.toNext(data.value,current_step);
-  	console.log(this.fdService.getData());
-    this.router.navigateByUrl('setupCompany/OtherDetails');
+    
+    this.router.navigateByUrl('dashboard');
   }
   toPrevious(data)
   {
    this.fdService.toPrevious(data.value,current_step);
-   console.log(this.fdService.getData());
    this.router.navigateByUrl('setupCompany/BranchDetails');
   }
 }

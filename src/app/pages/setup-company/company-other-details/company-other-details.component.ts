@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormDataService } from '../../../shared/services/form-data.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
-const current_step = 3
+
+//Denotes the current step in the form wizard. For now it is manual.
+const current_step = 1
 @Component({
   selector: 'app-company-other-details',
   templateUrl: './company-other-details.component.html',
@@ -11,7 +13,11 @@ const current_step = 3
 })
 export class CompanyOtherDetailsComponent implements OnInit {
   company_data:FormGroup;
-  constructor(private fb:FormBuilder,private fdService:FormDataService,private router:Router) {
+  constructor(private fb:FormBuilder,
+              private fdService:FormDataService,
+              private router:Router,
+              private route:ActivatedRoute
+             ) {
 
     let data:any = this.fdService.getStepData(current_step); 
     let buffer:any=['','','','']
@@ -34,14 +40,30 @@ export class CompanyOtherDetailsComponent implements OnInit {
 
   ngOnInit() {
   }
- toNext()
- {
-   this.router.navigateByUrl('/dashboard')
+
+  //Proceed to Next Step Only After Using the fetched Company_Id in the previous step
+  //If company_id is null or was not created this method will fail.
+  //Fetches the company_id from the url using activated Route
+ toNext(data)
+ {  
+   let id = this.route.snapshot.paramMap.get('id'); 
+  
+   this.fdService.storeData('admin/company_other_details/'+id,data.value).then(data=>{
+
+    this.router.navigateByUrl('setupCompany/BranchDetails');
+  
+  }).catch(error=>{
+    console.log(error);
+  });
+   
+  //Go back to previous step 
+  //Right now this will create a new company and the earlier company wont be deleted
+  // #TOBEFIXED
  }
   toPrevious(data,current_step)
   {
    this.fdService.toPrevious(data.value,current_step);
    console.log(this.fdService.getData());
-   this.router.navigateByUrl('setupCompany/BankDetails');
+   this.router.navigateByUrl('setupCompany');
   }
 }

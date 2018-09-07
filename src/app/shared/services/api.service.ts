@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http';
+import { Headers,Http } from '@angular/http';
+import { tokenGetter } from '../../app.module';
 
 export const address= 'http://127.0.0.1:8000/api/';
 
@@ -13,7 +15,7 @@ export class ApiService {
 post(url,data)
 {
 	return new Promise((resolve,reject)=>{
-		return this.http.post(address+url,data).subscribe(
+		return this.http.post(address+url,data, {headers:{'Authorization':'Bearer '+localStorage.getItem('x-auth-token')}}).subscribe(
 			data=>{
 				resolve(data);
 			},

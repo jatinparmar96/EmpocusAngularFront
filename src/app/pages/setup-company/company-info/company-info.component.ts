@@ -32,7 +32,10 @@ export class CompanyInfoComponent implements OnInit {
   toNext(data)
   {
     this.fdService.toNext(data.value,current_step);
+    this.fdService.storeData('admin/company',data.value).then(data=>{
+      console.log("To Next "+data)
+      this.router.navigateByUrl('setupCompany/OtherDetails/'+data);
+    });
   	console.log(this.fdService.getData());
-    this.router.navigateByUrl('setupCompany/BranchDetails');
   }
 }
