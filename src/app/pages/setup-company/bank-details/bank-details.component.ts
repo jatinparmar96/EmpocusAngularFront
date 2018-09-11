@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormDataService } from '../../../shared/services/form-data.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 const current_step = 2;
 @Component({
@@ -12,7 +12,10 @@ const current_step = 2;
 export class BankDetailsComponent implements OnInit {
   company_data:FormGroup;
   
-  constructor(private fb:FormBuilder,private fdService:FormDataService,private router:Router) {
+  constructor(private fb:FormBuilder,
+    private fdService:FormDataService,
+    private router:Router,
+    private route:ActivatedRoute) {
     let data:any = this.fdService.getStepData(current_step); 
     let buffer:any=['','','','']
     if(data !== undefined)
@@ -29,8 +32,10 @@ export class BankDetailsComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   toNext(data)
   {
+    let id = this.route.snapshot.paramMap.get('id');
     this.fdService.toNext(data.value,current_step);
     
     this.router.navigateByUrl('dashboard');

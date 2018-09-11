@@ -22,15 +22,22 @@ export class CompanyInfoComponent implements OnInit {
       this.company_data = fb.group({
             "company_name": [buffer[0],Validators.required],
             "company_display_name": [buffer[1],Validators.required],
-            "company_fax_number":[buffer[2],Validators.required],
-            "company_website":[buffer[3],Validators.required]
+            "company_fax_number":[buffer[2]],
+            "company_website":[buffer[3]]
           });
    }
   ngOnInit() {
   }
 
+  get f() { return this.company_data.controls; }
+
+  get company_name() {return this.company_data.get('company_name');}
   toNext(data)
   {
+    if(this.company_data.invalid)
+    {
+      return;
+    }
     this.fdService.toNext(data.value,current_step);
     this.fdService.storeData('admin/company',data.value).then(data=>{
       console.log("To Next "+data)

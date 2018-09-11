@@ -29,6 +29,14 @@
                         <div class="form-group">
                           <label for="CName">Company Name</label>
                           <input type="text" formControlName="company_name" class="form-control" id="CName" name="CName">
+                          <div *ngIf="f.company_name.invalid && (f.company_name.dirty || f.company_name.touched)"
+                                class="alert alert-danger">
+                              <div *ngIf="f.company_name.errors.required">
+                                Company Name is required.
+                              </div>
+                          </div>
+
+                          
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -36,6 +44,11 @@
                           <label for="DName">Company Display Name</label>
                           <input type="text" formControlName="company_display_name" class="form-control" id="DName"
                             name="DName">
+                            <div role="alert" *ngIf="f.company_display_name.invalid && (f.company_display_name.dirty || f.company_display_name.touched)">
+                              <div *ngIf="f.company_display_name.errors.required" class="alert alert-warning">
+                                Company Display Name is required.
+                              </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -50,6 +63,7 @@
                         <div class="form-group">
                           <label for="website">Website</label>
                           <input type="text" formControlName="company_website" class="form-control" id="website" name="website">
+                        
                         </div>
                       </div>
                     </div>
@@ -62,6 +76,7 @@
                         <input type="submit" value="Next" class="btn btn-raised btn-primary">
                       </div>
                     </div>
+                    
                   </form>
                 </div>
               </div>

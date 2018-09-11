@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
 import{FormDataService} from '../../../shared/services/form-data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 const current_step = 1;
 @Component({
@@ -10,9 +10,15 @@ const current_step = 1;
   styleUrls: ['./head-office-info.component.scss']
 })
 export class HeadOfficeInfoComponent implements OnInit {
+  id:any;
  company_data:FormGroup;
-  constructor(private fb:FormBuilder,private fdService:FormDataService,private router:Router) { 
-    let data:any = this.fdService.getStepData(current_step); 
+  constructor(private fb:FormBuilder,
+    private fdService:FormDataService,
+    private router:Router,
+    private route:ActivatedRoute) { 
+    
+      this.id = route.snapshot.paramMap.get('id');
+      let data:any = this.fdService.getStepData(current_step); 
     let buffer:any=['','','','']
     if(data !== undefined)
     {
@@ -37,13 +43,13 @@ export class HeadOfficeInfoComponent implements OnInit {
   {
     this.fdService.toNext(data.value,current_step);
   	console.log(this.fdService.getData());
-    this.router.navigateByUrl('setupCompany/BankDetails');
+    this.router.navigateByUrl('setupCompany/BankDetails/'+this.id);
   }
   toPrevious(data)
   {
    
    this.fdService.toPrevious(data.value,current_step);
    console.log(this.fdService.getData());
-   this.router.navigateByUrl('setupCompany/OtherDetails');
+   this.router.navigateByUrl('setupCompany/OtherDetails/'+this.id);
   }
 }

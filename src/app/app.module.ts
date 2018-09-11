@@ -28,6 +28,8 @@ import {CompanyInfoComponent} from './pages/setup-company/company-info/company-i
 import { HeadOfficeInfoComponent } from './pages/setup-company/head-office-info/head-office-info.component';
 import { BankDetailsComponent } from './pages/setup-company/bank-details/bank-details.component';
 import { CompanyOtherDetailsComponent } from './pages/setup-company/company-other-details/company-other-details.component';
+import { MainComponent } from './dashboard/main/main.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 export function tokenGetter() {
@@ -44,7 +46,7 @@ export function tokenGetter() {
         CompanyInfoComponent,
         HeadOfficeInfoComponent,
         BankDetailsComponent,
-        CompanyOtherDetailsComponent
+        CompanyOtherDetailsComponent,
         ],
     imports: [
         BrowserModule,

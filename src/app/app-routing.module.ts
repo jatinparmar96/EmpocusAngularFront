@@ -16,6 +16,7 @@ import { CONTENT_ROUTES } from "./shared/routes/content-layout.routes";
 import { AuthGuard } from './shared/auth/auth-guard.service';
 import { BankDetailsComponent } from './pages/setup-company/bank-details/bank-details.component';
 import { CompanyOtherDetailsComponent } from './pages/setup-company/company-other-details/company-other-details.component';
+import { MainComponent } from './dashboard/main/main.component';
 
 
 const appRoutes: Routes = [
@@ -48,11 +49,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
         {
-          path:'BranchDetails',
+          path:'BranchDetails/:id',
           component:HeadOfficeInfoComponent
         },
         {
-          path:"BankDetails",
+          path:"BankDetails/:id",
           component:BankDetailsComponent
         },
         {
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
   {
       path:'dashboard',
       component:FullLayoutComponent,
+      children:Full_ROUTES,
       data:{
       title:'Dashboard'
       },

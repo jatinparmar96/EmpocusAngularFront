@@ -47,10 +47,12 @@ export class CompanyOtherDetailsComponent implements OnInit {
  toNext(data)
  {  
    let id = this.route.snapshot.paramMap.get('id'); 
-  
+  this.fdService.toNext(data.value,current_step);
    this.fdService.storeData('admin/company_other_details/'+id,data.value).then(data=>{
+//data received is the company_id will be required to create branch of this company.
+//for now raw data is used in future Hashed Value will be used
 
-    this.router.navigateByUrl('setupCompany/BranchDetails');
+    this.router.navigateByUrl('setupCompany/BranchDetails/'+data);
   
   }).catch(error=>{
     console.log(error);
