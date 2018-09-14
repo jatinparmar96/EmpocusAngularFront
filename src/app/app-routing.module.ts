@@ -17,6 +17,7 @@ import { AuthGuard } from './shared/auth/auth-guard.service';
 import { BankDetailsComponent } from './pages/setup-company/bank-details/bank-details.component';
 import { CompanyOtherDetailsComponent } from './pages/setup-company/company-other-details/company-other-details.component';
 import { MainComponent } from './dashboard/main/main.component';
+import { SelectCompanyComponent } from './pages/select-company/select-company.component';
 
 
 const appRoutes: Routes = [
@@ -76,6 +77,14 @@ const appRoutes: Routes = [
       },
       canActivate: [AuthGuard] 
   },
+  {
+    path: 'select-company',
+    component: SelectCompanyComponent,
+    data: {
+      title: 'Content Layout page'
+    },
+   
+},
   { 
     path: '',
     component: FullLayoutComponent, 
@@ -89,7 +98,7 @@ const appRoutes: Routes = [
     component: ContentLayoutComponent, 
     data: { title: 'content Views' },
     children: CONTENT_ROUTES, 
-    canActivate: [AuthGuard] 
+   
  },
 
 ];

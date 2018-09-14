@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { ContentPagesRoutingModule } from "./content-pages-routing.module";
 import { ContentLayoutPageComponent } from './content-layout-page.component';
+import { SelectCompanyComponent } from '../select-company/select-company.component';
 
 
 
@@ -14,7 +15,8 @@ import { ContentLayoutPageComponent } from './content-layout-page.component';
         FormsModule        
     ],
     declarations: [
-        ContentLayoutPageComponent
+        ContentLayoutPageComponent,
+       
     ]
 })
 export class ContentPagesModule { }

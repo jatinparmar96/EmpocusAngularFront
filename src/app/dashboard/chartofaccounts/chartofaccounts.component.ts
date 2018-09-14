@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ApiService } from '../../shared/services/api.service';
 
 @Component({
   selector: 'app-chartofaccounts',
@@ -11,7 +12,8 @@ export class ChartofaccountsComponent implements OnInit {
   active= 'today';
   chartOfAccounts: FormGroup;
   constructor(
-    private fb:FormBuilder
+    private fb:FormBuilder,
+    private apiService:ApiService
   ) 
   {
     this.chartOfAccounts= fb.group({
@@ -46,9 +48,8 @@ export class ChartofaccountsComponent implements OnInit {
       "ca_range":['',Validators.required],
       "ca_commissionerate":['',Validators.required],
       "ca_tin_no":['',Validators.required],
-      "ca_date_opened_1":['',Validators.required],
+      "ca_date_opened":['',Validators.required],
       "ca_cst_no":['',Validators.required],
-      "ca_date_opened_2":['',Validators.required],
     })
    }
 
@@ -57,6 +58,6 @@ export class ChartofaccountsComponent implements OnInit {
 
   onSubmit(data)
   {
-    console.log(data.value);  
+      console.log(data.value);
   }
 }

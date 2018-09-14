@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ContentLayoutPageComponent } from './content-layout-page.component';
+import { SelectCompanyComponent } from '../select-company/select-company.component';
 
 
 const routes: Routes = [
@@ -10,8 +11,10 @@ const routes: Routes = [
      component: ContentLayoutPageComponent,
     data: {
       title: 'Content Layout page'
-    },    
-  }
+    },
+  },
+    
+ 
 ];
 
 @NgModule({

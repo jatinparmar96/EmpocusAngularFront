@@ -16,7 +16,8 @@ export class RegisterComponent implements OnInit {
    isProcessing:boolean = false;
   constructor(fb:FormBuilder,private authService:AuthService, private router:Router) {
   		this.user = fb.group({
-  			"name":["",Validators.required],
+        "name":["",Validators.required],
+        "display_name":["",Validators.required],
   			"email": ["",Validators.required],
   			"mobile":["",Validators.required],
         "password": ["",Validators.required],
@@ -26,6 +27,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   register(user){
+    console.log(user.value)
     this.isProcessing= true;
   	 this.authService.signupUser(user.value).then((data)=>{
          let user:any = data;

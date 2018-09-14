@@ -6,6 +6,8 @@ import { ApiService } from '../services/api.service';
 import { JwtHelper} from 'angular2-jwt';
 
 import { ShareService } from '../services/share.service';
+import { reject } from 'q';
+
 
 export const endPoint= 'http://127.0.0.1:8000/api/';
 
@@ -57,6 +59,22 @@ export class AuthService {
       })
   }
 
+  setCompany(company_id)
+  {
+      return new Promise((resolve,reject)=>{
+          this.apiService.post('admin/setCompany',company_id).then(data=>{
+            let user:any = data;
+           if(user.status){
+              this.token = user;
+              this.updateToken(user.token)
+              resolve(user);
+            }
+
+          })
+      }).catch(error=>{
+        reject(error)
+      })
+  }
   updateToken(token){
 
     let decode_user = this.jwtHelper.decodeToken(token);
