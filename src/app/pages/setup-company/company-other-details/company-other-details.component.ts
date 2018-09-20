@@ -34,25 +34,24 @@ export class CompanyOtherDetailsComponent implements OnInit {
       "company_division_code":[buffer[4],Validators.required],
       "company_cin_number":[buffer[5],Validators.required],
       "company_logo":[buffer[6],Validators.required]
-    });
+    });          
 
    }
 
   ngOnInit() {
   }
 
-  //Proceed to Next Step Only After Using the fetched Company_Id in the previous step
+ 
   //If company_id is null or was not created this method will fail.
-  //Fetches the company_id from the url using activated Route
+
  toNext(data)
  {  
-   let id = this.route.snapshot.paramMap.get('id'); 
   this.fdService.toNext(data.value,current_step);
-   this.fdService.storeData('admin/company_other_details/'+id,data.value).then(data=>{
+   this.fdService.storeData('admin/company_other_details',data.value).then(data=>{
 //data received is the company_id will be required to create branch of this company.
 //for now raw data is used in future Hashed Value will be used
-
-    this.router.navigateByUrl('setupCompany/BranchDetails/'+data);
+    console.log(data);
+    this.router.navigateByUrl('setupCompany/BranchDetails/');
   
   }).catch(error=>{
     console.log(error);

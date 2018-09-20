@@ -33,6 +33,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { SelectCompanyComponent } from './pages/select-company/select-company.component';
 
 
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -48,7 +49,8 @@ export function tokenGetter() {
         HeadOfficeInfoComponent,
         BankDetailsComponent,
         CompanyOtherDetailsComponent,
-        SelectCompanyComponent
+        SelectCompanyComponent,
+        
       
         ],
     imports: [

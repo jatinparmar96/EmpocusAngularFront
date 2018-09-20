@@ -42,8 +42,12 @@ export class HeadOfficeInfoComponent implements OnInit {
   toNext(data)
   {
     this.fdService.toNext(data.value,current_step);
-  	console.log(this.fdService.getData());
-    this.router.navigateByUrl('setupCompany/BankDetails/'+this.id);
+    this.fdService.storeData('admin/addBranch/',data.value).then(data=>{
+      this.router.navigateByUrl('setupCompany/bankDetails/'+data);
+    })
+    .catch(error=>{
+      console.log(error)
+    })
   }
   toPrevious(data)
   {

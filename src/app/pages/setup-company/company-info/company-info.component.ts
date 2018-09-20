@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import{FormDataService} from '../../../shared/services/form-data.service';
 import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
+import { AuthService } from '../../../shared/auth/auth.service';
 const current_step:number = 0;
 @Component({
   selector: 'app-company-info',
@@ -12,7 +13,11 @@ export class CompanyInfoComponent implements OnInit {
 
   company_data:FormGroup;
   
-  constructor(private router:Router , private fdService:FormDataService,private fb:FormBuilder) {
+  constructor(
+    private router:Router , 
+    private fdService:FormDataService,
+    private fb:FormBuilder,
+    private authService:AuthService) {
       let data:any = this.fdService.getStepData(current_step); 
       let buffer:any=['','','','']
       if(data !== undefined)
@@ -40,8 +45,10 @@ export class CompanyInfoComponent implements OnInit {
     }
     this.fdService.toNext(data.value,current_step);
     this.fdService.storeData('admin/company',data.value).then(data=>{
-      console.log("To Next "+data)
-      this.router.navigateByUrl('setupCompany/OtherDetails/'+data);
+
+      this.authService.setCompany(data).then(data=>{
+        this.router.navigateByUrl('setupCompany/OtherDetails/');
+      })
     });
   	console.log(this.fdService.getData());
   }

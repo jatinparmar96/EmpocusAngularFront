@@ -50,15 +50,15 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
         {
-          path:'BranchDetails/:id',
+          path:'BranchDetails/',
           component:HeadOfficeInfoComponent
         },
         {
-          path:"BankDetails/:id",
+          path:"BankDetails/",
           component:BankDetailsComponent
         },
         {
-          path:"OtherDetails/:id",
+          path:"OtherDetails/",
           component:CompanyOtherDetailsComponent
         },
       {

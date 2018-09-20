@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { ChartofaccountsComponent } from './chartofaccounts/chartofaccounts.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasurement.component';
 
 const routes:Routes= [
   {
@@ -18,6 +20,17 @@ const routes:Routes= [
     data:{
       'title':'Chart Of Accounts'
     }
+  },
+  {
+    path:'add-products',
+    component:AddproductComponent,
+    data:{
+      'title':'Add Products'
+    }
+  },
+  {
+    path:'add-uom',
+    component:UnitofmeasurementComponent
   }
 
 ]

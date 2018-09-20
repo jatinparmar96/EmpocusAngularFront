@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
         isProcessing:boolean = false;  
   constructor(fb: FormBuilder,private router:Router,private authService:AuthService) {
           this.user = fb.group({
-            "email": ["demo@cis.com",Validators.required],
+            "email": ["jatinparmar96@gmail.com",Validators.required],
             "password": ["123",Validators.required],
           });
      }

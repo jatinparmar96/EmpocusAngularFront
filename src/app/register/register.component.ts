@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   register(user){
-    console.log(user.value)
     this.isProcessing= true;
   	 this.authService.signupUser(user.value).then((data)=>{
          let user:any = data;

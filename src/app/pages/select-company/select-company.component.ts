@@ -35,7 +35,6 @@ export class SelectCompanyComponent implements OnInit {
   onSubmit(data)
   {
    this.isProcessing= true;
-   console.log(data.value)
    this.authService.setCompany(data.value).then(data=>{
      let user:any = data;
      if (user.status)
@@ -44,7 +43,7 @@ export class SelectCompanyComponent implements OnInit {
      }
    }).catch(error=>
   {
-    console.log(error);
+    console.log("Error in select Company Page "+error);
   });
   }
 

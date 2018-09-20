@@ -9,7 +9,15 @@ export const ROUTES: RouteInfo[] = [
             },
             {
                 path: 'chart-of-accounts', title: 'Chart Of Accounts', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
-            }
+            },
+            {
+                path: 'add-uom', title: 'Add Unit of Measurement', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+            {
+                path: 'add-products', title: 'Enter Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+          
+
         ]
     },
     
