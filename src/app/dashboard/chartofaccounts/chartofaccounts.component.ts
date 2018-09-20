@@ -21,7 +21,11 @@ export class ChartofaccountsComponent implements OnInit {
     private formService:FormDataService,
   ) 
   {
-    this.chartOfAccounts= fb.group({
+   
+   }
+
+  ngOnInit() {
+    this.chartOfAccounts= this.fb.group({
       "ca_company_name":['Bitmanity',Validators.required],
       "ca_company_display_name":['Bitmanity LLP',Validators.required],
       "ca_category":['Creditor',Validators.required],
@@ -56,9 +60,6 @@ export class ChartofaccountsComponent implements OnInit {
       "ca_date_opened":['06/06/1992',Validators.required],
       "ca_cst_no":['CST123',Validators.required],
     })
-   }
-
-  ngOnInit() {
   }
 
   onSubmit(data)
