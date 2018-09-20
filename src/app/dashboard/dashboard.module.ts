@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import{NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -9,10 +10,12 @@ import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasuremen
 
 @NgModule({
   imports: [
+    NgbModule,
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+  
   ],
   declarations: [
     MainComponent,
