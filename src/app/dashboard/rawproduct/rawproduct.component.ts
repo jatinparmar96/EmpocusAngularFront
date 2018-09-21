@@ -30,18 +30,15 @@ export class RawproductComponent implements OnInit {
       "raw_product_batch_type":['0',Validators.required],
       "raw_product_maintain_stock_ledger":['1',Validators.required],
       "raw_product_opening_stock":['10',Validators.required],
-      "raw_product_store":['G1',Validators.required],
-      "raw_product_purchase_rate":['',Validators.required],
-      "raw_product_sales_rate":['',Validators.required],
-      "raw_product_gst_slot":['',Validators.required],
-      "raw_product_max_level":['',Validators.required],
-      "raw_product_min_level":['',Validators.required],
-      "raw_product_reorder_level":['',Validators.required],
-      "raw_product_description":['',Validators.required],
-      "raw_product_rate_pick_from":['Sales Rate Standards',Validators.required]
-    
-
-      
+      "raw_product_store_location":['G1',Validators.required],
+      "raw_product_purchase_rate":['111',Validators.required],
+      "raw_product_sales_rate":['12',Validators.required],
+      "raw_product_gst_slot":['28%',Validators.required],
+      "raw_product_max_level":['2134',Validators.required],
+      "raw_product_min_level":['1212',Validators.required],
+      "raw_product_reorder_level":['12',Validators.required],
+      "raw_product_description":['abc',Validators.required],
+      "raw_product_rate_pick_from":['',Validators.required]
     });
 
   }
@@ -50,4 +47,16 @@ export class RawproductComponent implements OnInit {
     
   }
 
+  onSubmit(data)
+  {
+   this.formService.storeData('admin/storeRawProduct',data.value).then(data=>{
+      let status:any = data
+      if(status.status){
+        alertFunctions.typeSuccess('Raw Product added Successfully');
+      }
+   })
+   .catch(error=>{
+     console.log(error);
+   })
+  }
 }
