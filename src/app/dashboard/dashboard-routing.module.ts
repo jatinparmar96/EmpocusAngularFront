@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { ChartofaccountsComponent } from './chartofaccounts/chartofaccounts.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasurement.component';
+import { RawproductComponent } from './rawproduct/rawproduct.component';
 
 const routes:Routes= [
   {
@@ -31,8 +32,13 @@ const routes:Routes= [
   {
     path:'add-uom',
     component:UnitofmeasurementComponent
-  }
+  },
+  {
+    path:'raw-product',
+    component:RawproductComponent
+  },
 
+  
 ]
 
 
