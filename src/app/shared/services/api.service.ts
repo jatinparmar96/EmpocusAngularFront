@@ -12,6 +12,8 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
+
+
 post(url,data)
 {
 	return new Promise((resolve,reject)=>{
@@ -23,6 +25,19 @@ post(url,data)
 				reject(error);
 			});
 	});
+}
+get(url)
+{
+	return new Promise((resolve,reject)=>{
+		return this.http.get(address+url,{headers:{'Authorization':'Bearer '+localStorage.getItem('x-auth-token')}}).subscribe(
+			data=>{
+				resolve(data);
+			},
+			error=>{
+				reject(error)
+			}
+		)
+	})
 }
 // loginUser(user)
 // {

@@ -6,14 +6,14 @@
             </div>
             <div class="card-body">
                 <div class="px-3">
-                    <form class="form" [formGroup]="rawProduct">
+                    <form class="form" [formGroup]="rawProduct" (ngSubmit)="onSubmit(rawProduct)">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i> Product Details</h4>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="raw_product_product_name">Product Name</label>
-                                        <input type="text" formControlName="raw_product_product_name" id="raw_product_product_name" class="form-control border-primary" name="raw_product_product_name">
+                                        <label for="raw_product_name">Product Name</label>
+                                        <input type="text" formControlName="raw_product_name" id="raw_product_name" class="form-control border-primary" name="raw_product_name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -32,11 +32,9 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="raw_product_UOM">UOM</label>
-                                        <select class="form-control" formControlName="raw_product_UOM" id="raw_product_UOM">
-                                          <option>KG</option>
-                                          <option>px</option>
-                                          <option>inch</option>
+                                        <label for="raw_product_uom">UOM</label>
+                                        <select class="form-control" formControlName="raw_product_uom" id="raw_product_uom">
+                                          <option *ngFor="let uom of uoms" value="{{uom.id}}">{{uom.unit_name}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -44,8 +42,7 @@
                                     <div class="form-group">
                                         <label for="raw_product_conv_uom">Conv. UOM</label>
                                         <select class="form-control" formControlName="raw_product_conv_uom" id="raw_product_conv_uom">
-                                                <option>kg</option>
-                                                <option>ltr</option>
+                                            <option *ngFor="let uom of uoms" value="{{uom.id}}">{{uom.unit_name}}</option>
                                             </select>
                                     </div>
                                 </div>
@@ -140,7 +137,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="raw_product_sales_rate">MRP Rate</label>
-                                                <input type="number" formControlName="raw_product_sales_rate" id="raw_product_sales_rate" class="form-control border-primary" name="raw_product_sales_rate">
+                                                <input type="number" formControlName="raw_product_mrp_rate" id="raw_product_sales_rate" class="form-control border-primary" name="raw_product_sales_rate">
                                             </div>
                                         </div>
                                     </div>
@@ -148,17 +145,17 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="raw_product_purchase_rate">Sales Rate</label>
-                                                <input type="number" formControlName="raw_product_purchase_rate" id="raw_product_purchase_rate" class="form-control border-primary" name="raw_product_purchase_rate">
+                                                <input type="number" formControlName="raw_product_sales_rate" id="raw_product_purchase_rate" class="form-control border-primary" name="raw_product_purchase_rate">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label for="raw_product_gst_slot">GST Slot</label>
+                                                <label for="raw_product_gst_slot">GST Slot %</label>
                                                 <select class="form-control" formControlName="raw_product_gst_slot" id="raw_product_gst_slot">
-                                                                      <option>5%</option>
-                                                                      <option>12%</option>
-                                                                      <option>18%</option>
-                                                                      <option>28%</option>
+                                                                      <option>5</option>
+                                                                      <option>12</option>
+                                                                      <option>18</option>
+                                                                      <option>28</option>
                                                                     </select>
                                             </div>
                                         </div>
@@ -203,7 +200,7 @@
 
                         </div>
                         <div class="form-actions right">
-                            <input type="submit" value="Save" class="btn btn-raised btn-primary">
+                            <input type="submit" [disabled]=isProcessing value="Save" class="btn btn-raised btn-primary">
                         </div>
                     </form>
                 </div>

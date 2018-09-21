@@ -75,7 +75,7 @@ const appRoutes: Routes = [
       data:{
       title:'Dashboard'
       },
-      // canActivate: [AuthGuard] 
+       canActivate: [AuthGuard] 
   },
   {
     path: 'select-company',
@@ -90,7 +90,7 @@ const appRoutes: Routes = [
     component: FullLayoutComponent, 
     data: { title: 'full Views' },
     children: Full_ROUTES, 
-    // canActivate: [AuthGuard] 
+     canActivate: [AuthGuard] 
   },
 
   { 
