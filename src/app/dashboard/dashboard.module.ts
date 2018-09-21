@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
@@ -6,6 +7,7 @@ import { ChartofaccountsComponent } from './chartofaccounts/chartofaccounts.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasurement.component';
+import { RawproductComponent } from './rawproduct/rawproduct.component';
 
 @NgModule({
   imports: [
@@ -13,12 +15,14 @@ import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasuremen
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule
   ],
   declarations: [
     MainComponent,
     ChartofaccountsComponent,
     AddproductComponent,
-    UnitofmeasurementComponent
+    UnitofmeasurementComponent,
+    RawproductComponent
 
   ],
   exports:[]
