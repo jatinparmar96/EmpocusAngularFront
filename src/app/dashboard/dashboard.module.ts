@@ -9,6 +9,9 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasurement.component';
 import { RawproductComponent } from './rawproduct/rawproduct.component';
 import { ChargemasterComponent } from './chargemaster/chargemaster.component';
+import { BranchMasterComponent } from './branch-master/branch-master.component';
+import { BankMasterComponent } from './bank-master/bank-master.component';
+import { GodownMasterComponent } from './godown-master/godown-master.component';
 
 @NgModule({
   imports: [
@@ -24,7 +27,10 @@ import { ChargemasterComponent } from './chargemaster/chargemaster.component';
     AddproductComponent,
     UnitofmeasurementComponent,
     RawproductComponent,
-    ChargemasterComponent
+    ChargemasterComponent,
+    BranchMasterComponent,
+    BankMasterComponent,
+    GodownMasterComponent
   ],
   exports:[]
 })
