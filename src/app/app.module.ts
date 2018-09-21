@@ -31,6 +31,8 @@ import { CompanyOtherDetailsComponent } from './pages/setup-company/company-othe
 import { MainComponent } from './dashboard/main/main.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SelectCompanyComponent } from './pages/select-company/select-company.component';
+import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
+
 
 
 
@@ -74,8 +76,9 @@ export function tokenGetter() {
         ShareService,
         AuthService,
         AuthGuard,
-        ApiService
-      
+        ApiService,
+        [Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    
 
     ],
     bootstrap: [AppComponent]
