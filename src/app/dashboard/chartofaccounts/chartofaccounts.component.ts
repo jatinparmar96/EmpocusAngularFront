@@ -22,7 +22,7 @@ export class ChartofaccountsComponent implements OnInit {
   ) 
   {
    
-   }
+  }
 
   ngOnInit() {
     this.chartOfAccounts= this.fb.group({
