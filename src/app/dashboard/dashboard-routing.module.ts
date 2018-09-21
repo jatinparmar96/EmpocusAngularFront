@@ -37,6 +37,10 @@ const routes:Routes= [
     path:'raw-products',
     component:RawproductComponent
   },
+  {
+    path:'charges-master',
+    component:ChargesmasterComponent
+  },
 
   
 ]
