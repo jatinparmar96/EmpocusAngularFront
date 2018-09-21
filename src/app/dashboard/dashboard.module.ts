@@ -1,5 +1,6 @@
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
+import{NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -11,11 +12,11 @@ import { RawproductComponent } from './rawproduct/rawproduct.component';
 
 @NgModule({
   imports: [
+    NgbModule,
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
   ],
   declarations: [
     MainComponent,
