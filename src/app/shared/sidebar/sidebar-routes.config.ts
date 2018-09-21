@@ -19,6 +19,9 @@ export const ROUTES: RouteInfo[] = [
             {
                 path: 'finished-products', title: 'Finished Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
+            {
+                path: 'charges-master', title: 'Charges Master', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
         ]
     },
    

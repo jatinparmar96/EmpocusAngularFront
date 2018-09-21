@@ -6,6 +6,7 @@ import { ChartofaccountsComponent } from './chartofaccounts/chartofaccounts.comp
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasurement.component';
 import { RawproductComponent } from './rawproduct/rawproduct.component';
+import { ChargemasterComponent } from './chargemaster/chargemaster.component';
 
 const routes:Routes= [
   {
@@ -36,6 +37,10 @@ const routes:Routes= [
   {
     path:'raw-products',
     component:RawproductComponent
+  },
+  {
+    path:'charges-master',
+    component:ChargemasterComponent
   },
 
   

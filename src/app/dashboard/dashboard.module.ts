@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasurement.component';
 import { RawproductComponent } from './rawproduct/rawproduct.component';
+import { ChargemasterComponent } from './chargemaster/chargemaster.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { RawproductComponent } from './rawproduct/rawproduct.component';
     ChartofaccountsComponent,
     AddproductComponent,
     UnitofmeasurementComponent,
-    RawproductComponent
+    RawproductComponent,
+    ChargemasterComponent
   ],
   exports:[]
 })
