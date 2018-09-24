@@ -12,6 +12,9 @@ import { ChargemasterComponent } from './chargemaster/chargemaster.component';
 import { BranchMasterComponent } from './branch-master/branch-master.component';
 import { BankMasterComponent } from './bank-master/bank-master.component';
 import { GodownMasterComponent } from './godown-master/godown-master.component';
+import { ViewProductsComponent } from './view-products/view-products.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
 
 @NgModule({
   imports: [
@@ -20,6 +23,7 @@ import { GodownMasterComponent } from './godown-master/godown-master.component';
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2SmartTableModule
   ],
   declarations: [
     MainComponent,
@@ -30,7 +34,8 @@ import { GodownMasterComponent } from './godown-master/godown-master.component';
     ChargemasterComponent,
     BranchMasterComponent,
     BankMasterComponent,
-    GodownMasterComponent
+    GodownMasterComponent,
+    ViewProductsComponent
   ],
   exports:[]
 })

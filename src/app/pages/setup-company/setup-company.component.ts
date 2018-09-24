@@ -58,6 +58,6 @@ export class SetupCompanyComponent implements OnInit {
 
   onSubmit(company_data)
   {
-      console.log(company_data);
+     
   }
 }

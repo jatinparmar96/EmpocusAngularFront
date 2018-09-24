@@ -45,11 +45,11 @@ export class CompanyInfoComponent implements OnInit {
     }
     this.fdService.toNext(data.value,current_step);
     this.fdService.storeData('admin/company',data.value).then(data=>{
-
-      this.authService.setCompany(data).then(data=>{
+        let l_data:any = data;
+        let token = l_data.token;
+        this.authService.updateToken(token);
         this.router.navigateByUrl('setupCompany/OtherDetails/');
-      })
+     
     });
-  	console.log(this.fdService.getData());
   }
 }

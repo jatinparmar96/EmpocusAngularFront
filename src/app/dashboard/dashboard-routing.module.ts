@@ -10,6 +10,7 @@ import { ChargemasterComponent } from './chargemaster/chargemaster.component';
 import { BranchMasterComponent } from './branch-master/branch-master.component';
 import { BankMasterComponent } from './bank-master/bank-master.component';
 import { GodownMasterComponent } from './godown-master/godown-master.component';
+import { ViewProductsComponent } from './view-products/view-products.component';
 
 const routes:Routes= [
   {
@@ -56,6 +57,10 @@ const routes:Routes= [
   {
     path:'godown-master',
     component:GodownMasterComponent
+  },
+  {
+    path:'view-raw-product-master',
+    component:ViewProductsComponent
   },
 
 
