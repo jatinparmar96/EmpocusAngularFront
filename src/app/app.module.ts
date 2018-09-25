@@ -32,6 +32,7 @@ import { MainComponent } from './dashboard/main/main.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SelectCompanyComponent } from './pages/select-company/select-company.component';
 import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
+import {BankmasterModule} from './dashboard/bankmaster/bankmaster.module';
 
 
 

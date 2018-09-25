@@ -14,6 +14,8 @@ import { BankMasterComponent } from './bank-master/bank-master.component';
 import { GodownMasterComponent } from './godown-master/godown-master.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { BillofmaterialComponent } from './billofmaterial/billofmaterial.component';
+
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     BranchMasterComponent,
     BankMasterComponent,
     GodownMasterComponent,
-    ViewProductsComponent
+    ViewProductsComponent,
+    BillofmaterialComponent,
   ],
   exports:[]
 })

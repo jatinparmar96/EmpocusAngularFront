@@ -11,6 +11,8 @@ import { BranchMasterComponent } from './branch-master/branch-master.component';
 import { BankMasterComponent } from './bank-master/bank-master.component';
 import { GodownMasterComponent } from './godown-master/godown-master.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
+import {BillofmaterialComponent} from './billofmaterial/billofmaterial.component';
+
 
 const routes:Routes= [
   {
@@ -62,6 +64,17 @@ const routes:Routes= [
     path:'view-raw-product-master',
     component:ViewProductsComponent
   },
+  {
+    path:'bill-of-material',
+    component:BillofmaterialComponent
+  },
+  {
+    path: 'bankmaster',
+    component: BankMasterComponent,
+    loadChildren: './bankmaster/bankmaster.module#BankmasterModule'
+  },
+
+  
 
 
   

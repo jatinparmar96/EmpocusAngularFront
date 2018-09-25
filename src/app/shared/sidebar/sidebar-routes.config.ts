@@ -31,7 +31,9 @@ export const ROUTES: RouteInfo[] = [
             {
                 path: 'godown-master', title: 'Godown Master', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
-            
+            {
+                path: 'bill-of-material', title: 'Bill of Material', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
         ]
     },
    
