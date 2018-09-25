@@ -23,10 +23,10 @@ export class BankDetailsComponent implements OnInit {
       buffer = Object.keys(data).map(i => data[i]);
     }
     this.company_data = fb.group({
-      "company_bank_account_number":[buffer[0],Validators.required],
-      "company_bank_name":[buffer[1],Validators.required],
-      "company_bank_ifsc_code":[buffer[2],Validators.required],
-      "company_bank_address":[buffer[3],Validators.required],
+      "bank_account_number":[buffer[0],Validators.required],
+      "bank_name":[buffer[1],Validators.required],
+      "bank_ifsc_code":[buffer[2],Validators.required],
+      "bank_branch":[buffer[3],Validators.required],
     });
    }
 
@@ -37,8 +37,11 @@ export class BankDetailsComponent implements OnInit {
   {
     let id = this.route.snapshot.paramMap.get('id');
     this.fdService.toNext(data.value,current_step);
-    
-    this.router.navigateByUrl('dashboard');
+    this.fdService.storeData('admin/addBank',data.value).then(data=>{
+
+          this.router.navigateByUrl('dashboard');
+    })
+  
   }
   toPrevious(data)
   {

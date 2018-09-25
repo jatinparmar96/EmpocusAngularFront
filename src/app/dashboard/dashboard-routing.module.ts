@@ -7,6 +7,10 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasurement.component';
 import { RawproductComponent } from './rawproduct/rawproduct.component';
 import { ChargemasterComponent } from './chargemaster/chargemaster.component';
+import { BranchMasterComponent } from './branch-master/branch-master.component';
+import { BankMasterComponent } from './bank-master/bank-master.component';
+import { GodownMasterComponent } from './godown-master/godown-master.component';
+import { ViewProductsComponent } from './view-products/view-products.component';
 
 const routes:Routes= [
   {
@@ -42,6 +46,23 @@ const routes:Routes= [
     path:'charges-master',
     component:ChargemasterComponent
   },
+  {
+    path:'branch-master',
+    component:BranchMasterComponent
+  },
+  {
+    path:'bank-master',
+    component:BankMasterComponent
+  },
+  {
+    path:'godown-master',
+    component:GodownMasterComponent
+  },
+  {
+    path:'view-raw-product-master',
+    component:ViewProductsComponent
+  },
+
 
   
 ]

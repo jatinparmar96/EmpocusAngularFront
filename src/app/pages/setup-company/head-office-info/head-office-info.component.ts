@@ -42,11 +42,12 @@ export class HeadOfficeInfoComponent implements OnInit {
   toNext(data)
   {
     this.fdService.toNext(data.value,current_step);
-    this.fdService.storeData('admin/addBranch/',data.value).then(data=>{
-      this.router.navigateByUrl('setupCompany/bankDetails/'+data);
+    this.fdService.storeData('admin/addHeadBranch/',data.value).then(data=>{
+      console.log(data)
+      this.router.navigateByUrl('setupCompany/BankDetails/');
     })
     .catch(error=>{
-      console.log(error)
+      console.error(error)
     })
   }
   toPrevious(data)
@@ -54,6 +55,6 @@ export class HeadOfficeInfoComponent implements OnInit {
    
    this.fdService.toPrevious(data.value,current_step);
    console.log(this.fdService.getData());
-   this.router.navigateByUrl('setupCompany/OtherDetails/'+this.id);
+   this.router.navigateByUrl('setupCompany/OtherDetails');
   }
 }
