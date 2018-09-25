@@ -17,6 +17,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { BillofmaterialComponent } from './billofmaterial/billofmaterial.component';
 
 
+
 @NgModule({
   imports: [
     NgbModule,
@@ -37,7 +38,7 @@ import { BillofmaterialComponent } from './billofmaterial/billofmaterial.compone
     BankMasterComponent,
     GodownMasterComponent,
     ViewProductsComponent,
-    BillofmaterialComponent
+    BillofmaterialComponent,
   ],
   exports:[]
 })
