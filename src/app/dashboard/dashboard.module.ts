@@ -10,12 +10,13 @@ import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasuremen
 import { RawproductComponent } from './rawproduct/rawproduct.component';
 import { ChargemasterComponent } from './chargemaster/chargemaster.component';
 import { BranchMasterComponent } from './branch-master/branch-master.component';
-import { BankMasterComponent } from './bank-master/bank-master.component';
+// import { BankMasterComponent } from './bank-master/bank-master.component';
 import { GodownMasterComponent } from './godown-master/godown-master.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { BillofmaterialComponent } from './billofmaterial/billofmaterial.component';
-
+import { BankMasterViewComponent } from './bank-master/bank-master-view/bank-master-view.component';
+import { BankMasterCreateComponent } from './bank-master/bank-master-create/bank-master-create.component';
 
 
 @NgModule({
@@ -35,10 +36,12 @@ import { BillofmaterialComponent } from './billofmaterial/billofmaterial.compone
     RawproductComponent,
     ChargemasterComponent,
     BranchMasterComponent,
-    BankMasterComponent,
+    // BankMasterComponent,
     GodownMasterComponent,
     ViewProductsComponent,
     BillofmaterialComponent,
+    BankMasterCreateComponent,
+    BankMasterViewComponent,
   ],
   exports:[]
 })

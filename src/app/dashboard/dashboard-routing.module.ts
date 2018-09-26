@@ -8,10 +8,11 @@ import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasuremen
 import { RawproductComponent } from './rawproduct/rawproduct.component';
 import { ChargemasterComponent } from './chargemaster/chargemaster.component';
 import { BranchMasterComponent } from './branch-master/branch-master.component';
-import { BankMasterComponent } from './bank-master/bank-master.component';
 import { GodownMasterComponent } from './godown-master/godown-master.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import {BillofmaterialComponent} from './billofmaterial/billofmaterial.component';
+import { BankMasterViewComponent } from './bank-master/bank-master-view/bank-master-view.component';
+import { BankMasterCreateComponent } from './bank-master/bank-master-create/bank-master-create.component';
 
 
 const routes:Routes= [
@@ -52,10 +53,10 @@ const routes:Routes= [
     path:'branch-master',
     component:BranchMasterComponent
   },
-  {
-    path:'bank-master',
-    component:BankMasterComponent
-  },
+  // {
+  //   path:'bank-master',
+  //   component:BankMasterComponent
+  // },
   {
     path:'godown-master',
     component:GodownMasterComponent
@@ -69,10 +70,26 @@ const routes:Routes= [
     component:BillofmaterialComponent
   },
   {
-    path: 'bankmaster',
-    component: BankMasterComponent,
-    loadChildren: './bankmaster/bankmaster.module#BankmasterModule'
+    path:'bill-of-material',
+    component:BillofmaterialComponent
   },
+  {
+    path:'bank-master',
+    component:BankMasterViewComponent,
+    // children: [
+    //     {
+    //       path:'create',
+    //       component:BankMasterCreateComponent
+    //     },
+     
+    // ]
+  },
+  {
+    path:'bank-master/create',
+    component:BankMasterCreateComponent
+  },
+
+  
 
   
 

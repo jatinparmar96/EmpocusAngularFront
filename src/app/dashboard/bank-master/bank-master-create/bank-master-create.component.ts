@@ -5,7 +5,6 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
 
-
 @Component({
   selector: 'app-bank-master-create',
   templateUrl: './bank-master-create.component.html',
