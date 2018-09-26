@@ -39,7 +39,7 @@ export class ChartofaccountsComponent implements OnInit {
       "ca_email":['jatinparmar96@gmail.com',Validators.required],
       "ca_website":['https://website.com',Validators.required],
       "ca_designation":['Managing director',Validators.required],
-      "ca_branch":['Saphale',Validators.required],
+      // "ca_branch":['Saphale',Validators.required],
       "ca_address_building":['Rose123',Validators.required],
       "ca_address_road_name":['Station Road',Validators.required],
       "ca_address_landmark":['opp Sbi Bank',Validators.required],

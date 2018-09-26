@@ -17,7 +17,7 @@ export const ROUTES: RouteInfo[] = [
                 path: 'raw-products', title: 'Raw Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: 'finished-products', title: 'Finished Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: 'finished-product', title: 'Finished Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
                 path: 'charges-master', title: 'Charges Master', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
@@ -34,6 +34,7 @@ export const ROUTES: RouteInfo[] = [
             {
                 path: 'bill-of-material', title: 'Bill of Material', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
+            
         ]
     },
    

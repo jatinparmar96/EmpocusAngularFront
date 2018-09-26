@@ -46,15 +46,17 @@ export class RawproductComponent implements OnInit {
       "raw_product_opening_stock":['10',Validators.required],
       "raw_product_opening_amount":['1000',Validators.required],
       "raw_product_store_location":['G1',Validators.required],
-      "raw_product_purchase_rate":['111',Validators.required],
-      "raw_product_sales_rate":['12',Validators.required],
+      // "raw_product_purchase_rate":['111',Validators.required],
+      // "raw_product_sales_rate":['12',Validators.required],
       "raw_product_mrp_rate":['12',Validators.required],
       "raw_product_gst_slot":['28%',Validators.required],
       "raw_product_max_level":['2134',Validators.required],
       "raw_product_min_level":['1212',Validators.required],
       "raw_product_reorder_level":['12',Validators.required],
       "raw_product_description":['abc',Validators.required],
-      "raw_product_rate_pick_from":['',Validators.required]
+      "raw_product_rate_pick_from":['',Validators.required],
+      "raw_product_product_category":['',Validators.required],
+      "raw_product_hsn_code":['',Validators.required],
     });
 
   }

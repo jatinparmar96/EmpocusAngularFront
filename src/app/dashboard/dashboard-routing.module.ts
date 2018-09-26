@@ -13,6 +13,7 @@ import { ViewProductsComponent } from './view-products/view-products.component';
 import {BillofmaterialComponent} from './billofmaterial/billofmaterial.component';
 import { BankMasterViewComponent } from './bank-master/bank-master-view/bank-master-view.component';
 import { BankMasterCreateComponent } from './bank-master/bank-master-create/bank-master-create.component';
+import { FinishedroductComponent } from './finishedroduct/finishedroduct.component';
 
 
 const routes:Routes= [
@@ -88,14 +89,10 @@ const routes:Routes= [
     path:'bank-master/create',
     component:BankMasterCreateComponent
   },
-
-  
-
-  
-
-
-  
-]
+  {
+    path:'finished-product',
+    component:FinishedroductComponent
+  },
 
 
 @NgModule({
