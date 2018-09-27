@@ -1,14 +1,14 @@
 import {  Component, OnInit} from '@angular/core';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms';
-import {FormDataService} from '../../shared/services/form-data.service';
-import * as alertFunctions from '../../shared/data/sweet-alert';
+import {FormDataService} from '../../../shared/services/form-data.service';
+import * as alertFunctions from '../../../shared/data/sweet-alert';
 
 @Component({
-  selector: 'app-unitofmeasurement',
-  templateUrl: './unitofmeasurement.component.html',
-  styleUrls: ['./unitofmeasurement.component.scss']
+  selector: 'app-unitofmeasurement-create',
+  templateUrl: './unitofmeasurement-create.component.html',
+  styleUrls: ['./unitofmeasurement-create.component.scss']
 })
-export class UnitofmeasurementComponent implements OnInit {
+export class UnitofmeasurementCreateComponent implements OnInit {
   active = 'today';
   debug = true;
   unit_data: FormGroup;

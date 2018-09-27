@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BankMasterParentComponent } from './bank-master-parent.component';
+import { BranchMasterCreateComponent } from './branch-master-create.component';
 
-describe('BankMasterParentComponent', () => {
-  let component: BankMasterParentComponent;
-  let fixture: ComponentFixture<BankMasterParentComponent>;
+describe('BranchMasterCreateComponent', () => {
+  let component: BranchMasterCreateComponent;
+  let fixture: ComponentFixture<BranchMasterCreateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BankMasterParentComponent ]
+      declarations: [ BranchMasterCreateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BankMasterParentComponent);
+    fixture = TestBed.createComponent(BranchMasterCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

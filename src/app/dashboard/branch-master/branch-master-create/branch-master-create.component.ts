@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { FormDataService } from '../../shared/services/form-data.service';
-import * as alertFunctions from '../../shared/data/sweet-alert';
-import { ApiService } from '../../shared/services/api.service';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { ApiService } from '../../../shared/services/api.service';
+import * as alertFunctions from '../../../shared/data/sweet-alert';
+import { FormDataService } from '../../../shared/services/form-data.service';
 
 @Component({
-  selector: 'app-branch-master',
-  templateUrl: './branch-master.component.html',
-  styleUrls: ['./branch-master.component.scss']
+  selector: 'app-branch-master-create',
+  templateUrl: './branch-master-create.component.html',
+  styleUrls: ['./branch-master-create.component.scss']
 })
-export class BranchMasterComponent implements OnInit {
+export class BranchMasterCreateComponent implements OnInit {
+
   branch_data :FormGroup
   banks:any;
   isProcessing:boolean
@@ -40,10 +41,8 @@ export class BranchMasterComponent implements OnInit {
     
     })
   }
-
   ngOnInit() {
   }
-
   onSubmit(branch_data)
   {
     this.isProcessing = true

@@ -4,14 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { ChartofaccountsComponent } from './chartofaccounts/chartofaccounts.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
-import { UnitofmeasurementComponent } from './unitofmeasurement/unitofmeasurement.component';
 import { RawproductComponent } from './rawproduct/rawproduct.component';
 import { ChargemasterComponent } from './chargemaster/chargemaster.component';
-import { BranchMasterComponent } from './branch-master/branch-master.component';
-import { BankMasterComponent } from './bank-master/bank-master.component';
 import { GodownMasterComponent } from './godown-master/godown-master.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import {BillofmaterialComponent} from './billofmaterial/billofmaterial.component';
+import { BranchMasterViewComponent } from './branch-master/branch-master-view/branch-master-view.component'
+import { BranchMasterCreateComponent } from './branch-master/branch-master-create/branch-master-create.component';
+import { UnitofmeasurementViewComponent } from './unitofmeasurement/unitofmeasurement-view/unitofmeasurement-view.component';
+import { UnitofmeasurementCreateComponent } from './unitofmeasurement/unitofmeasurement-create/unitofmeasurement-create.component';
+
 
 
 const routes:Routes= [
@@ -37,9 +39,14 @@ const routes:Routes= [
     }
   },
   {
-    path:'add-uom',
-    component:UnitofmeasurementComponent
+    path:'uom',
+    component:UnitofmeasurementViewComponent
   },
+  {
+    path:'uom/create',
+    component:UnitofmeasurementCreateComponent
+  },
+  
   {
     path:'raw-products',
     component:RawproductComponent
@@ -50,11 +57,11 @@ const routes:Routes= [
   },
   {
     path:'branch-master',
-    component:BranchMasterComponent
+    component:BranchMasterViewComponent,
   },
   {
-    path:'bank-master',
-    component:BankMasterComponent
+    path:'branch-master/create',
+    component:BranchMasterCreateComponent
   },
   {
     path:'godown-master',
@@ -68,11 +75,7 @@ const routes:Routes= [
     path:'bill-of-material',
     component:BillofmaterialComponent
   },
-  {
-    path: 'bankmaster',
-    component: BankMasterComponent,
-    loadChildren: './bankmaster/bankmaster.module#BankmasterModule'
-  },
+ 
 
   
 

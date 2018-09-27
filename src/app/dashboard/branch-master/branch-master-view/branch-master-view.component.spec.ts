@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UnitofmeasurementComponent } from './unitofmeasurement.component';
+import { BranchMasterViewComponent } from './branch-master-view.component';
 
-describe('UnitofmeasurementComponent', () => {
-  let component: UnitofmeasurementComponent;
-  let fixture: ComponentFixture<UnitofmeasurementComponent>;
+describe('BranchMasterViewComponent', () => {
+  let component: BranchMasterViewComponent;
+  let fixture: ComponentFixture<BranchMasterViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UnitofmeasurementComponent ]
+      declarations: [ BranchMasterViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UnitofmeasurementComponent);
+    fixture = TestBed.createComponent(BranchMasterViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

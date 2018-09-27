@@ -15,9 +15,12 @@ export class BankMasterComponent implements OnInit {
     // private fb:FormBuilder,
     // private formService:FormDataService,
     private Route: Router,
-  ) {}
+  ) {
+
+  }
 
   ngOnInit() {
+    
   }
   
   linkit(routeto){
