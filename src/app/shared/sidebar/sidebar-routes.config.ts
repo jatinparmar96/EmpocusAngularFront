@@ -8,13 +8,13 @@ export const ROUTES: RouteInfo[] = [
                 path: '/setupCompany', title: 'Create Company', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: 'chart-of-accounts', title: 'Chart Of Accounts', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: 'charts-of-accounts', title: 'Chart Of Accounts', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: 'add-uom', title: 'Unit of Measurement', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: 'unit-of-measurement', title: 'Unit of Measurement', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: 'raw-products', title: 'Raw Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: 'raw-product', title: 'Raw Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
                 path: 'finished-product', title: 'Finished Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
