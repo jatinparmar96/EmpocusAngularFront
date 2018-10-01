@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-finished-product',
@@ -21,6 +22,7 @@ export class CreateFinishedProductComponent implements OnInit {
     private fb:FormBuilder,
     private apiService:ApiService,
     private formService:FormDataService,
+    private router:Router,
   ) { 
     this.apiService.get('admin/getUom').then(data=>{
       let units:any = data
@@ -80,6 +82,9 @@ export class CreateFinishedProductComponent implements OnInit {
     this.isProcessing = false
      console.log(error);
    })
+  }
+  toBack(){
+    this.router.navigateByUrl('/dashboard/finished-product');
   }
 }
 

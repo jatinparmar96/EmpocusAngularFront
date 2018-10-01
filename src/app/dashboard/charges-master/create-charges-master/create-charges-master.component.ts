@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-charges-master',
@@ -16,6 +17,7 @@ export class CreateChargesMasterComponent implements OnInit {
     private fb:FormBuilder,
     private apiService:ApiService,
     private formService:FormDataService,
+    private router:Router,
   ) { }
 
   ngOnInit() {
@@ -38,6 +40,9 @@ export class CreateChargesMasterComponent implements OnInit {
             
           }
     })
+  }
+  toBack(){
+    this.router.navigateByUrl('/dashboard/charges-master');
   }
 
 }

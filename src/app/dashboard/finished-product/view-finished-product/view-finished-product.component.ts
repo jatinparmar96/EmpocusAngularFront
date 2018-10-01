@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-finished-product',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewFinishedProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router,
+  ) { }
 
   ngOnInit() {
+  }
+  toCreate()
+  {
+    this.router.navigateByUrl('/dashboard/finished-product/create');
   }
 
 }

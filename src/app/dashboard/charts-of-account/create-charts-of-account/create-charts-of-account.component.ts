@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
+
 
 @Component({
   selector: 'app-create-charts-of-account',
@@ -10,19 +12,22 @@ import * as alertFunctions from '../../../shared/data/sweet-alert';
   styleUrls: ['./create-charts-of-account.component.scss']
 })
 export class CreateChartsOfAccountComponent implements OnInit {
+
   active= 'today';
-  ChartsOfAccount: FormGroup;
+  chartOfAccounts: FormGroup;
+  Router: any;
   constructor(
     private fb:FormBuilder,
     private apiService:ApiService,
     private formService:FormDataService,
+    private router:Router,
   ) 
   {
    
   }
 
   ngOnInit() {
-    this.ChartsOfAccount= this.fb.group({
+    this.chartOfAccounts= this.fb.group({
       "ca_company_name":['Bitmanity',Validators.required],
       "ca_company_display_name":['Bitmanity LLP',Validators.required],
       "ca_category":['Creditor',Validators.required],
@@ -36,7 +41,7 @@ export class CreateChartsOfAccountComponent implements OnInit {
       "ca_email":['jatinparmar96@gmail.com',Validators.required],
       "ca_website":['https://website.com',Validators.required],
       "ca_designation":['Managing director',Validators.required],
-      // "ca_branch":['Saphale',Validators.required],
+      "ca_branch":['Saphale',Validators.required],
       "ca_address_building":['Rose123',Validators.required],
       "ca_address_road_name":['Station Road',Validators.required],
       "ca_address_landmark":['opp Sbi Bank',Validators.required],
@@ -61,14 +66,18 @@ export class CreateChartsOfAccountComponent implements OnInit {
 
   onSubmit(data)
   {
-   this.formService.storeData('admin/ChartsOfAccount',data.value).then(data=>{
+   this.formService.storeData('admin/chartOfAccounts',data.value).then(data=>{
       let status:any = data
       if(status.status){
-        alertFunctions.typeSuccess('Charts of Account added Successfully');
+        alertFunctions.typeSuccess('Account added Successfully');
       }
    })
    .catch(error=>{
      console.log(error);
    })
   }
+  toBack(){
+    this.router.navigateByUrl('/dashboard/charts-of-accounts');
+  }
+  
 }

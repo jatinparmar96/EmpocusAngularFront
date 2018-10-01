@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
+
 
 @Component({
   selector: 'app-create-branch-master',
@@ -16,7 +18,8 @@ export class CreateBranchMasterComponent implements OnInit {
   constructor(
     private fb:FormBuilder,
     private apiService: ApiService,
-    private formService:FormDataService
+    private formService:FormDataService,
+    private router:Router,
   ) { 
     apiService.get('admin/getBanks').then(data=>{
       let banks:any = data
@@ -60,5 +63,9 @@ export class CreateBranchMasterComponent implements OnInit {
       console.log(error)
       this.isProcessing = false;
     })
+  }
+
+  toBack(){
+    this.router.navigateByUrl('/dashboard/branch-master');
   }
 }

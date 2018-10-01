@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import * as tableData from '../../shared/data/smart-data-table';
 import { LocalDataSource } from 'ng2-smart-table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bank-master-view',
@@ -77,12 +78,17 @@ data = [
 
 
 source: LocalDataSource;
-  constructor() { 
+  constructor(
+    private router:Router,
+  ) { 
     this.source = new LocalDataSource(this.data); // create the source                                       
   }
 
   ngOnInit() {
   }
-
+  toCreate()
+  {
+    this.router.navigateByUrl('/dashboard/bank-master/create');
+  }
 }
 

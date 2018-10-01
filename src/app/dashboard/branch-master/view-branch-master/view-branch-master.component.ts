@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-branch-master',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-branch-master.component.scss']
 })
 export class ViewBranchMasterComponent implements OnInit {
+  rows: any;
 
-  constructor() { }
+  constructor(
+        private router:Router,
+  ) { }
 
   ngOnInit() {
+
   }
+  toNext()
+  {
+    this.router.navigateByUrl('/dashboard/branch-master/create');
+  }
+
 
 }

@@ -18,7 +18,8 @@ export class BankMasterCreateComponent implements OnInit {
   constructor(
     private fb:FormBuilder,
     private formService:FormDataService,
-    // private Route: Router,
+    private router: Router,
+
   ) {
     
     this.bank_data = fb.group({
@@ -48,6 +49,9 @@ export class BankMasterCreateComponent implements OnInit {
       console.log(error)
       this.isProcessing = false;
     })
+  }
+  toBack(){
+    this.router.navigateByUrl('/dashboard/bank-master');
   }
 
 }

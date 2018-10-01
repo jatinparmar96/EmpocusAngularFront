@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-bill-of-material',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewBillOfMaterialComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router,
+  ) { }
 
   ngOnInit() {
   }
-
+  toCreate()
+  {
+    this.router.navigateByUrl('/dashboard/bill-of-material/create');
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-unit-of-measurement',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-unit-of-measurement.component.scss']
 })
 export class ViewUnitOfMeasurementComponent implements OnInit {
+  
 
-  constructor() { }
+  constructor(
+    private router:Router,
+  ) { }
 
   ngOnInit() {
   }
 
+  toCreate()
+  {
+    this.router.navigateByUrl('/dashboard/unit-of-measurement/create');
+  }
 }

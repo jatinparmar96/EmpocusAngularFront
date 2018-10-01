@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-godown-master',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewGodownMasterComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router,
+  ) { }
 
   ngOnInit() {
   }
 
+  toCreate()
+  {
+    this.router.navigateByUrl('/dashboard/godown-master/create');
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-godown-master',
@@ -13,7 +14,8 @@ export class CreateGodownMasterComponent implements OnInit {
   isProcessing:boolean
   constructor(
     private fb:FormBuilder,
-    private formService:FormDataService
+    private formService:FormDataService,
+    private router:Router,
   ) {
     this.godown_data = fb.group({
       "godown_name":["Demo Godon Name",Validators.required],
@@ -47,5 +49,8 @@ export class CreateGodownMasterComponent implements OnInit {
       this.isProcessing = false;
       console.log(error)
     })
+  }
+  toBack(){
+    this.router.navigateByUrl('/dashboard/godown-master');
   }
 }

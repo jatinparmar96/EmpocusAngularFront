@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-bill-of-material',
@@ -16,6 +17,7 @@ export class CreateBillOfMaterialComponent implements OnInit {
     private fb:FormBuilder,
     private apiService:ApiService,
     private formService:FormDataService,
+    private router:Router,
   ) 
   {
    
@@ -44,5 +46,8 @@ export class CreateBillOfMaterialComponent implements OnInit {
    .catch(error=>{
      console.log(error);
    })
+  }
+  toBack(){
+    this.router.navigateByUrl('/dashboard/finished-product');
   }
 }

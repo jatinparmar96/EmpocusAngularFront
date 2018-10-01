@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-unit-of-measurement',
@@ -14,7 +15,8 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
   unit_data: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private formService: FormDataService
+    private formService: FormDataService,
+    private router:Router,
   ) {
     this.unit_data = fb.group({
       "unit_name": ['Kg', Validators.required],
@@ -36,6 +38,9 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
         console.log(error)
       }
     })
+  }
+  toBack(){
+    this.router.navigateByUrl('/dashboard/unit-of-measurement');
   }
 
 }
