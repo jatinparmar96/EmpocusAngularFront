@@ -20,17 +20,17 @@ export class BranchMasterCreateComponent implements OnInit {
     private formService:FormDataService
   ) { 
     apiService.get('admin/getBanks').then(data=>{
-      let banks:any = data
-      if(banks.status)
+      let buffer:any = data
+      if(buffer.status)
       {
-        this.banks = banks.banks
+        this.banks = buffer.banks
       }
     })
     this.branch_data = fb.group({
       "branch_name":["Demo Branch Name",Validators.required],
       "branch_code":["BC001",Validators.required],
       "branch_gst_number":["GST7ZXY123IWX",Validators.required],
-      "branch_address_building_name":["Sample Building Name",Validators.required],
+      "branch_address_building":["Sample Building Name",Validators.required],
       "branch_address_road_name":["Sample Road Name",Validators.required],
       "branch_address_landmark":["Sample Landmark Name",Validators.required],
       "branch_address_pincode":["415465",Validators.required],
@@ -53,6 +53,7 @@ export class BranchMasterCreateComponent implements OnInit {
           alertFunctions.typeSuccess('Branch added Successfully');
         }
         else{
+          alertFunctions.typeError('Cannot add Branch');
 
         }
     }).catch(error=>{

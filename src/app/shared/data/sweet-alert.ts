@@ -39,8 +39,8 @@ export function typeWarning() {
 }
 
 // Error Type Alert
-export function typeError() {
-    swal("Error!", "You clicked the button!", "error");
+export function typeError(message) {
+    swal("Error!", message, "error");
 }
 
 // Custom Icon 
