@@ -25,13 +25,13 @@ export class CompanyInfoComponent implements OnInit {
         buffer = Object.keys(data).map(i => data[i]);
       }
       this.company_data = fb.group({
-        "id":['new'],       
+        "company_name": [buffer[0],Validators.required],
+        "company_display_name": [buffer[1],Validators.required],
+        "company_email":[buffer[2],Validators.required],
+        "company_website":[buffer[3],Validators.required],
+        "company_type":[buffer[4],Validators.required],
+        "id":['new',Validators.required],
         "address_id":['new',Validators.required],
-        "company_name": [buffer[3],Validators.required],
-        "company_display_name": [buffer[4],Validators.required],
-        "company_email":[buffer[5],Validators.required],
-        "company_website":[buffer[7],Validators.required],
-        "company_type":[buffer[8],Validators.required],
           });
    }
   ngOnInit() {

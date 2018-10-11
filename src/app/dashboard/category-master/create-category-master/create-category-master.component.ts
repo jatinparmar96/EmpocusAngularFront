@@ -40,7 +40,7 @@ export class CreateCategoryMasterComponent implements OnInit {
   ) { 
     this.category_data = this.fb.group({
       "id":['new',Validators.required],
-      "category_name":['abc',Validators.required],
+      "product_category_name":['abc',Validators.required],
     });
   }
 
@@ -61,7 +61,7 @@ export class CreateCategoryMasterComponent implements OnInit {
   }
   // 3 Starts
   getData(id:any){
-		this.apiService.get("admin/category/"+id)
+		this.apiService.get("admin/product_category/"+id)
 		.then(data => { 
 			let l_data: any = data;
 			this.category_data.patchValue(l_data.data);					
@@ -77,7 +77,7 @@ export class CreateCategoryMasterComponent implements OnInit {
 		this.isProcessing = true;
 		
 			//post request
-			this.apiService.post("admin/category",category.value).then( data => {
+			this.apiService.post("admin/product_category",category.value).then( data => {
         let result: any = data;
 				//success
         this.isProcessing = false;

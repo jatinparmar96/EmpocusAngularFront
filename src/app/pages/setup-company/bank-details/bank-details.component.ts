@@ -39,12 +39,14 @@ export class BankDetailsComponent implements OnInit {
   
   toNext(data)
   {
-    let id = this.route.snapshot.paramMap.get('id');
+   
     this.fdService.toNext(data.value,current_step);
     let formData:any = this.fdService.getData();
     let output:any;
+    let ecma16:any = Object.assign(formData[0],formData[1],formData[2],formData[3]);
     output = {...formData[0],...formData[1],...formData[2],...formData[3]}
-    
+    console.log(output);
+    console.log(ecma16);
     this.fdService.storeData('admin/company_wizard',output).then(data=>{
           let l_data:any = data;
           console.log(data);

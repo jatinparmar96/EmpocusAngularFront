@@ -38,7 +38,7 @@ export class FormDataService {
 
   getData()
   {
-    let data:any=[this.currentStep,this.stepCounter,this.formData];
+    let data:any=this.formData;
     return data;
   }
   storeData(url,data)

@@ -94,7 +94,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-  
+      this.token = localStorage.getItem('x-auth-token');
       if (this.token!==null) {
         return true;
       }
