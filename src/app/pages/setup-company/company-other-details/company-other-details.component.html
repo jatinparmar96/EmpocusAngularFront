@@ -1,0 +1,123 @@
+<section>
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center flex-column">
+                <div class="mb-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>
+                                First, Let's Complete The Company Setup Process
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="col-lg-12 pl-0">
+                                <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Other Details
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-block">
+                                <form [formGroup]="company_data">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="PAN">PAN Number</label>
+                                                <input type="text" formControlName="company_pan_number" class="form-control" id="PAN" name="PAN" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="TAN">TAN Number</label>
+                                                <input type="text" formControlName="company_tan_number" class="form-control" id="TAN" name="TAN" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="gstn">GST Number</label>
+                                                <input type="text" formControlName="branch_gst_number" class="form-control" id="gstn" name="gstn" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="company_iec_number">IEC Number</label>
+                                                <input type="text" formControlName="company_iec_number" class="form-control" id="company_iec_number" name="company_iec_number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="company_epc_number">EPC Number</label>
+                                                <input type="text" formControlName="company_epc_number" class="form-control" id="company_epc_number" name="company_epc_number" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="company_ssi_number">SSI Number</label>
+                                                <input type="text" formControlName="company_ssi_number" class="form-control" id="company_ssi_number" name="company_ssi_number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="company_nsic_number">NSIC Number</label>
+                                                <input type="text" formControlName="company_nsic_number" class="form-control" id="company_nsic_number" name="company_nsic_number" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="company_tds_number">TDS Number</label>
+                                                <input type="text" formControlName="company_tds_number" class="form-control" id="company_tds_number" name="company_tds_number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="company_udyog_aadhaar">Udyog Aadhaar</label>
+                                                <input type="text" formControlName="company_udyog_aadhaar" class="form-control" id="company_udyog_aadhaar" name="company_udyog_aadhaar">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="CNumber">CIN Number</label>
+                                                <input type="text" formControlName="company_cin_number" class="form-control" id="CNumber" name="CNumber">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="basicInputFile">Select Logo</label>
+                                                <input type="file" formControlName="company_logo" class="form-control-file" id="basicInputFile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" d-flex justify-content-between">
+                                        <div>
+                                            <p>2/4</p>
+                                        </div>
+                                        <div>
+                                            <button (click)="toPrevious(company_data)" value="Previous" class="btn btn-raised btn-danger">
+                        <i class="ft-chevron-left"></i>Previous
+                      </button>
+                                            <button (click)="toNext(company_data)" class="btn btn-raised btn-primary ml-1">
+                        Next <i class="ft-chevron-right"></i>
+                      </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
