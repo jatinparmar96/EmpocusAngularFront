@@ -38,54 +38,55 @@ export class CreateRawProductComponent implements OnInit {
     private notifyService: NotifyService,
     private router:Router,
   ) { 
-    apiService.get('admin/uom_full_list').then(data=>{
-      console.log(data);
-      let l_data:any = data;
-      if(l_data.status)
-      {
-        this.data = l_data.data
-      }
-  })
-  apiService.get('admin/tax_full_list').then(taxData=>{
-    console.log(taxData);
-    let l_taxData:any = taxData;
-    if(l_taxData.status)
-    {
-      this.taxes = l_taxData.data
-    }
-})
-apiService.get('admin/product_category_full_list').then(productCategoryData=>{
-  console.log(productCategoryData);
-  let l_product_category_data:any = productCategoryData;
-  if(l_product_category_data.status)
-  {
-    this.productCategories = l_product_category_data.data
-    
-  }
-})
-
-    this.raw_product_data = this.fb.group({
-      "id":['new',Validators.required],
-      "raw_product_name":['PName',Validators.required],
-      "raw_product_display_name":['PDisplayName',Validators.required],
-      "raw_product_code":['PC@123',Validators.required],
-      "raw_product_uom":['KG',Validators.required],
-      "raw_product_conv_uom":['kg',Validators.required],
-      "raw_product_conv_factor":['1',Validators.required],
-      "raw_product_batch_type":['0',Validators.required],
-      "raw_product_maintain_stock_ledger":['1',Validators.required],
-      "raw_product_mrp_rate":['12',Validators.required],
-      "raw_product_rate_pick_from":['',Validators.required],
-      "raw_product_purchase_rate":['676878',Validators.required],
-      "raw_product_sales_rate":['90999',Validators.required],
-      "raw_product_gst_slot":['28%',Validators.required],
-      "raw_product_max_level":['2134',Validators.required],
-      "raw_product_min_level":['1212',Validators.required],
-      "raw_product_description":['abc',Validators.required],
-      "raw_product_category":['',Validators.required],
-      "raw_product_hsn":['786876',Validators.required],
-      "raw_product_product_type":['',Validators.required],
-    });
+        apiService.get('admin/uom_full_list').then(data=>{
+          console.log(data);
+          let l_data:any = data;
+          if(l_data.status)
+          {
+            this.data = l_data.data
+          }
+        })
+        apiService.get('admin/tax_full_list').then(taxData=>{
+            console.log(taxData);
+            let l_taxData:any = taxData;
+            if(l_taxData.status)
+            {
+              this.taxes = l_taxData.data
+            }
+        })
+        apiService.get('admin/product_category_full_list').then(productCategoryData=>{
+            console.log(productCategoryData);
+            let l_product_category_data:any = productCategoryData;
+            if(l_product_category_data.status)
+            {
+              this.productCategories = l_product_category_data.data
+            }
+          })
+            
+        this.raw_product_data = this.fb.group({
+          "id":['new',Validators.required],
+          "raw_product_name":['PName',Validators.required],
+          "raw_product_display_name":['PDisplayName',Validators.required],
+          "raw_product_code":['PC@123',Validators.required],
+          "raw_product_uom":['KG',Validators.required],
+          "raw_product_conv_uom":['kg',Validators.required],
+          "raw_product_conv_factor":['1',Validators.required],
+          "raw_product_batch_type":['0',Validators.required],
+          "raw_product_maintain_stock_ledger":['1',Validators.required],
+          "raw_product_mrp_rate":['12',Validators.required],
+          "raw_product_rate_pick_from":['',Validators.required],
+          "raw_product_purchase_rate":['676878',Validators.required],
+          "raw_product_sales_rate":['90999',Validators.required],
+          "raw_product_gst_slot":['28%',Validators.required],
+          "raw_product_max_level":['2134',Validators.required],
+          "raw_product_min_level":['1212',Validators.required],
+          "raw_product_description":['abc',Validators.required],
+          "raw_product_category":['',Validators.required],
+          "raw_product_trade_name":['',Validators.required],
+          "raw_product_hsn":['786876',Validators.required],
+          "raw_product_product_type":['',Validators.required],
+          "raw_product_store_location":['GD001',Validators.required],
+        });
   }
 
   
