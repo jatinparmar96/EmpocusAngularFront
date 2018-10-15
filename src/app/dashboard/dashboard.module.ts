@@ -28,6 +28,11 @@ import { CreateBillOfMaterialComponent } from './bill-of-material/create-bill-of
 import { ViewBillOfMaterialComponent } from './bill-of-material/view-bill-of-material/view-bill-of-material.component';
 import { CreateCategoryMasterComponent } from './category-master/create-category-master/create-category-master.component';
 import { ArchwizardModule } from 'angular-archwizard';
+import { BomRawMaterialComponent } from './bom/bom-raw-material/bom-raw-material.component';
+import { BomProcessComponent } from './bom/bom-process/bom-process.component';
+import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
+import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
+import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 
 
 
@@ -68,6 +73,11 @@ import { ArchwizardModule } from 'angular-archwizard';
     CreateBillOfMaterialComponent,
     ViewBillOfMaterialComponent,
     CreateCategoryMasterComponent,
+    BomRawMaterialComponent,
+    BomProcessComponent,
+    BomBasicComponent,
+    BomScrapComponent,
+    BomByproductComponent,
     
   ],
   exports:[]
