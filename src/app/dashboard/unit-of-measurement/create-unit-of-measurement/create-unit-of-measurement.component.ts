@@ -16,6 +16,7 @@ import { NotifyService } from '../../../shared/services/notify.service';
 export class CreateUnitOfMeasurementComponent implements OnInit {
 
   active = 'today';
+  button_text ='Add UOM'
   debug = true;
   formTouched: boolean = false;
   isProcessing: boolean = false;
@@ -37,9 +38,10 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
   // 1 Starts
   {
     this.unit_data = fb.group({
-      "unit_name": ['Kg', Validators.required],
+      "unit_name": ['', Validators.required],
       "id":['new',Validators.required],
     });
+    this.resetErrorMessages();
   }
   // 1 Ends
   
@@ -53,7 +55,8 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 				this.id="new";
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
-				this.getData(this.id);
+        this.getData(this.id);
+        this.button_text = "Edit UOM";
 			}
     });
     // 2 Ends
@@ -96,7 +99,8 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-									}, 'error');
+                  }, 'error');
+                  this.errors = result.error;
 							}
     
 			})

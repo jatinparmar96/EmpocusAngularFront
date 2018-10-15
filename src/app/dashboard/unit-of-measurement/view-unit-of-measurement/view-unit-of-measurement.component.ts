@@ -12,18 +12,18 @@ import { ApiService } from '../../../shared/services/api.service';
 export class ViewUnitOfMeasurementComponent implements OnInit {
   
   rows:any
+  page_controls:any
 
   constructor(
     private router:Router,
     private apiService:ApiService
   ) { 
     apiService.get('admin/uom').then(data=>{
-      let l_data :any = data
-      if(l_data.status)
+      let result :any = data
+      if(result.status)
       {
-        console.log(l_data);
-        this.rows =(l_data.data);    
-
+        this.page_controls= result.data
+        this.rows = result.data.data;
       }
     }).catch(error =>{
       console.error(error);
@@ -33,7 +33,10 @@ export class ViewUnitOfMeasurementComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  edit(id)
+  {
+    this.router.navigateByUrl('/dashboard/unit-of-measurement/'+id);
+  }
   toCreate()
   {
     this.router.navigateByUrl('/dashboard/unit-of-measurement/new');

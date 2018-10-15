@@ -15,12 +15,15 @@
                                     <div class="form-group">
                                         <label for="unit_name">Unit Name</label>
                                         <input type="text" formControlName="unit_name" id="unit_name" class="form-control border-primary" name="unit_name">
+                                        <div *ngIf="errors['unit_name'] !== '' ">
+                                            <p class="red mt-1">{{errors['unit_name']}}</p>
+                                          </div>
                                         <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-actions left">
-                                <input type="submit" value="Add UOM" class="btn btn-raised btn-primary">
+                                <input type="submit" value={{button_text}} class="btn btn-raised btn-primary">
                             </div>
                         </div>
                     </form>

@@ -92,6 +92,7 @@ export class CreateRawProductComponent implements OnInit {
   
   ngOnInit() {
     // 2 Starts
+   
     this.route.params.subscribe(params => {
       console.log(params['id'])
 			if(params['id']=='new'){
@@ -114,10 +115,11 @@ export class CreateRawProductComponent implements OnInit {
 	}
   addOrUpdate(raw_product){
 
-		this.formTouched = true;
-		// if(raw_product.invalid){
-		// 	return false;
-		// }
+    this.formTouched = true;
+    console.log(raw_product);
+		//  if(raw_product.invalid){
+		//  	return false;
+		//  }
 		this.resetErrorMessages();
 		this.isProcessing = true;
 		

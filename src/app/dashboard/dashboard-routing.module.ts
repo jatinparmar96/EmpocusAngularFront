@@ -107,7 +107,7 @@ const routes:Routes= [
         component:ViewRawProductComponent
       },  
       {
-        path:'category/new',
+        path:'category/:id',
         component:CreateCategoryMasterComponent
       },  
     ],

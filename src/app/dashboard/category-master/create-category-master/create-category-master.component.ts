@@ -38,6 +38,7 @@ export class CreateCategoryMasterComponent implements OnInit {
     private notifyService: NotifyService,
     private router:Router,
   ) { 
+    this.resetErrorMessages();
     this.category_data = this.fb.group({
       "id":['new',Validators.required],
       "product_category_name":['abc',Validators.required],
@@ -47,6 +48,9 @@ export class CreateCategoryMasterComponent implements OnInit {
   
   ngOnInit() {
     // 2 Starts
+    //alternate method for getting parameter
+    let a = this.route.snapshot.paramMap.get('id');
+    
     this.route.params.subscribe(params => {
       console.log(params['id'])
 			if(params['id']=='new'){
@@ -70,9 +74,9 @@ export class CreateCategoryMasterComponent implements OnInit {
   addOrUpdate(category){
     
 		this.formTouched = true;
-		// if(category.invalid){
-		// 	return false;
-		// }
+		 if(category.invalid){
+		 	return false;
+		 }
 		this.resetErrorMessages();
 		this.isProcessing = true;
 		
@@ -92,7 +96,8 @@ export class CreateCategoryMasterComponent implements OnInit {
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-									}, 'error');
+                  }, 'error');
+                  this.errors = result.error
 							}
     
 			})
@@ -106,7 +111,7 @@ export class CreateCategoryMasterComponent implements OnInit {
   resetErrorMessages(){
 
 		this.errors = {			
-      "category_name": [""],
+      "product_category_name": [""],
 		}
   }
   
