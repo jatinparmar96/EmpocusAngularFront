@@ -39,11 +39,11 @@ export class BomProcessComponent implements OnInit {
       fieldArray: {
         fieldGroupClassName: 'row',
         templateOptions: {
-          btnText: 'Add another investment',
+          btnText: 'Add new Raw Product',
         },
         fieldGroup: [
           {
-            className: 'col-sm-4',
+            className: 'col-lg-4',
             type: 'input',
             key: 'investmentName',
             templateOptions: {
@@ -53,23 +53,35 @@ export class BomProcessComponent implements OnInit {
           },
           {
             type: 'input',
-            key: 'investmentDate',
-            className: 'col-sm-3',
+            key: 'stockIdentifier',
+            className: 'col-lg-2',
             templateOptions: {
-              type: 'date',
-              label: 'Date of Investment:',
+              label: 'Process Qty:',
             },
           },
           {
             type: 'input',
-            key: 'stockIdentifier',
-            className: 'col-sm-3',
+            key: 'investmentDate',
+            className: 'col-lg-2',
             templateOptions: {
-              label: 'Stock Identifier:',
-              addonRight: {
-                class: 'fa fa-code',
-                onClick: (to, fieldType, $event) => console.log(to, fieldType, $event),
-              },
+              label: 'Available Qty:',
+              readOnly: true,
+              placeholder: '200',
+            },
+            expressionProperties: {
+              'templateOptions.disabled': '!model.text',
+            },
+          },
+          {
+            type: 'input',
+            key: 'uom',
+            className: 'col-lg-1',
+            templateOptions: {
+              label: 'UOM:',
+              placeholder: 'ltr',
+            },
+            expressionProperties: {
+              'templateOptions.disabled': '!model.text',
             },
           },
         ],

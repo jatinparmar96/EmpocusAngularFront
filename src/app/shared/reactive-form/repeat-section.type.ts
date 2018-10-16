@@ -9,13 +9,13 @@ import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
         [field]="field"
         [options]="options"
         [form]="formControl">
-        <div class="col-sm-2 d-flex align-items-center">
+        <div class="col-sm-2 d-flex align-items-center" style="margin-top: 24px;">
           <button class="btn btn-danger btn-raised" type="button" (click)="remove(i)">Remove</button>
         </div>
       </formly-group>
     </div>
     <div style="margin:30px 0;">
-      <button class="btn btn-primary btn-raiseds" type="button" (click)="add()">{{ field.fieldArray.templateOptions.btnText }}</button>
+      <button class="btn btn-primary btn-raised" type="button" (click)="add()">{{ field.fieldArray.templateOptions.btnText }}</button>
     </div>
   `,
 })
