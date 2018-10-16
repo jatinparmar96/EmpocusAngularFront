@@ -37,7 +37,9 @@ import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.compone
 
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { RepeatTypeComponent } from 'app/shared/reactive-form/repeat-section.type';
+import { BomProcessRepeatTypeComponent } from './bom/bom-process/bom-process-repeat-section.type';
+import { BOMScrapRepeatTypeComponent } from './bom/bom-scrap/bom-scarp-repeat-section.type';
+import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byproduct-repeat-section.type';
 
 
 
@@ -56,7 +58,11 @@ import { RepeatTypeComponent } from 'app/shared/reactive-form/repeat-section.typ
     FormlyBootstrapModule,
     FormlyModule.forRoot({
       types: [
-        { name: 'repeat', component: RepeatTypeComponent },
+        { name: 'repeat', component: BomProcessRepeatTypeComponent },
+        { name: 'repeat', component: BOMScrapRepeatTypeComponent },
+        { name: 'repeat', component: BOMByProductRepeatTypeComponent },
+        
+        
       ],
     }),
     //Angular Formly
@@ -92,7 +98,9 @@ import { RepeatTypeComponent } from 'app/shared/reactive-form/repeat-section.typ
     BomBasicComponent,
     BomScrapComponent,
     BomByproductComponent,
-    RepeatTypeComponent,
+    BomProcessRepeatTypeComponent,
+    BOMScrapRepeatTypeComponent,
+    BOMByProductRepeatTypeComponent,
 
     
   ],

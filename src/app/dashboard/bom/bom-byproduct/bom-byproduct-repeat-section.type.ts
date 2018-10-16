@@ -19,7 +19,7 @@ import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
     </div>
   `,
 })
-export class RepeatTypeComponent extends FieldArrayType {
+export class BOMByProductRepeatTypeComponent extends FieldArrayType {
   constructor(builder: FormlyFormBuilder) {
     super(builder);
   }
