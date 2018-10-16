@@ -30,6 +30,10 @@ export class ViewRawProductComponent implements OnInit {
 
   ngOnInit() {
   }
+  edit(product_id)
+  {
+    this.router.navigateByUrl('/dashboard/raw-product/'+product_id);
+  }
   toCreate()
   {
     this.router.navigateByUrl('/dashboard/raw-product/new');

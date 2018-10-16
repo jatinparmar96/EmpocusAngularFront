@@ -11,15 +11,16 @@
                                 <th>Product Category</th>
                                 <th>Product UOM</th>
                                 <th>Product Store Location</th>
+                                <th>Action</th>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let product of products">
                                     <td>{{product.product_display_name}}</td>
                                     <td>{{product.product_category_name}}</td>
-                                    <td>{{product.unit_name}}</td>
-                                    <td>{{product.store_location}}</td>
+                                    <td>{{product.product_uom}}</td>
+                                    <td>{{product.product_store_location}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-success">Edit</button>
+                                        <button type="button" (click)="edit(product.id)" class="btn btn-success btn-raised">Edit</button>
                                     </td>
                                 </tr>
                             </tbody>

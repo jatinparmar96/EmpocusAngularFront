@@ -10,12 +10,17 @@
                                 <th>Branch Name</th>
                                 <th>Gst Number</th>
                                 <th>Branch Code</th>
+                                <th>Godown</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
+                                <tr *ngFor="let branch of rows">
+                                    <td>{{branch.branch_name}}</td>
+                                    <td>{{branch.branch_gst_number}}</td>
+                                    <td>{{branch.branch_code}}</td>
+                                    <td>{{branch.branch_godown}}</td>
+                                    <td>
+                                        <button type="button" (click)="edit(branch.id)" class="btn btn-success btn-raised">Edit</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
