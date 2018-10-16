@@ -35,6 +35,12 @@ import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 
 
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { RepeatTypeComponent } from 'app/shared/reactive-form/repeat-section.type';
+
+
+
 
 
 
@@ -46,6 +52,14 @@ import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.compone
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    //Angular Formly
+    FormlyBootstrapModule,
+    FormlyModule.forRoot({
+      types: [
+        { name: 'repeat', component: RepeatTypeComponent },
+      ],
+    }),
+    //Angular Formly
     Ng2SmartTableModule,
     ArchwizardModule,
   ],
@@ -78,6 +92,8 @@ import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.compone
     BomBasicComponent,
     BomScrapComponent,
     BomByproductComponent,
+    RepeatTypeComponent,
+
     
   ],
   exports:[]

@@ -32,6 +32,12 @@ import { ToastrModule } from 'ngx-toastr';
 import * as animations from '@angular/platform-browser/animations';
 import { ArchwizardModule } from 'angular-archwizard';
 
+// import {FormlyModule} from '@ngx-formly/core';
+// import {FormlyBootstrapModule} from '@ngx-formly/bootstrap';
+// import { RepeatTypeComponent } from './shared/reactive-form/repeat-section.type';
+
+
+
 
 
 
@@ -51,6 +57,7 @@ export function tokenGetter() {
         BankDetailsComponent,
         CompanyOtherDetailsComponent,
         SelectCompanyComponent,
+        // RepeatTypeComponent,
         
         
       
@@ -61,6 +68,15 @@ export function tokenGetter() {
         ToastrModule.forRoot(),
         FormsModule,
         ReactiveFormsModule,
+        // Angular Formly 
+        // FormlyModule.forRoot(),
+        // FormlyBootstrapModule,  
+        // FormlyModule.forRoot({
+        //     types: [
+        //       { name: 'repeat', component: RepeatTypeComponent },
+        //     ],
+        //   }),  
+        // Angular Formly 
         ArchwizardModule,
         BrowserAnimationsModule,
         SharedModule,
