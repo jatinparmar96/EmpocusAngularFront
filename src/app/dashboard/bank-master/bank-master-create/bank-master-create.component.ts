@@ -37,11 +37,11 @@ export class BankMasterCreateComponent implements OnInit {
     
     this.bank_data = fb.group({
       "id":['new',Validators.required],
-      "bank_account_number":["BOI20199380190",Validators.required],
+      "account_no":["BOI20199380190",Validators.required],
       "bank_name":["ICICI",Validators.required],
       "account_name":["Mohit",Validators.required],
-      "bank_ifsc_code":["ICIC007K",Validators.required],
-      "bank_branch":["Mumbai",Validators.required],
+      "ifsc_code":["ICIC007K",Validators.required],
+      "branch":["Mumbai",Validators.required],
     })
     
    }

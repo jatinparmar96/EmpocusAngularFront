@@ -1,16 +1,37 @@
-<button class="btn btn-primary btn-raised" (click)="toCreate()">Create New</button>
+<button class="btn btn-primary btn-raised" (click)="toNext()">Create New</button>
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-12">
         <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Simple Table</h4>
-            </div>
             <div class="card-body">
-                <div class="card-block">
-                    <input #search class="search mb-2" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
-                    <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table">
+                            <thead>
+                                <th>Bank Name</th>
+                                <th>Account Name</th>
+                                <th>Account Number</th>
+                                <th>IFSC Code</th>
+                                <th>Branch</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let bank of rows">
+                                    <td>{{bank.bank_name}}</td>
+                                    <td>{{bank.account_name}}</td>
+                                    <td>{{bank.account_no}}</td>
+                                    <td>{{bank.ifsc_code}}</td>
+                                    <td>{{bank.branch}}</td>
+                                    <td>
+                                        <button type="button" (click)="edit(bank.id)" class="btn btn-success btn-raised">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- <button class="btn btn-primary btn-raised" (click)="toNext()">Next Page</button> -->
