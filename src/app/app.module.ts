@@ -31,6 +31,7 @@ import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common'
 import { ToastrModule } from 'ngx-toastr';
 import * as animations from '@angular/platform-browser/animations';
 import { ArchwizardModule } from 'angular-archwizard';
+import { SpeedDialFabComponent } from './layouts/speed-dial-fab/speed-dial-fab.component';
 
 // import {FormlyModule} from '@ngx-formly/core';
 // import {FormlyBootstrapModule} from '@ngx-formly/bootstrap';
@@ -57,6 +58,7 @@ export function tokenGetter() {
         BankDetailsComponent,
         CompanyOtherDetailsComponent,
         SelectCompanyComponent,
+        SpeedDialFabComponent,
         // RepeatTypeComponent,
         
         
