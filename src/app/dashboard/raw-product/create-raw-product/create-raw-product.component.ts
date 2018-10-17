@@ -75,19 +75,19 @@ export class CreateRawProductComponent implements OnInit {
           "product_conv_uom":['',Validators.required],
           "product_conv_factor":['',Validators.required],
           "product_batch_type":['1',Validators.required],
-          "product_maintain_stock_ledger":['0',Validators.required],
+          "product_stock_ledger":['0',Validators.required],
           "product_mrp_rate":['',Validators.required],
           "product_rate_pick":['',Validators.required],
           "product_purchase_rate":['',Validators.required],
           "product_sales_rate":['',Validators.required],
-          "product_gst_slot":['',Validators.required],
+          "product_gst_rate":['',Validators.required],
           "product_max_level":['',Validators.required],
           "product_min_level":['',Validators.required],
           "product_description":['',Validators.required],
           "product_category":['',Validators.required],
           "product_trade_name":['',Validators.required],
           "product_hsn":['',Validators.required],
-          "product_product_type":['',Validators.required],
+          "product_type":['',Validators.required],
           "product_store_location":['',Validators.required],
         });
   }
@@ -155,28 +155,29 @@ export class CreateRawProductComponent implements OnInit {
   }
   resetErrorMessages(){
 		this.errors = {			
-      "raw_product_name": [""],
-      "raw_product_display_name": [""],
-      "raw_product_code": [""],
-      "raw_product_raw_product": [""],
-      "raw_product_conv_raw_product": [""],
-      "raw_product_conv_factor": [""],
-      "raw_product_batch_type": [""],
-      "raw_product_maintain_stock_ledger": [""],
-      "raw_product_mrp_rate": [""],
-      "raw_product_gst_slot": [""],
-      "raw_product_max_level": [""],
-      "raw_product_min_level": [""],
-      "raw_product_description": [""],
-      "raw_product_rate_pick_from": [""],
-      "raw_product_product_category": [""],
-      "raw_product_hsn_code": [""], 
-      "raw_product_product_type": [""],
+      "product_display_name": [""],
+      "product_name": [""],
+      "product_code": [""],
+      "product_raw_product": [""],
+      "product_conv_raw_product": [""],
+      "product_conv_factor": [""],
+      "product_batch_type": [""],
+      "product_maintain_stock_ledger": [""],
+      "product_mrp_rate": [""],
+      "product_gst_rate": [""],
+      "product_max_level": [""],
+      "product_min_level": [""],
+      "product_description": [""],
+      "product_rate_pick_from": [""],
+      "product_product_category": [""],
+      "product_hsn_code": [""], 
+      "product_product_type": [""],
 		}
   }
   
-  cancel(){
-    this.router.navigateByUrl('/dashboard/unit-of-measurement');
+  toBack()
+  {
+    this.router.navigateByUrl('/dashboard/raw-product');
   }
 // 3 Ends
 }
