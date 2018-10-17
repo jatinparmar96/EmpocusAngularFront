@@ -21,6 +21,11 @@ import { ViewGodownMasterComponent } from './godown-master/view-godown-master/vi
 import { CreateBillOfMaterialComponent } from './bill-of-material/create-bill-of-material/create-bill-of-material.component';
 import { ViewBillOfMaterialComponent } from './bill-of-material/view-bill-of-material/view-bill-of-material.component';
 import { CreateCategoryMasterComponent } from './category-master/create-category-master/create-category-master.component';
+import { BomRawMaterialComponent } from './bom/bom-raw-material/bom-raw-material.component';
+import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
+import { BomProcessComponent } from './bom/bom-process/bom-process.component';
+import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
+import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 
 const routes:Routes= [
   {
@@ -110,11 +115,30 @@ const routes:Routes= [
         path:'category/:id',
         component:CreateCategoryMasterComponent
       },  
+      {
+        path:'bom/new',
+        component:BomBasicComponent
+      },
+      {
+        path:'bom/raw-material',
+        component:BomRawMaterialComponent
+      },
+      {
+        path:'bom/process',
+        component:BomProcessComponent
+      },
+      {
+        path:'bom/scrap',
+        component:BomScrapComponent
+      },
+      {
+        path:'bom/byproduct',
+        component:BomByproductComponent
+      },
+      
+      
     ],
   },
-  
-  
-  
 ];
 
 @NgModule({

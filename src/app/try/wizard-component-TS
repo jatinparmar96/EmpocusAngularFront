@@ -1,4 +1,9 @@
-import { ViewProductsComponent } from './../../../dashboard/view-products/view-products.component';
+//var-1 component-name
+//var-2 ComponentName
+//var-3 urlName_data
+//formControl-1 FormControl Name
+//formControl-2 FormControl Name
+
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import{FormDataService} from '../../../shared/services/form-data.service';
@@ -6,13 +11,13 @@ import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/auth/auth.service';
 const current_step:number = 0;
 @Component({
-  selector: 'app-company-info',
-  templateUrl: './company-info.component.html',
-  styleUrls: ['./company-info.component.scss']
+  selector: 'app-var-1',
+  templateUrl: './var-1.component.html',
+  styleUrls: ['./var-1.component.scss']
 })
-export class CompanyInfoComponent implements OnInit {
+export class var-2 implements OnInit {
 
-  company_data:FormGroup;
+  var-3:FormGroup;
   
   constructor(
     private router:Router , 
@@ -25,12 +30,9 @@ export class CompanyInfoComponent implements OnInit {
       {
         buffer = Object.keys(data).map(i => data[i]);
       }
-      this.company_data = fb.group({
-        "company_name": [buffer[0],Validators.required],
-        "company_display_name": [buffer[1],Validators.required],
-        "company_email":[buffer[2],Validators.required],
-        "company_website":[buffer[3],Validators.required],
-        "company_type":[buffer[4],Validators.required],
+      this.var-3 = fb.group({
+        "formControl-1": [buffer[0],Validators.required],
+        "formControl-2": [buffer[0],Validators.required],
         "id":['new',Validators.required],
         "address_id":['new',Validators.required],
           });
@@ -38,13 +40,14 @@ export class CompanyInfoComponent implements OnInit {
   ngOnInit() {
   }
 
-  get f() { return this.company_data.controls; }
+  get f() { return this.var-3.controls; }
 
-  get company_name() {return this.company_data.get('company_name');}
-  get company_display_name() {return this.company_data.get('company_display_name');}
+  get company_name() {return this.var-3.get('formControl-1');}
+  get company_name() {return this.var-3.get('formControl-2');}
+
   toNext(data)
   {
-    if(this.company_data.invalid)
+    if(this.var-3.invalid)
     {
       return;
     }

@@ -28,6 +28,19 @@ import { CreateBillOfMaterialComponent } from './bill-of-material/create-bill-of
 import { ViewBillOfMaterialComponent } from './bill-of-material/view-bill-of-material/view-bill-of-material.component';
 import { CreateCategoryMasterComponent } from './category-master/create-category-master/create-category-master.component';
 import { ArchwizardModule } from 'angular-archwizard';
+import { BomRawMaterialComponent } from './bom/bom-raw-material/bom-raw-material.component';
+import { BomProcessComponent } from './bom/bom-process/bom-process.component';
+import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
+import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
+import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
+
+
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { BomProcessRepeatTypeComponent } from './bom/bom-process/bom-process-repeat-section.type';
+import { BOMScrapRepeatTypeComponent } from './bom/bom-scrap/bom-scarp-repeat-section.type';
+import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byproduct-repeat-section.type';
+
 
 
 
@@ -41,6 +54,18 @@ import { ArchwizardModule } from 'angular-archwizard';
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    //Angular Formly
+    FormlyBootstrapModule,
+    FormlyModule.forRoot({
+      types: [
+        { name: 'repeat', component: BomProcessRepeatTypeComponent },
+        { name: 'repeat', component: BOMScrapRepeatTypeComponent },
+        { name: 'repeat', component: BOMByProductRepeatTypeComponent },
+        
+        
+      ],
+    }),
+    //Angular Formly
     Ng2SmartTableModule,
     ArchwizardModule,
   ],
@@ -68,6 +93,15 @@ import { ArchwizardModule } from 'angular-archwizard';
     CreateBillOfMaterialComponent,
     ViewBillOfMaterialComponent,
     CreateCategoryMasterComponent,
+    BomRawMaterialComponent,
+    BomProcessComponent,
+    BomBasicComponent,
+    BomScrapComponent,
+    BomByproductComponent,
+    BomProcessRepeatTypeComponent,
+    BOMScrapRepeatTypeComponent,
+    BOMByProductRepeatTypeComponent,
+
     
   ],
   exports:[]

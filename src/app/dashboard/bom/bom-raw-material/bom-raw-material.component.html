@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-lg-12 pl-0">
+                    <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Raw Material</p>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="card-block pt-1">
+                    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add New Raw Material</button>
+                    <br>
+                    <button (click)="toPrevious()" [disabled]=isProcessing class="btn btn-raised btn-primary">Previous</button>
+                    <button (click)="toNext()" [disabled]=isProcessing class="btn btn-raised btn-primary ml-2">Next</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+    </div>
+    <div class="modal-body">
+        <p>Hello, World!</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+    </div>
+</ng-template>
