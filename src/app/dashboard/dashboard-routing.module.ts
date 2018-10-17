@@ -26,6 +26,7 @@ import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
 import { BomProcessComponent } from './bom/bom-process/bom-process.component';
 import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
+import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 
 const routes:Routes= [
   {
@@ -115,6 +116,10 @@ const routes:Routes= [
         path:'category/:id',
         component:CreateCategoryMasterComponent
       },  
+      {
+        path:'category',
+        component:ViewCategoryMasterComponent
+      },
       {
         path:'bom/new',
         component:BomBasicComponent

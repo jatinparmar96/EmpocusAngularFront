@@ -40,6 +40,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { BomProcessRepeatTypeComponent } from './bom/bom-process/bom-process-repeat-section.type';
 import { BOMScrapRepeatTypeComponent } from './bom/bom-scrap/bom-scarp-repeat-section.type';
 import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byproduct-repeat-section.type';
+import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 
 
 
@@ -101,6 +102,7 @@ import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byprodu
     BomProcessRepeatTypeComponent,
     BOMScrapRepeatTypeComponent,
     BOMByProductRepeatTypeComponent,
+    ViewCategoryMasterComponent,
 
     
   ],

@@ -35,7 +35,7 @@ export const ROUTES: RouteInfo[] = [
                 path: '/dashboard/bom/new', title: 'Bill of Material', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/dashboard/category/new', title: 'Category', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/dashboard/category', title: 'Category', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             // {
             //     path: '/inventory-master/stock-item-master', title: 'S', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
