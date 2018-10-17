@@ -35,30 +35,31 @@ export class CreateChartsOfAccountComponent implements OnInit {
     this.coa_data= this.fb.group({
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
-      "ca_company_name":['Bitmanity',Validators.required],
-      "ca_company_display_name":['Bitmanity LLP',Validators.required],
-      "ca_category":['Creditor',Validators.required],
-      "ca_code":['0090',Validators.required],
-      "ca_opening_amount":['89000',Validators.required],
-      "ca_opening_type":['Creditor',Validators.required],
-      "ca_first_name":['Jatin',Validators.required],
-      "ca_last_name":['Parmar',Validators.required],
-      "ca_mobile_number":['9856478964',Validators.required],
-      "ca_email":['jatinparmar96@gmail.com',Validators.required],
-      "ca_website":['https://website.com',Validators.required],
-      "ca_designation":['Managing director',Validators.required],
-      "ca_branch":['Saphale',Validators.required],
-      "ca_address_building":['Rose123',Validators.required],
-      "ca_address_road_name":['Station Road',Validators.required],
-      "ca_address_landmark":['opp Sbi Bank',Validators.required],
-      "ca_address_pincode":['401125',Validators.required],
-      "ca_address_country":['India',Validators.required],
-      "ca_address_state":['Maharastra',Validators.required],
-      "ca_address_city":['Mumbai',Validators.required],
-      "ca_pan":['Pan 123',Validators.required],
-      "ca_gstn":['GSTIN123',Validators.required],
-      "ca_tan":['TAN123',Validators.required],
-      "ca_date_opened":['06/06/1992',Validators.required],
+      "contact_id" :['new',Validators.required],
+      "ca_company_name":['',Validators.required],
+      "ca_company_display_name":['',Validators.required],
+      "ca_category":['',Validators.required],
+      "ca_code":['',Validators.required],
+      "ca_opening_amount":['',Validators.required],
+      "ca_opening_type":['',Validators.required],
+      "ca_contact_first_name":['',Validators.required],
+      "ca_contact_last_name":['',Validators.required],
+      "ca_contact_mobile_number":['',Validators.required],
+      "ca_contact_email":['',Validators.required],
+      "ca_website":['',Validators.required],
+      "ca_contact_designation":['',Validators.required],
+      "ca_contact_branch":['',Validators.required],
+      "ca_address_building":['',Validators.required],
+      "ca_address_road_name":['',Validators.required],
+      "ca_address_landmark":['',Validators.required],
+      "ca_address_pincode":['',Validators.required],
+      "ca_address_city":['',Validators.required],
+      "ca_address_state":['',Validators.required],
+      "ca_address_country":['',Validators.required],
+      "ca_pan":[' ',Validators.required],
+      "ca_gstn":['',Validators.required],
+      "ca_tan":['',Validators.required],
+      "ca_date_opened":['',Validators.required],
     });
   }
 
@@ -70,7 +71,8 @@ export class CreateChartsOfAccountComponent implements OnInit {
 				this.id="new";
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
-				this.getData(this.id);
+        this.getData(this.id);
+        
 			}
     });
     
@@ -81,7 +83,8 @@ export class CreateChartsOfAccountComponent implements OnInit {
 		this.apiService.get("admin/coa/"+id)
 		.then(data => { 
 			let l_data: any = data;
-			this.coa_data.patchValue(l_data.data);					
+      this.coa_data.patchValue(l_data.data);					
+      console.log(this.coa_data.value)
 		})
 	}
   addOrUpdate(coa){		
@@ -95,14 +98,15 @@ export class CreateChartsOfAccountComponent implements OnInit {
 			//post request
 			this.apiService.post("admin/coa",coa.value).then( data => {
         let result: any = data;
-				//success
+        //success
+        console.log(result);
         this.isProcessing = false;
         if(result.status)
 							{
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success');
+								},'success'); 
 							}
 							else{
 									this.notifyService.show({
@@ -149,7 +153,7 @@ export class CreateChartsOfAccountComponent implements OnInit {
   }
   
   cancel(){
-    this.router.navigateByUrl('/dashboard/charts-of_account');
+    this.router.navigateByUrl('/dashboard/charts-of-accounts');
   }
 
 }

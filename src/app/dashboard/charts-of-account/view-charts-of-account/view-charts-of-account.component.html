@@ -7,15 +7,21 @@
                     <div class="col-lg-12">
                         <table class="table">
                             <thead>
-                                <th>Branch Name</th>
-                                <th>Gst Number</th>
-                                <th>Branch Code</th>
+                                <th>Company Name</th>
+                                <th>GST Number</th>
+                                <th>Code</th>
+                                <th>Category</th>
+                                <th>Action</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
+                                <tr *ngFor="let coa of rows">
+                                   <td>{{coa.ca_company_display_name}}</td>
+                                   <td>{{coa.ca_category}}</td>
+                                   <td>{{coa.ca_code}}</td>
+                                   <td>{{coa.ca_gstn}}</td>
+                                   <td>
+                                    <button type="button" (click)="edit(coa.id)" class="btn btn-success btn-raised">Edit</button>
+                                   </td>
                                 </tr>
                             </tbody>
                         </table>
