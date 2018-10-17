@@ -24,6 +24,7 @@
     "@angular/router": "^6.0.4",
     "@auth0/angular-jwt": "^2.0.0",
     "@ng-bootstrap/ng-bootstrap": "^3.3.0",
+    "@ng-select/ng-select": "^2.10.4",
     "@ngx-formly/bootstrap": "^4.8.0",
     "@ngx-formly/core": "^4.8.0",
     "@ngx-translate/core": "^10.0.2",

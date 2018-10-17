@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
+import { NgOption } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-bom-byproduct',
@@ -18,12 +19,13 @@ export class BomByproductComponent implements OnInit {
   ngOnInit() {
   }
 
-  toFinish(){
-    this.router.navigateByUrl('/dashboard/bom/new');
-  }
-  toPrevious(){
+  toNext(){
     this.router.navigateByUrl('/dashboard/bom/scrap');
   }
+  toPrevious(){
+    this.router.navigateByUrl('/dashboard/bom/process');
+  }
+
   form = new FormGroup({});
   model = {
     investments: [{}],
@@ -41,12 +43,11 @@ export class BomByproductComponent implements OnInit {
         },
         fieldGroup: [
           {
+            key:'byProductName',
+            type: 'select',
             className: 'col-lg-4',
-            type: 'input',
-            key: 'byProductName',
             templateOptions: {
               label: 'By-Product Name:',
-              required: true,
             },
           },
           {
@@ -77,3 +78,20 @@ export class BomByproductComponent implements OnInit {
   }
 
 }
+
+@Component({
+  selector: 'select-by-product-name',
+  template: `
+  <ng-select #byproductsSelect [items]="byproducts" [formControl]="formControl" [selectOnTab]="true" bindValue="value" labelForId="byproduct" placeholder="Select By-Product">
+  </ng-select>
+`
+})
+export class SelectByProductComponent extends FieldType {
+  byproducts: NgOption[] = [
+    { value: 'byProduct 1', label: 'byProduct 1' },
+    { value: 'byProduct 2', label: 'byProduct 2' },
+    { value: 'byProduct 3', label: 'byProduct 3' },
+];
+
+}
+

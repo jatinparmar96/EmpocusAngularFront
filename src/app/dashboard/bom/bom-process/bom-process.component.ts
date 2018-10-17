@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
+import { NgOption } from '@ng-select/ng-select';
 
 @Component({
   // formly-app-example
   selector: 'app-bom-process',
   templateUrl: './bom-process.component.html',
-  styleUrls: ['./bom-process.component.scss']
+  styleUrls: ['./bom-process.component.scss'],
 })
 export class BomProcessComponent implements OnInit {
 
@@ -20,10 +21,10 @@ export class BomProcessComponent implements OnInit {
   }
 
   toNext(){
-    this.router.navigateByUrl('/dashboard/bom/scrap');
+    this.router.navigateByUrl('/dashboard/bom/byproduct');
   }
   toPrevious(){
-    this.router.navigateByUrl('/dashboard/bom/raw-material');
+    this.router.navigateByUrl('/dashboard/bom/new');
   }
 
   form = new FormGroup({});
@@ -43,17 +44,17 @@ export class BomProcessComponent implements OnInit {
         },
         fieldGroup: [
           {
+            key:'tradeNameSelect',
+            type: 'select',
             className: 'col-lg-4',
-            type: 'input',
-            key: 'investmentName',
             templateOptions: {
               label: 'Product Trade Name:',
-              required: true,
             },
+
           },
           {
             type: 'input',
-            key: 'stockIdentifier',
+            key: 'processQty',
             className: 'col-lg-2',
             templateOptions: {
               label: 'Process Qty:',
@@ -61,7 +62,7 @@ export class BomProcessComponent implements OnInit {
           },
           {
             type: 'input',
-            key: 'investmentDate',
+            key: 'availableQty',
             className: 'col-lg-2',
             templateOptions: {
               label: 'Available Qty:',
@@ -94,3 +95,20 @@ export class BomProcessComponent implements OnInit {
   }
 
 }
+
+@Component({
+  selector: 'trade-name',
+  template: `
+  <ng-select #processesSelect [items]="processes" [formControl]="formControl" [selectOnTab]="true" bindValue="value" labelForId="process" placeholder="Select Product">
+  </ng-select>
+`
+})
+export class TradeNameComponent extends FieldType {
+  processes: NgOption[] = [
+    { value: 'Product Trade Name 1', label: 'Product Trade Name 1' },
+    { value: 'Product Trade Name 2', label: 'Product Trade Name 2' },
+    { value: 'Product Trade Name 3', label: 'Product Trade Name 3' },
+];
+
+}
+

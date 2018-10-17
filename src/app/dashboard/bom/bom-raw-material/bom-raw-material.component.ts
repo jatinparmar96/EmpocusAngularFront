@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { NgOption } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-bom-raw-material',
@@ -13,7 +15,14 @@ export class BomRawMaterialComponent implements OnInit {
   constructor(
     private router:Router,
     private modalService: NgbModal,
+    private fb: FormBuilder,     
   ) { }
+
+    ages: NgOption[] = [
+        { value: '<18', label: 'Under 18' },
+        { value: '18', label: '18' },
+        { value: '>18', label: 'More than 18' },
+    ];
 
   ngOnInit() {
   }

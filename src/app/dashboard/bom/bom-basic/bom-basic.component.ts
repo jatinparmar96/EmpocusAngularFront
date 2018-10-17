@@ -48,7 +48,7 @@ export class BomBasicComponent implements OnInit {
   }
 
   toNext(){
-    this.router.navigateByUrl('/dashboard/bom/raw-material');
+    this.router.navigateByUrl('/dashboard/bom/process');
   }
 
 }

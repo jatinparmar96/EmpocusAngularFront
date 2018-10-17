@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
+import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
+import { NgOption } from '@ng-select/ng-select';
 
 
 @Component({
@@ -19,11 +20,11 @@ export class BomScrapComponent implements OnInit {
   ngOnInit() {
   }
 
-  toNext(){
-    this.router.navigateByUrl('/dashboard/bom/byproduct');
+  toFinish(){
+    this.router.navigateByUrl('/dashboard/bom/new');
   }
   toPrevious(){
-    this.router.navigateByUrl('/dashboard/bom/process');
+    this.router.navigateByUrl('/dashboard/bom/byproduct');
   }
 
   form = new FormGroup({});
@@ -43,12 +44,11 @@ export class BomScrapComponent implements OnInit {
         },
         fieldGroup: [
           {
+            key:'scrapName',
+            type: 'select',
             className: 'col-lg-4',
-            type: 'input',
-            key: 'ScrapName',
             templateOptions: {
-              label: 'Scrap Name:',
-              required: true,
+              label: 'Scarp Product Name:',
             },
           },
           {
@@ -77,5 +77,21 @@ export class BomScrapComponent implements OnInit {
   submit() {
     alert(JSON.stringify(this.model));
   }
+
+}
+
+@Component({
+  selector: 'select-scarp-product-name',
+  template: `
+  <ng-select #scrapsSelect [items]="scraps" [formControl]="formControl" [selectOnTab]="true" bindValue="value" labelForId="scrap" placeholder="Select Scrap Product">
+  </ng-select>
+`
+})
+export class SelectScarpProductComponent extends FieldType {
+  scraps: NgOption[] = [
+    { value: 'scrapProduct 1', label: 'scrapProduct 1' },
+    { value: 'scarpProduct 2', label: 'scrapProduct 2' },
+    { value: 'scarpProduct 3', label: 'scrapProduct 3' },
+];
 
 }
