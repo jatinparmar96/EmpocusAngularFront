@@ -44,7 +44,6 @@ export class CreateRawProductComponent implements OnInit {
           if(l_data.status)
           {
             this.data = l_data.data
-            console.log(l_data.data)
           }
         })
         apiService.get('admin/tax_full_list').then(taxData=>{
@@ -53,7 +52,6 @@ export class CreateRawProductComponent implements OnInit {
             if(l_taxData.status)
             {
               this.taxes = l_taxData.data
-              console.log(l_taxData.data)
             }
         })
         apiService.get('admin/product_category_full_list').then(productCategoryData=>{
@@ -62,7 +60,6 @@ export class CreateRawProductComponent implements OnInit {
             if(l_product_category_data.status)
             {
               this.productCategories = l_product_category_data.data
-              console.log(l_product_category_data.data)
             }
           })
             
@@ -114,7 +111,7 @@ export class CreateRawProductComponent implements OnInit {
 		.then(data => { 
       let l_data: any = data;
       this.raw_product_data.patchValue(l_data.data);	
-      console.log(this.raw_product_data.value)				
+     		
 		})
 	}
   addOrUpdate(raw_product){

@@ -21,7 +21,6 @@ export class ViewRawProductComponent implements OnInit {
       {
         this.page_controls= result.data
         this.products = result.data.data;
-        console.log(this.products);
       }
     }).catch(error =>{
       console.error(error);
