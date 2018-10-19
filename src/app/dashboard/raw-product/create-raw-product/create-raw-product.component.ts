@@ -65,7 +65,7 @@ export class CreateRawProductComponent implements OnInit {
           })
             
         this.raw_product_data = this.fb.group({
-          "id":['',Validators.required],
+          "id":['new',Validators.required],
           "product_name":['',Validators.required],
           "product_display_name":['',Validators.required],
           "product_code":['',Validators.required],
@@ -88,6 +88,7 @@ export class CreateRawProductComponent implements OnInit {
           "product_type":['',Validators.required],
           "product_store_location":['',Validators.required],
         });
+        this.resetErrorMessages()
   }
 
   
@@ -140,7 +141,8 @@ export class CreateRawProductComponent implements OnInit {
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-									}, 'error');
+                  }, 'error');
+                  this.errors = result.error
 							}
     
 			})

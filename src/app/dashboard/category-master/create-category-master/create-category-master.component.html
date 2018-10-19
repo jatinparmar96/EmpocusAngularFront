@@ -16,8 +16,8 @@
                     <label for="product_category_name">Category Name</label>
                     <input type="text" formControlName="product_category_name" id="product_category_name" class="form-control border-primary"
                       name="product_category_name">
-                    <div *ngIf="errors['product_category_name'] !== '' ">
-                      <p class="red mt-1 text-center">{{errors['product_category_name']}}</p>
+                    <div *ngIf="errors.product_category_name !== '' ">
+                      <p class="red mt-1">{{errors.product_category_name}}</p>
                     </div>
                     <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
                   </div>

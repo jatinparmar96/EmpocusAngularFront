@@ -42,6 +42,7 @@ export class CreateBranchMasterComponent implements OnInit {
           this.data = l_data.data
         }
     })
+    this.resetErrorMessages();
     this.branch_data = fb.group({
       "id":['new',Validators.required],
       "address_id":['new',Validators.required],
@@ -58,6 +59,7 @@ export class CreateBranchMasterComponent implements OnInit {
       "branch_bank_id":["",Validators.required],
       "branch_godown":["No",Validators.required],
     })
+    
   }
 
   ngOnInit() {
@@ -115,7 +117,8 @@ export class CreateBranchMasterComponent implements OnInit {
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-									}, 'error');
+                  }, 'error');
+                  this.errors = result.error
 							}
     
 			})

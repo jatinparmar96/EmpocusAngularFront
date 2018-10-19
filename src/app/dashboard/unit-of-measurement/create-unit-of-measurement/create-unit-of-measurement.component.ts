@@ -23,7 +23,7 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
   errors: any;
   id: any = "new";
   // Replacable
-  
+  next:boolean = false;
   unit_data: FormGroup;
   uom: any;
   constructor(
@@ -72,11 +72,11 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 		})
 	}
   addOrUpdate(uom){
+    console.log(uom)
     // this.notifyService.show({
     //   title: 'Success',
     //   message: 'Done'
     // }, 'success');
-		
 		this.formTouched = true;
 		if(uom.invalid){
 			return false;
@@ -94,7 +94,18 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success');
+                },'success');
+                if(this.next)
+                {
+               
+                  this.resetForm(uom);
+                  
+                }
+                else
+                {
+                  console.log('else');
+                }
+
 							}
 							else{
 									this.notifyService.show({
@@ -118,9 +129,19 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 			"unit_name": [""]	
 		}
   }
-  
+  resetForm(uom)
+  {
+    console.log('form Reseted')
+    uom.id = 'new';
+    uom.unit_name = '';
+  }
+  advanceNext()
+  {
+    this.next = true;
+  }
   cancel(){
     this.router.navigateByUrl('/dashboard/unit-of-measurement');
   }
+ 
 // 3 Ends
 }

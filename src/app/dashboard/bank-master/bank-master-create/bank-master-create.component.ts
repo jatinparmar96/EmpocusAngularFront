@@ -6,6 +6,7 @@ import * as alertFunctions from '../../../shared/data/sweet-alert';
 import { ApiService } from '../../../shared/services/api.service';
 import { ShareService } from '../../../shared/services/share.service';
 import { NotifyService } from '../../../shared/services/notify.service';
+import { link } from 'fs';
 
 @Component({
   selector: 'app-bank-master-create',
@@ -20,7 +21,7 @@ export class BankMasterCreateComponent implements OnInit {
   isProcessing: boolean = false;
   errors: any;
   id: any = "new";
-
+  next:boolean = false;
   bank_data :FormGroup;
   bank: any;
 
@@ -43,6 +44,7 @@ export class BankMasterCreateComponent implements OnInit {
       "ifsc_code":["ICIC007K",Validators.required],
       "branch":["Mumbai",Validators.required],
     })
+   this.resetErrorMessages();
     
    }
 
@@ -67,11 +69,6 @@ export class BankMasterCreateComponent implements OnInit {
 		})
 	}
   addOrUpdate(bank){
-    // this.notifyService.show({
-    //   title: 'Success',
-    //   message: 'Done'
-    // }, 'success');
-		
 		this.formTouched = true;
 		if(bank.invalid){
 			return false;
@@ -89,13 +86,22 @@ export class BankMasterCreateComponent implements OnInit {
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success');
+                },'success');
+                if(this.next)
+                {
+                  this.router.navigateByUrl('/dashboard/bank-master/new');
+                }
+                else
+                {
+                  this.router.navigateByUrl('/dashboard/bank-master');
+                }
 							}
 							else{
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-									}, 'error');
+                  }, 'error');
+                  this.errors = result.error
 							}
     
 			})
@@ -109,7 +115,7 @@ export class BankMasterCreateComponent implements OnInit {
   resetErrorMessages(){
 		this.errors = {			
 			"bank_account_number": [""],
-      "bank_name": [""],
+      "bank": [""],
       "bank_account_name": [""],
       "bank_ifsc_code": [""],
       "bank_branch": [""],
@@ -117,6 +123,10 @@ export class BankMasterCreateComponent implements OnInit {
 		}
   }
   
+  advanceNext()
+  {
+    this.next = true;
+  }
   cancel(){
     this.router.navigateByUrl('/dashboard/bank-master');
   }

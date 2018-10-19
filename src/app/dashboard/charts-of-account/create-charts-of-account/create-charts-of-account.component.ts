@@ -62,6 +62,7 @@ export class CreateChartsOfAccountComponent implements OnInit {
       "ca_tan":['',Validators.required],
       "ca_date_opened":['',Validators.required],
     });
+    this.resetErrorMessages();
   }
 
   ngOnInit() {
@@ -113,7 +114,8 @@ export class CreateChartsOfAccountComponent implements OnInit {
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-									}, 'error');
+                  }, 'error');
+                  this.errors = result.error;
 							}
     
 			})
