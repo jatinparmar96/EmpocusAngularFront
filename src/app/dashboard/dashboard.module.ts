@@ -30,8 +30,6 @@ import { CreateCategoryMasterComponent } from './category-master/create-category
 import { ArchwizardModule } from 'angular-archwizard';
 import { BomRawMaterialComponent } from './bom/bom-raw-material/bom-raw-material.component';
 import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
-import { BomScrapComponent, SelectScarpProductComponent } from './bom/bom-scrap/bom-scrap.component';
-
 
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
@@ -42,10 +40,8 @@ import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byprodu
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BomProcessComponent, TradeNameComponent } from './bom/bom-process/bom-process.component';
-import { SelectByProductComponent, BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
-
-
-
+import { BomByproductComponent, SelectByProductComponent , SelectUOMByProductComponent } from './bom/bom-byproduct/bom-byproduct.component';
+import { BomScrapComponent, SelectScrapProductComponent, SelectUOMScarpComponent } from './bom/bom-scrap/bom-scrap.component';
 
 
 @NgModule({
@@ -60,12 +56,15 @@ import { SelectByProductComponent, BomByproductComponent } from './bom/bom-bypro
     FormlyBootstrapModule,
     FormlyModule.forRoot({
       types: [
-        { name: 'repeat', component: BomProcessRepeatTypeComponent },
-        { name: 'repeat', component: BOMScrapRepeatTypeComponent },
-        { name: 'repeat', component: BOMByProductRepeatTypeComponent },
-        { name: 'select', component: TradeNameComponent },
-        { name: 'select', component: SelectByProductComponent },
-        { name: 'select', component: SelectScarpProductComponent },
+        { name: 'repeat1', component: BomProcessRepeatTypeComponent },
+        { name: 'repeat2', component: BOMScrapRepeatTypeComponent },
+        { name: 'repeat3', component: BOMByProductRepeatTypeComponent },
+        { name: 'select1', component: TradeNameComponent },
+        { name: 'select2', component: SelectByProductComponent },
+        { name: 'select4', component: SelectUOMByProductComponent },
+        { name: 'select3', component: SelectScrapProductComponent },
+        { name: 'select5', component: SelectUOMScarpComponent },
+        
       ],
     }),
     //Angular Formly
@@ -106,7 +105,9 @@ import { SelectByProductComponent, BomByproductComponent } from './bom/bom-bypro
     BOMByProductRepeatTypeComponent,
     TradeNameComponent,
     SelectByProductComponent,
-    SelectScarpProductComponent
+    SelectScrapProductComponent,
+    SelectUOMByProductComponent,
+    SelectUOMScarpComponent,
   ],
   exports:[]
 })
