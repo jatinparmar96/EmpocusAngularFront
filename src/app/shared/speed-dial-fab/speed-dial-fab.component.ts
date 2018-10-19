@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { speedDialFabAnimations } from './speed-dial-fab.animations';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SpeedDialFabComponent implements OnInit {
   
+  @Input() link:any;
   fabButtons = [
     {
       icon: 'fa fa-plus',
@@ -20,17 +21,20 @@ export class SpeedDialFabComponent implements OnInit {
     {
       icon: 'fa fa-plus',
       button: 'btn btn-outline-success',
-      link: '/dashboard/category-master/new'
+      link: '/dashboard/bank-master/new',
+      text:'Add Bank'
     },
     {
       icon: 'fa fa-circle',
       button: 'btn btn-outline-primary',
-      link: '/dashboard/product-master/new'
+      link: '/dashboard/raw-product/new',
+      text: 'Add Product'
     },
     {
       icon: 'fa fa-plus',
       button: 'btn btn-outline-secondary',
-      link: '/dashboard/charts-of-accounts/new'
+      link: '/dashboard/charts-of-accounts/new',
+      text: 'Add Chart of Account'
     },
     {
       icon: 'fa fa-plus',
@@ -63,8 +67,14 @@ export class SpeedDialFabComponent implements OnInit {
     this.buttons.length ? this.hideItems() : this.showItems();
   }
 
-  goToLink(link)
+  @Input()
+  setLink(link)
   {
-    this.router.navigateByUrl(link);
+    this.link = link;
+  }
+  goToLink()
+  {
+    console.log(this.link)
+    this.router.navigateByUrl(this.link);
   }
 }

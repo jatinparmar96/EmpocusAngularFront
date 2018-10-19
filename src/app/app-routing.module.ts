@@ -20,6 +20,7 @@ import { MainComponent } from './dashboard/main/main.component';
 import { SelectCompanyComponent } from './pages/select-company/select-company.component';
 
 
+
 const appRoutes: Routes = [
   
   {

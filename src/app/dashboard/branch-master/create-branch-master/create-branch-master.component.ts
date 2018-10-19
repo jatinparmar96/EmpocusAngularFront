@@ -34,6 +34,7 @@ export class CreateBranchMasterComponent implements OnInit {
     private notifyService: NotifyService,
     private router:Router,
   ) { 
+    this.shareService.setVisibility(false)
     apiService.get('admin/bank_full_list').then(data=>{
         let l_data:any = data;
         if(l_data.status)

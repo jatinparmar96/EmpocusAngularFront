@@ -32,6 +32,7 @@ export class CreateChartsOfAccountComponent implements OnInit {
     private router:Router,
   ) 
   {
+    this.shareService.setVisibility(false)
     this.coa_data= this.fb.group({
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],

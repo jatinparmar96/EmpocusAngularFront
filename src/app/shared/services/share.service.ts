@@ -13,6 +13,7 @@ export const ROLES = {
 }
 // visible:boolean = false;
 let visible:boolean = false;
+let link:any;
 
 @Injectable()
 export class ShareService {
@@ -47,5 +48,13 @@ export class ShareService {
 	}
 	setVisibility( value:boolean){
 		visible = value;
+	}
+	setLink(value)
+	{
+		link = value;
+	}
+	getLink()
+	{
+		return link;
 	}
 }

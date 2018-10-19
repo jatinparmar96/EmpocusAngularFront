@@ -37,7 +37,8 @@ export class CreateCategoryMasterComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) { 
+  ) {    
+    this.shareService.setVisibility(false)
     this.resetErrorMessages();
     this.category_data = this.fb.group({
       "id":['new',Validators.required],

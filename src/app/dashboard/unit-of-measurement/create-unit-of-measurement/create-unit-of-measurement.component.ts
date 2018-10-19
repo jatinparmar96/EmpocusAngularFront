@@ -37,6 +37,7 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
   ) 
   // 1 Starts
   {
+    this.shareService.setVisibility(false);
     this.unit_data = fb.group({
       "unit_name": ['', Validators.required],
       "id":['new',Validators.required],

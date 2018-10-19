@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/shared/services/api.service';
+import { ShareService } from 'app/shared/services/share.service';
 
 @Component({
   selector: 'app-bank-master-view',
@@ -11,13 +12,17 @@ import { ApiService } from 'app/shared/services/api.service';
 
 export class BankMasterViewComponent implements OnInit {
  rows:any
+ link:any = '/dashboard/bank-master/new';
 source: LocalDataSource;
   constructor(
     private router:Router,
-    private apiService:ApiService
+    private apiService:ApiService,
+    private shareService:ShareService
   )
   {
-      this.apiService.get('admin/bank').then(data=>{
+    this.shareService.setVisibility(true)
+    this.shareService.setLink(this.link);
+     this.apiService.get('admin/bank').then(data=>{
           let result:any = data 
           if(result.status)
           {

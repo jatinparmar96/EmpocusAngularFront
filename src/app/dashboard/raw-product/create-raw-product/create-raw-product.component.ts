@@ -38,6 +38,7 @@ export class CreateRawProductComponent implements OnInit {
     private notifyService: NotifyService,
     private router:Router,
   ) { 
+        this.shareService.setVisibility(false)
         apiService.get('admin/uom_full_list').then(data=>{
         
           let l_data:any = data;

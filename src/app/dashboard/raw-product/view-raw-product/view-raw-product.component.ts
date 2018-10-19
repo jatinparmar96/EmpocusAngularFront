@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../shared/services/api.service';
+import { ShareService } from 'app/shared/services/share.service';
 
 @Component({
   selector: 'app-view-raw-product',
@@ -10,11 +11,15 @@ import { ApiService } from '../../../shared/services/api.service';
 export class ViewRawProductComponent implements OnInit {
 
   products:any
+  link:any = '/dashboard/raw-product/new';
   page_controls:any
   constructor(
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private shareService:ShareService
   ) {
+    this.shareService.setVisibility(true)
+    this.shareService.setLink(this.link);
     apiService.get('admin/raw_product').then(data=>{
       let result :any = data
       if(result.status)

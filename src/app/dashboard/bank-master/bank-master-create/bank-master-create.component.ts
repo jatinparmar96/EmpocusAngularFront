@@ -34,7 +34,7 @@ export class BankMasterCreateComponent implements OnInit {
     private router:Router,
 
   ) {
-    
+    this.shareService.setVisibility(false)
     this.bank_data = fb.group({
       "id":['new',Validators.required],
       "account_no":["BOI20199380190",Validators.required],

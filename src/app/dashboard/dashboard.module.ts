@@ -34,13 +34,13 @@ import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
 import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 
-
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { BomProcessRepeatTypeComponent } from './bom/bom-process/bom-process-repeat-section.type';
 import { BOMScrapRepeatTypeComponent } from './bom/bom-scrap/bom-scarp-repeat-section.type';
 import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byproduct-repeat-section.type';
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
+import { SharedModule } from 'app/shared/shared.module';
 
 
 
@@ -51,10 +51,13 @@ import { ViewCategoryMasterComponent } from './category-master/view-category-mas
 @NgModule({
   imports: [
     NgbModule,
+    SharedModule,
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
+
     //Angular Formly
     FormlyBootstrapModule,
     FormlyModule.forRoot({
