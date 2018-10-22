@@ -6,7 +6,6 @@ import * as alertFunctions from '../../../shared/data/sweet-alert';
 import { ApiService } from '../../../shared/services/api.service';
 import { ShareService } from '../../../shared/services/share.service';
 import { NotifyService } from '../../../shared/services/notify.service';
-import { link } from 'fs';
 
 @Component({
   selector: 'app-bank-master-create',
