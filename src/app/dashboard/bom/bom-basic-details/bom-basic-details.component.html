@@ -18,8 +18,8 @@
                                         </formly-form>
 
                                         <div>
-                                            <button *ngIf="index !== 0" matStepperPrevious class="btn btn-raised btn-primary" type="button" (click)="prevStep(index)">Back</button>
-                                            <button *ngIf="!last" matStepperNext class="btn btn-primary btn-raised" type="button" [disabled]="!form.at(index).valid" (click)="nextStep(index)">Next</button>
+                                            <button *ngIf="index !== 0" matStepperPrevious class="btn btn-raised btn-primary mr-2" type="button" (click)="prevStep(index)">Back</button>
+                                            <button *ngIf="!last" matStepperNext class="btn btn-primary btn-raised " type="button" [disabled]="!form.at(index).valid" (click)="nextStep(index)">Next</button>
                                             <button *ngIf="last" class="btn btn-primary btn-raised" [disabled]="!form.valid" type="submit">Submit</button>
                                         </div>
                                     </mat-step>

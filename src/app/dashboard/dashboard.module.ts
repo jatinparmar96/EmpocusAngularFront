@@ -44,6 +44,10 @@ import { BomProcessComponent, TradeNameComponent } from './bom/bom-process/bom-p
 import { BomByproductComponent, SelectByProductComponent , SelectUOMByProductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 import { BomScrapComponent, SelectScrapProductComponent, SelectUOMScarpComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
+import { BomTradeNameComponent } from "./bom/bom-basic-details/BomTradeNameComponent";
+import { SelectUOMBOMBasicComponent } from "./bom/bom-basic-details/SelectUOMBOMBasicComponent";
+import { SelectProcessTypeComponent } from "./bom/bom-basic-details/SelectProcessTypeComponent";
+import { BomBasicDetailsRepeatTypeComponent } from './bom/bom-basic-details/bom-basic-details-repeat-section.type';
 
 
 @NgModule({
@@ -67,7 +71,10 @@ import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-deta
         { name: 'select4', component: SelectUOMByProductComponent },
         { name: 'select3', component: SelectScrapProductComponent },
         { name: 'select5', component: SelectUOMScarpComponent },
-        
+        { name: 'uom', component: SelectUOMBOMBasicComponent },
+        { name: 'repeatit', component: BomBasicDetailsRepeatTypeComponent },
+        { name: 'tradeName', component: BomTradeNameComponent },
+        { name: 'processType', component: SelectProcessTypeComponent },
       ],
     }),
     //Angular Formly
@@ -103,6 +110,7 @@ import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-deta
     BomBasicComponent,
     BomScrapComponent,
     BomByproductComponent,
+    BomBasicDetailsRepeatTypeComponent,
     BomProcessRepeatTypeComponent,
     BOMScrapRepeatTypeComponent,
     BOMByProductRepeatTypeComponent,
@@ -111,7 +119,10 @@ import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-deta
     SelectScrapProductComponent,
     SelectUOMByProductComponent,
     SelectUOMScarpComponent,
+    SelectUOMBOMBasicComponent,
+    BomTradeNameComponent,
     BomBasicDetailsComponent,
+    SelectProcessTypeComponent
   ],
   exports:[]
 })
