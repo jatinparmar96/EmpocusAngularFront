@@ -42,6 +42,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { BomProcessComponent, TradeNameComponent } from './bom/bom-process/bom-process.component';
 import { BomByproductComponent, SelectByProductComponent , SelectUOMByProductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 import { BomScrapComponent, SelectScrapProductComponent, SelectUOMScarpComponent } from './bom/bom-scrap/bom-scrap.component';
+import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
 
 
 @NgModule({
@@ -108,6 +109,7 @@ import { BomScrapComponent, SelectScrapProductComponent, SelectUOMScarpComponent
     SelectScrapProductComponent,
     SelectUOMByProductComponent,
     SelectUOMScarpComponent,
+    BomBasicDetailsComponent,
   ],
   exports:[]
 })
