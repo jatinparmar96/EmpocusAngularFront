@@ -1,3 +1,4 @@
+import { MatStepperModule } from '@angular/material/stepper';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -51,6 +52,7 @@ import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-deta
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
+    MatStepperModule,
     NgSelectModule,
     ReactiveFormsModule,
     //Angular Formly

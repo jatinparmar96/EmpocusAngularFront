@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
@@ -26,6 +26,8 @@ import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
 import { BomProcessComponent } from './bom/bom-process/bom-process.component';
 import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
+import { componentFactoryName } from '@angular/compiler';
+import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
 
 const routes:Routes= [
   {
@@ -135,6 +137,10 @@ const routes:Routes= [
         path:'bom/byproduct',
         component:BomByproductComponent
       },
+      {
+        path:'bom/steps',
+        component:BomBasicDetailsComponent
+      }
       
       
     ],
