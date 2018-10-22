@@ -27,6 +27,7 @@ import { BomProcessComponent } from './bom/bom-process/bom-process.component';
 import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
+import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
 
 const routes:Routes= [
   {
@@ -47,6 +48,10 @@ const routes:Routes= [
       {
         path:'branch-master/:id',
         component:CreateBranchMasterComponent
+      },
+      {
+        path:'branch-master/detail/:id',
+        component:ShowBranchComponent
       },
       {
         path:'branch-master',

@@ -41,6 +41,7 @@ import { BOMScrapRepeatTypeComponent } from './bom/bom-scrap/bom-scarp-repeat-se
 import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byproduct-repeat-section.type';
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 import { SharedModule } from 'app/shared/shared.module';
+import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
 
 
 
@@ -106,6 +107,7 @@ import { SharedModule } from 'app/shared/shared.module';
     BOMScrapRepeatTypeComponent,
     BOMByProductRepeatTypeComponent,
     ViewCategoryMasterComponent,
+    ShowBranchComponent,
 
     
   ],

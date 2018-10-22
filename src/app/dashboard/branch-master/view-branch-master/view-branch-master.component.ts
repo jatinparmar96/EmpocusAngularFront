@@ -35,6 +35,10 @@ export class ViewBranchMasterComponent implements OnInit {
   {
     this.router.navigateByUrl('/dashboard/branch-master/'+branch_id);
   }
+  show(branch_id)
+  {
+    this.router.navigateByUrl('/dashboard/branch-master/detail/'+branch_id);
+  }
   toNext()
   {
     this.router.navigateByUrl('/dashboard/branch-master/new');
