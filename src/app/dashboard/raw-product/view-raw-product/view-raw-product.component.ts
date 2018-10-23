@@ -42,6 +42,9 @@ export class ViewRawProductComponent implements OnInit {
   {
     this.router.navigateByUrl('/dashboard/raw-product/new');
   }
-
+  show(product_id)
+  {
+    this.router.navigateByUrl('/dashboard/raw-product/detail/'+product_id);
+  }
 
 }

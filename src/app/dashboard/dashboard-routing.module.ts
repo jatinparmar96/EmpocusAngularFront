@@ -31,6 +31,7 @@ import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-deta
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
 import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of-account/show-charts-of-account.component';
+import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw-product.component';
 
 const routes:Routes= [
   {
@@ -123,7 +124,11 @@ const routes:Routes= [
       {
         path:'raw-product',
         component:ViewRawProductComponent
-      },  
+      },
+      {
+        path:'raw-product/detail/:id',
+        component:ShowRawProductComponent
+      },
       {
         path:'category/:id',
         component:CreateCategoryMasterComponent

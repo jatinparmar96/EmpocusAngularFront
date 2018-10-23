@@ -55,6 +55,8 @@ import { SelectProcessTypeComponent } from 'app/sharedComponents/SelectProcessTy
 import { TimefieldComponent } from 'app/sharedComponents/TimefieldComponent';
 import { SelectScrapMaterialComponent } from 'app/sharedComponents/SelectScrapMaterialComponent';
 import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageComponent';
+import { ShowCategoryMasterComponent } from './category-master/show-category-master/show-category-master.component';
+import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw-product.component';
 
 
 @NgModule({
@@ -144,6 +146,8 @@ import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageCompon
     ViewCategoryMasterComponent,
     ShowBranchComponent,
     ShowChartsOfAccountComponent,
+    ShowCategoryMasterComponent,
+    ShowRawProductComponent,
 
     
   ],
