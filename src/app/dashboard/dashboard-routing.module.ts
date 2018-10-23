@@ -103,6 +103,10 @@ const routes:Routes= [
         component:ViewChartsOfAccountComponent
       },
       {
+        path:'charts-of-accounts/detail/:id',
+        component:ShowChartsOfAccountComponent
+      },
+      {
         path:'unit-of-measurement/:id',
         component:CreateUnitOfMeasurementComponent
       },
