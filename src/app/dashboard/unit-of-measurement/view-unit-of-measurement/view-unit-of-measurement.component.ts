@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../shared/services/api.service';
+import { ShareService } from 'app/shared/services/share.service';
 
 
 
@@ -12,18 +13,23 @@ import { ApiService } from '../../../shared/services/api.service';
 export class ViewUnitOfMeasurementComponent implements OnInit {
   
   rows:any
-
+  page_controls:any
+  link:any = '/dashboard/unit-of-measurement/new';
+  visible:boolean
   constructor(
     private router:Router,
-    private apiService:ApiService
+    private apiService:ApiService,
+    private shareService:ShareService
   ) { 
+    this.shareService.setVisibility(true)
+    this.shareService.setLink(this.link);
     apiService.get('admin/uom').then(data=>{
-      let l_data :any = data
-      if(l_data.status)
+      let result :any = data
+      if(result.status)
       {
-        console.log(l_data);
-        this.rows =(l_data.data);    
-
+        this.page_controls= result.data
+        this.rows = result.data.data;
+      
       }
     }).catch(error =>{
       console.error(error);
@@ -33,7 +39,10 @@ export class ViewUnitOfMeasurementComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  edit(id)
+  {
+    this.router.navigateByUrl('/dashboard/unit-of-measurement/'+id);
+  }
   toCreate()
   {
     this.router.navigateByUrl('/dashboard/unit-of-measurement/new');

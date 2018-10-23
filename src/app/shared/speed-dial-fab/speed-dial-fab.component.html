@@ -1,0 +1,11 @@
+<div id="fab-dismiss" *ngIf="fabTogglerState==='active'" (click)="onToggleFab()">
+</div>
+<div class="fab-container">
+  <div class="d-flex justify-content-end ">
+      <div></div>
+      <div>
+          <button class="fab-toggler btn btn-round btn-microsoft btn-large" (click)="goToLink()">
+              <i class="fa fa-plus" [@fabToggler]="{value: fabTogglerState}"></i>
+            </button>
+      </div>
+  </div>

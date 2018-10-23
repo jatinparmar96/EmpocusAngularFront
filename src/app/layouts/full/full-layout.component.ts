@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import {ShareService } from '../../shared/services/share.service';
+import { Router } from '@angular/router';
 @Component({
     selector: 'app-full-layout',
     templateUrl: './full-layout.component.html',
@@ -11,17 +12,25 @@ export class FullLayoutComponent {
     options = {
         direction: 'ltr'
     };
-    visible:boolean
-    
     constructor(
-        private shareService:ShareService){
-            this.visible = shareService.getVisiblity();
+        private shareService:ShareService,
+        private router:Router){
+            this.shareService.setVisibility(false);
         }
         
 
     ngOnInit(){
-    console.log(this.shareService.getCurrentUser()
-    );
-
+    }
+    ngOnChanges(): void {
+      this.checkVisibility()
+        
+    }
+    checkVisibility()
+    {
+        return this.shareService.getVisiblity();
+    }
+    toLink()
+    {
+        this.router.navigateByUrl(this.shareService.getLink());
     }
 }

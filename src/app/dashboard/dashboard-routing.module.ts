@@ -28,6 +28,8 @@ import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 import { componentFactoryName } from '@angular/compiler';
 import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
+import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
+import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
 
 const routes:Routes= [
   {
@@ -48,6 +50,10 @@ const routes:Routes= [
       {
         path:'branch-master/:id',
         component:CreateBranchMasterComponent
+      },
+      {
+        path:'branch-master/detail/:id',
+        component:ShowBranchComponent
       },
       {
         path:'branch-master',
@@ -117,6 +123,10 @@ const routes:Routes= [
         path:'category/:id',
         component:CreateCategoryMasterComponent
       },  
+      {
+        path:'category',
+        component:ViewCategoryMasterComponent
+      },
       {
         path:'bom/new',
         component:BomBasicComponent

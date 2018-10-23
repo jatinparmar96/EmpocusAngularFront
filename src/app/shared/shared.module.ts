@@ -8,6 +8,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { ToggleFullscreenDirective } from "./directives/toggle-fullscreen.directive";
+import { SpeedDialFabComponent } from './speed-dial-fab/speed-dial-fab.component';
 
 
 
@@ -18,18 +19,20 @@ import { ToggleFullscreenDirective } from "./directives/toggle-fullscreen.direct
         NavbarComponent,
         SidebarComponent,
         ToggleFullscreenDirective,
-        NgbModule
+        NgbModule,
+        SpeedDialFabComponent,
     ],
     imports:[
         RouterModule,
         CommonModule,
-        NgbModule
+        NgbModule,
     ],
     declarations: [
         FooterComponent,
         NavbarComponent,
         SidebarComponent,
-        ToggleFullscreenDirective
+        ToggleFullscreenDirective,
+        SpeedDialFabComponent,
         ]
 })
 export class SharedModule { }

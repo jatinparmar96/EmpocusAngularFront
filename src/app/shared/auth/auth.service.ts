@@ -26,13 +26,11 @@ export class AuthService {
      return new Promise((register,error)=>{
        this.apiService.post('auth/signup',user).then((data)=>{
         let user:any = data;
-        console.log('Sign up Auth Service '+user);
         this.token = user;
         this.updateToken(user.token)
          register(user);
        }).catch((er)=>
        {
-         console.log(er.error.error.errors)
            error(er.error.error.errors);
        }) 
      })
@@ -42,7 +40,6 @@ export class AuthService {
       return new Promise((login,reject)=>{
         this.apiService.post('auth/login',user).then((data)=>{
             let user :any = data;
-            console.log('Sign in Auth Service '+user);
             if (user.status) {
                this.token = user;
               this.updateToken(user.token)
@@ -65,7 +62,6 @@ export class AuthService {
       return new Promise((resolve,reject)=>{
           this.apiService.post('admin/setCompany/'+company_id,company_id).then(data=>{
             let user:any = data;
-            console.log(user);
            if(user.status){
               this.token = user;
               this.updateToken(user.token)

@@ -34,54 +34,57 @@ export class CreateBranchMasterComponent implements OnInit {
     private notifyService: NotifyService,
     private router:Router,
   ) { 
+    this.shareService.setVisibility(false)
     apiService.get('admin/bank_full_list').then(data=>{
         let l_data:any = data;
         if(l_data.status)
         {
           this.data = l_data.data
-          console.log(this.data)
         }
     })
+    this.resetErrorMessages();
     this.branch_data = fb.group({
       "id":['new',Validators.required],
       "address_id":['new',Validators.required],
-      "branch_name":["Demo Branch Name",Validators.required],
-      "branch_code":["BC001",Validators.required],
-      "branch_gst_number":["GST7ZXY123IWX",Validators.required],
-      "branch_address_building_name":["Sample Building Name",Validators.required],
-      "branch_address_road_name":["Sample Road Name",Validators.required],
-      "branch_address_landmark":["Sample Landmark Name",Validators.required],
-      "branch_address_pincode":["415465",Validators.required],
-      "branch_address_country":["India",Validators.required],
-      "branch_address_state":["Maharashtra",Validators.required],
-      "branch_address_city":["Mumbai",Validators.required],
+      "branch_name":["",Validators.required],
+      "branch_code":["",Validators.required],
+      "branch_gst_number":["",Validators.required],
+      "branch_address_building":["",Validators.required],
+      "branch_address_road_name":["",Validators.required],
+      "branch_address_landmark":["",Validators.required],
+      "branch_address_pincode":["",Validators.required],
+      "branch_address_country":["",Validators.required],
+      "branch_address_state":["",Validators.required],
+      "branch_address_city":["",Validators.required],
       "branch_bank_id":["",Validators.required],
-      "branch_godown":["Yes",Validators.required],
-      
-      
+      "branch_godown":["No",Validators.required],
     })
+    
   }
 
   ngOnInit() {
     // 2 Starts
     this.route.params.subscribe(params => {
-      console.log(params['id'])
 			if(params['id']=='new'){
-				this.id="new";
+        this.id="new";
+        console.log(this.branch_data.value)
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
-				this.getData(this.id);
+        this.getData(this.id);
+        
 			}
     });
     // 2 Ends
   
   }
   // 3 Starts
+  
   getData(id:any){
 		this.apiService.get("admin/branch/"+id)
 		.then(data => { 
-			let l_data: any = data;
-			this.branch_data.patchValue(l_data.data);					
+      let l_data: any = data;
+      this.branch_data.patchValue(l_data.data);	
+      console.log(this.branch_data.value)				
 		})
 	}
   addOrUpdate(branch){
@@ -114,7 +117,8 @@ export class CreateBranchMasterComponent implements OnInit {
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-									}, 'error');
+                  }, 'error');
+                  this.errors = result.error
 							}
     
 			})

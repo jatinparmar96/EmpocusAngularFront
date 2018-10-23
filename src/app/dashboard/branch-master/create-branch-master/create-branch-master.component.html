@@ -18,6 +18,9 @@
                                     <input type="text" class="form-control" formControlName="branch_name" id="branch_name" name="branch_name">
                                     <input type="hidden" formControlName="id" id="id" value="new" class="form-control border-primary" name="id">
                                     <input type="hidden" formControlName="address_id" value="new" id="address_id" class="form-control border-primary" name="address_id">
+                                    <div *ngIf="errors.branch_name !== '' ">
+                                            <p class="red mt-1">{{errors.branch_name}}</p>
+                                          </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -59,7 +62,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="bbn">Block No./ Building Name</label>
-                                    <input type="text" class="form-control" formControlName="branch_address_building_name" id="bbn" name="bbn">
+                                    <input type="text" class="form-control" formControlName="branch_address_building" id="bbn" name="bbn">
                                 </div>
                             </div>
                             <div class="col-md-6">

@@ -3,27 +3,34 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <div class="card-block">
                 <div class="row">
                     <div class="col-lg-12">
-                        <table class="table">
+                        <table class="table table-bordered table-responsive-md">
                             <thead>
                                 <th>Branch Name</th>
                                 <th>Gst Number</th>
                                 <th>Branch Code</th>
+                                <th>Godown</th>
+                                <th>Action</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
+                                <tr *ngFor="let branch of rows">
+                                    <td>{{branch.branch_name}}</td>
+                                    <td>{{branch.branch_gst_number}}</td>
+                                    <td>{{branch.branch_code}}</td>
+                                    <td>{{branch.branch_godown}}</td>
+                                    <td>
+                                       <a (click)="show(branch.id)" class="danger p-0"><i class="fa fa-eye"></i></a>
+                                       <a (click)="edit(branch.id)" class="success p-0 ml-2"><i class="fa fa-edit"></i></a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- <button class="btn btn-primary btn-raised" (click)="toNext()">Next Page</button> -->

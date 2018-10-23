@@ -16,12 +16,18 @@
                                         <input type="text" formControlName="ca_company_name" placeholder="Roxso LLP" id="ca_company_name" class="form-control border-primary" name="ca_company_name">
                                         <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
                                         <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
+                                        <div *ngIf="errors.ca_company_name !== '' ">
+                                                <p class="red mt-1">{{errors.ca_company_name}}</p>
+                                              </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="ca_company_display_name">Company Display Name</label>
                                         <input type="text" formControlName="ca_company_display_name" id="ca_company_display_name" placeholder="Roxso" class="form-control border-primary" name="ca_company_display_name">
+                                        <div *ngIf="errors.ca_company_display_name !== '' ">
+                                                <p class="red mt-1">{{errors.ca_company_display_name}}</p>
+                                              </div>
                                     </div>
                                 </div>
                             </div>
@@ -99,47 +105,46 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="ca_first_name">First Name</label>
-                                                        <input type="text" formControlName="ca_first_name" id="ca_first_name" class="form-control border-primary" name="ca_first_name">
+                                                        <label for="ca_contact_first_name">First Name</label>
+                                                        <input type="text" formControlName="ca_contact_first_name" id="ca_contact_first_name" class="form-control border-primary" name="ca_contact_first_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="ca_last_name">Last Name</label>
-                                                        <input type="text" formControlName="ca_last_name" id="ca_last_name" class="form-control border-primary" name="ca_last_name">
+                                                        <label for="ca_contact_last_name">Last Name</label>
+                                                        <input type="text" formControlName="ca_contact_last_name" id="ca_contact_last_name" class="form-control border-primary" name="ca_contact_last_name">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="ca_mobile_number">Mobile Number</label>
-                                                        <input type="tel" formControlName="ca_mobile_number" id="ca_mobile_number" class="form-control border-primary" name="ca_mobile_number">
+                                                        <label for="ca_contact_mobile_number">Mobile Number</label>
+                                                        <input type="tel" formControlName="ca_contact_mobile_number" id="ca_contact_mobile_number" class="form-control border-primary" name="ca_contact_mobile_number">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="ca_email">Email</label>
-                                                        <input type="ca_email" formControlName="ca_email" id="ca_email" class="form-control border-primary" name="ca_email">
+                                                        <label for="ca_contact_email">Email</label>
+                                                        <input type="ca_contact_email" formControlName="ca_contact_email" id="ca_contact_email" class="form-control border-primary" name="ca_contact_email">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="ca_designation">Designation</label>
-                                                        <input type="ca_designation" formControlName="ca_designation" id="ca_designation" class="form-control border-primary" name="ca_designation">
+                                                        <label for="ca_contact_designation">Designation</label>
+                                                        <input type="ca_contact_designation" formControlName="ca_contact_designation" id="ca_contact_designation" class="form-control border-primary" name="ca_contact_designation">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="ca_branch">Branch</label>
-                                                        <input type="text" formControlName="ca_branch" id="ca_branch" class="form-control border-primary" name="ca_branch">
+                                                        <label for="ca_contact_branch">Branch</label>
+                                                        <input type="text" formControlName="ca_contact_branch" id="ca_contact_branch" class="form-control border-primary" name="ca_contact_branch">
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="tab-pane" [class.active]="active=='missed'" id="missed" role="tabpanel">
                                             <div class="row">
@@ -232,8 +237,6 @@
                                                         <input type="text" formControlName="ca_tan" class="form-control" id="ca_tan" name="ca_tan">
                                                     </div>
                                                 </div>
-
-
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="ca_date_opened">Date Opened</label>
@@ -258,6 +261,7 @@
                         </div>
                         <div class="form-actions left">
                             <input type="submit" value="Save" class="btn btn-raised btn-primary">
+                            <input type="button" value="Cancel" (click)='cancel()' class="btn btn-raised ml-1 btn-danger">
                         </div>
                     </form>
                 </div>

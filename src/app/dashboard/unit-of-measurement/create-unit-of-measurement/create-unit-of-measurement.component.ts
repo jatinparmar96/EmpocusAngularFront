@@ -16,13 +16,14 @@ import { NotifyService } from '../../../shared/services/notify.service';
 export class CreateUnitOfMeasurementComponent implements OnInit {
 
   active = 'today';
+  button_text ='Add UOM'
   debug = true;
   formTouched: boolean = false;
   isProcessing: boolean = false;
   errors: any;
   id: any = "new";
   // Replacable
-  
+  next:boolean = false;
   unit_data: FormGroup;
   uom: any;
   constructor(
@@ -36,10 +37,12 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
   ) 
   // 1 Starts
   {
+    this.shareService.setVisibility(false);
     this.unit_data = fb.group({
-      "unit_name": ['Kg', Validators.required],
+      "unit_name": ['', Validators.required],
       "id":['new',Validators.required],
     });
+    this.resetErrorMessages();
   }
   // 1 Ends
   
@@ -53,7 +56,8 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 				this.id="new";
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
-				this.getData(this.id);
+        this.getData(this.id);
+        this.button_text = "Edit UOM";
 			}
     });
     // 2 Ends
@@ -68,11 +72,11 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 		})
 	}
   addOrUpdate(uom){
+    console.log(uom)
     // this.notifyService.show({
     //   title: 'Success',
     //   message: 'Done'
     // }, 'success');
-		
 		this.formTouched = true;
 		if(uom.invalid){
 			return false;
@@ -90,13 +94,25 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success');
+                },'success');
+                if(this.next)
+                {
+               
+                  this.resetForm(uom);
+                  
+                }
+                else
+                {
+                  console.log('else');
+                }
+
 							}
 							else{
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-									}, 'error');
+                  }, 'error');
+                  this.errors = result.error;
 							}
     
 			})
@@ -113,9 +129,19 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 			"unit_name": [""]	
 		}
   }
-  
+  resetForm(uom)
+  {
+    console.log('form Reseted')
+    uom.id = 'new';
+    uom.unit_name = '';
+  }
+  advanceNext()
+  {
+    this.next = true;
+  }
   cancel(){
     this.router.navigateByUrl('/dashboard/unit-of-measurement');
   }
+ 
 // 3 Ends
 }

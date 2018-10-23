@@ -22,5 +22,4 @@ export class SidebarComponent implements OnInit {
         $.getScript('./assets/js/app-sidebar.js');
         this.menuItems = ROUTES.filter(menuItem => menuItem);
     }
-
 }

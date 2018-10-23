@@ -31,12 +31,14 @@ import { CreateCategoryMasterComponent } from './category-master/create-category
 import { ArchwizardModule } from 'angular-archwizard';
 import { BomRawMaterialComponent } from './bom/bom-raw-material/bom-raw-material.component';
 import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
-
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { BomProcessRepeatTypeComponent } from './bom/bom-process/bom-process-repeat-section.type';
 import { BOMScrapRepeatTypeComponent } from './bom/bom-scrap/bom-scarp-repeat-section.type';
 import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byproduct-repeat-section.type';
+import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
+import { SharedModule } from 'app/shared/shared.module';
+import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
 
 
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -57,12 +59,15 @@ import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageCompon
 @NgModule({
   imports: [
     NgbModule,
+    SharedModule,
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
     MatStepperModule,
     NgSelectModule,
     ReactiveFormsModule,
+    SharedModule,
+
     //Angular Formly
     FormlyBootstrapModule,
     FormlyModule.forRoot({
@@ -135,6 +140,10 @@ import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageCompon
     SelectByProductCompo,
     SelectScrapMaterialComponent,
     SelectWastageComponent,
+    ViewCategoryMasterComponent,
+    ShowBranchComponent,
+
+    
   ],
   exports:[
     CreateUnitOfMeasurementComponent,

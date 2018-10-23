@@ -5,17 +5,23 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <table class="table">
+                        <table class="table table-bordered">
                             <thead>
-                                <th>Branch Name</th>
-                                <th>Gst Number</th>
-                                <th>Branch Code</th>
+                                <th>Product Name</th>
+                                <th>Product Category</th>
+                                <th>Product UOM</th>
+                                <th>Product Store Location</th>
+                                <th>Action</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
+                                <tr *ngFor="let product of products">
+                                    <td>{{product.product_display_name}}</td>
+                                    <td>{{product.product_category_name}}</td>
+                                    <td>{{product.product_uom}}</td>
+                                    <td>{{product.product_store_location}}</td>
+                                    <td>
+                                        <a (click)="edit(product.id)" class="success p-0"><i class="fa fa-edit"></i></a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -26,4 +32,3 @@
     </div>
 </div>
 
-<!-- <button class="btn btn-primary btn-raised" (click)="toNext()">Next Page</button> -->
