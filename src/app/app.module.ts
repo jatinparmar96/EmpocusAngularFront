@@ -32,9 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
 import * as animations from '@angular/platform-browser/animations';
 import { ArchwizardModule } from 'angular-archwizard';
 
-// import {FormlyModule} from '@ngx-formly/core';
-// import {FormlyBootstrapModule} from '@ngx-formly/bootstrap';
-// import { RepeatTypeComponent } from './shared/reactive-form/repeat-section.type';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 
 
@@ -80,6 +79,7 @@ export function tokenGetter() {
         ArchwizardModule,
         BrowserAnimationsModule,
         SharedModule,
+        NgSelectModule,
         AppRoutingModule,
          HttpClientModule,
         NgbModule.forRoot(),

@@ -11,6 +11,9 @@
                 <div class="card-block pt-1">
                     <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add New Raw Material</button>
                     <br>
+
+                    <ng-select #agesSelect [items]="ages" [selectOnTab]="true" bindValue="value" labelForId="age" (ngModelChange)="showConfirm()" placeholder="Select age" formControlName="age">
+                    </ng-select>
                     <button (click)="toPrevious()" [disabled]=isProcessing class="btn btn-raised btn-primary">Previous</button>
                     <button (click)="toNext()" [disabled]=isProcessing class="btn btn-raised btn-primary ml-2">Next</button>
 

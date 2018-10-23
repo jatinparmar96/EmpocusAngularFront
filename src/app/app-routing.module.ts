@@ -44,7 +44,7 @@ const appRoutes: Routes = [
     data:{
       title:'Setup Company'
     },
-   canActivate: [AuthGuard],
+   // canActivate: [AuthGuard], 
     children: [
         {
           path:'BranchDetails/',
@@ -69,7 +69,7 @@ const appRoutes: Routes = [
       path:'',
       component:FullLayoutComponent,
       children:Full_ROUTES,
-       canActivate: [AuthGuard] 
+       // canActivate: [AuthGuard], 
   },
 
   {
@@ -85,7 +85,7 @@ const appRoutes: Routes = [
     component: FullLayoutComponent, 
     data: { title: 'full Views' },
     children: Full_ROUTES, 
-     canActivate: [AuthGuard] 
+     // canActivate: [AuthGuard], 
   },
 
   { 

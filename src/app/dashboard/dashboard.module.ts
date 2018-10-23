@@ -1,3 +1,4 @@
+import { MatStepperModule } from '@angular/material/stepper';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -29,11 +30,7 @@ import { ViewBillOfMaterialComponent } from './bill-of-material/view-bill-of-mat
 import { CreateCategoryMasterComponent } from './category-master/create-category-master/create-category-master.component';
 import { ArchwizardModule } from 'angular-archwizard';
 import { BomRawMaterialComponent } from './bom/bom-raw-material/bom-raw-material.component';
-import { BomProcessComponent } from './bom/bom-process/bom-process.component';
 import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
-import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
-import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
-
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { BomProcessRepeatTypeComponent } from './bom/bom-process/bom-process-repeat-section.type';
@@ -45,9 +42,19 @@ import { ShowBranchComponent } from './branch-master/show-branch/show-branch.com
 import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of-account/show-charts-of-account.component';
 
 
-
-
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { BomProcessComponent, TradeNameComponent } from './bom/bom-process/bom-process.component';
+import { BomByproductComponent, SelectByProductComponent , SelectUOMByProductComponent } from './bom/bom-byproduct/bom-byproduct.component';
+import { BomScrapComponent, SelectScrapProductComponent, SelectUOMScarpComponent } from './bom/bom-scrap/bom-scrap.component';
+import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
+import { SelectByProductCompo } from "app/sharedComponents/SelectByProductCompo";
+import { BomBasicDetailsRepeatTypeComponent } from '../sharedComponents/bom-basic-details-repeat-section.type';
+import { SelectUOMBOMBasicComponent } from 'app/sharedComponents/SelectUOMBOMBasicComponent';
+import { BomTradeNameComponent } from 'app/sharedComponents/BomTradeNameComponent';
+import { SelectProcessTypeComponent } from 'app/sharedComponents/SelectProcessTypeComponent';
+import { TimefieldComponent } from 'app/sharedComponents/TimefieldComponent';
+import { SelectScrapMaterialComponent } from 'app/sharedComponents/SelectScrapMaterialComponent';
+import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageComponent';
 
 
 @NgModule({
@@ -57,6 +64,8 @@ import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of
     CommonModule,
     DashboardRoutingModule,
     FormsModule,
+    MatStepperModule,
+    NgSelectModule,
     ReactiveFormsModule,
     SharedModule,
 
@@ -64,11 +73,22 @@ import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of
     FormlyBootstrapModule,
     FormlyModule.forRoot({
       types: [
-        { name: 'repeat', component: BomProcessRepeatTypeComponent },
-        { name: 'repeat', component: BOMScrapRepeatTypeComponent },
-        { name: 'repeat', component: BOMByProductRepeatTypeComponent },
-        
-        
+        { name: 'repeat1', component: BomProcessRepeatTypeComponent },
+        { name: 'repeat2', component: BOMScrapRepeatTypeComponent },
+        { name: 'repeat3', component: BOMByProductRepeatTypeComponent },
+        { name: 'select1', component: TradeNameComponent },
+        { name: 'select2', component: SelectByProductComponent },
+        { name: 'select4', component: SelectUOMByProductComponent },
+        { name: 'select3', component: SelectScrapProductComponent },
+        { name: 'select5', component: SelectUOMScarpComponent },
+        { name: 'uom', component: SelectUOMBOMBasicComponent },
+        { name: 'repeatit', component: BomBasicDetailsRepeatTypeComponent },
+        { name: 'tradeName', component: BomTradeNameComponent },
+        { name: 'processType', component: SelectProcessTypeComponent },
+        { name: 'timeField', component: TimefieldComponent },
+        { name: 'selectByProduct', component: SelectByProductCompo },
+        { name: 'selectScarpMaterial', component: SelectScrapMaterialComponent },
+        { name: 'selectWastage', component: SelectWastageComponent },
       ],
     }),
     //Angular Formly
@@ -104,9 +124,23 @@ import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of
     BomBasicComponent,
     BomScrapComponent,
     BomByproductComponent,
+    BomBasicDetailsRepeatTypeComponent,
     BomProcessRepeatTypeComponent,
     BOMScrapRepeatTypeComponent,
     BOMByProductRepeatTypeComponent,
+    TradeNameComponent,
+    SelectByProductComponent,
+    SelectScrapProductComponent,
+    SelectUOMByProductComponent,
+    SelectUOMScarpComponent,
+    SelectUOMBOMBasicComponent,
+    BomTradeNameComponent,
+    BomBasicDetailsComponent,
+    SelectProcessTypeComponent,
+    TimefieldComponent,
+    SelectByProductCompo,
+    SelectScrapMaterialComponent,
+    SelectWastageComponent,
     ViewCategoryMasterComponent,
     ShowBranchComponent,
     ShowChartsOfAccountComponent,
