@@ -23,6 +23,10 @@ export class BomBasicDetailsComponent implements OnInit {
   // model = {};
   model = {
     manufacture: [{}],
+    byProduct: [{}],
+    scrapMaterial: [{}],
+    wastage: [{}],
+    
   };
   
   // options: FormlyFormOptions = {}
@@ -154,55 +158,152 @@ export class BomBasicDetailsComponent implements OnInit {
                 },
               },
               {
+                key:'timeField',
+                type: 'timeField',
+                className: 'col-lg-2',
+                templateOptions: {
+                  // label: 'Time:',
+                },
+              },
+              {
                 type: 'input',
                 key: 'processQty',
                 className: 'col-lg-2',
                 templateOptions: {
                   type: 'number',
-                  label: 'Process Qty:',
+                  label: 'Qty:',
                 },
               },
-              // {
-              //   type: 'input',
-              //   key: 'availableQty',
-              //   className: 'col-lg-2',
-              //   templateOptions: {
-              //     type: 'number',
-              //     label: 'Available Qty:',
-              //     readOnly: true,
-              //     placeholder: '200',
-              //   },
-              //   expressionProperties: {
-              //     'templateOptions.disabled': '!model.text',
-              //   },
-              // },
-              // {
-              //   type: 'input',
-              //   key: 'uom',
-              //   className: 'col-lg-1',
-              //   templateOptions: {
-              //     label: 'UOM:',
-              //     placeholder: 'ltr',
-              //   },
-              //   expressionProperties: {
-              //     'templateOptions.disabled': '!model.text',
-              //   },
-              // },
             ],
           },
         },
       ],
     },
     {
-      label: 'Day of the trip',
+      label: 'By-Product',
+      
       fields: [
         {
-          key: 'day',
-          type: 'input',
-          templateOptions: {
-            type: 'date',
-            label: 'Day of the trip',
-            //required: true,
+          key: 'byProduct',
+          type: 'repeatit',
+          fieldArray: {
+            fieldGroupClassName: 'row',
+            templateOptions: {
+              btnText: 'Add new by Product',
+            },
+            fieldGroup: [
+              {
+                key:'selectByProduct',
+                type: 'selectByProduct',
+                className: 'col-lg-3',
+                templateOptions: {
+                  label: 'Select By-Product:',
+                },
+              },
+              {
+                key:'byProductUOM',
+                type: 'uom',
+                className: 'col-lg-3',
+                templateOptions: {
+                  label: 'UOM:',
+                },
+              },
+              {
+                type: 'input',
+                key: 'byproductQty',
+                className: 'col-lg-2',
+                templateOptions: {
+                  type: 'number',
+                  label: 'By-Product Qty:',
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      label: 'Scrap Material',
+      
+      fields: [
+        {
+          key: 'scrapMaterial',
+          type: 'repeatit',
+          fieldArray: {
+            fieldGroupClassName: 'row',
+            templateOptions: {
+              btnText: 'Add new Scrap Material',
+            },
+            fieldGroup: [
+              {
+                key:'selectScarpMaterial',
+                type: 'selectScarpMaterial',
+                className: 'col-lg-3',
+                templateOptions: {
+                  label: 'Select Scrap Material:',
+                },
+              },
+              {
+                key:'scarpMaterialUOM',
+                type: 'uom',
+                className: 'col-lg-3',
+                templateOptions: {
+                  label: 'UOM:',
+                },
+              },
+              {
+                type: 'input',
+                key: 'scarpQty',
+                className: 'col-lg-2',
+                templateOptions: {
+                  type: 'number',
+                  label: 'Scarp Qty:',
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      label: 'Wastage',
+      
+      fields: [
+        {
+          key: 'wastage',
+          type: 'repeatit',
+          fieldArray: {
+            fieldGroupClassName: 'row',
+            templateOptions: {
+              btnText: 'Add New Wastage',
+            },
+            fieldGroup: [
+              {
+                key:'selectWastage',
+                type: 'selectWastage',
+                className: 'col-lg-3',
+                templateOptions: {
+                  label: 'Select Wastage Material:',
+                },
+              },
+              {
+                key:'wastageUOM',
+                type: 'uom',
+                className: 'col-lg-3',
+                templateOptions: {
+                  label: 'UOM:',
+                },
+              },
+              {
+                type: 'input',
+                key: 'wastageQty',
+                className: 'col-lg-2',
+                templateOptions: {
+                  type: 'number',
+                  label: 'Wastage Qty:',
+                },
+              },
+            ],
           },
         },
       ],
@@ -224,5 +325,4 @@ export class BomBasicDetailsComponent implements OnInit {
     alert(JSON.stringify(this.model));
   }
 }
-
 

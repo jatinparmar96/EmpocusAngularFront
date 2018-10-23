@@ -44,10 +44,14 @@ import { BomProcessComponent, TradeNameComponent } from './bom/bom-process/bom-p
 import { BomByproductComponent, SelectByProductComponent , SelectUOMByProductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 import { BomScrapComponent, SelectScrapProductComponent, SelectUOMScarpComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
-import { BomTradeNameComponent } from "./bom/bom-basic-details/BomTradeNameComponent";
-import { SelectUOMBOMBasicComponent } from "./bom/bom-basic-details/SelectUOMBOMBasicComponent";
-import { SelectProcessTypeComponent } from "./bom/bom-basic-details/SelectProcessTypeComponent";
-import { BomBasicDetailsRepeatTypeComponent } from './bom/bom-basic-details/bom-basic-details-repeat-section.type';
+import { SelectByProductCompo } from "app/sharedComponents/SelectByProductCompo";
+import { BomBasicDetailsRepeatTypeComponent } from '../sharedComponents/bom-basic-details-repeat-section.type';
+import { SelectUOMBOMBasicComponent } from 'app/sharedComponents/SelectUOMBOMBasicComponent';
+import { BomTradeNameComponent } from 'app/sharedComponents/BomTradeNameComponent';
+import { SelectProcessTypeComponent } from 'app/sharedComponents/SelectProcessTypeComponent';
+import { TimefieldComponent } from 'app/sharedComponents/TimefieldComponent';
+import { SelectScrapMaterialComponent } from 'app/sharedComponents/SelectScrapMaterialComponent';
+import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageComponent';
 
 
 @NgModule({
@@ -75,6 +79,14 @@ import { BomBasicDetailsRepeatTypeComponent } from './bom/bom-basic-details/bom-
         { name: 'repeatit', component: BomBasicDetailsRepeatTypeComponent },
         { name: 'tradeName', component: BomTradeNameComponent },
         { name: 'processType', component: SelectProcessTypeComponent },
+        { name: 'timeField', component: TimefieldComponent },
+        { name: 'selectByProduct', component: SelectByProductCompo },
+        { name: 'selectScarpMaterial', component: SelectScrapMaterialComponent },
+        { name: 'selectWastage', component: SelectWastageComponent },
+        
+        
+        
+        
       ],
     }),
     //Angular Formly
@@ -122,7 +134,11 @@ import { BomBasicDetailsRepeatTypeComponent } from './bom/bom-basic-details/bom-
     SelectUOMBOMBasicComponent,
     BomTradeNameComponent,
     BomBasicDetailsComponent,
-    SelectProcessTypeComponent
+    SelectProcessTypeComponent,
+    TimefieldComponent,
+    SelectByProductCompo,
+    SelectScrapMaterialComponent,
+    SelectWastageComponent,
   ],
   exports:[]
 })

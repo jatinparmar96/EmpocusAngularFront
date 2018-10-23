@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgOption } from '@ng-select/ng-select';
+
+
+
 // Select UOM Starts
 @Component({
-  selector: 'select-by-product-name',
+  selector: 'select-UOM',
   template: `
   <div class="d-flex flex-column">
   <div class="d-flex flex-row">
@@ -16,7 +19,7 @@ import { NgOption } from '@ng-select/ng-select';
       </div>
   </div>
   <div>
-      <ng-select #UOMSelect [items]="UOM " [formControl]="formControl " [selectOnTab]="true" bindValue="value " labelForId="UOM" placeholder="Select Scrap UOM">
+      <ng-select #UOMSelect [items]="UOM " [formControl]="formControl " [selectOnTab]="true" bindValue="value " labelForId="UOM" placeholder="Common UOM">
       </ng-select>
   </div>
 </div>
@@ -30,7 +33,8 @@ import { NgOption } from '@ng-select/ng-select';
   <div class="modal-body">
       <form>
           <div class="form-group">
-              <p>UOM Scrap Content</p>
+              // <p>UOM Scrap Content</p>
+              
           </div>
       </form>
   </div>
