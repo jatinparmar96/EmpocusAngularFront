@@ -35,7 +35,6 @@ export class ShowBranchComponent implements OnInit {
 		.then(data => { 
       let l_data: any = data;	
      this.branch = l_data.data;
-     console.log(this.branch)
 		})
 	}
 }

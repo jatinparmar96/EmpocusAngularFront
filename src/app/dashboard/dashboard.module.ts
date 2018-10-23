@@ -111,7 +111,9 @@ import { ShowBranchComponent } from './branch-master/show-branch/show-branch.com
 
     
   ],
-  exports:[]
+  exports:[
+    CreateUnitOfMeasurementComponent,
+  ]
 })
 
 export class DashboardModule { }

@@ -9,60 +9,54 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="card-block">
+        <div class="card-block" *ngIf="branch">
+
+          <div class="row mb-2" >
+            <div class="col-3">
+              <span class="text-bold-500 primary"><a>Branch Name:</a></span>
+              <span class="display-block overflow-hidden">{{branch.branch_name}}</span>
+            </div>
+            <div class="col-3">
+              <span class="text-bold-500 primary"><a>Branch GST Number:</a></span>
+              <span class="display-block overflow-hidden">{{branch.branch_gst_number}}</span>
+            </div>
+            <div class="col-3">
+              <span class="text-bold-500 primary"><a> Godown</a></span>
+              <span class="display-block overflow-hidden">{{branch.branch_godown}}</span>
+            </div>
+            <div class="col-3">
+                    <span class="text-bold-500 primary"><a>Code:</a></span>
+                    <span class="display-block overflow-hidden">{{branch.branch_code}}</span>
+            </div>
+          </div>
+          <div class="row mb-2">
+           
+            <div class="col-3">
+                    <span class="text-bold-500 primary"><a>Bank Name:</a></span>
+                    <span class="display-block overflow-hidden">{{branch.bank_name}}</span>
+            </div>
+            <div class="col-3">
+                    <span class="text-bold-500 primary"><a>Banch Account Name:</a></span>
+                    <a class="display-block overflow-hidden">{{branch.account_name}}</a>
+            </div>
+            <div class="col-3">
+                    <span class="text-bold-500 primary"><a>Bank Account Number:</a></span>
+                    <span class="display-block overflow-hidden">{{branch.account_no}}</span>
+            </div>
+        <div class="col-3">
+                <span class="text-bold-500 primary"><a>Bank IFSC:</a></span>
+                <span class="display-block overflow-hidden">{{branch.ifsc_code}}</span>
+        </div>
          
-          <div class="row" *ngIf="branch">
-              <div class="col-12 col-md-6 col-lg-4">
-                  <ul class="no-list-style">
-                      <li  class="mb-2">
-                          <span class="text-bold-500 primary"><a >Branch Name:</a></span>
-                          <span class="display-block overflow-hidden">{{branch.branch_name}}</span>
-                      </li>
-                      <li  class="mb-2">
-                          <span  class="text-bold-500 primary"><a >Branch GST Number:</a></span>
-                          <span  class="display-block overflow-hidden">{{branch.branch_gst_number}}</span>
-                      </li>
-                      <li  class="mb-2">
-                          <span  class="text-bold-500 primary"><a ><i  class="ft-globe font-small-3"></i> Lives in:</a></span>
-                          <span  class="display-block overflow-hidden">Denver, USA</span>
-                      </li>
-                  </ul>
-              </div>
-              <div  class="col-12 col-md-6 col-lg-4">
-                  <ul  class="no-list-style">
-                      <li  class="mb-2">
-                          <span  class="text-bold-500 primary"><a ><i  class="ft-user font-small-3"></i> Gender:</a></span>
-                          <span  class="display-block overflow-hidden">Male</span>
-                      </li>
-                      <li  class="mb-2">
-                          <span  class="text-bold-500 primary"><a ><i  class="ft-mail font-small-3"></i> Email:</a></span>
-                          <a  class="display-block overflow-hidden">jose@yourmail.com</a>
-                      </li>
-                      <li  class="mb-2">
-                          <span  class="text-bold-500 primary"><a ><i  class="ft-monitor font-small-3"></i> Website:</a></span>
-                          <a  class="display-block overflow-hidden">pixinvent.com</a>
-                      </li>
-                  </ul>
-              </div>
-              <div  class="col-12 col-md-6 col-lg-4">
-                  <ul  class="no-list-style">
-                      <li  class="mb-2">
-                          <span  class="text-bold-500 primary"><a ><i  class="ft-smartphone font-small-3"></i> Phone Number:</a></span>
-                          <span  class="display-block overflow-hidden">(012) 345 - 678 - 9910</span>
-                      </li>
-                      <li  class="mb-2">
-                          <span  class="text-bold-500 primary"><a ><i  class="ft-briefcase font-small-3"></i> Occupation:</a></span>
-                          <span  class="display-block overflow-hidden">Ninja Developer</span>
-                      </li>
-                      <li  class="mb-2">
-                          <span  class="text-bold-500 primary"><a ><i  class="ft-book font-small-3"></i> Joined:</a></span>
-                          <span  class="display-block overflow-hidden">April 1st, 2012</span>
-                      </li>
-                  </ul>
-              </div>
+          </div>
+          <div class="row mb-2">
+                <div class="col-12">
+                        <span class="text-bold-500 primary"><a>Address:</a></span>
+                        <span class="display-block overflow-hidden"><p>{{branch.branch_address_building}}, {{branch.branch_address_road_name}}, {{branch.branch_address_landmark}}, {{branch.branch_address_city}}, {{branch.branch_address_state}}, {{branch.branch_address_country}}, {{branch.branch_address_pincode}}</p></span>
+                </div> 
           </div>
         </div>
-      </div>
     </div>
   </div>
+</div>
 </div>
