@@ -33,8 +33,7 @@ import { NgOption } from '@ng-select/ng-select';
   <div class="modal-body">
       <form>
           <div class="form-group">
-              // <p>UOM Scrap Content</p>
-              
+              <app-create-unit-of-measurement></app-create-unit-of-measurement>
           </div>
       </form>
   </div>
@@ -56,7 +55,8 @@ export class SelectUOMBOMBasicComponent extends FieldType {
   ];
   // Modal
   openUOM(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title',centered: true }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

@@ -83,10 +83,6 @@ import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageCompon
         { name: 'selectByProduct', component: SelectByProductCompo },
         { name: 'selectScarpMaterial', component: SelectScrapMaterialComponent },
         { name: 'selectWastage', component: SelectWastageComponent },
-        
-        
-        
-        
       ],
     }),
     //Angular Formly
@@ -140,7 +136,9 @@ import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageCompon
     SelectScrapMaterialComponent,
     SelectWastageComponent,
   ],
-  exports:[]
+  exports:[
+    CreateUnitOfMeasurementComponent,
+  ]
 })
 
 export class DashboardModule { }

@@ -32,7 +32,7 @@ import { NgOption } from '@ng-select/ng-select';
     <div class="modal-body">
         <form>
             <div class="form-group">
-                <p>Product Trade Name Modal</p>
+            <app-create-raw-product></app-create-raw-product>
             </div>
         </form>
     </div>
@@ -54,7 +54,8 @@ export class BomTradeNameComponent extends FieldType {
   ];
   // Modal
   openTradeName(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    // this.modalService.open(content, { size: 'lg' });
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title',size:'lg',centered: true }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

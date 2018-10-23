@@ -29,7 +29,8 @@ import { NgOption } from '@ng-select/ng-select';
   <div class="modal-body">
       <form>
           <div class="form-group">
-              <p>byProduct Content</p>
+          <app-create-raw-product></app-create-raw-product>
+
           </div>
       </form>
   </div>
@@ -50,8 +51,8 @@ export class SelectByProductCompo extends FieldType {
     { value: 'byProduct 3', label: 'byProduct 3' },
   ];
   // Modal
-  openUOM(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+  openbyProduct(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title',size:'lg',centered: true }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

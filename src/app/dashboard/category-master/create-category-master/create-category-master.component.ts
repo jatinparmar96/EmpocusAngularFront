@@ -10,7 +10,7 @@ import { NotifyService } from '../../../shared/services/notify.service';
 
 
 @Component({
-  selector: 'app-create-raw-product',
+  selector: 'app-create-category-master',
   templateUrl: './create-category-master.component.html',
   styleUrls: ['./create-category-master.component.scss']
 })
