@@ -28,6 +28,7 @@ import { BomScrapComponent } from './bom/bom-scrap/bom-scrap.component';
 import { BomByproductComponent } from './bom/bom-byproduct/bom-byproduct.component';
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
+import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of-account/show-charts-of-account.component';
 
 const routes:Routes= [
   {

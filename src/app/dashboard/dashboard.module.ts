@@ -42,6 +42,7 @@ import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byprodu
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
+import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of-account/show-charts-of-account.component';
 
 
 
@@ -108,6 +109,7 @@ import { ShowBranchComponent } from './branch-master/show-branch/show-branch.com
     BOMByProductRepeatTypeComponent,
     ViewCategoryMasterComponent,
     ShowBranchComponent,
+    ShowChartsOfAccountComponent,
 
     
   ],

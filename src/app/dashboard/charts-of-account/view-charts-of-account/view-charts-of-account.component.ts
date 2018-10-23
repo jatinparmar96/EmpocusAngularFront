@@ -37,6 +37,10 @@ export class ViewChartsOfAccountComponent implements OnInit {
   {
     this.router.navigateByUrl('/dashboard/charts-of-accounts/new');
   }
+  show(coa_id)
+  {
+    this.router.navigateByUrl('/dashboard/charts-of-accounts/detail/'+coa_id);
+  }
   edit(coa_data)
   {
       this.router.navigateByUrl('/dashboard/charts-of-accounts/'+ coa_data);
