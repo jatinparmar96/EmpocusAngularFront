@@ -30,15 +30,7 @@ export class ViewBranchMasterComponent implements OnInit {
  }
 
   ngOnInit() {
-        this.apiService.get('admin/branch').then(data=>
-          {
-            let result:any = data
-            if(result.status)
-            {
-              this.rows = result.data.data  
-            }
-          })
-
+       this.getData()
   }
   edit(branch_id)
   {

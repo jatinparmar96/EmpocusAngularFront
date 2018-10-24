@@ -13,6 +13,15 @@ import { ShareService } from 'app/shared/services/share.service';
 export class BankMasterViewComponent implements OnInit {
  rows:any
  link:any = '/dashboard/bank-master/new';
+ paginationData:any = {
+  total: 0,
+  from: 0,
+  to: 0,
+  prev_page_url: null,
+  next_page_url: null,
+  per_page: 20,
+  current_page: 1
+};
 source: LocalDataSource;
   constructor(
     private router:Router,
@@ -21,17 +30,11 @@ source: LocalDataSource;
   )
   {
     this.shareService.setVisibility(true)
-    this.shareService.setLink(this.link);
-     this.apiService.get('admin/bank').then(data=>{
-          let result:any = data 
-          if(result.status)
-          {
-            this.rows = result.data.data
-          }
-      })                         
+    this.shareService.setLink(this.link);                 
   }
 
   ngOnInit() {
+    this.getData();
   }
   toCreate()
   {
@@ -41,5 +44,23 @@ source: LocalDataSource;
   {
     this.router.navigateByUrl('/dashboard/bank-master/'+bank_id);
   }
-}
+  getData(page = 1){
+		this.apiService.get('admin/bank?page='+page)
+		.then( data => {
 
+        let l_data:any = data;
+        l_data = l_data.data;
+        this.rows = l_data.data;
+        this.paginationData = {
+          total: l_data.total,
+          from: l_data.from,
+          to: l_data.to,
+          prev_page_url: l_data.prev_page_url,
+          next_page_url: l_data.next_page_url,
+          per_page: l_data.per_page,
+          current_page: l_data.current_page,
+          id: 'get_list'
+        }
+      })
+  }
+}

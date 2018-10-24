@@ -377,8 +377,9 @@ export class BomBasicDetailsComponent implements OnInit {
 			//post request
 			this.apiService.post("admin/bom",this.model).then( data => {
         let result: any = data;
-				//success
-        this.isProcessing = false;
+        //success
+        console.log(result)
+        this.isProcessing = false;  
         if(result.status)
 							{
 								this.notifyService.show({
@@ -387,22 +388,19 @@ export class BomBasicDetailsComponent implements OnInit {
                 },'success');
                 if(this.next)
                 {
-               
-                  this.resetForm(this.bom);
-                  
                 }
                 else
                 {
                   console.log('else');
                 }
-
 							}
-							else{
+              else
+              {
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
                   }, 'error');
-                  this.errors = result.error;
+          
 							}
     
 			})
