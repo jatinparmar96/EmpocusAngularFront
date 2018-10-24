@@ -39,6 +39,7 @@ import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byprodu
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
+import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of-account/show-charts-of-account.component';
 
 
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -55,6 +56,8 @@ import { TimefieldComponent } from 'app/sharedComponents/TimefieldComponent';
 import { SelectScrapMaterialComponent } from 'app/sharedComponents/SelectScrapMaterialComponent';
 import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageComponent';
 import { CreateProcessTypeComponent } from './process_type/create-process-type/create-process-type.component';
+import { ShowCategoryMasterComponent } from './category-master/show-category-master/show-category-master.component';
+import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw-product.component';
 
 
 @NgModule({
@@ -144,6 +147,9 @@ import { CreateProcessTypeComponent } from './process_type/create-process-type/c
     ViewCategoryMasterComponent,
     ShowBranchComponent,
     CreateProcessTypeComponent,
+    ShowChartsOfAccountComponent,
+    ShowCategoryMasterComponent,
+    ShowRawProductComponent,
 
     
   ],
