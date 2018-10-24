@@ -134,7 +134,7 @@ export class CreateProcessTypeComponent implements OnInit {
     this.next = true;
   }
   cancel(){
-    this.router.navigateByUrl('/dashboard/unit-of-measurement');
+    this.router.navigateByUrl('/dashboard/process-type');
   }
  
 // 3 Ends

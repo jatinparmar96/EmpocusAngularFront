@@ -33,6 +33,7 @@ import { ShowBranchComponent } from './branch-master/show-branch/show-branch.com
 import { CreateProcessTypeComponent } from './process_type/create-process-type/create-process-type.component';
 import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of-account/show-charts-of-account.component';
 import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw-product.component';
+import { ViewProcessTypeComponent } from './process_type/view-process-type/view-process-type.component';
 
 const routes:Routes= [
   {
@@ -159,12 +160,16 @@ const routes:Routes= [
         component:BomByproductComponent
       },
       {
-        path:'bom/new',
+        path:'bom/:id',
         component:BomBasicDetailsComponent
       },
       {
         path:'process-type/:id',
         component:CreateProcessTypeComponent
+      },
+      {
+        path:'process-type',
+        component:ViewProcessTypeComponent
       },
     ],
   },

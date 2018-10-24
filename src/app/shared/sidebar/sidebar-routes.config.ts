@@ -28,13 +28,13 @@ export const ROUTES: RouteInfo[] = [
             },
             
             {
-                path: '/dashboard/bom/:id', title: 'Bill of Material', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/dashboard/bom/new', title: 'Bill of Material', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
                 path: '/dashboard/category', title: 'Category', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/dashboard/process-type/:id', title: 'Process Type', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/dashboard/process-type', title: 'Process Type', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             
         ]
