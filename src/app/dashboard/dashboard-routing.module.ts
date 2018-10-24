@@ -30,6 +30,7 @@ import { componentFactoryName } from '@angular/compiler';
 import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
+import { CreateProcessTypeComponent } from './process_type/create-process-type/create-process-type.component';
 
 const routes:Routes= [
   {
@@ -150,9 +151,11 @@ const routes:Routes= [
       {
         path:'bom/steps',
         component:BomBasicDetailsComponent
-      }
-      
-      
+      },
+      {
+        path:'process-type/:id',
+        component:CreateProcessTypeComponent
+      },
     ],
   },
 ];

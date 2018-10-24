@@ -9,8 +9,8 @@ import { FieldArrayType, FormlyFormBuilder } from '@ngx-formly/core';
         [field]="field"
         [options]="options"
         [form]="formControl">
-        <div class="col-sm-2 d-flex align-items-center" style="margin-top: 24px;">
-          <button class="btn btn-danger btn-raised" type="button" (click)="remove(i)">Remove</button>
+        <div class="d-flex align-items-center col-lg-1" style="margin-top: 15px;">
+        <a class="danger" (click)="remove(i)">&nbsp;<i class=" fa fa-times font-medium-1 "></i></a>
         </div>
       </formly-group>
     </div>

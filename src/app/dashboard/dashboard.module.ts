@@ -54,6 +54,7 @@ import { SelectProcessTypeComponent } from 'app/sharedComponents/SelectProcessTy
 import { TimefieldComponent } from 'app/sharedComponents/TimefieldComponent';
 import { SelectScrapMaterialComponent } from 'app/sharedComponents/SelectScrapMaterialComponent';
 import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageComponent';
+import { CreateProcessTypeComponent } from './process_type/create-process-type/create-process-type.component';
 
 
 @NgModule({
@@ -142,6 +143,7 @@ import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageCompon
     SelectWastageComponent,
     ViewCategoryMasterComponent,
     ShowBranchComponent,
+    CreateProcessTypeComponent,
 
     
   ],

@@ -158,20 +158,20 @@ export class BomBasicDetailsComponent implements OnInit {
                 },
               },
               {
-                key:'timeField',
-                type: 'timeField',
-                className: 'col-lg-2',
-                templateOptions: {
-                  // label: 'Time:',
-                },
-              },
-              {
                 type: 'input',
                 key: 'processQty',
                 className: 'col-lg-2',
                 templateOptions: {
                   type: 'number',
                   label: 'Qty:',
+                },
+              },
+              {
+                key:'timeField',
+                type: 'timeField',
+                className: 'col-lg-3',
+                templateOptions: {
+                  // label: 'Time:',
                 },
               },
             ],
