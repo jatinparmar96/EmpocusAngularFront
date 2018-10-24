@@ -19,7 +19,7 @@ import { NgOption } from '@ng-select/ng-select';
       </div>
   </div>
   <div>
-      <ng-select #UOMSelect [items]="UOM " [formControl]="formControl " [selectOnTab]="true" bindValue="value " labelForId="UOM" placeholder="Common UOM">
+      <ng-select #UOMSelect [items]="UOM " [formControl]="formControl " [selectOnTab]="true" labelForId="UOM" placeholder="Common UOM">
       </ng-select>
   </div>
 </div>

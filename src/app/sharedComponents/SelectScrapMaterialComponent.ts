@@ -16,7 +16,7 @@ import { NgOption } from '@ng-select/ng-select';
       </div>
   </div>
   <div>
-      <ng-select #scrapMaterialSelect [items]="scrapMaterial " [formControl]="formControl " [selectOnTab]="true" bindValue="value " labelForId="scrapMaterial" placeholder="Select Scrap Material">
+      <ng-select #scrapMaterialSelect [items]="scrapMaterial " [formControl]="formControl " [selectOnTab]="true" labelForId="scrapMaterial" placeholder="Select Scrap Material">
       </ng-select>
   </div>
 </div>

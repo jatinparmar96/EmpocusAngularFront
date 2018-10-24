@@ -16,7 +16,7 @@ import { NgOption } from '@ng-select/ng-select';
       </div>
   </div>
   <div>
-      <ng-select #wastageSelect [items]="wastage " [formControl]="formControl " [selectOnTab]="true" bindValue="value " labelForId="wastage" placeholder="Select Wastage">
+      <ng-select #wastageSelect [items]="wastage " [formControl]="formControl " [selectOnTab]="true" labelForId="wastage" placeholder="Select Wastage">
       </ng-select>
   </div>
 </div>

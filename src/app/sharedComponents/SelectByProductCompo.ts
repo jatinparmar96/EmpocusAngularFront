@@ -15,7 +15,7 @@ import { NgOption } from '@ng-select/ng-select';
       </div>
   </div>
   <div>
-      <ng-select #byProductSelect [items]="byProduct " [formControl]="formControl " [selectOnTab]="true" bindValue="value " labelForId="byProduct" placeholder="Select By-Product">
+      <ng-select #byProductSelect [items]="byProduct " [formControl]="formControl " [selectOnTab]="true" labelForId="byProduct" placeholder="Select By-Product">
       </ng-select>
   </div>
 </div>

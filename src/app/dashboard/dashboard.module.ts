@@ -1,11 +1,13 @@
 import { MatStepperModule } from '@angular/material/stepper';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddproductComponent } from './addproduct/addproduct.component';
+
+import {NgxPaginationModule} from 'ngx-pagination';
 // import { BankMasterComponent } from './bank-master/bank-master.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
@@ -69,8 +71,10 @@ import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw
     FormsModule,
     MatStepperModule,
     NgSelectModule,
+    NgxPaginationModule,
     ReactiveFormsModule,
     SharedModule,
+    
 
     //Angular Formly
     FormlyBootstrapModule,

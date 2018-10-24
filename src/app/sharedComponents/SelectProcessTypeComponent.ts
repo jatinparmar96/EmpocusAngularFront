@@ -16,7 +16,7 @@ import { NgOption } from '@ng-select/ng-select';
       </div>
   </div>
   <div>
-  <ng-select #processTypeSelect [items]="processType" [formControl]="formControl " [selectOnTab]="true" bindValue="value " labelForId="processType" placeholder="Select Process Type">
+  <ng-select #processTypeSelect [items]="processType" [formControl]="formControl " [selectOnTab]="true" labelForId="processType" placeholder="Select Process Type">
   </ng-select>
   </div>
 </div>
