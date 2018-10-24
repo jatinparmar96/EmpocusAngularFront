@@ -11,8 +11,6 @@ import { ShareService } from 'app/shared/services/share.service';
 export class ViewChartsOfAccountComponent implements OnInit {
   rows:any
   link:any = '/dashboard/charts-of-accounts/new';
-  data:any;
-  search: any 
   paginationData:any = {
 		total: 0,
 		from: 0,
