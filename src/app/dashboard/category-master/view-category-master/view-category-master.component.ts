@@ -27,18 +27,12 @@ export class ViewCategoryMasterComponent implements OnInit {
   ) { 
     this.shareService.setVisibility(true)
     this.shareService.setLink(this.link);
-    this.apiService.get('admin/product_category').then(data=>{
-      let result:any = data 
-      if(result.status)
-      {
-        this.rows = result.data.data
-      }
-    })
   }
 
   ngOnInit() {
+    this.getData()
   }
-  edit(id)
+  edit(id)  
   {
     this.router.navigateByUrl('/dashboard/category/'+id);
   }
