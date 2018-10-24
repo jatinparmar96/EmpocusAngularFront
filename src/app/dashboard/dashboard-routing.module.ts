@@ -139,7 +139,7 @@ const routes:Routes= [
         component:ViewCategoryMasterComponent
       },
       {
-        path:'bom/new',
+        path:'bom/steps',
         component:BomBasicComponent
       },
       {
@@ -159,7 +159,7 @@ const routes:Routes= [
         component:BomByproductComponent
       },
       {
-        path:'bom/steps',
+        path:'bom/new',
         component:BomBasicDetailsComponent
       },
       {

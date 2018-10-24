@@ -8,11 +8,11 @@ import {NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbTimepickerConfig] ,
   template: `
   <label>Time</label>
-<ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+<ngb-timepicker [formControl]="formControl" [(ngModel)]="time"></ngb-timepicker>
   `
 })
 export class TimefieldComponent extends FieldType {
-  time: NgbTimeStruct = {hour: 13, minute: 30, second: 0};
+  // time: NgbTimeStruct = {hour: 13, minute: 30, second: 0};
 
   constructor(config: NgbTimepickerConfig) {
     super();

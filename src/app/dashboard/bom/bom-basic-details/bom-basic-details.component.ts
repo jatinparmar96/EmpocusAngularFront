@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
-import { FormArray, FormGroup } from '@angular/forms';
+import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ApiService } from 'app/shared/services/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormDataService } from 'app/shared/services/form-data.service';
+import { ShareService } from 'app/shared/services/share.service';
+import { NotifyService } from 'app/shared/services/notify.service';
 
 
 export interface StepType {
@@ -15,6 +20,35 @@ export interface StepType {
   styleUrls: ['./bom-basic-details.component.scss']
 })
 export class BomBasicDetailsComponent implements OnInit {
+  active = 'today';
+  button_text ='Add BOM'
+  debug = true;
+  formTouched: boolean = false;
+  isProcessing: boolean = false;
+  errors: any;
+  id: any = "new";
+  // Replacable
+  next:boolean = false;
+  bom_data: FormGroup;
+  bom: any;
+  constructor(
+    private apiService: ApiService,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private formService: FormDataService,
+    private shareService: ShareService,
+    private notifyService: NotifyService,
+    private router:Router,
+  ) 
+  // 1 Starts
+  {
+    // this.shareService.setVisibility(false);
+    // this.bom_data = fb.group({
+    //   "unit_name": ['', Validators.required],
+    //   "id":['new',Validators.required],
+    // });
+    // this.resetErrorMessages();
+  }
 
   ngOnInit() {
   }
@@ -150,7 +184,7 @@ export class BomBasicDetailsComponent implements OnInit {
                 },
               },
               {
-                key:'selectTradeName',
+                key:'selectProcessType',
                 type: 'processType',
                 className: 'col-lg-3',
                 templateOptions: {
@@ -214,7 +248,7 @@ export class BomBasicDetailsComponent implements OnInit {
                 className: 'col-lg-2',
                 templateOptions: {
                   type: 'number',
-                  label: 'By-Product Qty:',
+                  label: 'Qty:',
                 },
               },
             ],
@@ -257,7 +291,7 @@ export class BomBasicDetailsComponent implements OnInit {
                 className: 'col-lg-2',
                 templateOptions: {
                   type: 'number',
-                  label: 'Scarp Qty:',
+                  label: 'Qty:',
                 },
               },
             ],
@@ -300,7 +334,7 @@ export class BomBasicDetailsComponent implements OnInit {
                 className: 'col-lg-2',
                 templateOptions: {
                   type: 'number',
-                  label: 'Wastage Qty:',
+                  label: 'Qty:',
                 },
               },
             ],
@@ -321,8 +355,72 @@ export class BomBasicDetailsComponent implements OnInit {
     this.activedStep = step + 1;
   }
 
-  submit() {
-    alert(JSON.stringify(this.model));
+  // submit() {
+  //   alert(JSON.stringify(this.model));
+  // }
+
+  // 3 Starts
+  getData(id:any){
+		this.apiService.get("admin/bom/"+id)
+		.then(data => { 
+			let l_data: any = data;
+			this.bom_data.patchValue(l_data.data);					
+		})
+	}
+  addOrUpdate(){
+		this.formTouched = true;
+		// if(this.bom.invalid){
+		// 	return false;
+		// }
+		this.resetErrorMessages();
+		this.isProcessing = true;
+			//post request
+			this.apiService.post("admin/bom",this.model).then( data => {
+        let result: any = data;
+				//success
+        this.isProcessing = false;
+        if(result.status)
+							{
+								this.notifyService.show({
+									title: 'Success',
+									message: result.message
+                },'success');
+                if(this.next)
+                {
+               
+                  this.resetForm(this.bom);
+                  
+                }
+                else
+                {
+                  console.log('else');
+                }
+
+							}
+							else{
+									this.notifyService.show({
+										title: 'Error',
+										message: result.message
+                  }, 'error');
+                  this.errors = result.error;
+							}
+    
+			})
+			.catch( error => {
+        this.isProcessing = false;
+        let errors: any = error;
+        this.errors = errors;
+			})	
+  }
+  resetErrorMessages(){
+		// this.errors = {			
+		// 	"id": [""],
+		// 	"unit_name": [""]	
+		// }
+  }
+  resetForm(bom)
+  {
+    
   }
 }
 
