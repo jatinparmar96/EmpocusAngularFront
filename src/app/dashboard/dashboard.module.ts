@@ -60,6 +60,7 @@ import { SelectWastageComponent } from 'app/sharedComponents/SelectWastageCompon
 import { CreateProcessTypeComponent } from './process_type/create-process-type/create-process-type.component';
 import { ShowCategoryMasterComponent } from './category-master/show-category-master/show-category-master.component';
 import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw-product.component';
+import { ViewProcessTypeComponent } from './process_type/view-process-type/view-process-type.component';
 
 
 @NgModule({
@@ -154,6 +155,7 @@ import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw
     ShowChartsOfAccountComponent,
     ShowCategoryMasterComponent,
     ShowRawProductComponent,
+    ViewProcessTypeComponent,
 
     
   ],
