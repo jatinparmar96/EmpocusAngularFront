@@ -11,6 +11,15 @@ import { ShareService } from 'app/shared/services/share.service';
 export class ViewChartsOfAccountComponent implements OnInit {
   rows:any
   link:any = '/dashboard/charts-of-accounts/new';
+  paginationData:any = {
+		total: 0,
+		from: 0,
+		to: 0,
+		prev_page_url: null,
+		next_page_url: null,
+		per_page: 20,
+		current_page: 1
+	};
   constructor(
     private router:Router,
     private apiService:ApiService,
@@ -19,19 +28,10 @@ export class ViewChartsOfAccountComponent implements OnInit {
   {
     this.shareService.setVisibility(true)
     this.shareService.setLink(this.link);
-    this.apiService.get('admin/coa').then(data=> {
-      let result:any = data
-      console.log(result);
-      if(result.status)
-      {
-        this.rows = result.data.data
-      }
-    }).catch(error=>{
-      console.log(error);
-    })
   }
   
   ngOnInit() {
+    this.getData();
   }
   toCreate()
   {
@@ -46,4 +46,23 @@ export class ViewChartsOfAccountComponent implements OnInit {
       this.router.navigateByUrl('/dashboard/charts-of-accounts/'+ coa_data);
   }
 
+  getData(page = 1){
+		this.apiService.get('admin/coa?page='+page)
+		.then( data => {
+     
+      let l_data:any = data;
+      l_data = l_data.data;
+			this.rows = l_data.data;
+			this.paginationData = {
+				total: l_data.total,
+				from: l_data.from,
+				to: l_data.to,
+				prev_page_url: l_data.prev_page_url,
+				next_page_url: l_data.next_page_url,
+				per_page: l_data.per_page,
+				current_page: l_data.current_page,
+				id: 'get_list'
+			}
+		})
+	}
 }
