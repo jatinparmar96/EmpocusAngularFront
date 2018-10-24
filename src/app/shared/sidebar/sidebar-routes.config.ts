@@ -16,9 +16,7 @@ export const ROUTES: RouteInfo[] = [
             {
                 path: '/dashboard/raw-product', title: 'Product', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
-            // {
-            //     path: '/dashboard/finished-product', title: 'Finished Products', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
-            // },
+            
             {
                 path: '/dashboard/charges-master', title: 'Charges Master', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
@@ -28,18 +26,16 @@ export const ROUTES: RouteInfo[] = [
             {
                 path: '/dashboard/bank-master', title: 'Bank Master', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
-            // {
-            //     path: '/dashboard/godown-master', title: 'Godown Master', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
-            // },
+            
             {
-                path: '/dashboard/bom/new', title: 'Bill of Material', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/dashboard/bom/:id', title: 'Bill of Material', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
                 path: '/dashboard/category', title: 'Category', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
-            // {
-            //     path: '/inventory-master/stock-item-master', title: 'S', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
-            // },
+            {
+                path: '/dashboard/process-type/:id', title: 'Process Type', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
             
         ]
     },
