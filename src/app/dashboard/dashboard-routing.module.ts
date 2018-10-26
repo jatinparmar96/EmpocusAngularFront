@@ -34,6 +34,7 @@ import { CreateProcessTypeComponent } from './process_type/create-process-type/c
 import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of-account/show-charts-of-account.component';
 import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw-product.component';
 import { ViewProcessTypeComponent } from './process_type/view-process-type/view-process-type.component';
+import { BomWastageComponent } from './bom/bom-wastage/bom-wastage.component';
 
 const routes:Routes= [
   {
@@ -158,6 +159,10 @@ const routes:Routes= [
       {
         path:'bom/byproduct',
         component:BomByproductComponent
+      },
+      {
+        path:'bom/wastage',
+        component:BomWastageComponent
       },
       {
         path:'bom/steps',

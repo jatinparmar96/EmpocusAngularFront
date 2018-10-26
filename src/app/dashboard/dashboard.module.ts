@@ -61,6 +61,7 @@ import { CreateProcessTypeComponent } from './process_type/create-process-type/c
 import { ShowCategoryMasterComponent } from './category-master/show-category-master/show-category-master.component';
 import { ShowRawProductComponent } from './raw-product/show-raw-product/show-raw-product.component';
 import { ViewProcessTypeComponent } from './process_type/view-process-type/view-process-type.component';
+import { BomWastageComponent } from './bom/bom-wastage/bom-wastage.component';
 
 
 @NgModule({
@@ -76,7 +77,6 @@ import { ViewProcessTypeComponent } from './process_type/view-process-type/view-
     ReactiveFormsModule,
     SharedModule,
     
-
     //Angular Formly
     FormlyBootstrapModule,
     FormlyModule.forRoot({
@@ -147,6 +147,7 @@ import { ViewProcessTypeComponent } from './process_type/view-process-type/view-
     ShowChartsOfAccountComponent,
     ShowCategoryMasterComponent,
     ShowRawProductComponent,
+    BomWastageComponent,
     ViewProcessTypeComponent,
 
     

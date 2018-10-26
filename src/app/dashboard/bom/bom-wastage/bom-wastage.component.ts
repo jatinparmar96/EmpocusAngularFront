@@ -7,11 +7,11 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
-  selector: 'app-bom-scrap',
-  templateUrl: './bom-scrap.component.html',
-  styleUrls: ['./bom-scrap.component.scss']
+  selector: 'app-bom-wastage',
+  templateUrl: './bom-wastage.component.html',
+  styleUrls: ['./bom-wastage.component.scss']
 })
-export class BomScrapComponent implements OnInit {
+export class BomWastageComponent implements OnInit {
 
   constructor(
     private router:Router,
@@ -21,39 +21,39 @@ export class BomScrapComponent implements OnInit {
   ngOnInit() {
   }
 
-  toNext(){
-    this.router.navigateByUrl('/dashboard/bom/wastage');
+  toFinish(){
+    this.router.navigateByUrl('/dashboard/bom/new');
   }
   toPrevious(){
-    this.router.navigateByUrl('/dashboard/bom/byproduct');
+    this.router.navigateByUrl('/dashboard/bom/scarp');
   }
 
   form = new FormGroup({});
   model = {
-    scrapMaterial: [{}],
+    wastage: [{}],
   };
   options: FormlyFormOptions = {};
 
   fields: FormlyFieldConfig[] = [
     {
-      key: 'scrapMaterial',
+      key: 'wastage',
       type: 'repeatit',
       fieldArray: {
         fieldGroupClassName: 'row',
         templateOptions: {
-          btnText: 'Add new Scrap Material',
+          btnText: 'Add New Wastage',
         },
         fieldGroup: [
           {
-            key:'selectScarpMaterial',
-            type: 'selectScarpMaterial',
+            key:'selectWastage',
+            type: 'selectWastage',
             className: 'col-lg-3',
             templateOptions: {
-              label: 'Select Scrap Material:',
+              label: 'Select Wastage Material:',
             },
           },
           {
-            key:'scarpMaterialUOM',
+            key:'wastageUOM',
             type: 'uom',
             className: 'col-lg-3',
             templateOptions: {
@@ -62,7 +62,7 @@ export class BomScrapComponent implements OnInit {
           },
           {
             type: 'input',
-            key: 'scarpQty',
+            key: 'wastageQty',
             className: 'col-lg-2',
             templateOptions: {
               type: 'number',
