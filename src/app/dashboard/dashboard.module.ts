@@ -35,9 +35,7 @@ import { BomRawMaterialComponent } from './bom/bom-raw-material/bom-raw-material
 import { BomBasicComponent } from './bom/bom-basic/bom-basic.component';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { BomProcessRepeatTypeComponent } from './bom/bom-process/bom-process-repeat-section.type';
-import { BOMScrapRepeatTypeComponent } from './bom/bom-scrap/bom-scarp-repeat-section.type';
-import { BOMByProductRepeatTypeComponent } from './bom/bom-byproduct/bom-byproduct-repeat-section.type';
+
 import { ViewCategoryMasterComponent } from './category-master/view-category-master/view-category-master.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { ShowBranchComponent } from './branch-master/show-branch/show-branch.component';
@@ -81,9 +79,6 @@ import { BomWastageComponent } from './bom/bom-wastage/bom-wastage.component';
     FormlyBootstrapModule,
     FormlyModule.forRoot({
       types: [
-        { name: 'repeat1', component: BomProcessRepeatTypeComponent },
-        { name: 'repeat2', component: BOMScrapRepeatTypeComponent },
-        { name: 'repeat3', component: BOMByProductRepeatTypeComponent },
         { name: 'select1', component: TradeNameComponent },
         { name: 'uom', component: SelectUOMBOMBasicComponent },
         { name: 'repeatit', component: BomBasicDetailsRepeatTypeComponent },
@@ -129,9 +124,6 @@ import { BomWastageComponent } from './bom/bom-wastage/bom-wastage.component';
     BomScrapComponent,
     BomByproductComponent,
     BomBasicDetailsRepeatTypeComponent,
-    BomProcessRepeatTypeComponent,
-    BOMScrapRepeatTypeComponent,
-    BOMByProductRepeatTypeComponent,
     TradeNameComponent,
     SelectUOMBOMBasicComponent,
     BomTradeNameComponent,
