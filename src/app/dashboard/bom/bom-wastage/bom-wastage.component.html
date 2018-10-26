@@ -15,10 +15,10 @@
                                     <button type="submit" class="btn btn-primary btn-raised submit-button" [disabled]="!form.valid">Submit</button>
                                 </formly-form>
                             </form>
-                        </div>
+                        </div>  
                     </div>
                     <button (click)="toPrevious()" [disabled]=isProcessing class="btn btn-raised btn-primary">Previous</button>
-                    <button (click)="toFinish()" [disabled]=isProcessing class="btn btn-raised btn-primary ml-2">Finish</button>
+                    <button (click)="toFinish(form)" [disabled]=isProcessing class="btn btn-raised btn-primary ml-2">Finish</button>
                 </div>
             </div>
         </div>
