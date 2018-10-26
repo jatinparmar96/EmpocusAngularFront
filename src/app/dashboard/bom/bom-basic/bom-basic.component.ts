@@ -30,7 +30,7 @@ export class BomBasicComponent implements OnInit {
 
   toNext(bom){
     this.formService.toNext(bom.value,this.current_step);
-    console.log(this.formService.getData());
+    console.log(this.formService.getData)
     this.router.navigateByUrl('/dashboard/bom/process');
   }
   

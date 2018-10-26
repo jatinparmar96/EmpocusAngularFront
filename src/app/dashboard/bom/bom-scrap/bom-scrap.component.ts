@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
 import { NgOption } from '@ng-select/ng-select';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormDataService } from 'app/shared/services/form-data.service';
 
 
 @Component({
@@ -12,16 +13,20 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./bom-scrap.component.scss']
 })
 export class BomScrapComponent implements OnInit {
+  current_step = 4;
 
   constructor(
     private router:Router,
+    private formService:FormDataService
   )
    { }
 
   ngOnInit() {
   }
 
-  toNext(){
+  toNext(bom){
+    this.formService.toNext(bom.value,this.current_step);
+    console.log(this.formService.getData());
     this.router.navigateByUrl('/dashboard/bom/wastage');
   }
   toPrevious(){

@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
+import { FormlyFormOptions, FormlyFieldConfig, FieldType, FormlyFormBuilder } from '@ngx-formly/core';
 import { NgOption } from '@ng-select/ng-select';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormDataService } from 'app/shared/services/form-data.service';
@@ -20,10 +20,11 @@ export class BomProcessComponent implements OnInit {
   constructor(
     private router:Router,
     private modalService: NgbModal,
-    private formService:FormDataService
+    private formService:FormDataService,
+    private builder:FormlyFormBuilder
   )
   {
-
+    
   }
 
   ngOnInit() {
