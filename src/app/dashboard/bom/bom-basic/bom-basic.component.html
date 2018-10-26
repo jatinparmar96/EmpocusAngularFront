@@ -12,7 +12,7 @@
                         <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
                             <!-- <button type="submit" class="btn btn-primary btn-raised submit-button" [disabled]="!form.valid">Submit</button> -->
                         </formly-form>
-                        <button (click)="toNext()" [disabled]=isProcessing class="btn btn-raised btn-primary ml-2">Next</button>
+                        <button (click)="toNext(form)" [disabled]=isProcessing class="btn btn-raised btn-primary ml-2">Next</button>
                     </form>
                 </div>
             </div>
