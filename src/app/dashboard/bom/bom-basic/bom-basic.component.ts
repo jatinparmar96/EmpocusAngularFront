@@ -17,10 +17,7 @@ import { NgOption } from '@ng-select/ng-select';
 export class BomBasicComponent implements OnInit {
 
   closeResult: string;
-  current_step:number = 1;
   constructor(
-    private formService:FormDataService,
-
     private router:Router,
     private modalService: NgbModal
   )
@@ -29,9 +26,7 @@ export class BomBasicComponent implements OnInit {
   ngOnInit() {
   }
 
-  toNext(bom){
-    this.formService.toNext(bom.value,this.current_step);
-    console.log(this.formService.getData());
+  toNext(){
     this.router.navigateByUrl('/dashboard/bom/process');
   }
   

@@ -14,12 +14,7 @@
                                 <th>Action</th>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let product of products |  paginate: {
-                                                                itemsPerPage: paginationData.per_page,
-                                                                currentPage: paginationData.current_page,
-                                                                totalItems: paginationData.total,
-                                                                id: 'get_list'
-                                }">
+                                <tr *ngFor="let product of products">
                                     <td>{{product.product_display_name}}</td>
                                     <td>{{product.product_category_name}}</td>
                                     <td>{{product.product_uom}}</td>
@@ -31,11 +26,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="row pull-right pr-5">
-                            <nav>
-                                <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </div>

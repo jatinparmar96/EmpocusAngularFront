@@ -5,7 +5,6 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
 import { NgOption } from '@ng-select/ng-select';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { FormDataService } from 'app/shared/services/form-data.service';
 
 @Component({
   // formly-app-example
@@ -16,20 +15,16 @@ import { FormDataService } from 'app/shared/services/form-data.service';
 export class BomProcessComponent implements OnInit {
 
   closeResult: string;
-  current_step:number = 2;
   constructor(
     private router:Router,
-    private modalService: NgbModal,
-    private formService:FormDataService
+    private modalService: NgbModal
   )
    { }
 
   ngOnInit() {
   }
 
-  toNext(bom){
-    this.formService.toNext(bom.value,this.current_step);
-    console.log(this.formService.getData());
+  toNext(){
     this.router.navigateByUrl('/dashboard/bom/byproduct');
   }
   toPrevious(){
@@ -58,13 +53,13 @@ export class BomProcessComponent implements OnInit {
 
   form = new FormGroup({});
   model = {
-    Process: [{}],
+    investments: [{}],
   };
   options: FormlyFormOptions = {};
 
   fields: FormlyFieldConfig[] = [
     {
-      key: 'Process',
+      key: 'investments',
       type: 'repeat1',
       fieldArray: {
         fieldGroupClassName: 'row',
