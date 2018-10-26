@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
 import { NgOption } from '@ng-select/ng-select';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormDataService } from 'app/shared/services/form-data.service';
 
 @Component({
   selector: 'app-bom-byproduct',
@@ -13,17 +14,22 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class BomByproductComponent implements OnInit {
 
   closeResult: string;
+  current_step = 3;
   constructor(
     private router:Router,
-    private modalService: NgbModal
-
+    private modalService: NgbModal,
+    private formService:FormDataService
   )
-   { }
+   { 
+    
+   }
 
   ngOnInit() {
   }
 
-  toNext(){
+  toNext(bom){
+    this.formService.toNext(bom.value,this.current_step);
+    console.log(this.formService.getData());
     this.router.navigateByUrl('/dashboard/bom/scrap');
   }
   

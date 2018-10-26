@@ -2,9 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
+import { FormlyFormOptions, FormlyFieldConfig, FieldType, FormlyFormBuilder } from '@ngx-formly/core';
 import { NgOption } from '@ng-select/ng-select';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormDataService } from 'app/shared/services/form-data.service';
 
 @Component({
   // formly-app-example
@@ -15,16 +16,23 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class BomProcessComponent implements OnInit {
 
   closeResult: string;
+  current_step = 2;
   constructor(
     private router:Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private formService:FormDataService,
+    private builder:FormlyFormBuilder
   )
-   { }
+  {
+    
+  }
 
   ngOnInit() {
   }
 
-  toNext(){
+  toNext(bom){
+    this.formService.toNext(bom.value,this.current_step)
+    console.log(this.formService.getData());
     this.router.navigateByUrl('/dashboard/bom/byproduct');
   }
   
