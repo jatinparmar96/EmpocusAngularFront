@@ -29,9 +29,7 @@ export class BomRawMaterialComponent implements OnInit {
   toNext(){
     this.router.navigateByUrl('/dashboard/bom/process');
   }
-  toPrevious(){
-    this.router.navigateByUrl('/dashboard/bom/new');
-  }
+  
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

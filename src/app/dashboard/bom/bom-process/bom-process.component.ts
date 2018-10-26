@@ -27,9 +27,7 @@ export class BomProcessComponent implements OnInit {
   toNext(){
     this.router.navigateByUrl('/dashboard/bom/byproduct');
   }
-  toPrevious(){
-    this.router.navigateByUrl('/dashboard/bom/new');
-  }
+  
 
   // Modal
   open(content) {

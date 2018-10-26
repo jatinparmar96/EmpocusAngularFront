@@ -24,9 +24,6 @@ export class BomScrapComponent implements OnInit {
   toNext(){
     this.router.navigateByUrl('/dashboard/bom/wastage');
   }
-  toPrevious(){
-    this.router.navigateByUrl('/dashboard/bom/byproduct');
-  }
 
   form = new FormGroup({});
   model = {

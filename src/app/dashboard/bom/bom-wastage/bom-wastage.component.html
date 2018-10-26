@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="col-lg-12 pl-0">
-                    <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Scrap Product</p>
+                    <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Wastage</p>
                 </div>
             </div>
             <div class="card-body">
@@ -12,13 +12,11 @@
                         <div class="col-lg-12">
                             <form [formGroup]="form" (ngSubmit)="submit()">
                                 <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form">
-                                    <button type="submit" class="btn btn-primary btn-raised submit-button" [disabled]="!form.valid">Submit</button>
                                 </formly-form>
                             </form>
                         </div>
                     </div>
-                    <button (click)="toPrevious()" [disabled]=isProcessing class="btn btn-raised btn-primary">Previous</button>
-                    <button (click)="toFinish()" [disabled]=isProcessing class="btn btn-raised btn-primary ml-2">Finish</button>
+                    <button (click)="toFinish()" [disabled]=isProcessing class="btn btn-raised btn-primary">Finish</button>
                 </div>
             </div>
         </div>
