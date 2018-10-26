@@ -43,7 +43,7 @@ import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of
 
 
 import { NgSelectModule } from '@ng-select/ng-select';
-import { BomProcessComponent, TradeNameComponent } from './bom/bom-process/bom-process.component';
+import { BomProcessComponent } from './bom/bom-process/bom-process.component';
 import { BomByproductComponent} from './bom/bom-byproduct/bom-byproduct.component';
 import { BomScrapComponent} from './bom/bom-scrap/bom-scrap.component';
 import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
@@ -79,7 +79,6 @@ import { BomWastageComponent } from './bom/bom-wastage/bom-wastage.component';
     FormlyBootstrapModule,
     FormlyModule.forRoot({
       types: [
-        { name: 'select1', component: TradeNameComponent },
         { name: 'uom', component: SelectUOMBOMBasicComponent },
         { name: 'repeatit', component: BomBasicDetailsRepeatTypeComponent },
         { name: 'tradeName', component: BomTradeNameComponent },
@@ -124,7 +123,6 @@ import { BomWastageComponent } from './bom/bom-wastage/bom-wastage.component';
     BomScrapComponent,
     BomByproductComponent,
     BomBasicDetailsRepeatTypeComponent,
-    TradeNameComponent,
     SelectUOMBOMBasicComponent,
     BomTradeNameComponent,
     BomBasicDetailsComponent,
