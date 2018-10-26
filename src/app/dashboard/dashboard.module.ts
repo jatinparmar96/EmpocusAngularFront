@@ -46,8 +46,8 @@ import { ShowChartsOfAccountComponent } from './charts-of-account/show-charts-of
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BomProcessComponent, TradeNameComponent } from './bom/bom-process/bom-process.component';
-import { BomByproductComponent, SelectByProductComponent , SelectUOMByProductComponent } from './bom/bom-byproduct/bom-byproduct.component';
-import { BomScrapComponent, SelectScrapProductComponent, SelectUOMScarpComponent } from './bom/bom-scrap/bom-scrap.component';
+import { BomByproductComponent} from './bom/bom-byproduct/bom-byproduct.component';
+import { BomScrapComponent} from './bom/bom-scrap/bom-scrap.component';
 import { BomBasicDetailsComponent } from './bom/bom-basic-details/bom-basic-details.component';
 import { SelectByProductCompo } from "app/sharedComponents/SelectByProductCompo";
 import { BomBasicDetailsRepeatTypeComponent } from '../sharedComponents/bom-basic-details-repeat-section.type';
@@ -85,10 +85,6 @@ import { ViewProcessTypeComponent } from './process_type/view-process-type/view-
         { name: 'repeat2', component: BOMScrapRepeatTypeComponent },
         { name: 'repeat3', component: BOMByProductRepeatTypeComponent },
         { name: 'select1', component: TradeNameComponent },
-        { name: 'select2', component: SelectByProductComponent },
-        { name: 'select4', component: SelectUOMByProductComponent },
-        { name: 'select3', component: SelectScrapProductComponent },
-        { name: 'select5', component: SelectUOMScarpComponent },
         { name: 'uom', component: SelectUOMBOMBasicComponent },
         { name: 'repeatit', component: BomBasicDetailsRepeatTypeComponent },
         { name: 'tradeName', component: BomTradeNameComponent },
@@ -137,10 +133,6 @@ import { ViewProcessTypeComponent } from './process_type/view-process-type/view-
     BOMScrapRepeatTypeComponent,
     BOMByProductRepeatTypeComponent,
     TradeNameComponent,
-    SelectByProductComponent,
-    SelectScrapProductComponent,
-    SelectUOMByProductComponent,
-    SelectUOMScarpComponent,
     SelectUOMBOMBasicComponent,
     BomTradeNameComponent,
     BomBasicDetailsComponent,
