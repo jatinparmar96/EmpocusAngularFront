@@ -5,6 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormDataService } from 'app/shared/services/form-data.service';
 import { ShareService } from 'app/shared/services/share.service';
 import { NotifyService } from 'app/shared/services/notify.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { FormlyFormOptions, FormlyFieldConfig, FieldType } from '@ngx-formly/core';
+import { NgOption } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-bom-basic',
@@ -13,36 +16,12 @@ import { NotifyService } from 'app/shared/services/notify.service';
 })
 export class BomBasicComponent implements OnInit {
 
-  active = 'today';
-  debug = true;
-  formTouched: boolean = false;
-  isProcessing: boolean = false;
-  errors: any;
-  id: any = "new";
-
-  bom_basic_details_data: FormGroup;
-  bom_basic_details: any;
-
+  closeResult: string;
   constructor(
-    private apiService: ApiService,
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private formService: FormDataService,
-    private shareService: ShareService,
-    private notifyService: NotifyService,
     private router:Router,
-  ) { 
-    this.bom_basic_details_data= this.fb.group({
-      "id":['',Validators.required],
-      "bom_basic_details_name":['',Validators.required],
-      "bom_basic_details_number":['',Validators.required],
-      "bom_basic_details_date":['',Validators.required],
-      "bom_basic_details_rev_name":['',Validators.required],
-      "bom_basic_details_rev_date":['',Validators.required],
-      "bom_basic_details_item_name":['',Validators.required],
-      "bom_basic_details_item_code":['',Validators.required],
-  })
-}
+    private modalService: NgbModal
+  )
+   { }
 
   ngOnInit() {
   }
@@ -50,5 +29,132 @@ export class BomBasicComponent implements OnInit {
   toNext(){
     this.router.navigateByUrl('/dashboard/bom/process');
   }
+  
+
+  // Modal
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+  // Modal
+
+  form = new FormGroup({});
+  model = {
+    investments: [{}],
+  };
+  options: FormlyFormOptions = {};
+
+  fields: FormlyFieldConfig[] = [
+    {
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          className: 'col-4',
+          type: 'input',
+          key: 'bomItemName',
+          templateOptions: {
+            label: 'Item Name',
+          },
+        },
+        {
+          className: 'col-4',
+          type: 'input',
+          key: 'bomItemCode',
+          templateOptions: {
+            label: 'Item Code',
+          },
+        },
+        {
+          className: 'col-4',
+          type: 'input',
+          key: 'bomQty',
+          templateOptions: {
+            type: 'number',
+            label: 'Quantity',
+          },
+        },
+      ],
+    },
+    {
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          className: 'col-4',
+          type: 'input',
+          key: 'bomName',
+          templateOptions: {
+            label: 'BOM Name',
+          },
+        },
+        {
+          className: 'col-4',
+          type: 'input',
+          key: 'bomnumber',
+          templateOptions: {
+            type: 'number',
+            label: 'BOM Number',
+            //required: true,
+          },
+        },
+        {
+          className: 'col-4',
+          key: 'bomdate',
+          type: 'input',
+          templateOptions: {
+            type: 'date',
+            label: 'BOM Date',
+            //required: true,
+          },
+        },
+      ],
+    },
+    {
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          className: 'col-4',
+          type: 'input',
+          key: 'bomRevisionNumber',
+          templateOptions: {
+            type: 'number',
+            label: 'Revision Number',
+          },
+        },
+        {
+          className: 'col-4',
+          key: 'bomRevDate',
+          type: 'input',
+          templateOptions: {
+            type: 'date',
+            label: 'Revision Date',
+            //required: true,
+          },
+        },
+        {
+          key:'bomUOM',
+          type: 'uom',
+          className: 'col-lg-4',
+        },
+      ],
+    },
+  ];
+
+  // submit() {
+  //   alert(JSON.stringify(this.model));
+  // }
 
 }
+

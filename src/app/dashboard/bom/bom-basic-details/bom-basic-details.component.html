@@ -17,7 +17,6 @@
                                         <ng-template matStepLabel>{{ step.label }}</ng-template>
                                         <formly-form [form]="form.at(index)" [model]="model" [fields]="step.fields" [options]="options[index]">
                                         </formly-form>
-
                                         <div>
                                             <button *ngIf="index !== 0" matStepperPrevious class="btn btn-raised btn-primary mr-2" type="button" (click)="prevStep(index)">Back</button>
                                             <button *ngIf="!last" matStepperNext class="btn btn-primary btn-raised " type="button" [disabled]="!form.at(index).valid" (click)="nextStep(index)">Next</button>
