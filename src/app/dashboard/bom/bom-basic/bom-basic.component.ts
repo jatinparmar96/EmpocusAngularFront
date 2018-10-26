@@ -12,7 +12,7 @@ import { NotifyService } from 'app/shared/services/notify.service';
   styleUrls: ['./bom-basic.component.scss']
 })
 export class BomBasicComponent implements OnInit {
-
+  current_step = 1;
   active = 'today';
   debug = true;
   formTouched: boolean = false;
@@ -32,6 +32,7 @@ export class BomBasicComponent implements OnInit {
     private notifyService: NotifyService,
     private router:Router,
   ) { 
+
     this.bom_basic_details_data= this.fb.group({
       "id":['',Validators.required],
       "bom_basic_details_name":['',Validators.required],
@@ -47,7 +48,9 @@ export class BomBasicComponent implements OnInit {
   ngOnInit() {
   }
 
-  toNext(){
+  toNext(bom){
+    this.formService.toNext(bom.value,this.current_step);
+    console.log(this.formService.getData());
     this.router.navigateByUrl('/dashboard/bom/process');
   }
 

@@ -24,7 +24,8 @@ export class ViewCategoryMasterComponent implements OnInit {
     private router:Router,
     private apiService:ApiService,
     private shareService:ShareService
-  ) { 
+  ) 
+  { 
     this.shareService.setVisibility(true)
     this.shareService.setLink(this.link);
   }
@@ -44,7 +45,6 @@ export class ViewCategoryMasterComponent implements OnInit {
   getData(page = 1){
 		this.apiService.get('admin/product_category?page='+page)
 		.then( data => {
-     
       let l_data:any = data;
       l_data = l_data.data;
 			this.rows = l_data.data;
