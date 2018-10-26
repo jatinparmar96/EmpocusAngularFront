@@ -53,14 +53,14 @@ export class BomProcessComponent implements OnInit {
 
   form = new FormGroup({});
   model = {
-    investments: [{}],
+    manufacture: [{}],
   };
   options: FormlyFormOptions = {};
 
   fields: FormlyFieldConfig[] = [
     {
-      key: 'investments',
-      type: 'repeat1',
+      key: 'manufacture',
+      type: 'repeatit',
       fieldArray: {
         fieldGroupClassName: 'row',
         templateOptions: {
@@ -68,45 +68,36 @@ export class BomProcessComponent implements OnInit {
         },
         fieldGroup: [
           {
-            key:'tradeNameSelect',
-            type: 'select1',
-            className: 'col-lg-4',
+            key:'selectTradeName',
+            type: 'tradeName',
+            className: 'col-lg-3',
             templateOptions: {
               label: 'Product Trade Name:',
             },
-
+          },
+          {
+            key:'selectProcessType',
+            type: 'processType',
+            className: 'col-lg-3',
+            templateOptions: {
+              label: 'Process Type:',
+            },
           },
           {
             type: 'input',
             key: 'processQty',
             className: 'col-lg-2',
             templateOptions: {
-              label: 'Process Qty:',
+              type: 'number',
+              label: 'Qty:',
             },
           },
           {
-            type: 'input',
-            key: 'availableQty',
-            className: 'col-lg-2',
+            key:'timeField',
+            type: 'timeField',
+            className: 'col-lg-3',
             templateOptions: {
-              label: 'Available Qty:',
-              readOnly: true,
-              placeholder: '200',
-            },
-            expressionProperties: {
-              'templateOptions.disabled': '!model.text',
-            },
-          },
-          {
-            type: 'input',
-            key: 'uom',
-            className: 'col-lg-1',
-            templateOptions: {
-              label: 'UOM:',
-              placeholder: 'ltr',
-            },
-            expressionProperties: {
-              'templateOptions.disabled': '!model.text',
+              // label: 'Time:',
             },
           },
         ],
