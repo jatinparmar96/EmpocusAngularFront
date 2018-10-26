@@ -25,7 +25,7 @@ export class BomWastageComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/bom/new');
   }
   toPrevious(){
-    this.router.navigateByUrl('/dashboard/bom/scarp');
+    this.router.navigateByUrl('/dashboard/bom/scrap');
   }
 
   form = new FormGroup({});

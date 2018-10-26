@@ -141,8 +141,6 @@ import { BomWastageComponent } from './bom/bom-wastage/bom-wastage.component';
     ShowRawProductComponent,
     BomWastageComponent,
     ViewProcessTypeComponent,
-
-    
   ],
   exports:[
     CreateUnitOfMeasurementComponent,
