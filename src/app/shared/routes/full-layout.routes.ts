@@ -13,5 +13,9 @@ export const Full_ROUTES: Routes = [
   {
     path: 'inventory-master',
     loadChildren: './inventory-master/inventory-master.module#InventoryMasterModule' 
+  },
+  {
+    path:'crm',
+    loadChildren: './crm/crm.module#CrmModule' 
   }
 ];

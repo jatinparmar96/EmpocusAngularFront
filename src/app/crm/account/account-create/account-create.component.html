@@ -1,0 +1,234 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" id="basic-layout-colored-form-control">Add New Account</h4>
+            </div>
+            <div class="card-body">
+                <div class="px-3">
+                    <form class="form">
+                        <!-- <form class="form" [formGroup]="coa_data" (ngSubmit)="addOrUpdate(coa_data)"> -->
+                        <div class="form-body">
+                            <h4 class="form-section"><i class="ft-info"></i> Basic Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_name">Name</label>
+                                        <input type="text" formControlName="account_name" id="account_name" class="form-control border-primary" name="account_name">
+                                        <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
+                                        <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_no_of_employee">Number of Employee</label>
+                                        <select class="form-control" formControlName="account_no_of_employee" id="account_no_of_employee">
+                                      <option>Select Option</option>
+                                      <option>1-10</option>
+                                      <option>11-50</option>
+                                      <option>201-500</option>
+                                      <option>501-1000</option>
+                                      <option>1001-5000</option>
+                                      <option>5001-10000</option>
+                                      <option>10000+</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_annual_revenue">Annual Revenue</label>
+                                        <input type="text" formControlName="account_annual_revenue" id="account_annual_revenue" class="form-control border-primary" name="account_annual_revenue">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_website">Website</label>
+                                        <input type="text" formControlName="account_website" id="account_website" class="form-control border-primary" name="account_website">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_phone">Phone</label>
+                                        <input type="text" formControlName="account_phone" id="account_phone" class="form-control border-primary" name="account_phone">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_industry_type">Industry Type</label>
+                                        <select class="form-control" formControlName="account_industry_type" id="account_industry_type">
+                                    <option>Select Option</option>
+                                    <option>Accounting Type</option>
+                                    <option>Advertising</option>
+                                    <option>Aerospace</option>
+                                    <option>Agriculture</option>
+                                    <option>Aircraft</option>
+                                    <option>Airline</option>
+                                    <option>Apparel & Accessories</option>
+                                    <option>Automative</option>
+                                    <option>Banking</option>
+                                    <option>Biotechology</option>
+                                    <option>Broadcasting</option>
+                                    <option>Call Center</option>
+                                    <option>Cargo Handling</option>
+                                    <option>Construction</option>
+                                    <option>Consulting</option>
+                                    <option>Consumer Product</option>
+                                    <option>Defence</option>
+                                    <option>Education</option>
+                                    <option>Electronic</option>
+                                    <option>Energy</option>
+                                    <option>Engineering</option>
+                                    <option>Entertainment & Leisure</option>
+                                    <option>Executive Search</option>
+                                    <option>Finanical Services</option>
+                                    <option>Hosptality</option>
+                                    <option>Insurance</option>
+                                    <option>Investment Banking</option>
+                                    <option>Music</option>
+                                    <option>Newspaper Publishing</option>
+                                    <option>Online Auctions</option>
+                                    <option>Pension Funds</option>
+                                    <option>Pharmaceuticals</option>
+                                    <option>Publishing</option>
+                                    <option>Real Estate</option>
+                                    <option>Retail & Wholesale</option>
+                                    <option>Security & Wholesale</option>
+                                    <option>Services</option>
+                                    <option>Shipping</option>
+                                    <option>Saop & Detergent</option>
+                                    <option>Software</option>
+                                    <option>Sports</option>
+                                    <option>Telecommunication</option>
+                                    <option>Television</option>
+                                    <option>Transportation</option>
+                                    <option>Utilities</option>
+                                  </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_business_type">Business Type</label>
+                                        <select class="form-control" formControlName="account_business_type" id="account_business_type">
+                                      <option>Select Option</option>
+                                      <option>Analyst</option>
+                                      <option>Competitor</option>
+                                      <option>Customer</option>
+                                      <option>Integration</option>
+                                      <option>Investor</option>
+                                      <option>Partner</option>
+                                      <option>Press</option>
+                                      <option>Prospect</option>
+                                      <option>Reseller</option>
+                                      <option>Other</option>
+                                    </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <h4 class="form-section mt-1"><i class="ft-info"></i> Location</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_building_no">Block No./ Building Name</label>
+                                        <input type="text" formControlName="ca_address_building" class="form-control" id="ca_address_building" name="ca_address_building">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_road_number">Road Name</label>
+                                        <input type="text" formControlName="account_road_number" class="form-control" id="account_road_number" name="account_road_number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_landmark">Landmark</label>
+                                        <input type="text" formControlName="account_landmark" class="form-control" id="account_landmark" name="account_landmark">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_pincode">Pincode</label>
+                                        <input type="text" formControlName="account_pincode" class="form-control" id="account_pincode" name="account_pincode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_country">Country</label>
+                                        <select class="form-control" formControlName="account_country" id="account_country">
+                                        <option>Select Option</option>
+                                        <option>India</option>
+                                        <option>China</option>
+                                        <option>Nepal</option>
+                                      </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_state">State</label>
+                                        <select class="form-control" formControlName="account_state" id="account_state">
+                                        <option>Select Option</option>
+                                        <option>Maharashtra</option>
+                                        <option>Gujarat</option>
+                                        <option>Rajasthan</option>
+                                      </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_city">City</label>
+                                        <select class="form-control" formControlName="account_city" id="account_city">
+                                        <option>Select Option</option>
+                                        <option>Mumbai</option>
+                                        <option>Nagpur</option>
+                                        <option>Thane</option>
+                                      </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="form-section mt-1"><i class="ft-info"></i> Social Details</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="account_facebook">Facebook</label>
+                                        <input type="text" formControlName="account_facebook" id="account_facebook" class="form-control border-primary" name="account_facebook" placeholder="https://www.facebook.com/empocus">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="account_twitter">Twitter</label>
+                                        <input placeholder="https://twitter.com/empocus" type="text" formControlName="account_twitter" id="account_twitter" class="form-control border-primary" name="account_twitter">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="account_linkedin">Linkedin</label>
+                                        <input placeholder="https://linkedin.com/empocus" type="text" formControlName="account_linkedin" id="account_linkedin" class="form-control border-primary" name="account_linkedin">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions left">
+                            <input type="submit" value="Save" class="btn btn-raised btn-primary">
+                            <input type="button" value="Cancel" (click)='cancel()' class="btn btn-raised ml-1 btn-danger">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" id="basic-layout-colored-form-control">Add New Deal</h4>
+            </div>
+            <div class="card-body">
+                <div class="px-3">
+                    <form class="form">
+                        <!-- <form class="form" [formGroup]="coa_data" (ngSubmit)="addOrUpdate(coa_data)"> -->
+                        <div class="form-body">
+                            <h4 class="form-section"><i class="ft-info"></i> Basic Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_first_name">First Name</label>
+                                        <input type="text" formControlName="deal_first_name" id="deal_first_name" class="form-control border-primary" name="deal_first_name">
+                                        <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
+                                        <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_last_name">Last Name</label>
+                                        <input type="text" formControlName="deal_last_name" id="ca_company_display_name" class="form-control border-primary" name="deal_last_name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_deal_stage">Deal Stage</label>
+                                        <select class="form-control" formControlName="deal_deal_stage" id="deal_deal_stage">
+                                      <option>Select Option</option>
+                                      <option>New</option>
+                                      <option>Follow-Up</option>
+                                      <option>Under Review</option>
+                                      <option>Demo</option>
+                                      <option>Negotation</option>
+                                      <option>Won</option>
+                                      <option>Lost</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_product">Product</label>
+                                        <select class="form-control" formControlName="deal_product" id="deal_product">
+                                    <option>Select Option</option>
+                                    <option>Product 1</option>
+                                    <option>Product 2</option>
+                                    <option>Product 3</option>
+                                  </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_value">Deal Value</label>
+                                        <input type="text" formControlName="deal_value" id="deal_value" class="form-control border-primary" name="deal_value">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_Payment_status">Payment Status</label>
+                                        <select class="form-control" formControlName="deal_Payment_status" id="dedeal_Payment_statusal_account_name">
+                                    <option>Select Option</option>
+                                    <option>Online</option>
+                                    <option>Offline</option>
+                                  </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_expected_close_date">Expected Close Date</label>
+                                        <input type="date" formControlName="deal_expected_close_date" id="issueinput3" class="form-control" name="deal_expected_close_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_probablity">Probablity</label>
+                                        <input type="text" formControlName="deal_probablity" id="deal_probablity" class="form-control border-primary" name="deal_probablity">
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="form-section mt-1"><i class="ft-info"></i> Source Information</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_type">Type</label>
+                                        <select class="form-control" formControlName="deal_type" id="deal_type">
+                                        <option>Select Option</option>
+                                        <option>New Business</option>
+                                        <option>Existing Business-Renewal</option>
+                                        <option>Existing Business-Upgrade</option>
+                                      </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_source">Source</label>
+                                        <select class="form-control" formControlName="deal_source" id="deal_source">
+                                      <option>Select Option</option>
+                                      <option>Web</option>
+                                      <option>Organic Search</option>
+                                      <option>Email</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="deal_campaign">Campaign</label>
+                                        <select class="form-control" formControlName="deal_campaign" id="deal_campaign">
+                                      <option>Select Option</option>
+                                      <option>Option 1</option>
+                                      <option>Option 2</option>
+                                      <option>Option 3</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions left">
+                            <input type="submit" value="Save" class="btn btn-raised btn-primary">
+                            <input type="button" value="Cancel" (click)='cancel()' class="btn btn-raised ml-1 btn-danger">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

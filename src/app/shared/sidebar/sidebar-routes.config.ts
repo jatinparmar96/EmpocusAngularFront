@@ -46,6 +46,28 @@ export const ROUTES: RouteInfo[] = [
             },
         ]
     },
+    {
+        path: '', title: 'CRM', icon: 'ft-trending-up', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+            {
+                path: '/crm/lead/create', title: 'Lead', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+            {
+                path: '/crm/appointment/create', title: 'Appointment', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+            {
+                path: '/crm/task/create', title: 'Task', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+            {
+                path: '/crm/contact/create', title: 'Contact', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+            {
+                path: '/crm/deal/create', title: 'Deal', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+            {
+                path: '/crm/account/create', title: 'Account', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+        ]
+    },
 
    
 ];
