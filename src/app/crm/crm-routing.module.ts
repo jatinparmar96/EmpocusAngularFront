@@ -7,6 +7,8 @@ import { TaskCreateComponent } from './task/task-create/task-create.component';
 import { ContactCreateComponent } from './contact/contact-create/contact-create.component';
 import { DealCreateComponent } from './deal/deal-create/deal-create.component';
 import { AccountCreateComponent } from './account/account-create/account-create.component';
+import { AccountShowComponent } from './account/account-show/account-show.component';
+import { AppointmentShowComponent } from './appointment/appointment-show/appointment-show.component';
 
 
 
@@ -24,6 +26,10 @@ const routes: Routes = [
     component: AppointmentCreateComponent
   },  
   {
+    path: 'appointment/show',
+    component: AppointmentShowComponent
+  },  
+  {
     path: 'task/create',
     component: TaskCreateComponent
   },  
@@ -39,6 +45,13 @@ const routes: Routes = [
     path: 'account/create',
     component: AccountCreateComponent
   },  
+  {
+    path: 'account/show',
+    component: AccountShowComponent
+  },  
+  
+  
+  
   
   
 ];

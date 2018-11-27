@@ -1,17 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'app/shared/services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormDataService } from 'app/shared/services/form-data.service';
 import { ShareService } from 'app/shared/services/share.service';
 import { NotifyService } from 'app/shared/services/notify.service';
+import { DataService, Person} from 'app/shared/services/data.service';
+import { map } from 'rxjs/operators';
+
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-appointment-create',
   templateUrl: './appointment-create.component.html',
   styleUrls: ['./appointment-create.component.scss']
 })
 export class AppointmentCreateComponent implements OnInit {
+
+
+  people: Person[] = [];
+  selectedPeople = [];
+  selectedPeople2 = [];
+
 
   active= 'today';
   appoint_data: FormGroup;
@@ -21,6 +31,7 @@ export class AppointmentCreateComponent implements OnInit {
   errors: any;
 	id: any = "new";
   constructor(
+    private dataService: DataService,
     private apiService: ApiService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -49,6 +60,12 @@ export class AppointmentCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataService.getPeople()
+    .pipe(map(x => x.filter(y => !y.disabled)))
+    .subscribe((res) => {
+        this.people = res;
+        this.selectedPeople = [this.people[0].id, this.people[1].id];
+    });
 
     this.route.params.subscribe(params => {
       console.log(params['id'])

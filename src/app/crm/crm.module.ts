@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 import { CrmRoutingModule } from './crm-routing.module';
 import { LeadCreateComponent } from './lead/lead-create/lead-create.component';
 import { LeadViewComponent } from './lead/lead-view/lead-view.component';
@@ -10,14 +10,32 @@ import { TaskCreateComponent } from './task/task-create/task-create.component';
 import { ContactCreateComponent } from './contact/contact-create/contact-create.component';
 import { DealCreateComponent } from './deal/deal-create/deal-create.component';
 import { AccountCreateComponent } from './account/account-create/account-create.component';
+import { AccountShowComponent } from './account/account-show/account-show.component';
+import { AppointmentShowComponent } from './appointment/appointment-show/appointment-show.component';
 
-
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    CrmRoutingModule
+    CrmRoutingModule,
+    NgSelectModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  declarations: [LeadCreateComponent, LeadViewComponent, LeadShowComponent, AppointmentCreateComponent, TaskCreateComponent, ContactCreateComponent, DealCreateComponent, AccountCreateComponent]
+  declarations: [
+    LeadCreateComponent, 
+    LeadViewComponent, 
+    LeadShowComponent,
+    AppointmentCreateComponent,
+    TaskCreateComponent,
+    ContactCreateComponent,
+    DealCreateComponent, 
+    AccountCreateComponent, 
+    AccountShowComponent, 
+    AppointmentShowComponent,
+  ]
 })
 export class CrmModule { }
