@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lead-show.component.scss']
 })
 export class LeadShowComponent implements OnInit {
-
+  active= 'today';
   constructor() { }
 
   ngOnInit() {
