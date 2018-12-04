@@ -1,0 +1,134 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" id="basic-layout-colored-form-control">Add Appointment</h4>
+            </div>
+            <div class="card-body">
+                <div class="px-3">
+                    <form class="form">
+                        <!-- <form class="form" [formGroup]="coa_data" (ngSubmit)="addOrUpdate(coa_data)"> -->
+                        <div class="form-body">
+                            <h4 class="form-section"><i class="ft-info"></i> Create Quotation</h4>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="appoint_create_title">Client Name</label>
+                                        <ng-select [items]="people$ | async" bindLabel="name" autofocus bindValue="id" [(ngModel)]="selectedPersonId">
+                                        </ng-select>
+                                        <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
+                                        <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="appoint_create_title">Select Address</label>
+                                        <ng-select formControlName="client_name_appointment" id="client_name_appointment" name="client_name_appointment" [items]="people$ | async" bindLabel="name" autofocus bindValue="id" [(ngModel)]="selectedPersonId">
+                                        </ng-select>
+                                        <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
+                                        <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="appoint_create_description">Attendees</label>
+                                        <ng-select [items]="people" [multiple]="true" bindLabel="name" groupBy="brand" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [(ngModel)]="selectedPeople2">
+                                            <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+                                                <input id="item-{{index}}" formControlName="appointment_attendees_1" name="appointment_attendees_1" type="checkbox" [ngModel]="item$.selected" /> {{item.brand | uppercase}}
+                                            </ng-template>
+                                            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                                                <input id="item-{{index}}" formControlName="appointment_attendees_2" name="appointment_attendees_2" type="checkbox" [ngModel]="item$.selected" /> {{item.name}}
+                                            </ng-template>
+                                        </ng-select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="appoint_create_related_to">Related To:</label>
+                                        <select class="form-control" formControlName="appoint_create_lead_status" id="appoint_create_lead_status">
+                                          <option>Link the Appointment to</option>
+                                          <option>Option 1</option>
+                                          <option>Option 1</option>
+                                          <option>Option 1</option>
+                                          <option>Option 1</option>
+                                          <option>Option 1</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="appoint_create_from_date">From</label>
+                                        <input type="date" formControlName="appoint_create_from_date" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="appoint_create_from_time">&nbsp;</label>
+                                        <input type="time" formControlName="appoint_create_from_time" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="appoint_create_to_date">To</label>
+                                        <input type="date" formControlName="appoint_create_to_date" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="appoint_create_to_time">&nbsp;</label>
+                                        <input type="time" formControlName="appoint_create_to_time" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="appoint_create_where">Where</label>
+                                        <input type="text" placeholder="Enter location of Appointment" formControlName="appoint_create_primary_contact_number" id="appoint_create_primary_contact_number" class="form-control border-primary" name="appoint_create_primary_contact_number">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="appoint_create_outcome">Outcome</label>
+                                        <select class="form-control" formControlName="appoint_create_lead_status" id="appoint_create_lead_status">
+                                        <option>Select Option</option>
+                                        <option>Intrested</option>
+                                        <option>Left Message</option>
+                                        <option>No Response</option>
+                                        <option>Not Intrested</option>
+                                        <option>Not Able to Reach</option>
+                                      </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="appoint_create_description">Description</label>
+                                        <input type="text" formControlName="appoint_create_department" id="appoint_create_department" class="form-control border-primary" name="appoint_create_department">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-actions left">
+                            <input type="submit" value="Save" class="btn btn-raised btn-primary">
+                            <input type="button" value="Cancel" (click)='cancel()' class="btn btn-raised ml-1 btn-danger">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

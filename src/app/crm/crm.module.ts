@@ -15,6 +15,7 @@ import { AppointmentShowComponent } from './appointment/appointment-show/appoint
 
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { QuotationCreateComponent } from './quotation/quotation-create/quotation-create.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     DealCreateComponent, 
     AccountCreateComponent, 
     AccountShowComponent, 
-    AppointmentShowComponent,
+    AppointmentShowComponent, QuotationCreateComponent,
   ]
 })
 export class CrmModule { }

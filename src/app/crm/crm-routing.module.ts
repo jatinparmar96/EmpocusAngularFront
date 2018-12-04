@@ -9,6 +9,7 @@ import { DealCreateComponent } from './deal/deal-create/deal-create.component';
 import { AccountCreateComponent } from './account/account-create/account-create.component';
 import { AccountShowComponent } from './account/account-show/account-show.component';
 import { AppointmentShowComponent } from './appointment/appointment-show/appointment-show.component';
+import { QuotationCreateComponent } from './quotation/quotation-create/quotation-create.component';
 
 
 
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'account/show',
     component: AccountShowComponent
+  },  
+  {
+    path: 'quotation/create',
+    component: QuotationCreateComponent
   },  
   
   
