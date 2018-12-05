@@ -18,7 +18,7 @@ import { map } from 'rxjs/operators';
 export class AppointmentCreateComponent implements OnInit {
 
 
-  people: Person[] = [];
+  people: [] = [];
   selectedPeople = [];
   selectedPeople2 = [];
 
@@ -53,7 +53,6 @@ export class AppointmentCreateComponent implements OnInit {
       "appoint_create_outcome":['',Validators.required],
       "appoint_create_where":['',Validators.required],
       "appoint_create_related_to":['',Validators.required],
-      "appoint_create_attendees":['',Validators.required],
       "appoint_create_description":['',Validators.required],
     });
     this.resetErrorMessages();
@@ -136,7 +135,6 @@ export class AppointmentCreateComponent implements OnInit {
       "appoint_create_outcome":[""],
       "appoint_create_where":[""],
       "appoint_create_related_to":[""],
-      "appoint_create_attendees":[""],
       "appoint_create_description":[""],
 		}
   }

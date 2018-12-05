@@ -6,8 +6,8 @@
             </div>
             <div class="card-body">
                 <div class="px-3">
-                    <form class="form">
-                        <!-- <form class="form" [formGroup]="coa_data" (ngSubmit)="addOrUpdate(coa_data)"> -->
+                    <!-- <form class="form"> -->
+                    <form class="form" [formGroup]="account_data" (ngSubmit)="addOrUpdate(account_data)">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i> Basic Information</h4>
                             <div class="row">
@@ -137,7 +137,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="account_building_no">Block No./ Building Name</label>
-                                        <input type="text" formControlName="ca_address_building" class="form-control" id="ca_address_building" name="ca_address_building">
+                                        <input type="text" formControlName="account_building_no" class="form-control" id="account_building_no" name="account_building_no">
                                     </div>
                                 </div>
                                 <div class="col-md-6">

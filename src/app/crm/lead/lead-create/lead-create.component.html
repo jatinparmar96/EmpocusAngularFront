@@ -6,8 +6,8 @@
             </div>
             <div class="card-body">
                 <div class="px-3">
-                    <form class="form">
-                        <!-- <form class="form" [formGroup]="coa_data" (ngSubmit)="addOrUpdate(coa_data)"> -->
+                    <!-- <form class="form"> -->
+                    <form class="form" [formGroup]="lead_data" (ngSubmit)="addOrUpdate(lead_data)">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i> Basic Information</h4>
                             <div class="row">
@@ -31,7 +31,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="lead_create_last_name">Last Name</label>
-                                        <input type="text" formControlName="lead_create_last_name" id="ca_company_display_name" placeholder="Roxso" class="form-control border-primary" name="lead_create_last_name">
+                                        <input type="text" formControlName="lead_create_last_name" id="lead_create_last_name" placeholder="Roxso" class="form-control border-primary" name="lead_create_last_name">
                                     </div>
                                 </div>
                             </div>
@@ -100,13 +100,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="lead_create_no_of_emp">Number of employees</label>
-                                                        <input type="text" formControlName="ca_contact_first_name" id="ca_contact_first_name" class="form-control border-primary" name="ca_contact_first_name">
+                                                        <input type="text" formControlName="lead_create_no_of_emp" id="lead_create_no_of_emp" class="form-control border-primary" name="lead_create_no_of_emp">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="lead_create_company_annual_rev">Company annual revenue</label>
-                                                        <input type="text" formControlName="ca_contact_last_name" id="ca_contact_last_name" class="form-control border-primary" name="ca_contact_last_name">
+                                                        <input type="text" formControlName="lead_create_company_annual_rev" id="lead_create_company_annual_rev" class="form-control border-primary" name="lead_create_company_annual_rev">
                                                     </div>
                                                 </div>
                                             </div>
@@ -129,11 +129,53 @@
                                                     <div class="form-group">
                                                         <label for="lead_create_industry_type">Industry type</label>
                                                         <select class="form-control" formControlName="lead_create_industry_type" id="lead_create_industry_type">
-                                                          <option>Accounting</option>
-                                                          <option>Advertising</option>
-                                                          <option>Aerospace</option>
-                                                          <option>Agriculture</option>
-                                                        </select>
+                                                            <option>Select Option</option>
+                                                            <option>Accounting Type</option>
+                                                            <option>Advertising</option>
+                                                            <option>Aerospace</option>
+                                                            <option>Agriculture</option>
+                                                            <option>Aircraft</option>
+                                                            <option>Airline</option>
+                                                            <option>Apparel & Accessories</option>
+                                                            <option>Automative</option>
+                                                            <option>Banking</option>
+                                                            <option>Biotechology</option>
+                                                            <option>Broadcasting</option>
+                                                            <option>Call Center</option>
+                                                            <option>Cargo Handling</option>
+                                                            <option>Construction</option>
+                                                            <option>Consulting</option>
+                                                            <option>Consumer Product</option>
+                                                            <option>Defence</option>
+                                                            <option>Education</option>
+                                                            <option>Electronic</option>
+                                                            <option>Energy</option>
+                                                            <option>Engineering</option>
+                                                            <option>Entertainment & Leisure</option>
+                                                            <option>Executive Search</option>
+                                                            <option>Finanical Services</option>
+                                                            <option>Hosptality</option>
+                                                            <option>Insurance</option>
+                                                            <option>Investment Banking</option>
+                                                            <option>Music</option>
+                                                            <option>Newspaper Publishing</option>
+                                                            <option>Online Auctions</option>
+                                                            <option>Pension Funds</option>
+                                                            <option>Pharmaceuticals</option>
+                                                            <option>Publishing</option>
+                                                            <option>Real Estate</option>
+                                                            <option>Retail & Wholesale</option>
+                                                            <option>Security & Wholesale</option>
+                                                            <option>Services</option>
+                                                            <option>Shipping</option>
+                                                            <option>Saop & Detergent</option>
+                                                            <option>Software</option>
+                                                            <option>Sports</option>
+                                                            <option>Telecommunication</option>
+                                                            <option>Television</option>
+                                                            <option>Transportation</option>
+                                                            <option>Utilities</option>
+                                                          </select>
                                                     </div>
                                                 </div>
 
@@ -141,11 +183,18 @@
                                                     <div class="form-group">
                                                         <label for="lead_create_business_type">Business Type</label>
                                                         <select class="form-control" formControlName="lead_create_business_type" id="lead_create_business_type">
-                                                          <option>Analyst</option>
-                                                          <option>Competitor</option>
-                                                          <option>Customer</option>
-                                                          <option>Integrator</option>
-                                                        </select>
+                                                            <option>Select Option</option>
+                                                            <option>Analyst</option>
+                                                            <option>Competitor</option>
+                                                            <option>Customer</option>
+                                                            <option>Integration</option>
+                                                            <option>Investor</option>
+                                                            <option>Partner</option>
+                                                            <option>Press</option>
+                                                            <option>Prospect</option>
+                                                            <option>Reseller</option>
+                                                            <option>Other</option>
+                                                          </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -156,7 +205,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="lead_create_building_no">Block No./ Building Name</label>
-                                                        <input type="text" formControlName="ca_address_building" class="form-control" id="ca_address_building" name="ca_address_building">
+                                                        <input type="text" formControlName="lead_create_building_no" class="form-control" id="lead_create_building_no" name="lead_create_building_no">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -261,7 +310,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="lead_create_deal_expected_close_date">Deal Expected Close Date</label>
-                                                        <input type="date" formControlName="lead_create_deal_expected_close_date" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                                        <input type="date" formControlName="lead_create_deal_expected_close_date" id="issueinput3" class="form-control" name="lead_create_deal_expected_close_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

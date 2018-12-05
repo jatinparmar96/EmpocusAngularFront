@@ -1,134 +1,302 @@
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title" id="basic-layout-colored-form-control">Add Appointment</h4>
+                <h4 class="card-title" id="basic-layout-colored-form-control">Sales Challan Entry</h4>
             </div>
             <div class="card-body">
                 <div class="px-3">
                     <form class="form">
-                        <!-- <form class="form" [formGroup]="coa_data" (ngSubmit)="addOrUpdate(coa_data)"> -->
                         <div class="form-body">
-                            <h4 class="form-section"><i class="ft-info"></i> Create Quotation</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="appoint_create_title">Client Name</label>
-                                        <ng-select [items]="people$ | async" bindLabel="name" autofocus bindValue="id" [(ngModel)]="selectedPersonId">
-                                        </ng-select>
-                                        <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
-                                        <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="appoint_create_title">Select Address</label>
-                                        <ng-select formControlName="client_name_appointment" id="client_name_appointment" name="client_name_appointment" [items]="people$ | async" bindLabel="name" autofocus bindValue="id" [(ngModel)]="selectedPersonId">
-                                        </ng-select>
-                                        <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
-                                        <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="appoint_create_description">Attendees</label>
-                                        <ng-select [items]="people" [multiple]="true" bindLabel="name" groupBy="brand" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [(ngModel)]="selectedPeople2">
-                                            <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
-                                                <input id="item-{{index}}" formControlName="appointment_attendees_1" name="appointment_attendees_1" type="checkbox" [ngModel]="item$.selected" /> {{item.brand | uppercase}}
-                                            </ng-template>
-                                            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                                                <input id="item-{{index}}" formControlName="appointment_attendees_2" name="appointment_attendees_2" type="checkbox" [ngModel]="item$.selected" /> {{item.name}}
-                                            </ng-template>
-                                        </ng-select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="appoint_create_related_to">Related To:</label>
-                                        <select class="form-control" formControlName="appoint_create_lead_status" id="appoint_create_lead_status">
-                                          <option>Link the Appointment to</option>
-                                          <option>Option 1</option>
-                                          <option>Option 1</option>
-                                          <option>Option 1</option>
-                                          <option>Option 1</option>
-                                          <option>Option 1</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                            <h4 class="form-section"><i class="ft-info"></i>Sales Challan Details</h4>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="appoint_create_from_date">From</label>
-                                        <input type="date" formControlName="appoint_create_from_date" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                        <label for="sales_series">Sales series</label>
+                                        <input type="text" id="sales_series" class="form-control" name="sales_series">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="appoint_create_from_time">&nbsp;</label>
-                                        <input type="time" formControlName="appoint_create_from_time" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="appoint_create_to_date">To</label>
-                                        <input type="date" formControlName="appoint_create_to_date" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                        <label for="challan_date">Challan Date</label>
+                                        <input type="date" id="challan_date" class="form-control" name="challan_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="appoint_create_to_time">&nbsp;</label>
-                                        <input type="time" formControlName="appoint_create_to_time" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                        <label for="customer_name">Customer Name</label>
+                                        <select class="form-control" id="customer_name">
+                        <option>ABC Packing</option>
+                        <option>AWM Enterprises</option>
+                      </select>
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="appoint_create_where">Where</label>
-                                        <input type="text" placeholder="Enter location of Appointment" formControlName="appoint_create_primary_contact_number" id="appoint_create_primary_contact_number" class="form-control border-primary" name="appoint_create_primary_contact_number">
+                                        <label for="order_number">Order Number</label>
+                                        <input type="number" id="order_number" class="form-control" name="order_number">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="appoint_create_outcome">Outcome</label>
-                                        <select class="form-control" formControlName="appoint_create_lead_status" id="appoint_create_lead_status">
-                                        <option>Select Option</option>
-                                        <option>Intrested</option>
-                                        <option>Left Message</option>
-                                        <option>No Response</option>
-                                        <option>Not Intrested</option>
-                                        <option>Not Able to Reach</option>
-                                      </select>
+                                        <label for="order_date">Order Date</label>
+                                        <input type="date" id="order_date" class="form-control" name="order_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                     </div>
                                 </div>
-
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="godown_name">Godown Name</label>
+                                        <select class="form-control" id="godown_name">
+                        <option>GD01</option>
+                        <option>GD02</option>
+                      </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="credit_days">Credit Days</label>
+                                        <input type="number" id="credit_days" class="form-control" name="credit_days">
+                                    </div>
+                                </div>
                             </div>
-
+                            <h4 class="form-section mt-1"><i class="ft-info"></i>Accounts</h4>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <a class="btn btn-primary btn-sm btn-raised" (click)="open(product_modal)">Add</a>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="appoint_create_description">Description</label>
-                                        <input type="text" formControlName="appoint_create_department" id="appoint_create_department" class="form-control border-primary" name="appoint_create_department">
+                                        <table class="table table-bordered table-responsive-md overflow-scroll">
+                                            <thead>
+                                                <th>SR</th>
+                                                <th>Quality</th>
+                                                <th>Size in Cms</th>
+                                                <th>GSM</th>
+                                                <th>Pkt Wt</th>
+                                                <th>Bdls</th>
+                                                <th>PKTS</th>
+                                                <th>Total Weight</th>
+                                                <th>Sheets</th>
+                                                <th>Rate</th>
+                                                <th>Per</th>
+                                                <th>Amount</th>
+                                                <th>Action</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let field of fieldArray; let i = index">
+                                                    <td>{{i+1}}</td>
+                                                    <td>{{field.quality}}</td>
+                                                    <td>{{field.size}}</td>
+                                                    <td>{{field.gsm}}</td>
+                                                    <td>{{field.pkt}}</td>
+                                                    <td>{{field.bdls}}</td>
+                                                    <td>{{field.pkts}}</td>
+                                                    <td>{{field.total_weight}}</td>
+                                                    <td>{{field.sheets}}</td>
+                                                    <td>{{field.rate}}</td>
+                                                    <td>{{field.per}}</td>
+                                                    <td>{{field.amount}}</td>
+                                                    <td><a (click)="deleteFieldValue(i)"><span class='ft-trash-2 red'></span></a></td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5"></td>
+                                                    <td><input type="number" id="sum_bdls" class="form-control" name="sum_bdls"></td>
+                                                    <td><input type="number" id="sum_pkts" class="form-control" name="sum_pkts"></td>
+                                                    <td><input type="number" id="sum_total_weight" class="form-control" name="sum_total_weight"></td>
+                                                    <td><input type="number" id="sum_sheets" class="form-control" name="sum_sheets"></td>
+                                                    <td colspan="2"></td>
+                                                    <td colspan="2"><input type="number" id="sum_amount" class="form-control" name="sum_amount"></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="delivery_at">Delivery At</label>
+                                            <select class="form-control" id="delivery_at">
+                          <option>ABC Packing</option>
+                          <option>AWM Enterprises</option>
+                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-1">
+                                        <div class="col-md-12">
+                                            <label for="transporter_name">Transporter Name</label>
+                                            <select class="form-control" id="transporter_name">
+                          <option>Transporter 1</option>
+                          <option>Transporter 2</option>
+                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-1">
+                                        <div class="col-md-12">
+                                            <label for="vehicle_no">Vehicle No</label>
+                                            <select class="form-control" id="vehicle_no">
+                          <option>Vehicle 1</option>
+                          <option>Vehicle 2</option>
+                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-1">
+                                        <div class="col-md-12">
+                                            <label for="eway_bill">E-WAY Bill No</label>
+                                            <input type="number" id="eway_bill" class="form-control" name="eway_bill">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <div class="row  mt-3">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-12 mt-4">
+                                            <div class="row mt-1">
+                                                <div class="col-md-6 mt-1">
+                                                    <label for="gross_amount">Gross Amount</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="gross_amount" class="form-control" name="gross_amount">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6 mt-1">
+                                                    <label for="discount">Discount</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="discount" class="form-control" name="discount">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6 mt-1">
+                                                    <label for="del_charges">Del Charges</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="del_charges" class="form-control" name="del_charges">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6">
+                                                    <select class="form-control" id="gst_rate">
+                              <option>GST 5%</option>
+                              <option>GST 8%</option>
+                              <option>GST 12%</option>
+                              <option>GST 18%</option>
+                              <option>GST 28%</option>
+                            </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="total" class="form-control" name="total">
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <div class="col-md-6 mt-1">
+                                                    <label for="grand_total">Grand Total</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="grand_total" class="form-control" name="grand_total">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-actions left">
+                        <div class="form-actions right">
                             <input type="submit" value="Save" class="btn btn-raised btn-primary">
-                            <input type="button" value="Cancel" (click)='cancel()' class="btn btn-raised ml-1 btn-danger">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
+
+<!-- Product Modal  -->
+<ng-template #product_modal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-body">
+                <h4 class="form-section"><i class="ft-info"></i>Product Details</h4>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="quality">Quality</label>
+                            <select class="form-control" id="quality" name="quality" [(ngModel)]='newAttribute.quality'>
+                  <option>ABC Packing</option>
+                  <option>AWM Enterprises</option>
+                  <option>ABD Packing</option>
+                </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="size">Size in CMS/INCH</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="gsm">GSM</label>
+                        <input type="text" id="gsm" class="form-control" [(ngModel)]='newAttribute.gsm' name="gsm">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="pkt_wt">PKT-WT</label>
+                        <input type="text" id="pkt_wt" class="form-control" name="pkt_wt" [(ngModel)]='newAttribute.pkt'>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="bdls">BDLS</label>
+                        <input type="text" id="bdls" class="form-control" name="bdls" [(ngModel)]='newAttribute.bdls'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="pkts">PKTS</label>
+                        <input type="text" id="pkts" class="form-control" name="pkts" [(ngModel)]='newAttribute.pkts'>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="total_weight">Total Weight</label>
+                        <input type="text" id="total_weight" class="form-control" name="total_weight" [(ngModel)]='newAttribute.total_weight'>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="sheets">Sheets</label>
+                        <input type="text" id="sheets" class="form-control" name="sheets" [(ngModel)]='newAttribute.sheets'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="rate">Rate</label>
+                        <input type="text" id="rate" class="form-control" name="rate" [(ngModel)]='newAttribute.rate'>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="per">per</label>
+                        <input type="text" id="per" class="form-control" name="per" [(ngModel)]='newAttribute.per'>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="amount">Amount</label>
+                        <input type="text" id="amount" class="form-control" name="amount" [(ngModel)]='newAttribute.amount'>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="addFieldValue(); modal.close('')">Add and close</button>
+        <button type="button" class="btn btn-outline-dark" (click)="addFieldValue()">Add</button>
+    </div>
+</ng-template>

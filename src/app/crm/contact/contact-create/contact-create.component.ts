@@ -52,6 +52,7 @@ export class ContactCreateComponent implements OnInit {
       "contact_state":['',Validators.required],
       "contact_city":['',Validators.required],
       "contact_facebook":['',Validators.required],
+      "contact_twitter":['',Validators.required],
       "contact_linkedin":['',Validators.required],
       "contact_source":[' ',Validators.required],
       "contact_campaign":['',Validators.required],
