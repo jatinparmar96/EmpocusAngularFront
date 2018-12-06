@@ -46,14 +46,14 @@ export class AppointmentCreateComponent implements OnInit {
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
       "title":['',Validators.required],
-      "appoint_create_from_date":['',Validators.required],
-      "appoint_create_from_time":['',Validators.required],
-      "appoint_create_to_date":['',Validators.required],
-      "appoint_create_to_time":['',Validators.required],
-      "appoint_create_outcome":['',Validators.required],
-      "appoint_create_where":['',Validators.required],
-      "appoint_create_related_to":['',Validators.required],
-      "appoint_create_description":['',Validators.required],
+      "from_date":['',Validators.required],
+      "from_time":['',Validators.required],
+      "to_date":['',Validators.required],
+      "to_time":['',Validators.required],
+      "outcome":['',Validators.required],
+      "where":['',Validators.required],
+      "related_to":['',Validators.required],
+      "description":['',Validators.required],
     });
     this.resetErrorMessages();
   }
@@ -127,15 +127,15 @@ export class AppointmentCreateComponent implements OnInit {
   }
   resetErrorMessages(){
 		this.errors = {			
-      "appoint_create_title": [""],
-      "appoint_create_from_date":[""],
-      "appoint_create_from_time":[""],
-      "appoint_create_to_date":[""],
-      "appoint_create_to_time":[""],
-      "appoint_create_outcome":[""],
-      "appoint_create_where":[""],
-      "appoint_create_related_to":[""],
-      "appoint_create_description":[""],
+      "title": [""],
+      "from_date":[""],
+      "from_time":[""],
+      "to_date":[""],
+      "to_time":[""],
+      "outcome":[""],
+      "where":[""],
+      "related_to":[""],
+      "description":[""],
 		}
   }
   
