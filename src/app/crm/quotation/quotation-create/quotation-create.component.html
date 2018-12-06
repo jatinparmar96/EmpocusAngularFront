@@ -2,64 +2,48 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title" id="basic-layout-colored-form-control">Sales Challan Entry</h4>
+                <h4 class="card-title" id="basic-layout-colored-form-control">Quotation</h4>
             </div>
             <div class="card-body">
                 <div class="px-3">
                     <form class="form">
                         <div class="form-body">
-                            <h4 class="form-section"><i class="ft-info"></i>Sales Challan Details</h4>
+                            <h4 class="form-section"><i class="ft-info"></i>Customer Details</h4>
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="sales_series">Sales series</label>
-                                        <input type="text" id="sales_series" class="form-control" name="sales_series">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="challan_date">Challan Date</label>
-                                        <input type="date" id="challan_date" class="form-control" name="challan_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="customer_name">Customer Name</label>
                                         <select class="form-control" id="customer_name">
-                        <option>ABC Packing</option>
-                        <option>AWM Enterprises</option>
-                      </select>
+                                <option>ABC Packing</option>
+                                <option>AWM Enterprises</option>
+                              </select>
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="customer_name">Address</label>
+                                        <select class="form-control" id="customer_name">
+                                    <option>ABC Packing</option>
+                                    <option>AWM Enterprises</option>
+                                  </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="challan_date">Quotation Date</label>
+                                        <input type="date" id="challan_date" class="form-control" name="challan_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="challan_date">Quotation Validity</label>
+                                        <input type="date" id="challan_date" class="form-control" name="challan_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="order_number">Order Number</label>
-                                        <input type="number" id="order_number" class="form-control" name="order_number">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="order_date">Order Date</label>
-                                        <input type="date" id="order_date" class="form-control" name="order_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="godown_name">Godown Name</label>
-                                        <select class="form-control" id="godown_name">
-                        <option>GD01</option>
-                        <option>GD02</option>
-                      </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label for="credit_days">Credit Days</label>
-                                        <input type="number" id="credit_days" class="form-control" name="credit_days">
-                                    </div>
-                                </div>
+
                             </div>
                             <h4 class="form-section mt-1"><i class="ft-info"></i>Accounts</h4>
                             <div class="row">
@@ -223,7 +207,7 @@
 <!-- Product Modal  -->
 <ng-template #product_modal let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <!-- <h4 class="modal-title" id="modal-basic-title"> <strong>Profile Update</strong></h4> -->
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -235,63 +219,83 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <label for="quality">Quality</label>
+                            <label for="quality">Product Name</label>
                             <select class="form-control" id="quality" name="quality" [(ngModel)]='newAttribute.quality'>
-                  <option>ABC Packing</option>
-                  <option>AWM Enterprises</option>
-                  <option>ABD Packing</option>
+                  <option>Product 1</option>
+                  <option>Product 2</option>
+                  <option>Product 3</option>
                 </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="size">Qty</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="size">Size in CMS/INCH</label>
+                            <label for="size">Rate</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="size">Discount</label>
                             <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label for="gsm">GSM</label>
-                        <input type="text" id="gsm" class="form-control" [(ngModel)]='newAttribute.gsm' name="gsm">
+                        <div class="form-group">
+                            <label for="size">Non-Taxable Amt</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <label for="pkt_wt">PKT-WT</label>
-                        <input type="text" id="pkt_wt" class="form-control" name="pkt_wt" [(ngModel)]='newAttribute.pkt'>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="bdls">BDLS</label>
-                        <input type="text" id="bdls" class="form-control" name="bdls" [(ngModel)]='newAttribute.bdls'>
+                        <div class="form-group">
+                            <label for="size">Taxable Amt</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
+                        </div>
                     </div>
                 </div>
+                <h4 class="form-section">CGST</h4>
+                <!-- <p><strong>CGST</strong></p> -->
                 <div class="row">
                     <div class="col-md-4">
-                        <label for="pkts">PKTS</label>
-                        <input type="text" id="pkts" class="form-control" name="pkts" [(ngModel)]='newAttribute.pkts'>
+                        <div class="form-group">
+                            <label for="size">%</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <label for="total_weight">Total Weight</label>
-                        <input type="text" id="total_weight" class="form-control" name="total_weight" [(ngModel)]='newAttribute.total_weight'>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="sheets">Sheets</label>
-                        <input type="text" id="sheets" class="form-control" name="sheets" [(ngModel)]='newAttribute.sheets'>
+                        <div class="form-group">
+                            <label for="size">Amt</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
+                        </div>
                     </div>
                 </div>
+                <h4 class="form-section">SGST</h4>
                 <div class="row">
                     <div class="col-md-4">
-                        <label for="rate">Rate</label>
-                        <input type="text" id="rate" class="form-control" name="rate" [(ngModel)]='newAttribute.rate'>
+                        <div class="form-group">
+                            <label for="size">%</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <label for="per">per</label>
-                        <input type="text" id="per" class="form-control" name="per" [(ngModel)]='newAttribute.per'>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="amount">Amount</label>
-                        <input type="text" id="amount" class="form-control" name="amount" [(ngModel)]='newAttribute.amount'>
+                        <div class="form-group">
+                            <label for="size">Amt</label>
+                            <input type="text" id="size" class="form-control" name="size" [(ngModel)]='newAttribute.size'>
+                        </div>
                     </div>
                 </div>
+
+
+
             </div>
         </form>
     </div>

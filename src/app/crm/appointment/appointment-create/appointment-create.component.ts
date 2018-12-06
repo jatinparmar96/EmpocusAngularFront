@@ -18,7 +18,7 @@ import { map } from 'rxjs/operators';
 export class AppointmentCreateComponent implements OnInit {
 
 
-  people: [] = [];
+  people: Person[] = [];
   selectedPeople = [];
   selectedPeople2 = [];
 
