@@ -41,11 +41,11 @@ export class LeadCreateComponent implements OnInit {
       "department":['',Validators.required],
       "lead_status":['',Validators.required],
       "company_employee_number":['',Validators.required],
-      "company_annual_rev":['',Validators.required],
+      "company_annual_revenue":['',Validators.required],
       "company_website":['',Validators.required],
       "company_phone":['',Validators.required],
-      "industry_type":['',Validators.required],
-      "business_type":['',Validators.required],
+      "company_industry_type":['',Validators.required],
+      "company_business_type":['',Validators.required],
       "lead_address_building":['',Validators.required],
       "lead_address_road_name":['',Validators.required],
       "lead_address_landmark":['',Validators.required],
@@ -59,7 +59,7 @@ export class LeadCreateComponent implements OnInit {
       "deal_name":['',Validators.required],
       "deal_value":['',Validators.required],
       "deal_expected_close_date":['',Validators.required],
-      "product":['',Validators.required],
+      "deal_product":['',Validators.required],
       "source":['',Validators.required],
       "campaign":['',Validators.required],
       "medium":['',Validators.required],
@@ -94,9 +94,9 @@ export class LeadCreateComponent implements OnInit {
 	}
   addOrUpdate(lead){		
 		this.formTouched = true;
-		if(lead.invalid){
-			return false;
-		}
+		// if(lead.invalid){
+		// 	return false;
+		// }
 		this.resetErrorMessages();
 		this.isProcessing = true;
 		
