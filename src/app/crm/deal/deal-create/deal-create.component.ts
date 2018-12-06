@@ -13,12 +13,17 @@ import { NotifyService } from 'app/shared/services/notify.service';
 })
 export class DealCreateComponent implements OnInit {
 
-  data: FormGroup;
-  deal: FormGroup;
+  
+active = 'today';
+  debug = true;
   formTouched: boolean = false;
   isProcessing: boolean = false;
   errors: any;
-	id: any = "new";
+  id: any = "new";
+  // Replacable
+  deal_data: FormGroup;
+  deal: any;
+
   constructor(
     private apiService: ApiService,
     private fb: FormBuilder,
@@ -27,10 +32,8 @@ export class DealCreateComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) 
-  {
-    this.shareService.setVisibility(false)
-    this.data= this.fb.group({
+  ) {
+    this.deal_data = fb.group({
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
       "first_name":['',Validators.required],
@@ -44,35 +47,37 @@ export class DealCreateComponent implements OnInit {
       "type":['',Validators.required],
       "source":['',Validators.required],
       "campaign":['',Validators.required],
-    });
-    this.resetErrorMessages();
-  }
+    })
+   }
 
   ngOnInit() {
-
+    // 2 Starts
     this.route.params.subscribe(params => {
       console.log(params['id'])
 			if(params['id']=='new'){
 				this.id="new";
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
-        this.getData(this.id);
-        
+				this.getData(this.id);
 			}
     });
-    
+    // 2 Ends
   
   }
-  
+  // 3 Starts
   getData(id:any){
-		this.apiService.get("admin/deal/"+id)
+		this.apiService.get("admin/crm/deal/"+id)
 		.then(data => { 
 			let l_data: any = data;
-      this.data.patchValue(l_data.data);					
-      console.log(this.data.value)
+			this.deal_data.patchValue(l_data.data);					
 		})
 	}
-  addOrUpdate(deal){		
+  addOrUpdate(deal){
+    // this.notifyService.show({
+    //   title: 'Success',
+    //   message: 'Done'
+    // }, 'success');
+		
 		this.formTouched = true;
 		if(deal.invalid){
 			return false;
@@ -81,24 +86,22 @@ export class DealCreateComponent implements OnInit {
 		this.isProcessing = true;
 		
 			//post request
-			this.apiService.post("admin/deal",deal.value).then( data => {
+			this.apiService.post("admin/crm/deal",deal.value).then( data => {
         let result: any = data;
-        //success
-        console.log(result);
+				//success
         this.isProcessing = false;
         if(result.status)
 							{
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success'); 
+								},'success');
 							}
 							else{
 									this.notifyService.show({
 										title: 'Error',
 										message: result.message
-                  }, 'error');
-                  this.errors = result.error;
+									}, 'error');
 							}
     
 			})
@@ -126,8 +129,9 @@ export class DealCreateComponent implements OnInit {
   }
   
   cancel(){
-    this.router.navigateByUrl('/dashboard/crm/deal');
+    this.router.navigateByUrl('/dashboard/crm/deal/create');
   }
-
+// 3 Ends
 }
+
 
