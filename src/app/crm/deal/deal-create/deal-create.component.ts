@@ -13,7 +13,7 @@ import { NotifyService } from 'app/shared/services/notify.service';
 })
 export class DealCreateComponent implements OnInit {
 
-  deal_data: FormGroup;
+  data: FormGroup;
   deal: FormGroup;
   formTouched: boolean = false;
   isProcessing: boolean = false;
@@ -30,20 +30,20 @@ export class DealCreateComponent implements OnInit {
   ) 
   {
     this.shareService.setVisibility(false)
-    this.deal_data= this.fb.group({
+    this.data= this.fb.group({
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
-      "deal_first_name":['',Validators.required],
-      "deal_last_name":['',Validators.required],
-      "deal_deal_stage":['',Validators.required],
-      "deal_product":['',Validators.required],
-      "deal_value":['',Validators.required],
-      "deal_Payment_status":['',Validators.required],
-      "deal_expected_close_date":['',Validators.required],
-      "deal_probablity":['',Validators.required],
-      "deal_type":['',Validators.required],
-      "deal_source":['',Validators.required],
-      "deal_campaign":['',Validators.required],
+      "first_name":['',Validators.required],
+      "last_name":['',Validators.required],
+      "stage":['',Validators.required],
+      "product":['',Validators.required],
+      "value":['',Validators.required],
+      "Payment_status":['',Validators.required],
+      "expected_close_date":['',Validators.required],
+      "probablity":['',Validators.required],
+      "type":['',Validators.required],
+      "source":['',Validators.required],
+      "campaign":['',Validators.required],
     });
     this.resetErrorMessages();
   }
@@ -68,8 +68,8 @@ export class DealCreateComponent implements OnInit {
 		this.apiService.get("admin/deal/"+id)
 		.then(data => { 
 			let l_data: any = data;
-      this.deal_data.patchValue(l_data.data);					
-      console.log(this.deal_data.value)
+      this.data.patchValue(l_data.data);					
+      console.log(this.data.value)
 		})
 	}
   addOrUpdate(deal){		
@@ -111,17 +111,17 @@ export class DealCreateComponent implements OnInit {
   }
   resetErrorMessages(){
 		this.errors = {			
-      "deal_first_name":[""],
-      "deal_last_name":[""],
-      "deal_deal_stage":[""],
-      "deal_product":[""],
-      "deal_value":[""],
-      "deal_Payment_status":[""],
-      "deal_expected_close_date":[""],
-      "deal_probablity":[""],
-      "deal_type":[""],
-      "deal_source":[""],
-      "deal_campaign":[""],
+      "first_name":[""],
+      "last_name":[""],
+      "stage":[""],
+      "product":[""],
+      "value":[""],
+      "Payment_status":[""],
+      "expected_close_date":[""],
+      "probablity":[""],
+      "type":[""],
+      "source":[""],
+      "campaign":[""],
 		}
   }
   

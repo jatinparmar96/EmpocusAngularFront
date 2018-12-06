@@ -13,7 +13,7 @@ import { NotifyService } from 'app/shared/services/notify.service';
 })
 export class AccountCreateComponent implements OnInit {
 
-  account_data: FormGroup;
+  data: FormGroup;
   account: FormGroup;
   formTouched: boolean = false;
   isProcessing: boolean = false;
@@ -30,26 +30,26 @@ export class AccountCreateComponent implements OnInit {
   ) 
   {
     this.shareService.setVisibility(false)
-    this.account_data= this.fb.group({
+    this.data= this.fb.group({
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
-      "account_name":['',Validators.required],
-      "account_no_of_employee":['',Validators.required],
-      "account_annual_revenue":['',Validators.required],
-      "account_website":['',Validators.required],
-      "account_phone":['',Validators.required],
-      "account_industry_type":['',Validators.required],
-      "account_business_type":['',Validators.required],
-      "account_building_no":['',Validators.required],
-      "account_road_number":['',Validators.required],
-      "account_landmark":['',Validators.required],
-      "account_pincode":['',Validators.required],
-      "account_country":['',Validators.required],
-      "account_state":['',Validators.required],
-      "account_city":['',Validators.required],
-      "account_facebook":['',Validators.required],
-      "account_twitter":['',Validators.required],
-      "account_linkedin":['',Validators.required],
+      "name":['',Validators.required],
+      "no_of_employee":['',Validators.required],
+      "annual_revenue":['',Validators.required],
+      "website":['',Validators.required],
+      "phone":['',Validators.required],
+      "industry_type":['',Validators.required],
+      "business_type":['',Validators.required],
+      "account_address_building":['',Validators.required],
+      "account_address_road_name":['',Validators.required],
+      "account_address_landmark":['',Validators.required],
+      "account_address_pincode":['',Validators.required],
+      "account_address_country":['',Validators.required],
+      "account_address_state":['',Validators.required],
+      "account_address_city":['',Validators.required],
+      "facebook_link":['',Validators.required],
+      "twitter_link":['',Validators.required],
+      "linkedin_link":['',Validators.required],
     });
     this.resetErrorMessages();
   }
@@ -74,8 +74,8 @@ export class AccountCreateComponent implements OnInit {
 		this.apiService.get("admin/account/"+id)
 		.then(data => { 
 			let l_data: any = data;
-      this.account_data.patchValue(l_data.data);					
-      console.log(this.account_data.value)
+      this.data.patchValue(l_data.data);					
+      console.log(this.data.value)
 		})
 	}
   addOrUpdate(account){		
@@ -117,23 +117,23 @@ export class AccountCreateComponent implements OnInit {
   }
   resetErrorMessages(){
 		this.errors = {			
-      "account_name":[""],
-      "account_no_of_employee":[""],
-      "account_annual_revenue":[""],
-      "account_website":[""],
-      "account_phone":[""],
-      "account_industry_type":[""],
-      "account_business_type":[""],
-      "account_building_no":[""],
-      "account_road_number":[""],
-      "account_landmark":[""],
-      "account_pincode":[""],
-      "account_country":[""],
-      "account_state":[""],
-      "account_city":[""],
-      "account_facebook":[""],
-      "account_twitter":[""],
-      "account_linkedin":[""],
+      "name":[""],
+      "no_of_employee":[""],
+      "annual_revenue":[""],
+      "website":[""],
+      "phone":[""],
+      "industry_type":[""],
+      "business_type":[""],
+      "building_no":[""],
+      "road_number":[""],
+      "landmark":[""],
+      "pincode":[""],
+      "country":[""],
+      "state":[""],
+      "city":[""],
+      "facebook":[""],
+      "twitter":[""],
+      "linkedin":[""],
 		}
   }
   

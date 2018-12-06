@@ -7,14 +7,14 @@
             <div class="card-body">
                 <div class="px-3">
                     <!-- <form class="form"> -->
-                    <form class="form" [formGroup]="contact_data" (ngSubmit)="addOrUpdate(contact_data)">
+                    <form class="form" [formGroup]="data" (ngSubmit)="addOrUpdate(data)">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i> Basic Information</h4>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contact_first_name">First Name</label>
-                                        <input type="text" formControlName="contact_first_name" placeholder="Roxso LLP" id="contact_first_name" class="form-control border-primary" name="contact_first_name">
+                                        <label for="first_name">First Name</label>
+                                        <input type="text" formControlName="first_name" placeholder="Roxso LLP" id="first_name" class="form-control border-primary" name="first_name">
                                         <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
                                         <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
 
@@ -22,8 +22,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contact_last_name">Last Name</label>
-                                        <input type="text" formControlName="contact_last_name" id="contact_last_name" placeholder="Roxso" class="form-control border-primary" name="contact_last_name">
+                                        <label for="last_name">Last Name</label>
+                                        <input type="text" formControlName="last_name" id="last_name" placeholder="Roxso" class="form-control border-primary" name="last_name">
                                     </div>
                                 </div>
                             </div>
@@ -31,22 +31,22 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contact_email">Email</label>
-                                        <input type="text" formControlName="contact_email" id="contact_email" class="form-control border-primary" name="contact_email">
+                                        <label for="email">Email</label>
+                                        <input type="text" formControlName="email" id="email" class="form-control border-primary" name="email">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contact_primary_contact_number">Primary Contact Number</label>
-                                        <input type="text" formControlName="contact_primary_contact_number" id="contact_primary_contact_number" class="form-control border-primary" name="contact_primary_contact_number">
+                                        <label for="primary_number">Primary Contact Number</label>
+                                        <input type="text" formControlName="primary_number" id="primary_number" class="form-control border-primary" name="primary_number">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contact_account_name">Account Name</label>
-                                        <select class="form-control" formControlName="contact_account_name" id="contact_account_name">
+                                        <label for="account_name">Account Name</label>
+                                        <select class="form-control" formControlName="account_name" id="account_name">
                                         <option>Select Option</option>
                                         <option>Option 1</option>
                                         <option>Option 2</option>
@@ -56,8 +56,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contact_job_title">Job Title</label>
-                                        <input type="text" formControlName="contact_job_title" id="contact_job_title" class="form-control border-primary" name="contact_job_title">
+                                        <label for="job_title">Job Title</label>
+                                        <input type="text" formControlName="job_title" id="job_title" class="form-control border-primary" name="job_title">
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +65,8 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contact_department">Department</label>
-                                        <input type="text" formControlName="contact_department" id="contact_department" class="form-control border-primary" name="contact_department">
+                                        <label for="department">Department</label>
+                                        <input type="text" formControlName="department" id="department" class="form-control border-primary" name="department">
                                     </div>
                                 </div>
                             </div>
@@ -95,22 +95,22 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_work">Work</label>
-                                                        <input type="text" formControlName="contact_work" id="contact_work" class="form-control border-primary" name="contact_work">
+                                                        <label for="work">Work</label>
+                                                        <input type="text" formControlName="work" id="work" class="form-control border-primary" name="work">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_mobile">Mobile</label>
-                                                        <input type="text" formControlName="contact_mobile" id="contact_mobile" class="form-control border-primary" name="contact_mobile">
+                                                        <label for="mobile">Mobile</label>
+                                                        <input type="text" formControlName="mobile" id="mobile" class="form-control border-primary" name="mobile">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_status">Status</label>
-                                                        <select class="form-control" formControlName="contact_status" id="contact_status">
+                                                        <label for="status">Status</label>
+                                                        <select class="form-control" formControlName="status" id="status">
                                                         <option>Qualified Lead</option>
                                                         <option>Prospect</option>
                                                         <option>Customer</option>
@@ -124,8 +124,8 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_business_type">Business Type</label>
-                                                        <select class="form-control" formControlName="contact_business_type" id="contact_business_type">
+                                                        <label for="business_type">Business Type</label>
+                                                        <select class="form-control" formControlName="business_type" id="business_type">
                                                         <option>Analyst</option>
                                                         <option>Competitor</option>
                                                         <option>Customer</option>
@@ -140,36 +140,36 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_building_no">Block No./ Building Name</label>
-                                                        <input type="text" formControlName="contact_building_no" class="form-control" id="contact_building_no" name="contact_building_no">
+                                                        <label for="contact_address_building">Block No./ Building Name</label>
+                                                        <input type="text" formControlName="contact_address_building" class="form-control" id="contact_address_building" name="contact_address_building">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_road_number">Road Name</label>
-                                                        <input type="text" formControlName="contact_road_number" class="form-control" id="contact_road_number" name="contact_road_number">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="contact_landmark">Landmark</label>
-                                                        <input type="text" formControlName="contact_landmark" class="form-control" id="contact_landmark" name="contact_landmark">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="contact_pincode">Pincode</label>
-                                                        <input type="text" formControlName="contact_pincode" class="form-control" id="contact_pincode" name="contact_pincode">
+                                                        <label for="contact_address_road_name">Road Name</label>
+                                                        <input type="text" formControlName="contact_address_road_name" class="form-control" id="contact_address_road_name" name="contact_address_road_name">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_country">Country</label>
-                                                        <select class="form-control" formControlName="contact_country" id="contact_country">
+                                                        <label for="contact_address_landmark">Landmark</label>
+                                                        <input type="text" formControlName="contact_address_landmark" class="form-control" id="contact_address_landmark" name="contact_address_landmark">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="contact_address_pincode">Pincode</label>
+                                                        <input type="text" formControlName="contact_address_pincode" class="form-control" id="contact_address_pincode" name="contact_address_pincode">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="contact_address_country">Country</label>
+                                                        <select class="form-control" formControlName="contact_address_country" id="contact_address_country">
                                                         <option>Select Option</option>
                                                         <option>India</option>
                                                         <option>China</option>
@@ -179,8 +179,8 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_state">State</label>
-                                                        <select class="form-control" formControlName="contact_state" id="contact_state">
+                                                        <label for="contact_address_state">State</label>
+                                                        <select class="form-control" formControlName="contact_address_state" id="contact_address_state">
                                                         <option>Select Option</option>
                                                         <option>Maharashtra</option>
                                                         <option>Gujarat</option>
@@ -192,8 +192,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_city">City</label>
-                                                        <select class="form-control" formControlName="contact_city" id="contact_city">
+                                                        <label for="contact_address_city">City</label>
+                                                        <select class="form-control" formControlName="contact_address_city" id="contact_address_city">
                                                         <option>Select Option</option>
                                                         <option>Mumbai</option>
                                                         <option>Nagpur</option>
@@ -207,20 +207,20 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="contact_facebook">Facebook</label>
-                                                        <input type="text" formControlName="contact_facebook" id="contact_facebook" class="form-control border-primary" name="contact_facebook" placeholder="https://www.facebook.com/empocus">
+                                                        <label for="facebook_link">Facebook</label>
+                                                        <input type="text" formControlName="facebook_link" id="facebook_link" class="form-control border-primary" name="facebook_link" placeholder="https://www.facebook.com/empocus">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="contact_twitter">Twitter</label>
-                                                        <input placeholder="https://twitter.com/empocus" type="text" formControlName="contact_twitter" id="contact_twitter" class="form-control border-primary" name="contact_twitter">
+                                                        <label for="twitter_link">Twitter</label>
+                                                        <input placeholder="https://twitter.com/empocus" type="text" formControlName="twitter_link" id="twitter_link" class="form-control border-primary" name="twitter_link">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="contact_linkedin">Linkedin</label>
-                                                        <input placeholder="https://linkedin.com/empocus" type="text" formControlName="contact_linkedin" id="contact_linkedin" class="form-control border-primary" name="contact_linkedin">
+                                                        <label for="linkedin">Linkedin</label>
+                                                        <input placeholder="https://linkedin.com/empocus" type="text" formControlName="linkedin_link" id="linkedin_link" class="form-control border-primary" name="linkedin_link">
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,8 +229,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_source">Source</label>
-                                                        <select class="form-control" formControlName="contact_source" id="contact_source">
+                                                        <label for="source">Source</label>
+                                                        <select class="form-control" formControlName="source" id="source">
                                                         <option>Select Option</option>
                                                         <option>Web</option>
                                                         <option>Organic Search</option>
@@ -240,8 +240,8 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_campaign">Campaign</label>
-                                                        <select class="form-control" formControlName="contact_campaign" id="contact_campaign">
+                                                        <label for="campaign">Campaign</label>
+                                                        <select class="form-control" formControlName="campaign" id="campaign">
                                                         <option>Select Option</option>
                                                         <option>Option 1</option>
                                                         <option>Option 2</option>
@@ -253,14 +253,14 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_medium">Medium</label>
-                                                        <input type="text" formControlName="contact_medium" class="form-control" id="contact_medium" name="contact_medium">
+                                                        <label for="medium">Medium</label>
+                                                        <input type="text" formControlName="medium" class="form-control" id="medium" name="medium">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="contact_keyword">Keyword</label>
-                                                        <input type="text" formControlName="contact_keyword" class="form-control" id="contact_keyword" name="contact_keyword">
+                                                        <label for="keyword">Keyword</label>
+                                                        <input type="text" formControlName="keyword" class="form-control" id="keyword" name="keyword">
                                                     </div>
                                                 </div>
                                             </div>

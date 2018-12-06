@@ -7,14 +7,14 @@
             <div class="card-body">
                 <div class="px-3">
                     <!-- <form class="form"> -->
-                    <form class="form" [formGroup]="account_data" (ngSubmit)="addOrUpdate(account_data)">
+                    <form class="form" [formGroup]="data" (ngSubmit)="addOrUpdate(data)">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i> Basic Information</h4>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_name">Name</label>
-                                        <input type="text" formControlName="account_name" id="account_name" class="form-control border-primary" name="account_name">
+                                        <label for="name">Name</label>
+                                        <input type="text" formControlName="name" id="name" class="form-control border-primary" name="name">
                                         <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
                                         <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
 
@@ -22,8 +22,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_no_of_employee">Number of Employee</label>
-                                        <select class="form-control" formControlName="account_no_of_employee" id="account_no_of_employee">
+                                        <label for="no_of_employee">Number of Employee</label>
+                                        <select class="form-control" formControlName="no_of_employee" id="no_of_employee">
                                       <option>Select Option</option>
                                       <option>1-10</option>
                                       <option>11-50</option>
@@ -39,28 +39,28 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_annual_revenue">Annual Revenue</label>
-                                        <input type="text" formControlName="account_annual_revenue" id="account_annual_revenue" class="form-control border-primary" name="account_annual_revenue">
+                                        <label for="annual_revenue">Annual Revenue</label>
+                                        <input type="text" formControlName="annual_revenue" id="annual_revenue" class="form-control border-primary" name="annual_revenue">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_website">Website</label>
-                                        <input type="text" formControlName="account_website" id="account_website" class="form-control border-primary" name="account_website">
+                                        <label for="website">Website</label>
+                                        <input type="text" formControlName="website" id="website" class="form-control border-primary" name="website">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_phone">Phone</label>
-                                        <input type="text" formControlName="account_phone" id="account_phone" class="form-control border-primary" name="account_phone">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" formControlName="phone" id="phone" class="form-control border-primary" name="phone">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_industry_type">Industry Type</label>
-                                        <select class="form-control" formControlName="account_industry_type" id="account_industry_type">
+                                        <label for="industry_type">Industry Type</label>
+                                        <select class="form-control" formControlName="industry_type" id="industry_type">
                                     <option>Select Option</option>
                                     <option>Accounting Type</option>
                                     <option>Advertising</option>
@@ -114,8 +114,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_business_type">Business Type</label>
-                                        <select class="form-control" formControlName="account_business_type" id="account_business_type">
+                                        <label for="business_type">Business Type</label>
+                                        <select class="form-control" formControlName="business_type" id="business_type">
                                       <option>Select Option</option>
                                       <option>Analyst</option>
                                       <option>Competitor</option>
@@ -136,36 +136,36 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_building_no">Block No./ Building Name</label>
-                                        <input type="text" formControlName="account_building_no" class="form-control" id="account_building_no" name="account_building_no">
+                                        <label for="account_address_building">Block No./ Building Name</label>
+                                        <input type="text" formControlName="account_address_building" class="form-control" id="account_address_building" name="account_address_building">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_road_number">Road Name</label>
-                                        <input type="text" formControlName="account_road_number" class="form-control" id="account_road_number" name="account_road_number">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="account_landmark">Landmark</label>
-                                        <input type="text" formControlName="account_landmark" class="form-control" id="account_landmark" name="account_landmark">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="account_pincode">Pincode</label>
-                                        <input type="text" formControlName="account_pincode" class="form-control" id="account_pincode" name="account_pincode">
+                                        <label for="account_address_road_name">Road Name</label>
+                                        <input type="text" formControlName="account_address_road_name" class="form-control" id="account_address_road_name" name="account_address_road_name">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_country">Country</label>
-                                        <select class="form-control" formControlName="account_country" id="account_country">
+                                        <label for="account_address_landmark">Landmark</label>
+                                        <input type="text" formControlName="account_address_landmark" class="form-control" id="account_address_landmark" name="account_address_landmark">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_address_pincode">Pincode</label>
+                                        <input type="text" formControlName="account_address_pincode" class="form-control" id="account_address_pincode" name="account_address_pincode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account_address_country">Country</label>
+                                        <select class="form-control" formControlName="account_address_country" id="account_address_country">
                                         <option>Select Option</option>
                                         <option>India</option>
                                         <option>China</option>
@@ -175,8 +175,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_state">State</label>
-                                        <select class="form-control" formControlName="account_state" id="account_state">
+                                        <label for="account_address_state">State</label>
+                                        <select class="form-control" formControlName="account_address_state" id="account_address_state">
                                         <option>Select Option</option>
                                         <option>Maharashtra</option>
                                         <option>Gujarat</option>
@@ -188,8 +188,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="account_city">City</label>
-                                        <select class="form-control" formControlName="account_city" id="account_city">
+                                        <label for="account_address_city">City</label>
+                                        <select class="form-control" formControlName="account_address_city" id="account_address_city">
                                         <option>Select Option</option>
                                         <option>Mumbai</option>
                                         <option>Nagpur</option>
@@ -203,20 +203,20 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="account_facebook">Facebook</label>
-                                        <input type="text" formControlName="account_facebook" id="account_facebook" class="form-control border-primary" name="account_facebook" placeholder="https://www.facebook.com/empocus">
+                                        <label for="facebook_link">Facebook</label>
+                                        <input type="text" formControlName="facebook_link" id="facebook_link" class="form-control border-primary" name="facebook_link" placeholder="https://www.facebook.com/empocus">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="account_twitter">Twitter</label>
-                                        <input placeholder="https://twitter.com/empocus" type="text" formControlName="account_twitter" id="account_twitter" class="form-control border-primary" name="account_twitter">
+                                        <label for="twitter_link">Twitter</label>
+                                        <input placeholder="https://twitter.com/empocus" type="text" formControlName="twitter_link" id="twitter_link" class="form-control border-primary" name="twitter_link">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="account_linkedin">Linkedin</label>
-                                        <input placeholder="https://linkedin.com/empocus" type="text" formControlName="account_linkedin" id="account_linkedin" class="form-control border-primary" name="account_linkedin">
+                                        <label for="linkedin_link">Linkedin</label>
+                                        <input placeholder="https://linkedin.com/empocus" type="text" formControlName="linkedin_link" id="linkedin" class="form-control border-primary" name="linkedin_link">
                                     </div>
                                 </div>
                             </div>

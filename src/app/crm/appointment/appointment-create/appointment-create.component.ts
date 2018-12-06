@@ -45,7 +45,7 @@ export class AppointmentCreateComponent implements OnInit {
     this.appoint_data= this.fb.group({
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
-      "appoint_create_title":['',Validators.required],
+      "title":['',Validators.required],
       "appoint_create_from_date":['',Validators.required],
       "appoint_create_from_time":['',Validators.required],
       "appoint_create_to_date":['',Validators.required],

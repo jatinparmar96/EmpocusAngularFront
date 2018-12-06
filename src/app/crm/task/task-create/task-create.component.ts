@@ -42,12 +42,12 @@ export class TaskCreateComponent implements OnInit {
     this.task_data= this.fb.group({
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
-      "task_create_title":['',Validators.required],
-      "task_create_due_date":['',Validators.required],
-      "task_create_due_time":['',Validators.required],
-      "task_create_task_type":['',Validators.required],
-      "task_create_outcome":['',Validators.required],
-      "task_create_related_to":['',Validators.required],
+      "title":['',Validators.required],
+      "due_date":['',Validators.required],
+      "due_time":['',Validators.required],
+      "task_type":['',Validators.required],
+      "outcome":['',Validators.required],
+      "related_to":['',Validators.required],
       "task_desc":['',Validators.required],
       
 
@@ -124,12 +124,12 @@ export class TaskCreateComponent implements OnInit {
   }
   resetErrorMessages(){
 		this.errors = {			
-      "task_create_title":[""],
-      "task_create_due_date":[""],
-      "task_create_due_time":[""],
-      "task_create_task_type":[""],
-      "task_create_outcome":[""],
-      "task_create_related_to":[""],
+      "title":[""],
+      "due_date":[""],
+      "due_time":[""],
+      "task_type":[""],
+      "outcome":[""],
+      "related_to":[""],
       "task_desc":[""],
 		}
   }

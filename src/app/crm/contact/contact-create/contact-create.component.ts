@@ -13,7 +13,7 @@ import { NotifyService } from 'app/shared/services/notify.service';
 })
 export class ContactCreateComponent implements OnInit {
   active= 'today';
-  contact_data: FormGroup;
+  data: FormGroup;
   Contact: FormGroup;
   formTouched: boolean = false;
   isProcessing: boolean = false;
@@ -30,34 +30,34 @@ export class ContactCreateComponent implements OnInit {
   ) 
   {
     this.shareService.setVisibility(false)
-    this.contact_data= this.fb.group({
+    this.data= this.fb.group({
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
-      "contact_first_name":['',Validators.required],
-      "contact_last_name":['',Validators.required],
-      "contact_email":['',Validators.required],
-      "contact_primary_contact_number":['',Validators.required],
-      "contact_account_name":['',Validators.required],
-      "contact_job_title":['',Validators.required],
-      "contact_department":['',Validators.required],
-      "contact_work":['',Validators.required],
-      "contact_mobile":['',Validators.required],
-      "contact_status":['',Validators.required],
-      "contact_business_type":['',Validators.required],
-      "contact_building_no":['',Validators.required],
-      "contact_road_number":['',Validators.required],
-      "contact_landmark":['',Validators.required],
-      "contact_pincode":['',Validators.required],
-      "contact_country":['',Validators.required],
-      "contact_state":['',Validators.required],
-      "contact_city":['',Validators.required],
-      "contact_facebook":['',Validators.required],
-      "contact_twitter":['',Validators.required],
-      "contact_linkedin":['',Validators.required],
-      "contact_source":[' ',Validators.required],
-      "contact_campaign":['',Validators.required],
-      "contact_medium":['',Validators.required],
-      "contact_keyword":['',Validators.required],
+      "first_name":['',Validators.required],
+      "last_name":['',Validators.required],
+      "email":['',Validators.required],
+      "primary_number":['',Validators.required],
+      "account_name":['',Validators.required],
+      "job_title":['',Validators.required],
+      "department":['',Validators.required],
+      "work":['',Validators.required],
+      "mobile":['',Validators.required],
+      "status":['',Validators.required],
+      "business_type":['',Validators.required],
+      "contact_address_building":['',Validators.required],
+      "contact_address_road_name":['',Validators.required],
+      "contact_address_landmark":['',Validators.required],
+      "contact_address_pincode":['',Validators.required],
+      "contact_address_country":['',Validators.required],
+      "contact_address_state":['',Validators.required],
+      "contact_address_city":['',Validators.required],
+      "facebook_link":['',Validators.required],
+      "twitter_link":['',Validators.required],
+      "linkedin_link":['',Validators.required],
+      "source":[' ',Validators.required],
+      "campaign":['',Validators.required],
+      "medium":['',Validators.required],
+      "keyword":['',Validators.required],
     });
     this.resetErrorMessages();
   }
@@ -82,8 +82,8 @@ export class ContactCreateComponent implements OnInit {
 		this.apiService.get("admin/contact/"+id)
 		.then(data => { 
 			let l_data: any = data;
-      this.contact_data.patchValue(l_data.data);					
-      console.log(this.contact_data.value)
+      this.data.patchValue(l_data.data);					
+      console.log(this.data.value)
 		})
 	}
   addOrUpdate(contact){		
@@ -126,30 +126,30 @@ export class ContactCreateComponent implements OnInit {
   resetErrorMessages(){
 		this.errors = {			
       "ca_company_name": [""],
-      "contact_first_name":[""],
-      "contact_last_name":[""],
-      "contact_email":[""],
-      "contact_primary_contact_number":[""],
-      "contact_account_name":[""],
-      "contact_job_title":[""],
-      "contact_department":[""],
-      "contact_work":[""],
-      "contact_mobile":[""],
-      "contact_status":[""],
-      "contact_business_type":[""],
-      "contact_building_no":[""],
-      "contact_road_number":[""],
-      "contact_landmark":[""],
-      "contact_pincode":[""],
-      "contact_country":[""],
-      "contact_state":[""],
-      "contact_city":[""],
-      "contact_facebook":[""],
-      "contact_linkedin":[""],
-      "contact_source":[""],
-      "contact_campaign":[""],
-      "contact_medium":[""],
-      "contact_keyword":[""],
+      "first_name":[""],
+      "last_name":[""],
+      "email":[""],
+      "primary_number":[""],
+      "account_name":[""],
+      "job_title":[""],
+      "department":[""],
+      "work":[""],
+      "mobile":[""],
+      "status":[""],
+      "business_type":[""],
+      "building_no":[""],
+      "road_number":[""],
+      "landmark":[""],
+      "pincode":[""],
+      "country":[""],
+      "state":[""],
+      "city":[""],
+      "facebook":[""],
+      "linkedin":[""],
+      "source":[""],
+      "campaign":[""],
+      "medium":[""],
+      "keyword":[""],
 		}
   }
   
