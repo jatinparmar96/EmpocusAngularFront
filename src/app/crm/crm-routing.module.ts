@@ -10,6 +10,7 @@ import { AccountCreateComponent } from './account/account-create/account-create.
 import { AccountShowComponent } from './account/account-show/account-show.component';
 import { AppointmentShowComponent } from './appointment/appointment-show/appointment-show.component';
 import { QuotationCreateComponent } from './quotation/quotation-create/quotation-create.component';
+import { BillingCreateComponent } from './billing/billing-create/billing-create.component';
 
 
 
@@ -54,11 +55,10 @@ const routes: Routes = [
     path: 'quotation/create',
     component: QuotationCreateComponent
   },  
-  
-  
-  
-  
-  
+  {
+    path: 'billing/create',
+    component: BillingCreateComponent
+  },  
 ];
 
 @NgModule({

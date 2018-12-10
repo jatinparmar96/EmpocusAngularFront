@@ -2,11 +2,11 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title" id="basic-layout-colored-form-control">Quotation</h4>
+                <h4 class="card-title" id="basic-layout-colored-form-control">Billing</h4>
             </div>
             <div class="card-body">
                 <div class="px-3">
-                    <form class="form" [formGroup]="quotation_data" (ngSubmit)="addOrUpdate(deal_data)">
+                    <form class="form" [formGroup]="billing_data" (ngSubmit)="addOrUpdate(billing_data)">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i>Customer Details</h4>
                             <div class="row">
@@ -14,30 +14,30 @@
                                     <div class="form-group">
                                         <label for="customer_name">Customer Name</label>
                                         <select class="form-control" formControlName="customer_name" id="customer_name" name="customer_name">
-                                <option>ABC Packing</option>
-                                <option>AWM Enterprises</option>
-                              </select>
+                              <option>ABC Packing</option>
+                              <option>AWM Enterprises</option>
+                            </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="customer_address">Billing Address</label>
+                                        <label for="customer_address">Address</label>
                                         <select class="form-control" id="customer_address" name="customer_address" formControlName="customer_address">
-                                    <option>ABC Packing</option>
-                                    <option>AWM Enterprises</option>
-                                  </select>
+                                  <option>ABC Packing</option>
+                                  <option>AWM Enterprises</option>
+                                </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="quoation_date">Quotation Date</label>
-                                        <input type="date" id="challan_date" class="form-control" formControlName="quoation_date" id="quoation_date" name="quoation_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                        <label for="billing_date">Billing Date</label>
+                                        <input type="date" id="challan_date" class="form-control" formControlName="billing_date" id="billing_date" name="billing_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="quotation_validity">Quotation Validity</label>
-                                        <input type="date" id="challan_date" class="form-control" formControlName="quotation_validity" id="quotation_validity" name="quotation_validity" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                        <label for="billing_validity">Billing Validity</label>
+                                        <input type="date" id="challan_date" class="form-control" formControlName="billing_validity" id="billing_validity" name="billing_validity" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                     </div>
                                 </div>
 
@@ -62,7 +62,11 @@
                                                 <th>Rate</th>
                                                 <th>Discount</th>
                                                 <th>Applied GST %</th>
-                                                <th>Total</th>
+                                                <th>Applied GST Rate</th>
+                                                <th>CGST %</th>
+                                                <th>CGST Amt</th>
+                                                <th>SGST %</th>
+                                                <th>SGST Amt</th>
                                             </thead>
                                             <tbody>
                                                 <tr *ngFor="let field of fieldArray; let i = index">
@@ -70,23 +74,27 @@
                                                     <td>{{field.productName}}</td>
                                                     <td>{{field.qty}}</td>
                                                     <td>{{field.rate}}</td>
-                                                    <td>{{field.product_discount_value}}</td>
-                                                    <td>{{field.product_applied_gst_percentage}}</td>
-                                                    <td>100</td>
+                                                    <td>{{field.discount}}</td>
+                                                    <td>{{field.appliedGSTPer}}</td>
+                                                    <td>{{field.appliedGSTRate}}</td>
+                                                    <td>{{field.percentageCGST}}</td>
+                                                    <td>{{field.amtCGST}}</td>
+                                                    <td>{{field.percentageSGST}}</td>
+                                                    <td>{{field.amtSGST}}</td>
                                                     <td><a (click)="deleteFieldValue(i)"><span class='ft-trash-2 red'></span></a></td>
                                                 </tr>
                                             </tbody>
                                             <!-- <tfoot>
-                                                <tr>
-                                                    <td colspan="5"></td>
-                                                    <td><input type="number" id="sum_bdls" class="form-control" name="sum_bdls"></td>
-                                                    <td><input type="number" id="sum_pkts" class="form-control" name="sum_pkts"></td>
-                                                    <td><input type="number" id="sum_total_weight" class="form-control" name="sum_total_weight"></td>
-                                                    <td><input type="number" id="sum_sheets" class="form-control" name="sum_sheets"></td>
-                                                    <td colspan="2"></td>
-                                                    <td colspan="2"><input type="number" id="sum_amount" class="form-control" name="sum_amount"></td>
-                                                </tr>
-                                            </tfoot> -->
+                                              <tr>
+                                                  <td colspan="5"></td>
+                                                  <td><input type="number" id="sum_bdls" class="form-control" name="sum_bdls"></td>
+                                                  <td><input type="number" id="sum_pkts" class="form-control" name="sum_pkts"></td>
+                                                  <td><input type="number" id="sum_total_weight" class="form-control" name="sum_total_weight"></td>
+                                                  <td><input type="number" id="sum_sheets" class="form-control" name="sum_sheets"></td>
+                                                  <td colspan="2"></td>
+                                                  <td colspan="2"><input type="number" id="sum_amount" class="form-control" name="sum_amount"></td>
+                                              </tr>
+                                          </tfoot> -->
                                         </table>
                                     </div>
                                 </div>
@@ -97,18 +105,18 @@
                                         <div class="col-md-12">
                                             <label for="delivery_at">Delivery At</label>
                                             <select class="form-control" id="delivery_at" formControlName="delivery_at" id="delivery_at" name="delivery_at">
-                          <option>ABC Packing</option>
-                          <option>AWM Enterprises</option>
-                        </select>
+                        <option>ABC Packing</option>
+                        <option>AWM Enterprises</option>
+                      </select>
                                         </div>
                                     </div>
                                     <div class="row mt-1">
                                         <div class="col-md-12">
                                             <label for="transporter_name">Transporter Name</label>
                                             <select class="form-control" formControlName="transporter_name" name="transporter_name" id="transporter_name">
-                          <option>Transporter 1</option>
-                          <option>Transporter 2</option>
-                        </select>
+                        <option>Transporter 1</option>
+                        <option>Transporter 2</option>
+                      </select>
                                         </div>
                                     </div>
 
@@ -121,81 +129,55 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
-                                    <div class="row">
+                                    <div class="row  mt-3">
                                         <div class="col-md-2"></div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 mt-4">
                                             <div class="row mt-1">
                                                 <div class="col-md-6 mt-1">
                                                     <label for="gross_amount">Gross Amount</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" formControlName="gross_amount" id="gross_amount" class="form-control" name="gross_amount" disabled>
+                                                    <input type="text" formControlName="gross_amount" id="gross_amount" class="form-control" name="gross_amount">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
                                                 <div class="col-md-6 mt-1">
-                                                    <label for="discount_in">Discount</label>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <select class="form-control" formControlName="discount_in" id="discount_in" name="discount_in">
-                                                        <option>%</option>
-                                                        <option>Amt</option>
-                                                      </select>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input type="text" formControlName="discount_value" id="discount_value" class="form-control" name="discount_value" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6 mt-1">
-                                                    <label for="total">Total</label>
+                                                    <label for="discount">Discount</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" formControlName="total" id="total" class="form-control" name="total" disabled>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mt-1">
-                                                <div class="col-md-6 mt-1">
-                                                    <label for="cgst">CGST</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="text" formControlName="cgst" id="cgst" class="form-control" name="cgst" disabled>
+                                                    <input type="text" formControlName="discount" id="discount" class="form-control" name="discount">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
                                                 <div class="col-md-6 mt-1">
-                                                    <label for="sgst">SGST</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="text" formControlName="sgst" id="sgst" class="form-control" name="sgst" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6 mt-1">
-                                                    <label for="isgt">IGST</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="text" formControlName="isgt" id="isgt" class="form-control" name="isgt" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="row mt-1">
-                                                <div class="col-md-6 mt-1">
-                                                    <label for="del_charges">Delievery Charges</label>
+                                                    <label for="del_charges">Del Charges</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input type="text" formControlName="del_charges" id="del_charges" class="form-control" name="del_charges">
                                                 </div>
                                             </div>
+                                            <!-- <div class="row mt-1">
+                                              <div class="col-md-6">
+                                                  <select class="form-control" id="gst_rate">
+                            <option>GST 5%</option>
+                            <option>GST 8%</option>
+                            <option>GST 12%</option>
+                            <option>GST 18%</option>
+                            <option>GST 28%</option>
+                          </select>
+                                              </div>
+                                              <div class="col-md-6">
+                                                  <input type="text" id="total" class="form-control" name="total">
+                                              </div>
+                                          </div> -->
                                             <div class="row mt-1">
                                                 <div class="col-md-6 mt-1">
                                                     <label for="grand_total">Grand Total</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" formControlName="grand_total" id="grand_total" class="form-control" name="grand_total" disabled>
+                                                    <input type="text" formControlName="grand_total" id="grand_total" class="form-control" name="grand_total">
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -216,8 +198,8 @@
     <div class="modal-header">
         <!-- <h4 class="modal-title" id="modal-basic-title"> <strong>Profile Update</strong></h4> -->
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <span aria-hidden="true">&times;</span>
+    </button>
     </div>
     <div class="modal-body">
         <form>
@@ -226,12 +208,12 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <label for="product_name">Product Name</label>
-                            <select class="form-control" id="product_name" name="product_name" [(ngModel)]='newAttribute.product_name'>
-                  <option>Product 1</option>
-                  <option>Product 2</option>
-                  <option>Product 3</option>
-                </select>
+                            <label for="productName">Product Name</label>
+                            <select class="form-control" id="productName" name="productName" [(ngModel)]='newAttribute.productName'>
+                <option>Product 1</option>
+                <option>Product 2</option>
+                <option>Product 3</option>
+              </select>
                         </div>
                     </div>
                 </div>
@@ -239,61 +221,68 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="product_qty">Qty</label>
-                            <input type="text" id="product_qty" class="form-control" name="product_qty" [(ngModel)]='newAttribute.product_qty'>
+                            <input type="text" id="product_qty" class="form-control" name="product_qty" [(ngModel)]='newAttribute.qty'>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="product_rate">Rate</label>
-                            <input type="text" id="product_rate" class="form-control" name="product_rate" [(ngModel)]='newAttribute.product_rate'>
+                            <input type="text" id="product_rate" class="form-control" name="product_rate" [(ngModel)]='newAttribute.rate'>
                         </div>
                     </div>
-
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="product_discount">Discount</label>
+                            <input type="text" id="product_discount" class="form-control" name="product_discount" [(ngModel)]='newAttribute.discount'>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="product_discount_in">Discount in</label>
-                            <select class="form-control" id="product_discount_in" name="product_discount_in" [(ngModel)]='newAttribute.product_discount_in'>
-                                <option>Percentage</option>
-                                <option>Amount</option>
-                              </select>
+                            <label for="product_appliedGSTPer">Applied GST %</label>
+                            <input type="text" id="product_appliedGSTPer" class="form-control" name="product_appliedGSTPer" [(ngModel)]='newAttribute.appliedGSTPer' disabled>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="product_discount_value">Discount</label>
-                            <input type="text" id="product_discount_value" class="form-control" name="product_discount_value" [(ngModel)]='newAttribute.product_discount_value'>
+                            <label for="product_appliedGSTRate">Applied GST Rate</label>
+                            <input type="text" id="product_appliedGSTRate" class="form-control" name="product_appliedGSTRate" [(ngModel)]='newAttribute.appliedGSTRate' disabled>
                         </div>
                     </div>
                 </div>
 
+                <h4 class="form-section">CGST</h4>
+                <!-- <p><strong>CGST</strong></p> -->
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="product_applied_gst_percentage">Applied GST %</label>
-                            <input type="text" id="product_applied_gst_percentage" class="form-control" name="product_applied_gst_percentage" [(ngModel)]='newAttribute.product_applied_gst_percentage' disabled>
+                            <label for="product_percentageCGST">%</label>
+                            <input type="text" id="product_percentageCGST" class="form-control" name="product_percentageCGST" [(ngModel)]='newAttribute.percentageCGST' disabled>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="product_applied_gst_rate">Applied GST Rate</label>
-                            <input type="text" id="product_applied_gst_rate" class="form-control" name="product_applied_gst_rate" [(ngModel)]='newAttribute.product_applied_gst_rate' disabled>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="product_sub_total">Sub Total</label>
-                            <input type="text" id="product_sub_total" class="form-control" name="product_sub_total" [(ngModel)]='newAttribute.product_sub_total' disabled>
+                            <label for="product_amtCGST">Amt</label>
+                            <input type="text" id="product_amtCGST" class="form-control" name="product_amtCGST" [(ngModel)]='newAttribute.amtCGST' disabled>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
+                <h4 class="form-section">SGST</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="product_percentageSGST">%</label>
+                            <input type="text" id="product_percentageSGST" class="form-control" name="product_percentageSGST" [(ngModel)]='newAttribute.percentageSGST' disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="product_amtSGST">Amt</label>
+                            <input type="text" id="product_amtSGST" class="form-control" name="product_amtSGST" [(ngModel)]='newAttribute.amtSGST' disabled>
+                        </div>
+                    </div>
+                </div>
 
 
 

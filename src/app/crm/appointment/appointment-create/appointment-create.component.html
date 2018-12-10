@@ -24,7 +24,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="attendees">Attendees</label>
-                                        <ng-select [items]="people" [ngModelOptions]="{standalone: true}" [multiple]="true" bindLabel="name" groupBy="brand" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [(ngModel)]="selectedPeople2">
+                                        <ng-select [items]="people" [ngModelOptions]="{standalone: true}" [multiple]="true" bindLabel="name" groupBy="brand" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [(ngModel)]="selectedPeople2" style="index">
                                             <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
                                                 <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox" [ngModel]="item$.selected" /> {{item.brand | uppercase}}
                                             </ng-template>

@@ -17,6 +17,8 @@ import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QuotationCreateComponent } from './quotation/quotation-create/quotation-create.component';
 
+import { BillingCreateComponent } from './billing/billing-create/billing-create.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -36,7 +38,7 @@ import { QuotationCreateComponent } from './quotation/quotation-create/quotation
     DealCreateComponent, 
     AccountCreateComponent, 
     AccountShowComponent, 
-    AppointmentShowComponent, QuotationCreateComponent,
+    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent,
   ]
 })
 export class CrmModule { }

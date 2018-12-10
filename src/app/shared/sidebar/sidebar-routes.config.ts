@@ -69,6 +69,9 @@ export const ROUTES: RouteInfo[] = [
             {
                 path: '/crm/quotation/create', title: 'Quotation', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
+            {
+                path: '/crm/billing/create', title: 'Billing', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
         ]
     },
 
