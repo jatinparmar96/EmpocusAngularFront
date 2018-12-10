@@ -13,7 +13,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="customer_name">Customer Name</label>
-                                        <select class="form-control" id="customer_name">
+                                        <select class="form-control" formControlName="customer_name" id="customer_name" name="customer_name">
                                 <option>ABC Packing</option>
                                 <option>AWM Enterprises</option>
                               </select>
@@ -21,8 +21,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="customer_name">Address</label>
-                                        <select class="form-control" id="customer_name">
+                                        <label for="customer_address">Address</label>
+                                        <select class="form-control" id="customer_address" name="customer_address" formControlName="customer_address">
                                     <option>ABC Packing</option>
                                     <option>AWM Enterprises</option>
                                   </select>
@@ -30,14 +30,14 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="challan_date">Quotation Date</label>
-                                        <input type="date" id="challan_date" class="form-control" name="challan_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                        <label for="quoation_date">Quotation Date</label>
+                                        <input type="date" id="challan_date" class="form-control" formControlName="quoation_date" id="quoation_date" name="quoation_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="challan_date">Quotation Validity</label>
-                                        <input type="date" id="challan_date" class="form-control" name="challan_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                        <label for="quotation_validity">Quotation Validity</label>
+                                        <input type="date" id="challan_date" class="form-control" formControlName="quotation_validity" id="quotation_validity" name="quotation_validity" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                     </div>
                                 </div>
 
@@ -104,7 +104,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label for="delivery_at">Delivery At</label>
-                                            <select class="form-control" id="delivery_at">
+                                            <select class="form-control" id="delivery_at" formControlName="delivery_at" id="delivery_at" name="delivery_at">
                           <option>ABC Packing</option>
                           <option>AWM Enterprises</option>
                         </select>
@@ -113,7 +113,7 @@
                                     <div class="row mt-1">
                                         <div class="col-md-12">
                                             <label for="transporter_name">Transporter Name</label>
-                                            <select class="form-control" id="transporter_name">
+                                            <select class="form-control" formControlName="transporter_name" name="transporter_name" id="transporter_name">
                           <option>Transporter 1</option>
                           <option>Transporter 2</option>
                         </select>
@@ -123,11 +123,11 @@
                                     <div class="row mt-1">
                                         <div class="col-md-12">
                                             <label for="eway_bill">E-WAY Bill No</label>
-                                            <input type="number" id="eway_bill" class="form-control" name="eway_bill">
+                                            <input type="number" formControlName="eway_bill" id="eway_bill" class="form-control" name="eway_bill">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4"></div>
+
                                 <div class="col-md-4">
                                     <div class="row  mt-3">
                                         <div class="col-md-2"></div>
@@ -137,7 +137,7 @@
                                                     <label for="gross_amount">Gross Amount</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="gross_amount" class="form-control" name="gross_amount">
+                                                    <input type="text" formControlName="gross_amount" id="gross_amount" class="form-control" name="gross_amount">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
@@ -145,7 +145,7 @@
                                                     <label for="discount">Discount</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="discount" class="form-control" name="discount">
+                                                    <input type="text" formControlName="discount" id="discount" class="form-control" name="discount">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
@@ -153,7 +153,7 @@
                                                     <label for="del_charges">Del Charges</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="del_charges" class="form-control" name="del_charges">
+                                                    <input type="text" formControlName="del_charges" id="del_charges" class="form-control" name="del_charges">
                                                 </div>
                                             </div>
                                             <!-- <div class="row mt-1">
@@ -175,7 +175,7 @@
                                                     <label for="grand_total">Grand Total</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="grand_total" class="form-control" name="grand_total">
+                                                    <input type="text" formControlName="grand_total" id="grand_total" class="form-control" name="grand_total">
                                                 </div>
                                             </div>
                                         </div>
@@ -220,34 +220,34 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="qty">Qty</label>
-                            <input type="text" id="qty" class="form-control" name="qty" [(ngModel)]='newAttribute.qty'>
+                            <label for="product_qty">Qty</label>
+                            <input type="text" id="product_qty" class="form-control" name="product_qty" [(ngModel)]='newAttribute.qty'>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="rate">Rate</label>
-                            <input type="text" id="rate" class="form-control" name="rate" [(ngModel)]='newAttribute.rate'>
+                            <label for="product_rate">Rate</label>
+                            <input type="text" id="product_rate" class="form-control" name="product_rate" [(ngModel)]='newAttribute.rate'>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="discount">Discount</label>
-                            <input type="text" id="discount" class="form-control" name="discount" [(ngModel)]='newAttribute.discount'>
+                            <label for="product_discount">Discount</label>
+                            <input type="text" id="product_discount" class="form-control" name="product_discount" [(ngModel)]='newAttribute.discount'>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="appliedGSTPer">Applied GST %</label>
-                            <input type="text" id="appliedGSTPer" class="form-control" name="appliedGSTPer" [(ngModel)]='newAttribute.appliedGSTPer' disabled>
+                            <label for="product_appliedGSTPer">Applied GST %</label>
+                            <input type="text" id="product_appliedGSTPer" class="form-control" name="product_appliedGSTPer" [(ngModel)]='newAttribute.appliedGSTPer' disabled>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="appliedGSTRate">Applied GST Rate</label>
-                            <input type="text" id="appliedGSTRate" class="form-control" name="appliedGSTRate" [(ngModel)]='newAttribute.appliedGSTRate' disabled>
+                            <label for="product_appliedGSTRate">Applied GST Rate</label>
+                            <input type="text" id="product_appliedGSTRate" class="form-control" name="product_appliedGSTRate" [(ngModel)]='newAttribute.appliedGSTRate' disabled>
                         </div>
                     </div>
                 </div>
@@ -257,14 +257,14 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="percentageCGST">%</label>
-                            <input type="text" id="percentageCGST" class="form-control" name="percentageCGST" [(ngModel)]='newAttribute.percentageCGST' disabled>
+                            <label for="product_percentageCGST">%</label>
+                            <input type="text" id="product_percentageCGST" class="form-control" name="product_percentageCGST" [(ngModel)]='newAttribute.percentageCGST' disabled>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="amtCGST">Amt</label>
-                            <input type="text" id="amtCGST" class="form-control" name="amtCGST" [(ngModel)]='newAttribute.amtCGST' disabled>
+                            <label for="product_amtCGST">Amt</label>
+                            <input type="text" id="product_amtCGST" class="form-control" name="product_amtCGST" [(ngModel)]='newAttribute.amtCGST' disabled>
                         </div>
                     </div>
                 </div>
@@ -272,14 +272,14 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="percentageSGST">%</label>
-                            <input type="text" id="percentageSGST" class="form-control" name="percentageSGST" [(ngModel)]='newAttribute.percentageSGST' disabled>
+                            <label for="product_percentageSGST">%</label>
+                            <input type="text" id="product_percentageSGST" class="form-control" name="product_percentageSGST" [(ngModel)]='newAttribute.percentageSGST' disabled>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="amtSGST">Amt</label>
-                            <input type="text" id="amtSGST" class="form-control" name="amtSGST" [(ngModel)]='newAttribute.amtSGST' disabled>
+                            <label for="product_amtSGST">Amt</label>
+                            <input type="text" id="product_amtSGST" class="form-control" name="product_amtSGST" [(ngModel)]='newAttribute.amtSGST' disabled>
                         </div>
                     </div>
                 </div>

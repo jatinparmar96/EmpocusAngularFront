@@ -37,7 +37,7 @@ export class AppointmentCreateComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) 
+  )
   {
     this.shareService.setVisibility(false)
     this.appoint_data= this.fb.group({
@@ -80,19 +80,19 @@ export class AppointmentCreateComponent implements OnInit {
         this.getData(this.id);
 			}
     });
-    
-  
+
+
   }
-  
+
   getData(id:any){
 		this.apiService.get("admin/appoint/"+id)
-		.then(data => { 
+		.then(data => {
 			let l_data: any = data;
-      this.appoint_data.patchValue(l_data.data);					
+      this.appoint_data.patchValue(l_data.data);
       console.log(this.appoint_data.value)
 		})
 	}
-  addOrUpdate(appoint){		
+  addOrUpdate(appoint){
 		this.formTouched = true;
 		console.log(appoint.value);
 		if(appoint.invalid){
@@ -100,7 +100,7 @@ export class AppointmentCreateComponent implements OnInit {
 		}
 		this.resetErrorMessages();
 		this.isProcessing = true;
-		
+
 			//post request
 			this.apiService.post("admin/appoint",appoint.value).then( data => {
         let result: any = data;
@@ -112,7 +112,7 @@ export class AppointmentCreateComponent implements OnInit {
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success'); 
+								},'success');
 							}
 							else{
 									this.notifyService.show({
@@ -121,17 +121,17 @@ export class AppointmentCreateComponent implements OnInit {
                   }, 'error');
                   this.errors = result.error;
 							}
-    
+
 			})
 			.catch( error => {
         this.isProcessing = false;
         let errors: any = error;
         this.errors = errors;
 			})
-		
+
   }
   resetErrorMessages(){
-		this.errors = {			
+		this.errors = {
       "title": [""],
       "from_date":[""],
       "from_time":[""],
@@ -143,7 +143,7 @@ export class AppointmentCreateComponent implements OnInit {
       "description":[""],
 		}
   }
-  
+
   cancel(){
     this.router.navigateByUrl('/crm/appoint/create');
   }
