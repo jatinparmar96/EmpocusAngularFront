@@ -1,124 +1,138 @@
 <div class="row">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title" id="basic-layout-colored-form-control">Add Appointment</h4>
-            </div>
-            <div class="card-body">
-                <div class="px-3">
-                    <!-- <form class="form"> -->
-                    <form class="form" [formGroup]="appoint_data" (ngSubmit)="addOrUpdate(appoint_data)">
-                        <div class="form-body">
-                            <h4 class="form-section"><i class="ft-info"></i> Appointment Details</h4>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="title">Title</label>
-                                        <input type="text" formControlName="title" id="title" class="form-control border-primary" name="title">
-                                        <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
-                                        <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="attendees">Attendees</label>
-                                        <ng-select [items]="people" [ngModelOptions]="{standalone: true}" [multiple]="true" bindLabel="name" groupBy="brand" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [(ngModel)]="selectedPeople2">
-                                            <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
-                                                <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox" [ngModel]="item$.selected" /> {{item.brand | uppercase}}
-                                            </ng-template>
-                                            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                                                <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox" [ngModel]="item$.selected" /> {{item.name}}
-                                            </ng-template>
-                                        </ng-select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="related_to">Related To:</label>
-                                        <select class="form-control" formControlName="related_to" id="related_to">
-                                            <option>Link the Appointment to</option>
-                                            <option>Option 1</option>
-                                            <option>Option 1</option>
-                                            <option>Option 1</option>
-                                            <option>Option 1</option>
-                                            <option>Option 1</option>
-                                          </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="from_date">From</label>
-                                        <input type="date" formControlName="from_date" id="issueinput3" class="form-control" name="from_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="from_time">&nbsp;</label>
-                                        <input type="time" formControlName="from_time" id="issueinput3" class="form-control" name="from_time" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="to_date">To</label>
-                                        <input type="date" formControlName="to_date" id="issueinput3" class="form-control" name="to_date" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="to_time">&nbsp;</label>
-                                        <input type="time" formControlName="to_time" id="issueinput3" class="form-control" name="to_time" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="where">Where</label>
-                                        <input type="text" placeholder="Enter location of Appointment" formControlName="where" id="where" class="form-control border-primary" name="where">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="outcome">Outcome</label>
-                                        <select class="form-control" formControlName="outcome" id="outcome">
-                                          <option>Select Option</option>
-                                          <option>Intrested</option>
-                                          <option>Left Message</option>
-                                          <option>No Response</option>
-                                          <option>Not Intrested</option>
-                                          <option>Not Able to Reach</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="description">Description</label>
-                                        <input type="text" formControlName="description" id="department" class="form-control border-primary" name="description">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="form-actions left">
-                            <input type="submit" value="Save" class="btn btn-raised btn-primary">
-                            <input type="button" value="Cancel" (click)='cancel()' class="btn btn-raised ml-1 btn-danger">
-                        </div>
-                    </form>
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title" id="basic-layout-colored-form-control">Add Appointment</h4>
+      </div>
+      <div class="card-body">
+        <div class="px-3">
+          <!-- <form class="form"> -->
+          <form class="form" [formGroup]="appoint_data" (ngSubmit)="addOrUpdate(appoint_data)">
+            <div class="form-body">
+              <h4 class="form-section"><i class="ft-info"></i> Appointment Details</h4>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" formControlName="title" id="title" class="form-control border-primary"
+                           name="title">
+                    <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
+                    <input type="hidden" formControlName="address_id" id="address_id" value="new"
+                           class="form-control border-primary" name="address_id">
+                  </div>
                 </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="attendees">Attendees</label>
+                    <ng-select  formControlName="attendees" [multiple]="true" bindLabel="first_name"
+                               groupBy="company_name" [selectableGroup]="true" [selectableGroupAsModel]="false"
+                               [closeOnSelect]="false" bindValue="id" [items]="selectedPeople">
+                      <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+                        <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox"
+                               [ngModel]="item$.selected"/> {{item.company_name | uppercase}}
+                      </ng-template>
+                      <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                        <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox"
+                               [ngModel]="item$.selected"/> {{item.first_name}} {{item.last_name}}
+                      </ng-template>
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="related_to">Related To:</label>
+                    <select class="form-control" formControlName="related_to" id="related_to">
+                      <option>Link the Appointment to</option>
+                      <option>Option 1</option>
+                      <option>Option 1</option>
+                      <option>Option 1</option>
+                      <option>Option 1</option>
+                      <option>Option 1</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="from_date">From</label>
+                    <input type="date" formControlName="from_date" id="issueinput3" class="form-control"
+                           name="from_date" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                           data-title="Date Opened">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="from_time">&nbsp;</label>
+                    <input type="time" formControlName="from_time" id="issueinput3" class="form-control"
+                           name="from_time" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                           data-title="Date Opened">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="to_date">To</label>
+                    <input type="date" formControlName="to_date" id="issueinput3" class="form-control" name="to_date"
+                           data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="to_time">&nbsp;</label>
+                    <input type="time" formControlName="to_time" id="issueinput3" class="form-control" name="to_time"
+                           data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="where">Where</label>
+                    <input type="text" placeholder="Enter location of Appointment" formControlName="where" id="where"
+                           class="form-control border-primary" name="where">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="outcome">Outcome</label>
+                    <select class="form-control" formControlName="outcome" id="outcome">
+                      <option>Select Option</option>
+                      <option>Intrested</option>
+                      <option>Left Message</option>
+                      <option>No Response</option>
+                      <option>Not Intrested</option>
+                      <option>Not Able to Reach</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" formControlName="description" id="department" class="form-control border-primary"
+                           name="description">
+                  </div>
+                </div>
+              </div>
+
             </div>
+            <div class="form-actions left">
+              <input type="submit" value="Save" class="btn btn-raised btn-primary">
+              <input type="button" value="Cancel" (click)='cancel()' class="btn btn-raised ml-1 btn-danger">
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 
 </div>

@@ -1,12 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ApiService } from 'app/shared/services/api.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormDataService } from 'app/shared/services/form-data.service';
-import { ShareService } from 'app/shared/services/share.service';
-import { NotifyService } from 'app/shared/services/notify.service';
-import { DataService, Person} from 'app/shared/services/data.service';
-import { map } from 'rxjs/operators';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ApiService} from 'app/shared/services/api.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormDataService} from 'app/shared/services/form-data.service';
+import {ShareService} from 'app/shared/services/share.service';
+import {NotifyService} from 'app/shared/services/notify.service';
+import {DataService, Person} from 'app/shared/services/data.service';
+import {of} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 
 @Component({
@@ -20,9 +21,6 @@ export class AppointmentCreateComponent implements OnInit {
 
   people: Person[] = [];
   selectedPeople = [];
-  selectedPeople2 = [];
-
-
   active= 'today';
   appoint_data: FormGroup;
   appoint: FormGroup;
@@ -46,34 +44,40 @@ export class AppointmentCreateComponent implements OnInit {
       "address_id":['new',Validators.required],
       "id":['new',Validators.required],
       "title":['',Validators.required],
-      "appoint_create_from_date":['',Validators.required],
-      "appoint_create_from_time":['',Validators.required],
-      "appoint_create_to_date":['',Validators.required],
-      "appoint_create_to_time":['',Validators.required],
-      "appoint_create_outcome":['',Validators.required],
-      "appoint_create_where":['',Validators.required],
-      "appoint_create_related_to":['',Validators.required],
-      "appoint_create_description":['',Validators.required],
+      "attendees":['',Validators.required],
+      "from_date":['',Validators.required],
+      "from_time":['',Validators.required],
+      "to_date":['',Validators.required],
+      "to_time":['',Validators.required],
+      "outcome":['',Validators.required],
+      "where":['',Validators.required],
+      "related_to":['',Validators.required],
+      "description":['',Validators.required],
     });
     this.resetErrorMessages();
   }
 
   ngOnInit() {
-    this.dataService.getPeople()
-    .pipe(map(x => x.filter(y => !y.disabled)))
-    .subscribe((res) => {
-        this.people = res;
-        this.selectedPeople = [this.people[0].id, this.people[1].id];
-    });
+     this.apiService.get('admin/crm/lead_full_list')
+      .then(data => {
+        let l_data:any = data;
+        this.selectedPeople = l_data.data;
+        console.log(this.selectedPeople)
+      });
+    // this.dataService.getPeople()
+    // .pipe(map(x => x.filter(y => !y.disabled)))
+    // .subscribe((res) => {
+    //     this.people = res;
+    //     this.selectedPeople = [this.people[0].id, this.people[1].id];
+    // });
 
     this.route.params.subscribe(params => {
-      console.log(params['id'])
+      console.log(params['id']);
 			if(params['id']=='new'){
 				this.id="new";
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
         this.getData(this.id);
-        
 			}
     });
     
@@ -90,6 +94,7 @@ export class AppointmentCreateComponent implements OnInit {
 	}
   addOrUpdate(appoint){		
 		this.formTouched = true;
+		console.log(appoint.value);
 		if(appoint.invalid){
 			return false;
 		}
@@ -127,15 +132,15 @@ export class AppointmentCreateComponent implements OnInit {
   }
   resetErrorMessages(){
 		this.errors = {			
-      "appoint_create_title": [""],
-      "appoint_create_from_date":[""],
-      "appoint_create_from_time":[""],
-      "appoint_create_to_date":[""],
-      "appoint_create_to_time":[""],
-      "appoint_create_outcome":[""],
-      "appoint_create_where":[""],
-      "appoint_create_related_to":[""],
-      "appoint_create_description":[""],
+      "title": [""],
+      "from_date":[""],
+      "from_time":[""],
+      "to_date":[""],
+      "to_time":[""],
+      "outcome":[""],
+      "where":[""],
+      "related_to":[""],
+      "description":[""],
 		}
   }
   
