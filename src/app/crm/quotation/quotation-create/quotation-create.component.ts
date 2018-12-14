@@ -1,12 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import {ApiService} from 'app/shared/services/api.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormDataService} from 'app/shared/services/form-data.service';
+import {ShareService} from 'app/shared/services/share.service';
+import {NotifyService} from 'app/shared/services/notify.service';
+import {DataService, Person} from 'app/shared/services/data.service';
 import { Product, SellingPoint } from '../../product';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ApiService } from 'app/shared/services/api.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormDataService } from 'app/shared/services/form-data.service';
-import { ShareService } from 'app/shared/services/share.service';
-import { NotifyService } from 'app/shared/services/notify.service';
+
+
+
+
+
 
 @Component({
   selector: 'app-quotation-create',

@@ -13,19 +13,27 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="customer_name">Customer Name</label>
-                                        <select class="form-control" formControlName="customer_name" id="customer_name" name="customer_name">
+                                        <!-- <select class="form-control" formControlName="customer_name" id="customer_name" name="customer_name">
                                 <option>ABC Packing</option>
                                 <option>AWM Enterprises</option>
-                              </select>
+                              </select> -->
+                                        <ng-select [searchable]="true" formControlName="customer_name" id="customer_name" name="customer_name">
+                                            <ng-option [value]="cus1">Customer 1</ng-option>
+                                            <ng-option [value]="cus2">Customer 2</ng-option>
+                                        </ng-select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="customer_address">Billing Address</label>
-                                        <select class="form-control" id="customer_address" name="customer_address" formControlName="customer_address">
+                                        <!-- <select class="form-control" id="customer_address" name="customer_address" formControlName="customer_address">
                                     <option>ABC Packing</option>
                                     <option>AWM Enterprises</option>
-                                  </select>
+                                  </select> -->
+                                        <ng-select [searchable]="true" id="customer_address" name="customer_address" formControlName="customer_address">
+                                            <ng-option [value]="Address1">Address 1</ng-option>
+                                            <ng-option [value]="Address2">Address 2</ng-option>
+                                        </ng-select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -67,10 +75,10 @@
                                             <tbody>
                                                 <tr *ngFor="let field of fieldArray; let i = index">
                                                     <td>{{i+1}}</td>
-                                                    <td>{{field.productName}}</td>
-                                                    <td>{{field.qty}}</td>
-                                                    <td>{{field.rate}}</td>
-                                                    <td>{{field.product_discount_value}}</td>
+                                                    <td>{{field.product_name}}</td>
+                                                    <td>{{field.product_qty}}</td>
+                                                    <td>{{field.product_rate}}</td>
+                                                    <td>{{field.product_discount_value}}{{field.product_discount_in}}</td>
                                                     <td>{{field.product_applied_gst_percentage}}</td>
                                                     <td>100</td>
                                                     <td><a (click)="deleteFieldValue(i)"><span class='ft-trash-2 red'></span></a></td>
@@ -96,19 +104,27 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label for="delivery_at">Delivery At</label>
-                                            <select class="form-control" id="delivery_at" formControlName="delivery_at" id="delivery_at" name="delivery_at">
+                                            <!-- <select class="form-control" id="delivery_at" formControlName="delivery_at" id="delivery_at" name="delivery_at">
                           <option>ABC Packing</option>
                           <option>AWM Enterprises</option>
-                        </select>
+                        </select> -->
+                                            <ng-select [searchable]="true" id="delivery_at" formControlName="delivery_at" id="delivery_at" name="delivery_at">
+                                                <ng-option [value]="Address1">Address 1</ng-option>
+                                                <ng-option [value]="Address2">Address 2</ng-option>
+                                            </ng-select>
                                         </div>
                                     </div>
                                     <div class="row mt-1">
                                         <div class="col-md-12">
                                             <label for="transporter_name">Transporter Name</label>
-                                            <select class="form-control" formControlName="transporter_name" name="transporter_name" id="transporter_name">
+                                            <!-- <select class="form-control" formControlName="transporter_name" name="transporter_name" id="transporter_name">
                           <option>Transporter 1</option>
                           <option>Transporter 2</option>
-                        </select>
+                        </select> -->
+                                            <ng-select [searchable]="true" formControlName="transporter_name" name="transporter_name" id="transporter_name">
+                                                <ng-option [value]="transport1">Transport 1</ng-option>
+                                                <ng-option [value]="transport2">Transport 2</ng-option>
+                                            </ng-select>
                                         </div>
                                     </div>
 
@@ -143,7 +159,7 @@
                                                       </select>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" formControlName="discount_value" id="discount_value" class="form-control" name="discount_value" disabled>
+                                                    <input type="text" formControlName="discount_value" id="discount_value" class="form-control" name="discount_value">
                                                 </div>
                                             </div>
                                             <div class="row mt-1">
@@ -255,8 +271,8 @@
                         <div class="form-group">
                             <label for="product_discount_in">Discount in</label>
                             <select class="form-control" id="product_discount_in" name="product_discount_in" [(ngModel)]='newAttribute.product_discount_in'>
-                                <option>Percentage</option>
-                                <option>Amount</option>
+                                <option>%</option>
+                                <option>Amt</option>
                               </select>
                         </div>
                     </div>
