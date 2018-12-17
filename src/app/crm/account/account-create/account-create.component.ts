@@ -138,7 +138,7 @@ export class AccountCreateComponent implements OnInit {
   }
   
   cancel(){
-    this.router.navigateByUrl('/crm/account/create');
+    this.router.navigateByUrl('/crm/account/new');
   }
 
 }

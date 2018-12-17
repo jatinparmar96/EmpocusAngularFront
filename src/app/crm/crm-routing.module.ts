@@ -12,11 +12,9 @@ import { AppointmentShowComponent } from './appointment/appointment-show/appoint
 import { QuotationCreateComponent } from './quotation/quotation-create/quotation-create.component';
 import { BillingCreateComponent } from './billing/billing-create/billing-create.component';
 
-
-
 const routes: Routes = [
   {
-    path: 'lead/create',
+    path: 'lead/new',
     component: LeadCreateComponent
   },  
   {
@@ -24,7 +22,7 @@ const routes: Routes = [
     component: LeadShowComponent
   },  
   {
-    path: 'appointment/create',
+    path: 'appointment/new',
     component: AppointmentCreateComponent
   },  
   {
@@ -32,19 +30,19 @@ const routes: Routes = [
     component: AppointmentShowComponent
   },  
   {
-    path: 'task/create',
+    path: 'task/new',
     component: TaskCreateComponent
   },  
   {
-    path: 'contact/create',
+    path: 'contact/new',
     component: ContactCreateComponent
   },  
   {
-    path: 'deal/create',
+    path: 'deal/new',
     component: DealCreateComponent
   },  
   {
-    path: 'account/create',
+    path: 'account/new',
     component: AccountCreateComponent
   },  
   {
@@ -52,11 +50,11 @@ const routes: Routes = [
     component: AccountShowComponent
   },  
   {
-    path: 'quotation/create',
+    path: 'quotation/new',
     component: QuotationCreateComponent
   },  
   {
-    path: 'billing/create',
+    path: 'billing/new',
     component: BillingCreateComponent
   },  
 ];
