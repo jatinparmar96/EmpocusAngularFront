@@ -102,7 +102,7 @@ export class AppointmentCreateComponent implements OnInit {
 		this.isProcessing = true;
 
 			//post request
-			this.apiService.post("admin/appoint",appoint.value).then( data => {
+			this.apiService.post("admin/crm/appointment",appoint.value).then( data => {
         let result: any = data;
         //success
         console.log(result);

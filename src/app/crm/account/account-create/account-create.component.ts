@@ -87,7 +87,7 @@ export class AccountCreateComponent implements OnInit {
 		this.isProcessing = true;
 		
 			//post request
-			this.apiService.post("admin/account",account.value).then( data => {
+			this.apiService.post("admin/crm/account",account.value).then( data => {
         let result: any = data;
         //success
         console.log(result);
