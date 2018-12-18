@@ -84,7 +84,7 @@
                         <td>{{field.product_qty}}</td>
                         <td>{{field.product_name.product_mrp_rate}}</td>
                         <td>{{field.product_name.tax_rate}}</td>
-                        <td>100</td>
+                        <td>{{field.total_price}}</td>
                         <td><a (click)="deleteFieldValue(i)"><span class='ft-trash-2 red'></span></a></td>
                       </tr>
                       </tbody>
@@ -142,8 +142,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
+                <div class="col-md-8">
                   <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-12">
@@ -153,7 +152,7 @@
                         </div>
                         <div class="col-md-6">
                           <input type="text" formControlName="gross_amount" id="gross_amount" class="form-control"
-                                 name="gross_amount" readonly>
+                                 name="gross_amount" [value]="gross_amount" readonly>
                         </div>
                       </div>
                       <div class="row mt-1">
@@ -168,7 +167,7 @@
                           </select>
                         </div>
                         <div class="col-md-4">
-                          <input type="text" formControlName="discount_value" id="discount_value" class="form-control"
+                          <input type="text" formControlName="discount_value"  (change)="update_total($event)" id="discount_value" class="form-control"
                                  name="discount_value">
                         </div>
                       </div>
@@ -257,7 +256,7 @@
               <label for="product_name">Product Name</label>
               <ng-select name="product_name" [searchable]="true" [items]="products" bindLabel="product_trade_name"
                          (ngModelChange)="update_model_price($event)" [(ngModel)]='newAttribute.product_name'>
-                <ng-template></ng-template>
+
               </ng-select>
               <!--<select class="form-control" id="product_name" name="product_name"
               >
@@ -278,7 +277,7 @@
             <div class="form-group">
               <label for="product_rate">Rate</label>
               <input type="text" id="product_rate" class="form-control" name="product_rate"
-                     [(ngModel)]='newAttribute.product_rate' [value]="product.product_rate">
+                     [(ngModel)]='newAttribute.product_rate'>
             </div>
           </div>
         </div>
@@ -289,7 +288,7 @@
             <div class="form-group">
               <label for="product_applied_gst_percentage">Applied GST %</label>
               <input type="text" id="product_applied_gst_percentage" class="form-control"
-                     name="product_applied_gst_percentage" [value]="product.gst_rate" [(ngModel)]='newAttribute.product_applied_gst_percentage'
+                     name="product_applied_gst_percentage"  [(ngModel)]='newAttribute.product_gst_percent'
                      readonly>
             </div>
           </div>
@@ -297,7 +296,7 @@
             <div class="form-group">
               <label for="product_applied_gst_rate">Applied GST Rate</label>
               <input type="text" id="product_applied_gst_rate" class="form-control" name="product_applied_gst_rate"
-                     [(ngModel)]='newAttribute.product_applied_gst_rate' readonly>
+                     [(ngModel)]='newAttribute.product_gst_rate' readonly>
             </div>
           </div>
           <div class="col-md-4">

@@ -33,6 +33,8 @@ export class QuotationCreateComponent implements OnInit {
     'product_rate': 0,
     'gst_rate': 0,
   };
+  //Form Fields
+  gross_amount: number = 0;
 
   constructor(
     private apiService: ApiService,
@@ -199,24 +201,36 @@ export class QuotationCreateComponent implements OnInit {
   }
 
   addFieldValue() {
-    console.log(this.newAttribute);
-    this.update_total_price(this.fieldArray);
+    this.calculate_total_individual_price();
     this.fieldArray.push(this.newAttribute);
+    this.update_gross_amount();
     this.newAttribute = {};
   }
 
   deleteFieldValue(index) {
     this.fieldArray.splice(index, 1);
+    this.update_gross_amount();
   }
 
 //Updation Methods
   update_model_price(product) {
-    this.product.product_rate = product.product_mrp_rate;
-    this.product.gst_rate = product.tax_rate;
+    this.newAttribute.product_rate = product.product_mrp_rate;
+    this.newAttribute.product_gst_percent = product.tax_rate;
   }
 
-  update_total_price(fieldArray: any) {
-
+  calculate_total_individual_price() {
+    let total_price = 0;
+    this.newAttribute.total_price = Number(this.newAttribute.product_qty * this.newAttribute.product_rate *
+      (1 + this.newAttribute.product_gst_percent / 100)).toFixed(2);
+  }
+  update_gross_amount() {
+    this.gross_amount = 0;
+    for (let i = 0; i < this.fieldArray.length; i++) {
+      this.gross_amount += Number(this.fieldArray[i].total_price);
+    }
+  }
+  update_total(event){
+    console.log(event);
   }
 }
 
