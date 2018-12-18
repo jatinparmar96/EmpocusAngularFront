@@ -41,7 +41,7 @@
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="quotation_date">Quotation Date</label>
-                    <input type="date" class="form-control" formControlName="quotation_date" id="quoation_date"
+                    <input type="date" class="form-control" formControlName="quotation_date" id="quotation_date"
                            name="quotation_date" data-toggle="tooltip" data-trigger="hover" data-placement="top"
                            data-title="Date Opened">
                   </div>
@@ -74,18 +74,16 @@
                       <th>Product Name</th>
                       <th>Qty</th>
                       <th>Rate</th>
-                      <th>Discount</th>
                       <th>Applied GST %</th>
                       <th>Total</th>
                       </thead>
                       <tbody>
                       <tr *ngFor="let field of fieldArray; let i = index">
                         <td>{{i+1}}</td>
-                        <td>{{field.product_name}}</td>
+                        <td>{{field.product_name.product_trade_name}}</td>
                         <td>{{field.product_qty}}</td>
-                        <td>{{field.product_rate}}</td>
-                        <td>{{field.product_discount_value}}{{field.product_discount_in}}</td>
-                        <td>{{field.product_applied_gst_percentage}}</td>
+                        <td>{{field.product_name.product_mrp_rate}}</td>
+                        <td>{{field.product_name.tax_rate}}</td>
                         <td>100</td>
                         <td><a (click)="deleteFieldValue(i)"><span class='ft-trash-2 red'></span></a></td>
                       </tr>
@@ -257,9 +255,9 @@
           <div class="col-md-8">
             <div class="form-group">
               <label for="product_name">Product Name</label>
-              <ng-select name="prodcut_name" [searchable]="true" [items]="products" bindLabel="product_trade_name"
-                         bindValue="id"
-                         [(ngModel)]='newAttribute.product_name'>
+              <ng-select name="product_name" [searchable]="true" [items]="products" bindLabel="product_trade_name"
+                         (ngModelChange)="update_model_price($event)" [(ngModel)]='newAttribute.product_name'>
+                <ng-template></ng-template>
               </ng-select>
               <!--<select class="form-control" id="product_name" name="product_name"
               >
@@ -280,36 +278,18 @@
             <div class="form-group">
               <label for="product_rate">Rate</label>
               <input type="text" id="product_rate" class="form-control" name="product_rate"
-                     [(ngModel)]='newAttribute.product_rate'>
+                     [(ngModel)]='newAttribute.product_rate' [value]="product.product_rate">
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="product_discount_in">Discount in</label>
-              <select class="form-control" id="product_discount_in" name="product_discount_in"
-                      [(ngModel)]='newAttribute.product_discount_in'>
-                <option>%</option>
-                <option>Amt</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <label for="product_discount_value">Discount</label>
-              <input type="text" id="product_discount_value" class="form-control" name="product_discount_value"
-                     [(ngModel)]='newAttribute.product_discount_value'>
-            </div>
-          </div>
-        </div>
+
 
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label for="product_applied_gst_percentage">Applied GST %</label>
               <input type="text" id="product_applied_gst_percentage" class="form-control"
-                     name="product_applied_gst_percentage" [(ngModel)]='newAttribute.product_applied_gst_percentage'
+                     name="product_applied_gst_percentage" [value]="product.gst_rate" [(ngModel)]='newAttribute.product_applied_gst_percentage'
                      readonly>
             </div>
           </div>

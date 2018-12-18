@@ -22,12 +22,17 @@ export class QuotationCreateComponent implements OnInit {
   errors: any;
   id: any = 'new';
   quotation_data: FormGroup;
-  quotation: any;
-  fieldArray: Array<any> = [];
+  //table Variables
+  fieldArray: Array<any> = [];   //Holds Table Data
   newAttribute: any = {};
   closeResult: String;
   accounts: any;
+  //products
   products: any;
+  product: any = {
+    'product_rate': 0,
+    'gst_rate': 0,
+  };
 
   constructor(
     private apiService: ApiService,
@@ -69,7 +74,6 @@ export class QuotationCreateComponent implements OnInit {
     // 2 Starts
     this.getAccounts();
     this.getProducts();
-
     this.route.params.subscribe(params => {
       console.log(params['id']);
       if (params['id'] == 'new') {
@@ -95,7 +99,7 @@ export class QuotationCreateComponent implements OnInit {
     this.apiService.get('admin/crm/appointment_full_list').then((data: any) => {
       this.accounts = data.data;
     })
-      .catch((error: any)=>{
+      .catch((error: any) => {
         console.log(error);
       });
   }
@@ -196,6 +200,7 @@ export class QuotationCreateComponent implements OnInit {
 
   addFieldValue() {
     console.log(this.newAttribute);
+    this.update_total_price(this.fieldArray);
     this.fieldArray.push(this.newAttribute);
     this.newAttribute = {};
   }
@@ -204,6 +209,15 @@ export class QuotationCreateComponent implements OnInit {
     this.fieldArray.splice(index, 1);
   }
 
+//Updation Methods
+  update_model_price(product) {
+    this.product.product_rate = product.product_mrp_rate;
+    this.product.gst_rate = product.tax_rate;
+  }
+
+  update_total_price(fieldArray: any) {
+
+  }
 }
 
 
