@@ -27,7 +27,7 @@ export class QuotationCreateComponent implements OnInit {
   newAttribute: any = {};
   closeResult: String;
   accounts: any;
-  products:any;
+  products: any;
 
   constructor(
     private apiService: ApiService,
@@ -67,9 +67,9 @@ export class QuotationCreateComponent implements OnInit {
 
   ngOnInit() {
     // 2 Starts
-    this.apiService.get('admin/crm/appointment_full_list').then((data: any) => {
-      this.accounts = data.data;
-    });
+    this.getAccounts();
+    this.getProducts();
+
     this.route.params.subscribe(params => {
       console.log(params['id']);
       if (params['id'] == 'new') {
@@ -80,6 +80,24 @@ export class QuotationCreateComponent implements OnInit {
       }
     });
     // 2 Ends
+  }
+
+  getProducts() {
+    this.apiService.get('admin/raw_product_full_list').then((data: any) => {
+      this.products = data.data;
+    })
+      .catch((error: any) => {
+        console.log(error);
+      });
+  }
+
+  getAccounts() {
+    this.apiService.get('admin/crm/appointment_full_list').then((data: any) => {
+      this.accounts = data.data;
+    })
+      .catch((error: any)=>{
+        console.log(error);
+      });
   }
 
   // 3 Starts
@@ -177,8 +195,8 @@ export class QuotationCreateComponent implements OnInit {
   }
 
   addFieldValue() {
-
-    this.fieldArray.push(this.newAttribute)
+    console.log(this.newAttribute);
+    this.fieldArray.push(this.newAttribute);
     this.newAttribute = {};
   }
 

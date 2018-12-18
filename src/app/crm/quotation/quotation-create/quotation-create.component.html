@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-md-6">
                           <input type="text" formControlName="gross_amount" id="gross_amount" class="form-control"
-                                 name="gross_amount" disabled>
+                                 name="gross_amount" readonly>
                         </div>
                       </div>
                       <div class="row mt-1">
@@ -180,7 +180,7 @@
                         </div>
                         <div class="col-md-6">
                           <input type="text" formControlName="total" id="total" class="form-control" name="total"
-                                 disabled>
+                                 readonly>
                         </div>
                       </div>
 
@@ -189,7 +189,7 @@
                           <label for="cgst">CGST</label>
                         </div>
                         <div class="col-md-6">
-                          <input type="text" formControlName="cgst" id="cgst" class="form-control" name="cgst" disabled>
+                          <input type="text" formControlName="cgst" id="cgst" class="form-control" name="cgst" readonly>
                         </div>
                       </div>
                       <div class="row mt-1">
@@ -197,7 +197,7 @@
                           <label for="sgst">SGST</label>
                         </div>
                         <div class="col-md-6">
-                          <input type="text" formControlName="sgst" id="sgst" class="form-control" name="sgst" disabled>
+                          <input type="text" formControlName="sgst" id="sgst" class="form-control" name="sgst" readonly>
                         </div>
                       </div>
                       <div class="row mt-1">
@@ -205,7 +205,7 @@
                           <label for="isgt">IGST</label>
                         </div>
                         <div class="col-md-6">
-                          <input type="text" formControlName="isgt" id="isgt" class="form-control" name="isgt" disabled>
+                          <input type="text" formControlName="isgt" id="isgt" class="form-control" name="isgt" readonly>
                         </div>
                       </div>
                       <div class="row mt-1">
@@ -223,10 +223,9 @@
                         </div>
                         <div class="col-md-6">
                           <input type="text" formControlName="grand_total" id="grand_total" class="form-control"
-                                 name="grand_total" disabled>
+                                 name="grand_total" readonly>
                         </div>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -258,10 +257,14 @@
           <div class="col-md-8">
             <div class="form-group">
               <label for="product_name">Product Name</label>
-              <select class="form-control" id="product_name" name="product_name"
-                      [(ngModel)]='newAttribute.product_name'>
-                <option *ngFor="let product of products" [value]="product.id">{{product.trade_name}}</option>
-              </select>
+              <ng-select name="prodcut_name" [searchable]="true" [items]="products" bindLabel="product_trade_name"
+                         bindValue="id"
+                         [(ngModel)]='newAttribute.product_name'>
+              </ng-select>
+              <!--<select class="form-control" id="product_name" name="product_name"
+              >
+                <option *ngFor="let product of products" [value]="product.id">{{product.product_trade_name}}</option>
+              </select>-->
             </div>
           </div>
         </div>
