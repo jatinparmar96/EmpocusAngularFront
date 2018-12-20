@@ -34,7 +34,16 @@ export class QuotationCreateComponent implements OnInit {
     'gst_rate': 0,
   };
   //Form Fields
-  gross_amount: number = 0;
+  amount = {
+    'gross_amount': 0,
+    'total_amount': 0,
+    'grand_total_amount': 0,
+  };
+  discount: any = {
+    'type': '%',
+    'value': 0
+  };
+
 
   constructor(
     private apiService: ApiService,
@@ -61,6 +70,10 @@ export class QuotationCreateComponent implements OnInit {
       'discount_in': ['', Validators.required],
       'del_charges': ['', Validators.required],
       'grand_total': ['', Validators.required],
+      'cgst': ['', Validators.required],
+      'sgst': ['', Validators.required],
+      'igst': ['', Validators.required],
+      'total': ['', Validators.required],
       'product_name': ['', Validators.required],
       'product_qty': ['', Validators.required],
       'product_rate': ['', Validators.required],
@@ -94,6 +107,11 @@ export class QuotationCreateComponent implements OnInit {
     })
       .catch((error: any) => {
         console.log(error);
+        let data: any = {
+          'title': 'Some Error Occurred',
+          'message': 'Product list cannot be loaded'
+        };
+        this.notifyService.show(data, 'error');
       });
   }
 
@@ -103,6 +121,11 @@ export class QuotationCreateComponent implements OnInit {
     })
       .catch((error: any) => {
         console.log(error);
+        let data: any = {
+          'title': 'Some Error Occurred',
+          'message': 'Accounts list cannot be loaded'
+        };
+        this.notifyService.show(data, 'error');
       });
   }
 
@@ -223,14 +246,26 @@ export class QuotationCreateComponent implements OnInit {
     this.newAttribute.total_price = Number(this.newAttribute.product_qty * this.newAttribute.product_rate *
       (1 + this.newAttribute.product_gst_percent / 100)).toFixed(2);
   }
+
   update_gross_amount() {
-    this.gross_amount = 0;
+    this.amount.gross_amount = 0;
     for (let i = 0; i < this.fieldArray.length; i++) {
-      this.gross_amount += Number(this.fieldArray[i].total_price);
+      this.amount.gross_amount += Number(this.fieldArray[i].total_price);
     }
   }
-  update_total(event){
-    console.log(event);
+
+  update_total(discount) {
+    console.log(discount);
+    if (this.discount.type === '%') {
+      this.amount.total_amount = this.amount.gross_amount - (this.amount.gross_amount * discount/ 100);
+    }
+    else if (this.discount.type === 'Amt') {
+      this.amount.total_amount = this.amount.gross_amount - discount;
+    }
+  }
+
+  change_discount_type(event: any) {
+    this.discount.type = event.target.value;
   }
 }
 

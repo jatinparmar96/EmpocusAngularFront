@@ -14,7 +14,7 @@ import { BillingCreateComponent } from './billing/billing-create/billing-create.
 
 const routes: Routes = [
   {
-    path: 'lead/new',
+    path: 'lead/:id',
     component: LeadCreateComponent
   },  
   {
@@ -50,7 +50,7 @@ const routes: Routes = [
     component: AccountShowComponent
   },  
   {
-    path: 'quotation/new',
+    path: 'quotation/:id',
     component: QuotationCreateComponent
   },  
   {
