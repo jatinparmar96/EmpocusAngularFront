@@ -18,6 +18,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QuotationCreateComponent } from './quotation/quotation-create/quotation-create.component';
 
 import { BillingCreateComponent } from './billing/billing-create/billing-create.component';
+import { QuotationTableRowsComponent } from './quotation/quotation-table-rows/quotation-table-rows.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,7 @@ import { BillingCreateComponent } from './billing/billing-create/billing-create.
     DealCreateComponent, 
     AccountCreateComponent, 
     AccountShowComponent, 
-    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent,
+    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent,
   ]
 })
 export class CrmModule { }

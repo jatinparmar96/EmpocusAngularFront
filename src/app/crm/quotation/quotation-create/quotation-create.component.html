@@ -68,24 +68,39 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <table class="table table-bordered table-responsive-md overflow-scroll">
+                    <table class="table table-bordered overflow-scroll p-0">
                       <thead>
-                      <th>SR</th>
-                      <th>Product Name</th>
-                      <th>Qty</th>
-                      <th>Rate</th>
-                      <th>Applied GST %</th>
-                      <th>Total</th>
+                      <th style="width: 5%;">SR</th>
+                      <th style="width: 30%;">Product Name</th>
+                      <th style="width: 10%;">Qty</th>
+                      <th style="width: 10%;">Rate</th>
+                      <th style="width: 10%;">GST %</th>
+                      <th style="width: 10%;">Total</th>
+                      <th style="width: 10%;">Action</th>
                       </thead>
                       <tbody>
-                      <tr *ngFor="let field of fieldArray; let i = index">
-                        <td>{{i+1}}</td>
-                        <td>{{field.product_name.product_trade_name}}</td>
-                        <td>{{field.product_qty}}</td>
-                        <td>{{field.product_name.product_mrp_rate}}</td>
-                        <td>{{field.product_name.tax_rate}}</td>
-                        <td>{{field.total_price}}</td>
-                        <td><a (click)="deleteFieldValue(i)"><span class='ft-trash-2 red'></span></a></td>
+                      <tr *ngFor="let field of fieldArray; let i =index ">
+                      <td>{{i+1}}</td>
+                      <td>{{field.product_name.product_trade_name}}</td>
+                      <td>{{field.product_qty}}</td>
+                      <td>{{field.product_name.product_mrp_rate}}</td>
+                      <td>{{field.product_name.tax_rate}}</td>
+                      <td>{{field.total_price}}</td>
+                      <td><a (click)="deleteFieldValue(i)"><span class='ft-trash-2 red'></span></a></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <ng-select name="product_name" [searchable]="true" [items]="products"
+                                     bindLabel="product_trade_name"
+                                     (ngModelChange)="update_model_price($event)"
+                                     [(ngModel)]='newAttribute.product_name' [ngModelOptions]="{standalone: true}"></ng-select>
+                        </td>
+                        <td><input class="form-control"[value]="newAttribute.product_qty"></td>
+                        <td><input class="form-control" [value]="newAttribute.product_rate"></td>
+                        <td><input class="form-control" [value]="newAttribute.product_gst_percent"></td>
+                        <td><input class="form-control"></td>
+                        <td><a><i class="ft-check green bold font-large-1" (click)="addFieldValue();"></i></a></td>
                       </tr>
                       </tbody>
                       <!-- <tfoot>
@@ -147,8 +162,8 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-12">
                       <div class="row mt-1">
-                        <div class="col-md-6 mt-1">
-                          <label for="gross_amount">Gross Amount</label>
+                        <div class="offset-2 col-md-4 mt-1 text-right">
+                          <label for="gross_amount" class="">Gross Amount</label>
                         </div>
                         <div class="col-md-6">
                           <input type="text" formControlName="gross_amount" id="gross_amount" class="form-control"
@@ -156,33 +171,36 @@
                         </div>
                       </div>
                       <div class="row mt-1">
-                        <div class="col-md-6 mt-1">
+                        <div class="offset-2 col-md-4 mt-1 text-right">
                           <label for="discount_in">Discount</label>
                         </div>
                         <div class="col-md-2">
                           <select class="form-control" formControlName="discount_in" id="discount_in"
-                                  name="discount_in" (change)="change_discount_type($event);update_total(discount_value.value);">
+                                  name="discount_in"
+                                  (change)="change_discount_type($event);update_total(discount_value.value);">
                             <option>%</option>
                             <option>Amt</option>
                           </select>
                         </div>
                         <div class="col-md-4">
-                          <input type="number" #discount_value formControlName="discount_value" [value]="discount.value" (keyup)="update_total(discount_value.value)" id="discount_value" class="form-control"
+                          <input type="number" #discount_value formControlName="discount_value" [value]="discount.value"
+                                 (keyup)="update_total(discount_value.value)" id="discount_value" class="form-control"
                                  name="discount_value">
                         </div>
                       </div>
                       <div class="row mt-1">
-                        <div class="col-md-6 mt-1">
+                        <div class="offset-2 col-md-4 mt-1 text-right">
                           <label for="total">Total</label>
                         </div>
                         <div class="col-md-6">
-                          <input type="text" formControlName="total" id="total" [value]="amount.total_amount" class="form-control" name="total"
+                          <input type="text" formControlName="total" id="total" [value]="amount.total_amount"
+                                 class="form-control" name="total"
                                  readonly>
                         </div>
                       </div>
 
                       <div class="row mt-1">
-                        <div class="col-md-6 mt-1">
+                        <div class="offset-2 col-md-4 mt-1 text-right">
                           <label for="cgst">CGST</label>
                         </div>
                         <div class="col-md-6">
@@ -190,7 +208,7 @@
                         </div>
                       </div>
                       <div class="row mt-1">
-                        <div class="col-md-6 mt-1">
+                        <div class="offset-2 col-md-4 mt-1 text-right">
                           <label for="sgst">SGST</label>
                         </div>
                         <div class="col-md-6">
@@ -198,7 +216,7 @@
                         </div>
                       </div>
                       <div class="row mt-1">
-                        <div class="col-md-6 mt-1">
+                        <div class="offset-2 col-md-4 mt-1 text-right">
                           <label for="igst">IGST</label>
                         </div>
                         <div class="col-md-6">
@@ -206,7 +224,7 @@
                         </div>
                       </div>
                       <div class="row mt-1">
-                        <div class="col-md-6 mt-1">
+                        <div class=" offset-2 col-md-4 mt-1 text-right">
                           <label for="del_charges">Delievery Charges</label>
                         </div>
                         <div class="col-md-6">
@@ -215,7 +233,7 @@
                         </div>
                       </div>
                       <div class="row mt-1">
-                        <div class="col-md-6 mt-1">
+                        <div class="offset-2 col-md-4 mt-1 text-right">
                           <label for="grand_total">Grand Total</label>
                         </div>
                         <div class="col-md-6">
@@ -288,7 +306,7 @@
             <div class="form-group">
               <label for="product_applied_gst_percentage">Applied GST %</label>
               <input type="text" id="product_applied_gst_percentage" class="form-control"
-                     name="product_applied_gst_percentage"  [(ngModel)]='newAttribute.product_gst_percent'
+                     name="product_applied_gst_percentage" [(ngModel)]='newAttribute.product_gst_percent'
                      readonly>
             </div>
           </div>

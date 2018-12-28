@@ -239,6 +239,7 @@ export class QuotationCreateComponent implements OnInit {
   update_model_price(product) {
     this.newAttribute.product_rate = product.product_mrp_rate;
     this.newAttribute.product_gst_percent = product.tax_rate;
+    console.log(this.newAttribute);
   }
 
   calculate_total_individual_price() {

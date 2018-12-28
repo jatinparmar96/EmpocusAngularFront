@@ -1,0 +1,9 @@
+<tr *ngFor="let product of products; let i=index">
+  <td>{{i+1}}</td>
+  <td>{{product.product_name.product_trade_name}}</td>
+  <td>{{product.product_qty}}</td>
+  <td>{{product.product_name.product_mrp_rate}}</td>
+  <td>{{product.product_name.tax_rate}}</td>
+  <td>{{product.total_price}}</td>
+  <td><a (click)="deleteFieldValue(i)"><span class='ft-trash-2 red'></span></a></td>
+</tr>
