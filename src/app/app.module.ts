@@ -38,8 +38,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
-
-
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
