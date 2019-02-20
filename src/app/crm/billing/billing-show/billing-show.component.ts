@@ -4,13 +4,14 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShareService } from 'app/shared/services/share.service';
 
+
 @Component({
-  selector: 'app-appointment-show',
-  templateUrl: './appointment-show.component.html',
-  styleUrls: ['./appointment-show.component.scss']
+  selector: 'app-billing-show',
+  templateUrl: './billing-show.component.html',
+  styleUrls: ['./billing-show.component.scss']
 })
-export class AppointmentShowComponent implements OnInit {
- 
+export class BillingShowComponent implements OnInit {
+
   id:any
   data:any
     constructor(
@@ -32,7 +33,7 @@ export class AppointmentShowComponent implements OnInit {
       });
     }
     getData(id:any){
-      this.apiService.get("admin/appointment/"+id)
+      this.apiService.get("admin/billing/"+id)
       .then(data => { 
         let l_data: any = data;	
        this.data = l_data.data

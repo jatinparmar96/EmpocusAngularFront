@@ -12,8 +12,6 @@ import { NotifyService } from 'app/shared/services/notify.service';
   styleUrls: ['./deal-create.component.scss']
 })
 export class DealCreateComponent implements OnInit {
-
-  
 active = 'today';
   debug = true;
   formTouched: boolean = false;

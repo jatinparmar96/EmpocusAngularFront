@@ -19,6 +19,11 @@ import { QuotationCreateComponent } from './quotation/quotation-create/quotation
 
 import { BillingCreateComponent } from './billing/billing-create/billing-create.component';
 import { QuotationTableRowsComponent } from './quotation/quotation-table-rows/quotation-table-rows.component';
+import { BillingShowComponent } from './billing/billing-show/billing-show.component';
+import { QuotationShowComponent } from './quotation/quotation-show/quotation-show.component';
+import { TaskShowComponent } from './task/task-show/task-show.component';
+import { ContactShowComponent } from './contact/contact-show/contact-show.component';
+import { DealShowComponent } from './deal/deal-show/deal-show.component';
 
 @NgModule({
   imports: [
@@ -39,7 +44,7 @@ import { QuotationTableRowsComponent } from './quotation/quotation-table-rows/qu
     DealCreateComponent, 
     AccountCreateComponent, 
     AccountShowComponent, 
-    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent,
+    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent, BillingShowComponent, QuotationShowComponent, TaskShowComponent, ContactShowComponent, DealShowComponent,
   ]
 })
 export class CrmModule { }
