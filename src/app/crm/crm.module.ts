@@ -24,6 +24,14 @@ import { QuotationShowComponent } from './quotation/quotation-show/quotation-sho
 import { TaskShowComponent } from './task/task-show/task-show.component';
 import { ContactShowComponent } from './contact/contact-show/contact-show.component';
 import { DealShowComponent } from './deal/deal-show/deal-show.component';
+import { AppointmentViewComponent } from './appointment/appointment-view/appointment-view.component';
+import { TaskViewComponent } from './task/task-view/task-view.component';
+import { ContactViewComponent } from './contact/contact-view/contact-view.component';
+import { DealViewComponent } from './deal/deal-view/deal-view.component';
+import { AccountViewComponent } from './account/account-view/account-view.component';
+import { QuotationViewComponent } from './quotation/quotation-view/quotation-view.component';
+import { BillingViewComponent } from './billing/billing-view/billing-view.component';
+
 
 @NgModule({
   imports: [
@@ -44,7 +52,7 @@ import { DealShowComponent } from './deal/deal-show/deal-show.component';
     DealCreateComponent, 
     AccountCreateComponent, 
     AccountShowComponent, 
-    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent, BillingShowComponent, QuotationShowComponent, TaskShowComponent, ContactShowComponent, DealShowComponent,
+    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent, BillingShowComponent, QuotationShowComponent, TaskShowComponent, ContactShowComponent, DealShowComponent, AppointmentViewComponent, TaskViewComponent, ContactViewComponent, DealViewComponent, AccountViewComponent, QuotationViewComponent, BillingViewComponent,
   ]
 })
 export class CrmModule { }

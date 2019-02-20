@@ -4,14 +4,14 @@ import { ApiService } from 'app/shared/services/api.service';
 import { ShareService } from 'app/shared/services/share.service';
 
 @Component({
-  selector: 'app-lead-view',
-  templateUrl: './lead-view.component.html',
-  styleUrls: ['./lead-view.component.scss']
+  selector: 'app-account-view',
+  templateUrl: './account-view.component.html',
+  styleUrls: ['./account-view.component.scss']
 })
-export class LeadViewComponent implements OnInit {
+export class AccountViewComponent implements OnInit {
 
   rows:any
-  link:any = '/crm/lead/new';
+  link:any = '/crm/account/new';
   paginationData:any = {
 		total: 0,
 		from: 0,
@@ -35,23 +35,23 @@ export class LeadViewComponent implements OnInit {
   }
   edit(id)
   {
-    this.router.navigateByUrl('/crm/lead/'+id);
+    this.router.navigateByUrl('/crm/account/'+id);
   }
   toCreate()
   {
-    this.router.navigateByUrl('/crm/lead/new');
+    this.router.navigateByUrl('/crm/account/new');
   }
   toNext() {
-    this.router.navigateByUrl('crm/lead/new');
+    this.router.navigateByUrl('crm/account/new');
   }
   show(id)
   {
-    this.router.navigateByUrl('/crm/lead/show/'+id);
+    this.router.navigateByUrl('/crm/account/show/'+id);
   }
 
   getData(page = 1){
     
-		this.apiService.get('admin/crm/lead'+page)
+		this.apiService.get('admin/crm/account'+page)
 		.then( data => {
 
       let l_data:any = data;

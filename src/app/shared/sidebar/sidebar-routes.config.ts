@@ -49,28 +49,28 @@ export const ROUTES: RouteInfo[] = [
     {
         path: '', title: 'CRM', icon: 'ft-trending-up', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
             {
-                path: '/crm/lead/new', title: 'Lead', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/crm/lead', title: 'Lead', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/crm/appointment/new', title: 'Appointment', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/crm/appointment', title: 'Appointment', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/crm/task/new', title: 'Task', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/crm/task', title: 'Task', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/crm/contact/new', title: 'Contact', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/crm/contact', title: 'Contact', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/crm/deal/new', title: 'Deal', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/crm/deal', title: 'Deal', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/crm/account/new', title: 'Account', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/crm/account', title: 'Account', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/crm/quotation/new', title: 'Quotation', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/crm/quotation', title: 'Quotation', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
             {
-                path: '/crm/billing/new', title: 'Billing', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/crm/billing', title: 'Billing', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
         ]
     },
