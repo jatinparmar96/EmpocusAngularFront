@@ -27,7 +27,7 @@ export class AccountCreateComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) 
+  )
   {
     this.shareService.setVisibility(false)
     this.data= this.fb.group({
@@ -63,29 +63,26 @@ export class AccountCreateComponent implements OnInit {
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
         this.getData(this.id);
-        
 			}
     });
-    
-  
   }
-  
+
   getData(id:any){
 		this.apiService.get("admin/account/"+id)
-		.then(data => { 
+		.then(data => {
 			let l_data: any = data;
-      this.data.patchValue(l_data.data);					
-      console.log(this.data.value)
+      this.data.patchValue(l_data.data);
 		})
-	}
-  addOrUpdate(account){		
+  }
+
+  addOrUpdate(account){
 		this.formTouched = true;
 		if(account.invalid){
 			return false;
 		}
 		this.resetErrorMessages();
 		this.isProcessing = true;
-		
+
 			//post request
 			this.apiService.post("admin/crm/account",account.value).then( data => {
         let result: any = data;
@@ -97,7 +94,7 @@ export class AccountCreateComponent implements OnInit {
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success'); 
+								},'success');
 							}
 							else{
 									this.notifyService.show({
@@ -106,17 +103,15 @@ export class AccountCreateComponent implements OnInit {
                   }, 'error');
                   this.errors = result.error;
 							}
-    
 			})
 			.catch( error => {
         this.isProcessing = false;
         let errors: any = error;
         this.errors = errors;
 			})
-		
   }
   resetErrorMessages(){
-		this.errors = {			
+		this.errors = {
       "name":[""],
       "no_of_employee":[""],
       "annual_revenue":[""],
@@ -136,9 +131,8 @@ export class AccountCreateComponent implements OnInit {
       "linkedin":[""],
 		}
   }
-  
+
   cancel(){
     this.router.navigateByUrl('/crm/account/new');
   }
-
 }

@@ -37,10 +37,9 @@ export class CreateRawProductComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) { 
+  ) {
         this.shareService.setVisibility(false)
         apiService.get('admin/uom_full_list').then(data=>{
-        
           let l_data:any = data;
           if(l_data.status)
           {
@@ -48,7 +47,7 @@ export class CreateRawProductComponent implements OnInit {
           }
         })
         apiService.get('admin/tax_full_list').then(taxData=>{
-            
+
             let l_taxData:any = taxData;
             if(l_taxData.status)
             {
@@ -56,14 +55,14 @@ export class CreateRawProductComponent implements OnInit {
             }
         })
         apiService.get('admin/product_category_full_list').then(productCategoryData=>{
-         
+
             let l_product_category_data:any = productCategoryData;
             if(l_product_category_data.status)
             {
               this.productCategories = l_product_category_data.data
             }
           })
-            
+
         this.raw_product_data = this.fb.group({
           "id":['new',Validators.required],
           "product_name":['',Validators.required],
@@ -91,12 +90,12 @@ export class CreateRawProductComponent implements OnInit {
         this.resetErrorMessages()
   }
 
-  
+
   ngOnInit() {
     // 2 Starts
-   
+
     this.route.params.subscribe(params => {
-   
+
 			if(params['id']=='new'){
 				this.id="new";
 			}else{
@@ -105,15 +104,15 @@ export class CreateRawProductComponent implements OnInit {
 			}
     });
     // 2 Ends
-  
+
   }
   // 3 Starts
   getData(id:any){
 		this.apiService.get("admin/raw_product/"+id)
-		.then(data => { 
+		.then(data => {
       let l_data: any = data;
-      this.raw_product_data.patchValue(l_data.data);	
-     		
+      this.raw_product_data.patchValue(l_data.data);
+
 		})
 	}
   addOrUpdate(raw_product){
@@ -124,7 +123,7 @@ export class CreateRawProductComponent implements OnInit {
 		//  }
 		this.resetErrorMessages();
 		this.isProcessing = true;
-		
+
 			//post request
 			this.apiService.post("admin/raw_product",raw_product.value).then( data => {
         let result: any = data;
@@ -144,17 +143,17 @@ export class CreateRawProductComponent implements OnInit {
                   }, 'error');
                   this.errors = result.error
 							}
-    
+
 			})
 			.catch( error => {
         this.isProcessing = false;
         let errors: any = error;
         this.errors = errors;
 			})
-		
+
   }
   resetErrorMessages(){
-		this.errors = {			
+		this.errors = {
       "product_display_name": [""],
       "product_name": [""],
       "product_code": [""],
@@ -170,11 +169,11 @@ export class CreateRawProductComponent implements OnInit {
       "product_description": [""],
       "product_rate_pick_from": [""],
       "product_product_category": [""],
-      "product_hsn_code": [""], 
+      "product_hsn_code": [""],
       "product_product_type": [""],
 		}
   }
-  
+
   toBack()
   {
     this.router.navigateByUrl('/dashboard/raw-product');

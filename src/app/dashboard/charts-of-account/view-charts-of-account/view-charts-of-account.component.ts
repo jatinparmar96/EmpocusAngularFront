@@ -24,12 +24,12 @@ export class ViewChartsOfAccountComponent implements OnInit {
     private router:Router,
     private apiService:ApiService,
     private shareService:ShareService
-  ) 
+  )
   {
     this.shareService.setVisibility(true)
     this.shareService.setLink(this.link);
   }
-  
+
   ngOnInit() {
     this.getData();
   }
@@ -49,10 +49,11 @@ export class ViewChartsOfAccountComponent implements OnInit {
   getData(page = 1){
 		this.apiService.get('admin/coa?page='+page)
 		.then( data => {
-     
+
       let l_data:any = data;
       l_data = l_data.data;
-			this.rows = l_data.data;
+      this.rows = l_data.data;
+      console.log(this.rows);
 			this.paginationData = {
 				total: l_data.total,
 				from: l_data.from,

@@ -10,7 +10,7 @@ import { ShareService } from 'app/shared/services/share.service';
 })
 export class LeadViewComponent implements OnInit {
 
-  rows:any
+  rows:any = null;
   link:any = '/crm/lead/new';
   paginationData:any = {
 		total: 0,
@@ -50,23 +50,22 @@ export class LeadViewComponent implements OnInit {
   }
 
   getData(page = 1){
-    
-		this.apiService.get('admin/crm/lead'+page)
-		.then( data => {
 
+		this.apiService.get('admin/crm/leads?page='+page)
+		.then( (data:any) => {
       let l_data:any = data;
+      l_data = l_data.data;
       this.rows = l_data.data;
-      console.log(this.rows)
-      this.paginationData = {
-				total: l_data.meta.total,
-				from: l_data.meta.from,
-				to: l_data.meta.to,
-				prev_page_url: l_data.links.prev_page_url,
-				next_page_url: l_data.links.next_page_url,
-				per_page: l_data.meta.per_page,
-				current_page: l_data.meta.current_page,
-				id: 'get_list'
-			}
+			this.paginationData = {
+				total: l_data.total,
+				from: l_data.from,
+				to: l_data.to,
+				prev_page_url: l_data.prev_page_url,
+				next_page_url: l_data.next_page_url,
+				per_page: l_data.per_page,
+				current_page: l_data.current_page,
+        id: 'get_list'
+      }
 		})
 	}
 }

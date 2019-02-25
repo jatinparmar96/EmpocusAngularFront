@@ -17,29 +17,19 @@
                                 </thead>
                                 <tbody>
 
-                                    <!-- <tr *ngFor="let lead of rows|paginate: {
-                          itemsPerPage: paginationData.per_page,
-                          currentPage: paginationData.current_page,
-                          totalItems: paginationData.total,
-                          id: 'get_list'
-                        } let i=index"> -->
-                                    <tr>
-                                        <!-- <td>{{lead.product_lead_name}}</td> -->
-                                        <!-- <td>{{i+1}}</td>
-                                        <td>{{lead.id}}</td>
-                                        <td>{{lead.date}}</td>
-                                        <td>{{lead.credit_ledger.ca_company_display_name}}</td> -->
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-
-                                        <td>
-                                            <a (click)="show(lead.id)" class="danger font-medium-1 p-0"><i class="fa fa-eye"></i></a>
-                                            <a (click)="edit(lead.id)" class="success p-0 ml-2"><i class="fa fa-edit"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                  <tr *ngFor="let contact of rows |  paginate: {
+                                                                    itemsPerPage: paginationData.per_page,
+                                                                    currentPage: paginationData.current_page,
+                                                                    totalItems: paginationData.total,
+                                                                    id: 'get_list'}">
+                                      <td>{{lead.status}}</td>
+                                      <td>{{lead.company_name}}</td>
+                                      <td>
+                                          <a (click)="show(lead.id)" class="danger font-medium-1 p-0"><i class="fa fa-eye"></i></a>
+                                          <a (click)="edit(lead.id)" class="success p-0 ml-2"><i class="fa fa-edit"></i></a>
+                                      </td>
+                                  </tr>
+                              </tbody>
                             </table>
                             <div class="row pull-right pr-5">
                                 <nav>

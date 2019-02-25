@@ -31,6 +31,7 @@ import { DealViewComponent } from './deal/deal-view/deal-view.component';
 import { AccountViewComponent } from './account/account-view/account-view.component';
 import { QuotationViewComponent } from './quotation/quotation-view/quotation-view.component';
 import { BillingViewComponent } from './billing/billing-view/billing-view.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -41,17 +42,18 @@ import { BillingViewComponent } from './billing/billing-view/billing-view.compon
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   declarations: [
-    LeadCreateComponent, 
-    LeadViewComponent, 
+    LeadCreateComponent,
+    LeadViewComponent,
     LeadShowComponent,
     AppointmentCreateComponent,
     TaskCreateComponent,
     ContactCreateComponent,
-    DealCreateComponent, 
-    AccountCreateComponent, 
-    AccountShowComponent, 
+    DealCreateComponent,
+    AccountCreateComponent,
+    AccountShowComponent,
     AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent, BillingShowComponent, QuotationShowComponent, TaskShowComponent, ContactShowComponent, DealShowComponent, AppointmentViewComponent, TaskViewComponent, ContactViewComponent, DealViewComponent, AccountViewComponent, QuotationViewComponent, BillingViewComponent,
   ]
 })

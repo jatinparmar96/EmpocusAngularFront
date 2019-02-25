@@ -50,23 +50,23 @@ export class AppointmentViewComponent implements OnInit {
   }
 
   getData(page = 1){
-    
-		this.apiService.get('admin/crm/appointment'+page)
-		.then( data => {
 
+		this.apiService.get('admin/crm/appointment?page='+page)
+		.then( data => {
       let l_data:any = data;
+      l_data = l_data.data;
       this.rows = l_data.data;
-      console.log(this.rows)
-      this.paginationData = {
-				total: l_data.meta.total,
-				from: l_data.meta.from,
-				to: l_data.meta.to,
-				prev_page_url: l_data.links.prev_page_url,
-				next_page_url: l_data.links.next_page_url,
-				per_page: l_data.meta.per_page,
-				current_page: l_data.meta.current_page,
-				id: 'get_list'
-			}
+      console.log(this.rows);
+			this.paginationData = {
+				total: l_data.total,
+				from: l_data.from,
+				to: l_data.to,
+				prev_page_url: l_data.prev_page_url,
+				next_page_url: l_data.next_page_url,
+				per_page: l_data.per_page,
+				current_page: l_data.current_page,
+        id: 'get_list'
+      }
 		})
 	}
 }
