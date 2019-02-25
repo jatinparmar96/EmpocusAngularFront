@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JwtHelper } from 'angular2-jwt';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';
@@ -13,8 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CreateFinishedProductComponent implements OnInit {
 
-  
-  jwtHelper:JwtHelper = new JwtHelper();
+
   finishedProduct: FormGroup;
   uoms:any;
   isProcessing:boolean = false;
@@ -23,19 +21,19 @@ export class CreateFinishedProductComponent implements OnInit {
     private apiService:ApiService,
     private formService:FormDataService,
     private router:Router,
-  ) { 
+  ) {
     this.apiService.get('admin/getUom').then(data=>{
       let units:any = data
       if(units.status)
       {
         this.uoms = units.uoms;
-        
+
       }
-    
+
     }).catch(error=>{
       console.error(error);
     })
-    
+
     this.finishedProduct = this.fb.group({
 
       "finished_product_name":['PName',Validators.required],
@@ -65,7 +63,7 @@ export class CreateFinishedProductComponent implements OnInit {
   }
 
   ngOnInit() {
-     
+
   }
 
   onSubmit(data)

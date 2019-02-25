@@ -22,7 +22,7 @@ import { SelectCompanyComponent } from './pages/select-company/select-company.co
 
 
 const appRoutes: Routes = [
-  
+
   {
   	path:'login',
   	component:LoginComponent,
@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   	data:{
   		title:'Register New User'
   	}
-    
+
   },
   {
     path:'setupCompany',
@@ -44,7 +44,7 @@ const appRoutes: Routes = [
     data:{
       title:'Setup Company'
     },
-   // canActivate: [AuthGuard], 
+    canActivate: [AuthGuard],
     children: [
         {
           path:'BranchDetails/',
@@ -62,14 +62,14 @@ const appRoutes: Routes = [
         path:'',
         component:CompanyInfoComponent
       }
-     
+
     ]
   },
   {
       path:'',
       component:FullLayoutComponent,
       children:Full_ROUTES,
-       // canActivate: [AuthGuard], 
+      canActivate: [AuthGuard],
   },
 
   {
@@ -78,22 +78,22 @@ const appRoutes: Routes = [
     data: {
       title: 'Content Layout page'
     },
-   
+
 },
-  { 
+  {
     path: '',
-    component: FullLayoutComponent, 
+    component: FullLayoutComponent,
     data: { title: 'full Views' },
-    children: Full_ROUTES, 
-     // canActivate: [AuthGuard], 
+    children: Full_ROUTES,
+    canActivate: [AuthGuard],
   },
 
-  { 
-    path: '', 
-    component: ContentLayoutComponent, 
+  {
+    path: '',
+    component: ContentLayoutComponent,
     data: { title: 'content Views' },
-    children: CONTENT_ROUTES, 
-   
+    children: CONTENT_ROUTES,
+
  },
 
 ];

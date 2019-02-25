@@ -50,8 +50,8 @@ export class DealViewComponent implements OnInit {
   }
 
   getData(page = 1){
-    
-		this.apiService.get('admin/crm/deal'+page)
+
+		this.apiService.get('admin/crm/deal?page='+page)
 		.then( data => {
 
       let l_data:any = data;

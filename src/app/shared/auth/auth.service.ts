@@ -1,19 +1,16 @@
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { JwtModule } from '@auth0/angular-jwt';
 import { ApiService } from '../services/api.service';
-import { JwtHelper} from 'angular2-jwt';
 
 import { ShareService } from '../services/share.service';
 import { reject } from 'q';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
-
-export const endPoint= 'http://127.0.0.1:8000/api/';
 
 @Injectable()
 export class AuthService {
-  jwtHelper: JwtHelper = new JwtHelper();
+  jwtHelper = new JwtHelperService();
   token:any = null;
   constructor(
         private http:HttpClient,
@@ -32,7 +29,7 @@ export class AuthService {
        }).catch((er)=>
        {
            error(er.error.error.errors);
-       }) 
+       })
      })
   }
 
@@ -81,17 +78,18 @@ export class AuthService {
     return decode_user;
   }
 
-  logout() {   
+  logout() {
     this.token = null;
   }
 
-  getToken() {    
+  getToken() {
     return this.token;
   }
 
   isAuthenticated() {
       this.token = localStorage.getItem('x-auth-token');
-      if (this.token!==null) {
+      let isExpired:boolean = !(this.jwtHelper.isTokenExpired(this.token));
+      if (this.token!==null && isExpired) {
         return true;
       }
       else{

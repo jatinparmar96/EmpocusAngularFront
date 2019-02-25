@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JwtHelper } from 'angular2-jwt';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';

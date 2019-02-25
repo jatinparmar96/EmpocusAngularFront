@@ -22,18 +22,18 @@
                                                                     currentPage: paginationData.current_page,
                                                                     totalItems: paginationData.total,
                                                                     id: 'get_list'}">
-                                      <td>{{lead.status}}</td>
-                                      <td>{{lead.company_name}}</td>
+                                      <td>{{deal.status}}</td>
+                                      <td>{{deal.company_name}}</td>
                                       <td>
-                                          <a (click)="show(lead.id)" class="danger font-medium-1 p-0"><i class="fa fa-eye"></i></a>
-                                          <a (click)="edit(lead.id)" class="success p-0 ml-2"><i class="fa fa-edit"></i></a>
+                                          <a (click)="show(deal.id)" class="danger font-medium-1 p-0"><i class="fa fa-eye"></i></a>
+                                          <a (click)="edit(deal.id)" class="success p-0 ml-2"><i class="fa fa-edit"></i></a>
                                       </td>
                                   </tr>
                               </tbody>
                             </table>
                             <div class="row pull-right pr-5">
                                 <nav>
-                                    <!-- <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls> -->
+                                    <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls>
                                 </nav>
                             </div>
                         </div>
