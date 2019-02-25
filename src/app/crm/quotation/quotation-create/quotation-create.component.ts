@@ -121,7 +121,7 @@ export class QuotationCreateComponent implements OnInit {
 
   ngOnInit() {
     // 2 Starts
-    this.getAccounts();
+
     this.getProducts();
     this.route.params.subscribe(params => {
       console.log(params['id']);
@@ -150,7 +150,7 @@ export class QuotationCreateComponent implements OnInit {
   }
 
   getAccounts() {
-    this.apiService.get('admin/crm/appointment_full_list').then((data: any) => {
+    this.apiService.get('admin/crm/accounts_full_list').then((data: any) => {
         this.accounts = data.data;
       })
       .catch((error: any) => {

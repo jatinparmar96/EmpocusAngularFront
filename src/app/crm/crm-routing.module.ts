@@ -27,106 +27,106 @@ import { BillingViewComponent } from './billing/billing-view/billing-view.compon
 
 const routes: Routes = [
   {
-    path: 'lead/new',
+    path: 'lead/:id',
     component: LeadCreateComponent
-  },  
+  },
   {
     path: 'lead',
     component: LeadViewComponent
-  },  
-  
+  },
+
   {
     path: 'lead/show',
     component: LeadShowComponent
-  },  
+  },
   {
     path: 'appointment',
     component: AppointmentViewComponent
-  },  
+  },
   {
-    path: 'appointment/new',
+    path: 'appointment/:id',
     component: AppointmentCreateComponent
-  },  
+  },
   {
     path: 'appointment/show',
     component: AppointmentShowComponent
-  },  
-  
+  },
+
   {
     path: 'task',
     component: TaskViewComponent
-  },  
+  },
   {
-    path: 'task/new',
+    path: 'task/:id',
     component: TaskCreateComponent
-  },  
+  },
   {
     path: 'task/show',
     component: TaskShowComponent
-  },  
-  
+  },
+
   {
     path: 'contact',
     component: ContactViewComponent
-  },  
+  },
   {
-    path: 'contact/new',
+    path: 'contact/:id',
     component: ContactCreateComponent
-  },  
+  },
   {
     path: 'contact/show',
     component: ContactShowComponent
-  },  
+  },
   {
     path: 'deal',
     component: DealViewComponent
-  },  
+  },
   {
-    path: 'deal/new',
+    path: 'deal/:id',
     component: DealCreateComponent
-  },  
+  },
   {
     path: 'deal/show',
     component: DealShowComponent
-  },  
-  
+  },
+
   {
     path: 'account',
     component: AccountViewComponent
-  },  
+  },
   {
-    path: 'account/new',
+    path: 'account/:id',
     component: AccountCreateComponent
-  },  
+  },
   {
     path: 'account/show',
     component: AccountShowComponent
-  },  
+  },
 
   {
     path: 'quotation',
     component: QuotationViewComponent
-  },  
+  },
   {
-    path: 'quotation/new',
+    path: 'quotation/:id',
     component: QuotationCreateComponent
-  },  
+  },
   {
     path: 'quotation/show',
     component: QuotationShowComponent
-  }, 
+  },
   {
     path: 'billing',
     component: BillingViewComponent
-  },  
+  },
   {
-    path: 'billing/new',
+    path: 'billing/:id',
     component: BillingCreateComponent
-  },  
+  },
   {
     path: 'billing/show',
     component: BillingShowComponent
-  },  
+  },
 ];
 
 @NgModule({

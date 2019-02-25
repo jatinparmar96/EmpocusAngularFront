@@ -1,0 +1,7 @@
+<div [formGroup]="parentForm">
+  <ng-select [items]="account | async"
+                   bindLabel="ca_company_display_name"
+                   [loading]="accountLoading"
+                   [typeahead]="accountInput" formControlName="{{controlName}}">
+                  </ng-select>
+</div>

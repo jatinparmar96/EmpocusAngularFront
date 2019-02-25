@@ -53,7 +53,6 @@ export class AccountViewComponent implements OnInit {
 
 		this.apiService.get('admin/crm/account?page='+page)
 		.then( data => {
-
       let l_data:any = data;
       l_data = l_data.data;
       this.rows = l_data.data;
