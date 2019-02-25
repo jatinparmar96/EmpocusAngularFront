@@ -36,7 +36,7 @@ export class TaskCreateComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) 
+  )
   {
     this.shareService.setVisibility(false)
     this.task_data= this.fb.group({
@@ -49,7 +49,7 @@ export class TaskCreateComponent implements OnInit {
       "outcome":['',Validators.required],
       "related_to":['',Validators.required],
       "task_desc":['',Validators.required],
-      
+
 
     });
     this.resetErrorMessages();
@@ -70,29 +70,26 @@ export class TaskCreateComponent implements OnInit {
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
         this.getData(this.id);
-        
 			}
     });
-    
-  
   }
-  
+
   getData(id:any){
 		this.apiService.get("admin/task/"+id)
-		.then(data => { 
+		.then(data => {
 			let l_data: any = data;
-      this.task_data.patchValue(l_data.data);					
+      this.task_data.patchValue(l_data.data);
       console.log(this.task_data.value)
 		})
 	}
-  addOrUpdate(Task){		
+  addOrUpdate(Task){
 		this.formTouched = true;
 		if(Task.invalid){
 			return false;
 		}
 		this.resetErrorMessages();
 		this.isProcessing = true;
-		
+
 			//post request
 			this.apiService.post("admin/task",Task.value).then( data => {
         let result: any = data;
@@ -104,7 +101,7 @@ export class TaskCreateComponent implements OnInit {
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success'); 
+								},'success');
 							}
 							else{
 									this.notifyService.show({
@@ -113,17 +110,17 @@ export class TaskCreateComponent implements OnInit {
                   }, 'error');
                   this.errors = result.error;
 							}
-    
+
 			})
 			.catch( error => {
         this.isProcessing = false;
         let errors: any = error;
         this.errors = errors;
 			})
-		
+
   }
   resetErrorMessages(){
-		this.errors = {			
+		this.errors = {
       "title":[""],
       "due_date":[""],
       "due_time":[""],
@@ -133,7 +130,7 @@ export class TaskCreateComponent implements OnInit {
       "task_desc":[""],
 		}
   }
-  
+
   cancel(){
     this.router.navigateByUrl('/crm/task/create');
   }

@@ -9,9 +9,10 @@
                         <div class="col-lg-12">
                             <table class="table table-bordered table-responsive-md">
                                 <thead>
-                                    <th>Account Name</th>
-                                    <th>Account Phone</th>
-                                    <th>Account Website</th>
+                                    <th>Title</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Location</th>
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
@@ -21,9 +22,10 @@
                                                                     currentPage: paginationData.current_page,
                                                                     totalItems: paginationData.total,
                                                                     id: 'get_list'}">
-                                      <td>{{appt.account_name}}</td>
-                                      <td>{{appt.account_phone}}</td>
-                                      <td>{{appt.account_website}}</td>
+                                      <td>{{appt.title}}</td>
+                                      <td>{{appt.start_date}}</td>
+                                      <td>{{appt.end_date}}</td>
+                                      <td>{{appt.location}}</td>
                                       <td>
                                           <a (click)="show(appt.id)" class="danger font-medium-1 p-0"><i class="fa fa-eye"></i></a>
                                           <a (click)="edit(appt.id)" class="success p-0 ml-2"><i class="fa fa-edit"></i></a>
@@ -33,7 +35,7 @@
                             </table>
                             <div class="row pull-right pr-5">
                                 <nav>
-                                    <!-- <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls> -->
+                                    <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls>
                                 </nav>
                             </div>
                         </div>
