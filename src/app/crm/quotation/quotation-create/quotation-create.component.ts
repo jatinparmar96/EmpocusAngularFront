@@ -1,11 +1,35 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ApiService} from 'app/shared/services/api.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FormDataService} from 'app/shared/services/form-data.service';
-import {ShareService} from 'app/shared/services/share.service';
-import {NotifyService} from 'app/shared/services/notify.service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import {
+  ApiService
+} from 'app/shared/services/api.service';
+import {
+  ActivatedRoute,
+  Router
+} from '@angular/router';
+import {
+  FormDataService
+} from 'app/shared/services/form-data.service';
+import {
+  ShareService
+} from 'app/shared/services/share.service';
+import {
+  NotifyService
+} from 'app/shared/services/notify.service';
+import {
+  NgbModal
+} from '@ng-bootstrap/ng-bootstrap';
+import {
+  ProductService
+} from '../../../shared/services/ProductService/product.service';
 
 
 @Component({
@@ -23,7 +47,7 @@ export class QuotationCreateComponent implements OnInit {
   id: any = 'new';
   quotation_data: FormGroup;
   //table Variables
-  fieldArray: Array<any> = [];   //Holds Table Data
+  fieldArray: Array < any > = []; //Holds Table Data
   newAttribute: any = {};
   closeResult: String;
   accounts: any;
@@ -39,10 +63,14 @@ export class QuotationCreateComponent implements OnInit {
     'total_amount': 0,
     'grand_total_amount': 0,
   };
+  cgst: any = 0;
+  sgst: any = 0;
+  igst: any = 0;
   discount: any = {
     'type': '%',
     'value': 0
   };
+  delivery_charges: any = 0;
 
 
   constructor(
@@ -50,11 +78,16 @@ export class QuotationCreateComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private modalService: NgbModal,
+    private productService: ProductService,
     private formService: FormDataService,
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router: Router,
   ) {
+    /*this.productService.get_products_list().subscribe((data: any)=>{
+       this.products = data.data;
+       console.log(this.products,data);
+    });*/
     this.quotation_data = fb.group({
       'address_id': ['new', Validators.required],
       'id': ['new', Validators.required],
@@ -70,7 +103,7 @@ export class QuotationCreateComponent implements OnInit {
       'discount_in': ['', Validators.required],
       'del_charges': ['', Validators.required],
       'grand_total': ['', Validators.required],
-      'cgst': ['', Validators.required],
+      'cgst': ['0', Validators.required],
       'sgst': ['', Validators.required],
       'igst': ['', Validators.required],
       'total': ['', Validators.required],
@@ -83,11 +116,12 @@ export class QuotationCreateComponent implements OnInit {
       'product_applied_gst_rate': ['', Validators.required],
       'product_sub_total': ['', Validators.required],
     })
+    this.resetAttributes();
   }
 
   ngOnInit() {
     // 2 Starts
-    this.getAccounts();
+
     this.getProducts();
     this.route.params.subscribe(params => {
       console.log(params['id']);
@@ -103,8 +137,8 @@ export class QuotationCreateComponent implements OnInit {
 
   getProducts() {
     this.apiService.get('admin/raw_product_full_list').then((data: any) => {
-      this.products = data.data;
-    })
+        this.products = data.data;
+      })
       .catch((error: any) => {
         console.log(error);
         let data: any = {
@@ -116,9 +150,9 @@ export class QuotationCreateComponent implements OnInit {
   }
 
   getAccounts() {
-    this.apiService.get('admin/crm/appointment_full_list').then((data: any) => {
-      this.accounts = data.data;
-    })
+    this.apiService.get('admin/crm/accounts_full_list').then((data: any) => {
+        this.accounts = data.data;
+      })
       .catch((error: any) => {
         console.log(error);
         let data: any = {
@@ -139,40 +173,30 @@ export class QuotationCreateComponent implements OnInit {
   }
 
   addOrUpdate(quotation) {
-    // this.notifyService.show({
-    //   title: 'Success',
-    //   message: 'Done'
-    // }, 'success');
     quotation.addControl('quotation_table', new FormControl(this.fieldArray));
-    console.log(quotation.value);
+    // console.log(quotation.value);
     this.formTouched = true;
-    // if (quotation.invalid) {
-    //   return false;
-    // }
     this.resetErrorMessages();
     this.isProcessing = true;
 
     //post request
     this.apiService.post('admin/crm/quotation', quotation.value).then(data => {
-      console.log(data);
+        let result: any = data;
+        //success
+        this.isProcessing = false;
+        if (result.status) {
+          this.notifyService.show({
+            title: 'Success',
+            message: result.message
+          }, 'success');
+        } else {
+          this.notifyService.show({
+            title: 'Error',
+            message: result.message
+          }, 'error');
+        }
 
-      let result: any = data;
-      //success
-      this.isProcessing = false;
-      if (result.status) {
-        this.notifyService.show({
-          title: 'Success',
-          message: result.message
-        }, 'success');
-      }
-      else {
-        this.notifyService.show({
-          title: 'Error',
-          message: result.message
-        }, 'error');
-      }
-
-    })
+      })
       .catch((error: any) => {
         this.isProcessing = false;
         let errors: any = error;
@@ -210,9 +234,12 @@ export class QuotationCreateComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/crm/quotation/new');
   }
 
-// 3 Ends
+  // 3 Ends
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size: 'lg'}).result.then((result) => {
+    this.modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title',
+      size: 'lg'
+    }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -222,12 +249,21 @@ export class QuotationCreateComponent implements OnInit {
   getDismissReason(reason) {
 
   }
-
+  calculateAmount() {
+    this.newAttribute.amount = this.newAttribute.product_qty * this.newAttribute.product_rate;
+    console.log(this.newAttribute);
+  }
   addFieldValue() {
     this.calculate_total_individual_price();
     this.fieldArray.push(this.newAttribute);
     this.update_gross_amount();
     this.newAttribute = {};
+    this.newAttribute = {
+      'product_rate': 0,
+      'product_gst_percent': 0
+    };
+    console.log(this.fieldArray);
+
   }
 
   deleteFieldValue(index) {
@@ -235,42 +271,59 @@ export class QuotationCreateComponent implements OnInit {
     this.update_gross_amount();
   }
 
-//Updation Methods
+  resetAttributes() {
+    this.newAttribute = {
+      product_rate: 0,
+      product_gst_percent: 0,
+      amount: 0
+    }
+  }
+  //Updation Methods
   update_model_price(product) {
     this.newAttribute.product_rate = product.product_mrp_rate;
     this.newAttribute.product_gst_percent = product.tax_rate;
-    console.log(this.newAttribute);
+    this.newAttribute.amount = this.newAttribute.product_rate * this.newAttribute.product_qty
   }
 
   calculate_total_individual_price() {
     let total_price = 0;
-    this.newAttribute.total_price = Number(this.newAttribute.product_qty * this.newAttribute.product_rate *
-      (1 + this.newAttribute.product_gst_percent / 100)).toFixed(2);
+    this.newAttribute.total_price = (Number(this.newAttribute.product_qty * this.newAttribute.product_rate)).toFixed(2);
   }
 
   update_gross_amount() {
     this.amount.gross_amount = 0;
     for (let i = 0; i < this.fieldArray.length; i++) {
       this.amount.gross_amount += Number(this.fieldArray[i].total_price);
+      this.quotation_data.value.cgst += this.fieldArray[i].product_qty * this.fieldArray[i].product_rate * this.fieldArray[i].product_gst_percent / 100;
     }
+    this.quotation_data.value.cgst = this.quotation_data.value.cgst / 2;
+    this.quotation_data.value.sgst = this.quotation_data.value.cgst;
+    this.amount.total_amount = this.amount.gross_amount;
+    this.amount.grand_total_amount = Number(this.amount.total_amount) + Number(this.delivery_charges);
   }
 
+  update_grand_total(delcharge) {
+    this.delivery_charges = delcharge;
+    this.amount.grand_total_amount = Number(this.amount.total_amount) + Number(this.delivery_charges);
+  }
+
+  updateTotal()
+  {
+    let gross_amount = this.quotation_data.value.gross_amount;
+    let total = this.quotation_data.value.total;
+
+  }
   update_total(discount) {
-    console.log(discount);
     if (this.discount.type === '%') {
-      this.amount.total_amount = this.amount.gross_amount - (this.amount.gross_amount * discount/ 100);
-    }
-    else if (this.discount.type === 'Amt') {
+      this.amount.total_amount = this.amount.gross_amount - (this.amount.gross_amount * discount / 100);
+    } else if (this.discount.type === 'Amt') {
       this.amount.total_amount = this.amount.gross_amount - discount;
     }
+    this.quotation_data.value.grand_total = this.quotation_data.value.total_amount + this.quotation_data.value.del_charges;
+    //this.amount.grand_total_amount = Number(this.amount.total_amount) + Number(this.delivery_charges);
   }
 
   change_discount_type(event: any) {
     this.discount.type = event.target.value;
   }
 }
-
-
-
-
-

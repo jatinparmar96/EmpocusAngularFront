@@ -14,7 +14,7 @@ import { FormDataService } from 'app/shared/services/form-data.service';
 })
 export class BomScrapComponent implements OnInit {
   current_step = 4;
-
+  isProcessing:boolean = false
   constructor(
     private router:Router,
     private formService:FormDataService

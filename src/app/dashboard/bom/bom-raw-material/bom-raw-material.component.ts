@@ -11,11 +11,11 @@ import { NgOption } from '@ng-select/ng-select';
 })
 export class BomRawMaterialComponent implements OnInit {
   closeResult: string;
-  
+  isProcessing:boolean = false;
   constructor(
     private router:Router,
     private modalService: NgbModal,
-    private fb: FormBuilder,     
+    private fb: FormBuilder,
   ) { }
 
     ages: NgOption[] = [
@@ -29,7 +29,7 @@ export class BomRawMaterialComponent implements OnInit {
   toNext(){
     this.router.navigateByUrl('/dashboard/bom/process');
   }
-  
+
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

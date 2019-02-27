@@ -12,7 +12,7 @@ import {NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
   `
 })
 export class TimefieldComponent extends FieldType {
-  // time: NgbTimeStruct = {hour: 13, minute: 30, second: 0};
+   time: NgbTimeStruct = {hour: 13, minute: 30, second: 0};
 
   constructor(config: NgbTimepickerConfig) {
     super();
@@ -20,5 +20,5 @@ export class TimefieldComponent extends FieldType {
     config.seconds = true;
     config.spinners = false;
   }
-} 
+}
 

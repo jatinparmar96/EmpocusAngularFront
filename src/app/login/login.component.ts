@@ -13,16 +13,16 @@ import{AuthService} from '../shared/auth/auth.service';
 export class LoginComponent implements OnInit {
         user: FormGroup;
         errors:any;
-        isProcessing:boolean = false;  
+        isProcessing:boolean = false;
   constructor(fb: FormBuilder,private router:Router,private authService:AuthService) {
           this.user = fb.group({
-            "email": ["jatinparmar96@gmail.com",Validators.required],
+            "email": ["pritesh@gmail.com",Validators.required],
             "password": ["123",Validators.required],
           });
      }
 
   ngOnInit() {
-      
+
   }
   onSubmit(user) {
     this.isProcessing= true;
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
        if (user.status) {
          console.log(this.errors);
          this.isProcessing=false;
-         this.router.navigateByUrl('/select-company');
+         this.router.navigateByUrl('/');
        }
        else{
           this.isProcessing=false;
@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
         console.log(this.errors);
        this.errors = error.statusText;
      });
-           
-    
+
+
   }
   onForgotPassword()
  {

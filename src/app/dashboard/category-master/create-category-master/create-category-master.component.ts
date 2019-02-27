@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JwtHelper } from 'angular2-jwt';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';
@@ -37,7 +36,7 @@ export class CreateCategoryMasterComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) {    
+  ) {
     this.shareService.setVisibility(false)
     this.resetErrorMessages();
     this.category_data = this.fb.group({
@@ -46,12 +45,12 @@ export class CreateCategoryMasterComponent implements OnInit {
     });
   }
 
-  
+
   ngOnInit() {
     // 2 Starts
     //alternate method for getting parameter
     let a = this.route.snapshot.paramMap.get('id');
-    
+
     this.route.params.subscribe(params => {
       console.log(params['id'])
 			if(params['id']=='new'){
@@ -62,25 +61,25 @@ export class CreateCategoryMasterComponent implements OnInit {
 			}
     });
     // 2 Ends
-  
+
   }
   // 3 Starts
   getData(id:any){
 		this.apiService.get("admin/product_category/"+id)
-		.then(data => { 
+		.then(data => {
 			let l_data: any = data;
-			this.category_data.patchValue(l_data.data);					
+			this.category_data.patchValue(l_data.data);
 		})
 	}
   addOrUpdate(category){
-    
+
 		this.formTouched = true;
 		 if(category.invalid){
 		 	return false;
 		 }
 		this.resetErrorMessages();
 		this.isProcessing = true;
-		
+
 			//post request
 			this.apiService.post("admin/product_category",category.value).then( data => {
         let result: any = data;
@@ -100,22 +99,22 @@ export class CreateCategoryMasterComponent implements OnInit {
                   }, 'error');
                   this.errors = result.error
 							}
-    
+
 			})
 			.catch( error => {
         this.isProcessing = false;
         let errors: any = error;
         this.errors = errors;
 			})
-		
+
   }
   resetErrorMessages(){
 
-		this.errors = {			
+		this.errors = {
       "product_category_name": [""],
 		}
   }
-  
+
   cancel(){
     this.router.navigateByUrl('/dashboard/category');
   }

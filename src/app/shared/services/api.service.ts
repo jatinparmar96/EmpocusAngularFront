@@ -2,9 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http';
 import { Headers,Http } from '@angular/http';
 import { tokenGetter } from '../../app.module';
+import { Observable } from 'rxjs';
 
 // export const address= 'http://127.0.0.1:8000/api/';
-export const address= 'http://clarusinfo.com/apis/public/api/';
+// export const address= 'http://clarusinfo.com/apis/public/api/';
+export const address= 'http://roksoindia.com/empocus/apis/public/api/';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +26,7 @@ post(url,data)
 			data=>{
 				resolve(data);
 			},
-			error=>{	
+			error=>{
 				reject(error);
 			});
 	});
@@ -39,6 +43,10 @@ get(url)
 			}
 		)
 	})
+}
+observableGet(url) :Observable<any>
+{
+  return this.http.get(address+url,{headers:{'Authorization':'Bearer '+localStorage.getItem('x-auth-token')}})
 }
 // loginUser(user)
 // {

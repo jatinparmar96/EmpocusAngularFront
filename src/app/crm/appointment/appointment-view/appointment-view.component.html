@@ -5,45 +5,37 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-block">
-                    <div class="row mt-2">
+                    <div class="row">
                         <div class="col-lg-12">
                             <table class="table table-bordered table-responsive-md">
                                 <thead>
-                                    <th>Sr</th>
                                     <th>Title</th>
-                                    <th>Related To</th>
-                                    <th>Outcome</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Location</th>
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
 
-                                    <!-- <tr *ngFor="let lead of rows|paginate: {
-                          itemsPerPage: paginationData.per_page,
-                          currentPage: paginationData.current_page,
-                          totalItems: paginationData.total,
-                          id: 'get_list'
-                        } let i=index"> -->
-                                    <tr>
-                                        <!-- <td>{{lead.product_lead_name}}</td> -->
-                                        <!-- <td>{{i+1}}</td>
-                                        <td>{{lead.id}}</td>
-                                        <td>{{lead.date}}</td>
-                                        <td>{{lead.credit_ledger.ca_company_display_name}}</td> -->
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-
+                                    <tr *ngFor="let appt of rows |  paginate: {
+                                                            itemsPerPage: paginationData.per_page,
+                                                            currentPage: paginationData.current_page,
+                                                            totalItems: paginationData.total,
+                                                            id: 'get_list'}">
+                                        <td>{{appt.title}}</td>
+                                        <td>{{appt.start_date}}</td>
+                                        <td>{{appt.end_date}}</td>
+                                        <td>{{appt.location}}</td>
                                         <td>
-                                            <a (click)="show(lead.id)" class="danger font-medium-1 p-0" placement="top" ngbTooltip="Show Detail"><i class="fa fa-eye"></i></a>
-                                            <a (click)="edit(lead.id)" class="success p-0 ml-2" placement="top" ngbTooltip="Edit Detail"><i class="fa fa-edit"></i></a>
+                                            <a (click)="show(appt.id)" class="danger font-medium-1 p-0"><i class="fa fa-eye"></i></a>
+                                            <a (click)="edit(appt.id)" class="success p-0 ml-2"><i class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="row pull-right pr-5">
                                 <nav>
-                                    <!-- <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls> -->
+                                    <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls>
                                 </nav>
                             </div>
                         </div>

@@ -13,6 +13,7 @@ import { FormDataService } from 'app/shared/services/form-data.service';
 })
 export class BomByproductComponent implements OnInit {
 
+  isProcessing:boolean = false
   closeResult: string;
   current_step = 3;
   constructor(
@@ -20,8 +21,8 @@ export class BomByproductComponent implements OnInit {
     private modalService: NgbModal,
     private formService:FormDataService
   )
-   { 
-    
+   {
+
    }
 
   ngOnInit() {
@@ -32,7 +33,7 @@ export class BomByproductComponent implements OnInit {
     console.log(this.formService.getData());
     this.router.navigateByUrl('/dashboard/bom/scrap');
   }
-  
+
 
   // Modal
   open(content) {
