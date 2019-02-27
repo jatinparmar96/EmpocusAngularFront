@@ -38,7 +38,7 @@ import { BillingViewComponent } from './billing/billing-view/billing-view.compon
     CommonModule,
     CrmRoutingModule,
     NgSelectModule,
-    NgbModule,
+    NgbModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
   ],
