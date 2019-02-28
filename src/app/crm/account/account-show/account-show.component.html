@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-12">
-        <div class="card">
+        <div class="card" *ngIf="data">
             <div class="card-header">
                 <div class="col-lg-12 pl-0">
                     <p class="text-left" style="text-transform: capitalize !important;font-weight: 500;font-size: 1.5rem;"><strong>Leads</strong>
@@ -20,39 +20,39 @@
                             <div class="row">
                                 <div class="col-lg-4 d-flex flex-column ">
                                     <span class="h6 text-gray text-bold-400 "><small>Name</small></span>
-                                    <span class="h5 text-bold-400  text-primary "><strong>Rehman Deraiya</strong></span>
+                                    <span class="h5 text-bold-400  text-primary "><strong>{{data.account_name}}</strong></span>
                                 </div>
                                 <div class="col-lg-4 d-flex flex-column ">
                                     <span class="h6 text-gray text-bold-400 "><small>Number of Employee</small></span>
-                                    <span class="h5 text-bold-400  text-primary "><strong>1-10</strong></span>
+                                    <span class="h5 text-bold-400  text-primary "><strong>{{data.account_employee_number}}</strong></span>
                                 </div>
                                 <div class="col-lg-4 d-flex flex-column ">
                                     <span class="h6 text-gray text-bold-400 "><small>Website</small></span>
-                                    <span class="h5 text-bold-400  text-primary "><strong>https://bitmanity.com</strong></span>
+                                    <span class="h5 text-bold-400  text-primary "><strong>{{data.account_website}}</strong></span>
                                 </div>
                             </div>
                             <div class="row mt-2 ">
                                 <div class="col-lg-4 d-flex flex-column ">
                                     <span class="h6 text-gray text-bold-400 "><small>Phone</small></span>
-                                    <span class="h5 text-bold-400  text-primary "><strong>+91-92267-14345</strong></span>
+                                    <span class="h5 text-bold-400  text-primary "><strong>{{data.account_phone}}</strong></span>
                                 </div>
                                 <div class="col-lg-4 d-flex flex-column ">
-                                    <span class="h6 text-gray text-bold-400 "><small>Annual Return</small></span>
-                                    <span class="h5 text-bold-400  text-primary "><strong>50,000</strong></span>
+                                    <span class="h6 text-gray text-bold-400 "><small>Annual Revenue</small></span>
+                                    <span class="h5 text-bold-400  text-primary "><strong>{{data.account_annual_revenue}}</strong></span>
                                 </div>
                                 <div class="col-lg-4 d-flex flex-column ">
                                     <span class="h6 text-gray text-bold-400 "><small>Industry Type</small></span>
-                                    <span class="h5 text-bold-400  text-primary "><strong>Automatic</strong></span>
+                                    <span class="h5 text-bold-400  text-primary "><strong>{{data.account_industry_type}}</strong></span>
                                 </div>
                             </div>
                             <div class="row mt-2 ">
                                 <div class="col-lg-4 d-flex flex-column ">
                                     <span class="h6 text-gray text-bold-400 "><small>Business Type</small></span>
-                                    <span class="h5 text-bold-400  text-primary "><strong>Competitor</strong></span>
+                                    <span class="h5 text-bold-400  text-primary "><strong>{{data.account_business_type}}</strong></span>
                                 </div>
                                 <div class="col-lg-4 d-flex flex-column ">
                                     <span class="h6 text-gray text-bold-400 "><small>Address</small></span>
-                                    <span class="h5 text-bold-400  text-primary "><strong>Mumbai, Maharashtra, India</strong></span>
+                                    <span class="h5 text-bold-400  text-primary "><strong>Pending</strong></span>
                                 </div>
 
                             </div>
@@ -69,16 +69,15 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 d-flex flex-column ">
-                                    <span class="h6 text-gray text-bold-400 "><small><i class="ft-facebook"></i> Facebook</small></span>
-                                    <a href="#"> <span class="h5 text-bold-400  text-primary "><strong>bitmanity</strong></span></a>
+
+                                    <a href="{{data.account_facebook_link}}"><span class="h6 text-gray text-bold-400 "><small><i class="ft-facebook"></i> Facebook</small></span></a>
                                 </div>
                                 <div class="col-lg-4 d-flex flex-column ">
-                                    <span class="h6 text-gray text-bold-400 "><small><i class="ft-twitter"></i> Twitter</small></span>
-                                    <a href="#"> <span class="h5 text-bold-400  text-primary "><strong>bitmanity</strong></span></a>
+                                    <a href="{{data.account_twitter_link}}"><span class="h6 text-gray text-bold-400 "><small><i class="ft-twitter"></i> Twitter</small></span></a>
                                 </div>
                                 <div class="col-lg-4 d-flex flex-column ">
-                                    <span class="h6 text-gray text-bold-400 "><small><i class="ft-linkedin"></i> Linkedin</small></span>
-                                    <a href="#"> <span class="h5 text-bold-400  text-primary "><strong>bitmanity</strong></span></a>
+                                    <a href="{{data.account_linkedin_link}}"><span class="h6 text-gray text-bold-400 "><small><i class="fa fa-linkedin"></i> Linkedin</small></span></a>
+
                                 </div>
                             </div>
                         </div>

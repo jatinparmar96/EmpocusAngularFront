@@ -1,73 +1,69 @@
 <div class="row d-flex">
     <div class="col-md-2">
         <div class="card  text-center box-shadow-0 height-300">
-            <div class="card-body">
+            <div class="card-body" *ngIf="data">
                 <div class="card-block">
                     <img src="../assets/img/portrait/avatars/avatar-08.png" alt="element 05" width="250" class="mb-1 img-fluid">
                     <div class="align-self-center mt-2">
-                        <i class="fa fa-facebook text-primary"></i>
-                        <i class="fa fa-twitter ml-2 mr-2 text-primary"></i>
-                        <i class="text-primary fa fa-linkedin"></i>
+                        <a href="{{data.facebook_link}}"><i class="fa fa-facebook text-primary"></i></a>
+                        <a href="{{data.twitter_link}}"><i class="fa fa-twitter ml-2 mr-2 text-primary"></i></a>
+                        <a href="{{data.linkedin_link}}"><i class="text-primary fa fa-linkedin"></i></a>
                     </div>
                     <div class="align-self-center mt-3">
-                        <p> <strong>Active</strong></p>
+                        <p> <strong>{{data.lead_status}}</strong></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-10">
-        <div class="card height-300">
+        <div class="card height-300" *ngIf="data">
             <div class="card-header pb-0">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="text-left" style="text-transform: capitalize !important;font-weight: 500;font-size: 1.5rem;">Roxco India Private Limited</p>
+                        <p class="text-left" style="text-transform: capitalize !important;font-weight: 500;font-size: 1.5rem;">{{data.company_name}}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <p class="text-left"> <i class="fa fa-map-marker"></i> 6, J.M. Shopping Centre, OPP.RLY.Station, Vartak Rd, Virar West, Vasai, Maharashtra 400606</p>
+                        <p class="text-left"> <i class="fa fa-map-marker"></i> Pending</p>
                     </div>
                 </div>
 
             </div>
-            <div class="card-body">
+            <div class="card-body" *ngIf="data">
                 <div class="card-block">
                     <div class="row">
                         <div class="col-lg-3 d-flex flex-column ">
                             <span class="h6 text-bold-400  text-primary "><small>Client Name</small></span>
-                            <span class="h6 text-grey text-bold-400 ">Nilesh Ajmera</span>
+                            <span class="h6 text-grey text-bold-400 ">Pending</span>
                         </div>
                         <div class="col-lg-3 d-flex flex-column ">
                             <span class="h6 text-bold-400  text-primary "><small>Email</small></span>
-                            <span class="h6 text-grey text-bold-400 ">Bitmanity LLP</span>
+                            <span class="h6 text-grey text-bold-400 ">{{data.email}}</span>
                         </div>
                         <div class="col-lg-3 d-flex flex-column ">
                             <span class="h6 text-primary text-bold-400 "><small>Phone Number</small></span>
-                            <span class="h6 text-bold-400  text-grey ">+91-83905-78616</span>
+                            <span class="h6 text-bold-400  text-grey ">Pending</span>
                         </div>
                         <div class="col-lg-3 d-flex flex-column ">
                             <span class="h6 text-primary text-bold-400 "><small>Website</small></span>
-                            <span class="h6 text-bold-400  text-grey ">www.rokso.com</span>
+                            <span class="h6 text-bold-400  text-grey ">{{data.company_website}}</span>
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-lg-3 d-flex flex-column ">
                             <span class="h6 text-bold-400  text-primary "><small>Product</small></span>
-                            <span class="h6 text-grey text-bold-400 ">Plaster</span>
+                            <span class="h6 text-grey text-bold-400 ">{{data.product_display_name}}</span>
                         </div>
                         <div class="col-lg-3 d-flex flex-column ">
                             <span class="h6 text-bold-400  text-primary "><small>Sales Person</small></span>
-                            <span class="h6 text-grey text-bold-400 ">Jatin Parmar</span>
+                            <span class="h6 text-grey text-bold-400 ">Pending</span>
                         </div>
                         <div class="col-lg-3 d-flex flex-column ">
                             <span class="h6 text-primary text-bold-400 "><small>Department</small></span>
-                            <span class="h6 text-bold-400  text-grey ">ABC</span>
-                        </div>
-                        <div class="col-lg-3 d-flex flex-column ">
-                            <span class="h6 text-primary text-bold-400 "><small>Last Activity</small></span>
-                            <span class="h6 text-bold-400  text-grey ">Thu 15 Nov, 2018 02:35 PM</span>
+                            <span class="h6 text-bold-400  text-grey ">Pending</span>
                         </div>
                     </div>
                 </div>
@@ -80,7 +76,7 @@
 <div class="row">
 
     <div class="col-6">
-        <div class="card">
+        <div class="card" *ngIf="data">
             <div class="card-body">
                 <div class="card-block">
                     <div class="row">
@@ -101,29 +97,29 @@
                                     <div class="row">
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Number of Employee</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">10-50</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.company_employee_number}}</span>
                                         </div>
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Company Annual Revenue</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">1 Cr</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.company_annual_revenue}}</span>
                                         </div>
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Company Website</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">https://bitmanity.com</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.company_website}}</span>
                                         </div>
                                     </div>
                                     <div class="row mt-2 ">
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Company Phone</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">+91-83905-78616</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.company_phone}}</span>
                                         </div>
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Industry Type</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">Technology Consultant</span>
+                                            <span class="h6 text-bold-400  text-grey ">Pending</span>
                                         </div>
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Business Type.</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">Analyst</span>
+                                            <span class="h6 text-bold-400  text-grey ">Pending</span>
                                         </div>
                                     </div>
 
@@ -132,21 +128,21 @@
                                     <div class="row">
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Deal Name</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">ABC</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.deal_name}}</span>
                                         </div>
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Deal Value</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">123</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.deal_value}}</span>
                                         </div>
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Deal Expected Close Date</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">12-12-2018</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.deal_expected_close_date}}</span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Product</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">ABC</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.product_display_name}}</span>
                                         </div>
                                     </div>
 
@@ -155,21 +151,21 @@
                                     <div class="row">
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Source</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">Organic Search</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.source}}</span>
                                         </div>
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Campaign</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">PQR</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.campaign}}</span>
                                         </div>
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Medium</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">TRE</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.medium}}</span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4 d-flex flex-column ">
                                             <span class="h6 text-primary text-bold-400 "><small>Keyword</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">MNS</span>
+                                            <span class="h6 text-bold-400  text-grey ">{{data.keyword}}</span>
                                         </div>
                                     </div>
 

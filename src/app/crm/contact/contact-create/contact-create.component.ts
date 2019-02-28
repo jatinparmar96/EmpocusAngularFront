@@ -79,7 +79,7 @@ export class ContactCreateComponent implements OnInit {
   }
   
   getData(id:any){
-		this.apiService.get("admin/contact/"+id)
+		this.apiService.get("admin/crm/contact/"+id)
 		.then(data => { 
 			let l_data: any = data;
       this.data.patchValue(l_data.data);					
@@ -95,7 +95,7 @@ export class ContactCreateComponent implements OnInit {
 		this.isProcessing = true;
 		
 			//post request
-			this.apiService.post("admin/contact",contact.value).then( data => {
+			this.apiService.post("admin/crm/contact",contact.value).then( data => {
         let result: any = data;
         //success
         console.log(result);

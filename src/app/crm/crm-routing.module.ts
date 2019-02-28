@@ -36,7 +36,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'lead/show',
+    path: 'lead/show/:id',
     component: LeadShowComponent
   },
   {
@@ -48,7 +48,7 @@ const routes: Routes = [
     component: AppointmentCreateComponent
   },
   {
-    path: 'appointment/show',
+    path: 'appointment/show/:id',
     component: AppointmentShowComponent
   },
 
@@ -99,7 +99,7 @@ const routes: Routes = [
     component: AccountCreateComponent
   },
   {
-    path: 'account/show',
+    path: 'account/show/:id',
     component: AccountShowComponent
   },
 

@@ -10,7 +10,7 @@ import { ShareService } from 'app/shared/services/share.service';
   styleUrls: ['./appointment-show.component.scss']
 })
 export class AppointmentShowComponent implements OnInit {
- 
+  active = 'today';
   id:any
   data:any
     constructor(
@@ -32,7 +32,7 @@ export class AppointmentShowComponent implements OnInit {
       });
     }
     getData(id:any){
-      this.apiService.get("admin/appointment/"+id)
+      this.apiService.get("admin/crm/appointment/"+id)
       .then(data => { 
         let l_data: any = data;	
        this.data = l_data.data

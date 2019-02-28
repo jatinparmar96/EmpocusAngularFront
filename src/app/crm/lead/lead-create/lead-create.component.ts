@@ -12,7 +12,7 @@ import { NotifyService } from 'app/shared/services/notify.service';
   styleUrls: ['./lead-create.component.scss']
 })
 export class LeadCreateComponent implements OnInit {
-  active= 'today';
+  
   lead_data: FormGroup;
   Lead: FormGroup;
   formTouched: boolean = false;
@@ -85,7 +85,7 @@ export class LeadCreateComponent implements OnInit {
   }
   
   getData(id:any){
-		this.apiService.get("admin/crm/lead"+id)
+		this.apiService.get("admin/crm/leads/"+id)
 		.then(data => { 
 			let l_data: any = data;
       this.lead_data.patchValue(l_data.data);					
@@ -101,7 +101,7 @@ export class LeadCreateComponent implements OnInit {
 		this.isProcessing = true;
 		
 			//post request
-			this.apiService.post("admin/crm/lead",lead.value).then( data => {
+			this.apiService.post("admin/crm/leads",lead.value).then( data => {
         let result: any = data;
         //success
         console.log(result);

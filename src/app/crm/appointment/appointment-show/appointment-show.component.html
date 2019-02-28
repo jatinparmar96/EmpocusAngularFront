@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-8">
-        <div class="card">
+        <div class="card" *ngIf="data">
             <div class="card-header">
                 <div class="col-lg-12 pl-0">
                     <p class="text-left" style="text-transform: capitalize !important;font-weight: 500;font-size: 1.5rem;">Appointment</p>
@@ -19,18 +19,18 @@
                             <div class="row">
                                 <div class="col-lg-4 d-flex flex-column ">
                                     <span class="h6 text-primary text-bold-400 "><small>Title</small></span>
-                                    <span class="h6 text-bold-400  text-gray ">Meeting 2</span>
+                                    <span class="h6 text-bold-400  text-gray ">{{data.title}}</span>
                                 </div>
                             </div>
 
                             <div class="row mt-2">
                                 <div class="col-lg-6 d-flex flex-column ">
                                     <span class="h6 text-primary text-bold-400 "><small>Attendees</small></span>
-                                    <span class="h6 text-bold-400  text-gray ">Rehman, Jatin, Pratik</span>
+                                    <span class="h6 text-bold-400  text-gray ">Pending</span>
                                 </div>
                                 <div class="col-lg-6 d-flex flex-column ">
                                     <span class="h6 text-primary text-bold-400 "><small>Related To</small></span>
-                                    <span class="h6 text-bold-400  text-gray ">Deal Closing</span>
+                                    <span class="h6 text-bold-400  text-gray ">Pending</span>
                                 </div>
                             </div>
 
@@ -38,12 +38,12 @@
                             <div class="row mt-2 ">
                                 <div class="col-lg-6 d-flex flex-column ">
                                     <span class="h6 text-primary text-bold-400 "><small>From</small></span>
-                                    <span class="h6 text-bold-400  text-gray "><span>21 January 2018</span> at <span>9:00 AM</span>
+                                    <span class="h6 text-bold-400  text-gray "><span>{{data.start_date}}</span> at <span>{{data.start_time}}</span>
                                     </span>
                                 </div>
                                 <div class="col-lg-6 d-flex flex-column ">
                                     <span class="h6 text-primary text-bold-400 "><small>To</small></span>
-                                    <span class="h6 text-bold-400  text-gray "><span>21 January 2018</span> at <span>9:00 AM</span>
+                                    <span class="h6 text-bold-400  text-gray "><span>{{data.end_date}}</span> at <span>{{data.end_time}}</span>
                                     </span>
                                 </div>
                             </div>
@@ -51,18 +51,18 @@
                             <div class="row mt-2">
                                 <div class="col-lg-6 d-flex flex-column ">
                                     <span class="h6 text-primary text-bold-400 "><small>Where</small></span>
-                                    <span class="h6 text-bold-400  text-gray ">Mumbai, Maharashtra, India</span>
+                                    <span class="h6 text-bold-400  text-gray ">{{data.location}}</span>
                                 </div>
                                 <div class="col-lg-6 d-flex flex-column ">
                                     <span class="h6 text-primary text-bold-400 "><small>Outcome</small></span>
-                                    <span class="h6 text-bold-400  text-gray ">Intrested</span>
+                                    <span class="h6 text-bold-400  text-gray ">{{data.outcome}}</span>
                                 </div>
                             </div>
 
                             <div class="row mt-2 ">
                                 <div class="col-lg-6 d-flex flex-column ">
                                     <span class="h6 text-primary text-bold-400 "><small>Description</small></span>
-                                    <span class="h6 text-bold-400  text-gray ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut nulla incidunt laborum aliquam beatae doloremque in ipsam fugit officia eum odit, numquam facere provident, quaerat aliquid quas eaque, cumque praesentium?</span>
+                                    <span class="h6 text-bold-400  text-gray ">{{data.description}}</span>
                                 </div>
                             </div>
                         </div>
