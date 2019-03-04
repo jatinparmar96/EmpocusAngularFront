@@ -33,6 +33,7 @@ import { QuotationViewComponent } from './quotation/quotation-view/quotation-vie
 import { BillingViewComponent } from './billing/billing-view/billing-view.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AccountSelectComponent } from './shared-components/account-select/account-select.component';
+import { LeadSelectComponent } from './shared-components/lead-select/lead-select.component';
 
 
 @NgModule({
@@ -55,7 +56,7 @@ import { AccountSelectComponent } from './shared-components/account-select/accou
     DealCreateComponent,
     AccountCreateComponent,
     AccountShowComponent,
-    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent, BillingShowComponent, QuotationShowComponent, TaskShowComponent, ContactShowComponent, DealShowComponent, AppointmentViewComponent, TaskViewComponent, ContactViewComponent, DealViewComponent, AccountViewComponent, QuotationViewComponent, BillingViewComponent, AccountSelectComponent,
+    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent, BillingShowComponent, QuotationShowComponent, TaskShowComponent, ContactShowComponent, DealShowComponent, AppointmentViewComponent, TaskViewComponent, ContactViewComponent, DealViewComponent, AccountViewComponent, QuotationViewComponent, BillingViewComponent, AccountSelectComponent, LeadSelectComponent,
   ]
 })
 export class CrmModule { }
