@@ -12,7 +12,7 @@ import { NotifyService } from 'app/shared/services/notify.service';
   styleUrls: ['./lead-create.component.scss']
 })
 export class LeadCreateComponent implements OnInit {
-  
+
   lead_data: FormGroup;
   Lead: FormGroup;
   formTouched: boolean = false;
@@ -27,7 +27,7 @@ export class LeadCreateComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) 
+  )
   {
     this.shareService.setVisibility(false)
     this.lead_data= this.fb.group({
@@ -64,6 +64,8 @@ export class LeadCreateComponent implements OnInit {
       "campaign":['',Validators.required],
       "medium":['',Validators.required],
       "keyword":['',Validators.required],
+      "latitude":['',Validators.required],
+      "longitude":['',Validators.required],
     });
     this.resetErrorMessages();
   }
@@ -73,33 +75,34 @@ export class LeadCreateComponent implements OnInit {
     this.route.params.subscribe(params => {
       console.log(params['id'])
 			if(params['id']=='new'){
-				this.id="new";
+        this.id="new";
+        navigator.geolocation.getCurrentPosition((position) => {
+          console.log("Got position", position.coords);
+          this.lead_data.value.latitude = position.coords.latitude;
+          this.lead_data.value.longitude = position.coords.longitude;
+        });
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
         this.getData(this.id);
-        
 			}
     });
-    
-  
+
+
   }
-  
+
   getData(id:any){
 		this.apiService.get("admin/crm/leads/"+id)
-		.then(data => { 
+		.then(data => {
 			let l_data: any = data;
-      this.lead_data.patchValue(l_data.data);					
+      this.lead_data.patchValue(l_data.data);
       console.log(this.lead_data.value)
 		})
 	}
-  addOrUpdate(lead){		
+  addOrUpdate(lead){
 		this.formTouched = true;
-		// if(lead.invalid){
-		// 	return false;
-		// }
 		this.resetErrorMessages();
 		this.isProcessing = true;
-		
+
 			//post request
 			this.apiService.post("admin/crm/leads",lead.value).then( data => {
         let result: any = data;
@@ -111,7 +114,7 @@ export class LeadCreateComponent implements OnInit {
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								},'success'); 
+								},'success');
 							}
 							else{
 									this.notifyService.show({
@@ -120,17 +123,17 @@ export class LeadCreateComponent implements OnInit {
                   }, 'error');
                   this.errors = result.error;
 							}
-    
+
 			})
 			.catch( error => {
         this.isProcessing = false;
         let errors: any = error;
         this.errors = errors;
 			})
-		
+
   }
   resetErrorMessages(){
-		this.errors = {			
+		this.errors = {
       "ca_company_name": [""],
       "company_name":[""],
       "first_name":[""],
@@ -165,7 +168,7 @@ export class LeadCreateComponent implements OnInit {
       "keyword":[""],
 		}
   }
-  
+
   cancel(){
     this.router.navigateByUrl('/crm/lead/create');
   }
