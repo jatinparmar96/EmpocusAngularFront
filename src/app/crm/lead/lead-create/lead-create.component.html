@@ -54,11 +54,12 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="assigned">Assigned</label>
+                                        <app-contact-select [parentForm]="lead_data" [controlName]="'assigned'"></app-contact-select>
                                         <!-- <input type="text" formControlName="assigned" id="assigned" class="form-control border-primary" name="assigned"> -->
-                                        <ng-select [searchable]="true" formControlName="assigned" id="assigned" name="assigned">
+                                        <!-- <ng-select [searchable]="true" formControlName="assigned" id="assigned" name="assigned">
                                             <ng-option value="cus1">One</ng-option>
                                             <ng-option value="cus2">Two</ng-option>
-                                        </ng-select>
+                                        </ng-select> -->
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -318,6 +319,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="deal_product">Product</label>
+
                                                         <select class="form-control" formControlName="deal_product" id="deal_product">
                                                           <option>Select Option</option>
                                                           <option>Maharashtra</option>

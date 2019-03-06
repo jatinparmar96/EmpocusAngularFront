@@ -46,12 +46,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="account_name">Account Name</label>
-                                        <select class="form-control" formControlName="account_name" id="account_name">
+                                        <app-account-select [parentForm]="data" [controlName]="'account_name'"></app-account-select>
+                                        <!-- <select class="form-control" formControlName="account_name" id="account_name">
                                         <option>Select Option</option>
                                         <option>Option 1</option>
                                         <option>Option 2</option>
                                         <option>Option 3</option>
-                                      </select>
+                                      </select> -->
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -241,12 +242,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="campaign">Campaign</label>
-                                                        <select class="form-control" formControlName="campaign" id="campaign">
+                                                        <!-- <select class="form-control" formControlName="campaign" id="campaign">
                                                         <option>Select Option</option>
                                                         <option>Option 1</option>
                                                         <option>Option 2</option>
                                                         <option>Option 3</option>
-                                                      </select>
+                                                      </select> -->
+                                                        <input type="text" formControlName="campaign" id="campaign" class="form-control border-primary" name="campaign">
                                                     </div>
                                                 </div>
                                             </div>

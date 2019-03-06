@@ -46,12 +46,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="product">Product</label>
-                                        <select class="form-control" formControlName="product" id="product">
+                                        <app-product-select [parentForm]="lead_data" [controlName]="'assigned'"></app-product-select>
+                                        <!-- <select class="form-control" formControlName="product" id="product">
                                     <option>Select Option</option>
                                     <option>Product 1</option>
                                     <option>Product 2</option>
                                     <option>Product 3</option>
-                                  </select>
+                                  </select> -->
                                     </div>
                                 </div>
                             </div>
@@ -116,12 +117,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="campaign">Campaign</label>
-                                        <select class="form-control" formControlName="campaign" id="campaign">
-                                      <option>Select Option</option>
-                                      <option>Option 1</option>
-                                      <option>Option 2</option>
-                                      <option>Option 3</option>
-                                    </select>
+                                        <input type="text" formControlName="campaign" id="campaign" class="form-control border-primary" name="campaign">
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,4 @@
+<div [formGroup]="parentForm">
+    <ng-select [items]="product | async" bindLabel="ca_company_display_name" [loading]="productLoading" [typeahead]="productInput" formControlName="{{controlName}}">
+    </ng-select>
+</div>

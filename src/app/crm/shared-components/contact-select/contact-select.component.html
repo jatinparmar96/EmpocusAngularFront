@@ -1,0 +1,4 @@
+<div [formGroup]="parentForm">
+    <ng-select [items]="contact | async" [loading]="contactLoading" [typeahead]="contactInput" bindLabel="first_name" formControlName="{{controlName}}"> </ng-select>
+
+</div>

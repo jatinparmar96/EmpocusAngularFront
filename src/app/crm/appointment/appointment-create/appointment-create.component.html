@@ -24,23 +24,21 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="attendees">Attendees</label>
-                                        <ng-select formControlName="attendees" [multiple]="true" bindLabel="first_name" groupBy="company_name" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [items]="selectedPeople">
+                                        <app-contact-select [parentForm]="appoint_data" [controlName]="'attendees'"></app-contact-select>
+                                        <!-- <ng-select formControlName="attendees" [multiple]="true" bindLabel="first_name" groupBy="company_name" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [items]="selectedPeople">
                                             <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
                                                 <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox" [ngModel]="item$.selected" /> {{item.company_name | uppercase}}
                                             </ng-template>
                                             <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
                                                 <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox" [ngModel]="item$.selected" /> {{item.first_name}} {{item.last_name}}
                                             </ng-template>
-                                        </ng-select>
+                                        </ng-select> -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="related_to">Related To:</label>
-                                       <app-lead-select
-                                       [parentForm]="appoint_data"
-                                       [controlName]="'related_to'"
-                                       ></app-lead-select>
+                                        <app-lead-select [parentForm]="appoint_data" [controlName]="'related_to'"></app-lead-select>
                                     </div>
                                 </div>
                             </div>
