@@ -12,7 +12,7 @@ import { NotifyService } from 'app/shared/services/notify.service';
   styleUrls: ['./lead-create.component.scss']
 })
 export class LeadCreateComponent implements OnInit {
-  
+  active= 'today';
   lead_data: FormGroup;
   Lead: FormGroup;
   formTouched: boolean = false;

@@ -56,7 +56,7 @@ export class AppointmentCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.get('admin/crm/appointment')
+    this.apiService.get('admin/crm/lead_full_list')
       .then(data => {
         let l_data: any = data;
         this.selectedPeople = l_data.data;
@@ -81,7 +81,7 @@ export class AppointmentCreateComponent implements OnInit {
   }
 
   getData(id: any) {
-    this.apiService.get('admin/crm/appointment/'+ id)
+    this.apiService.get('admin/appoint/' + id)
       .then(data => {
         let l_data: any = data;
         this.appoint_data.patchValue(l_data.data);
