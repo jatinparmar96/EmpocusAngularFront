@@ -1,0 +1,13 @@
+<div [formGroup]="parentForm">
+  <ng-select [items]="lead | async"
+              [loading]="leadLoading"
+              [typeahead]="leadInput"
+              bindLabel="company_name"
+              formControlName="{{controlName}}">
+              <!-- <ng-template ng-label-tmp let-item="item">
+                <img height="15" width="15" [src]="item.thumbnailUrl"/>
+                <span>{{item.title}}</span>
+            </ng-template> -->
+  </ng-select>
+
+</div>

@@ -50,13 +50,12 @@ export class TaskViewComponent implements OnInit {
   }
 
   getData(page = 1){
-    
+
 		this.apiService.get('admin/crm/task'+page)
 		.then( data => {
 
       let l_data:any = data;
       this.rows = l_data.data;
-      console.log(this.rows)
       this.paginationData = {
 				total: l_data.meta.total,
 				from: l_data.meta.from,

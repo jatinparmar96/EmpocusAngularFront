@@ -37,14 +37,10 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="related_to">Related To:</label>
-                                        <select class="form-control" formControlName="related_to" id="related_to">
-                      <option>Link the Appointment to</option>
-                      <option>Option 1</option>
-                      <option>Option 1</option>
-                      <option>Option 1</option>
-                      <option>Option 1</option>
-                      <option>Option 1</option>
-                    </select>
+                                       <app-lead-select
+                                       [parentForm]="appoint_data"
+                                       [controlName]="'related_to'"
+                                       ></app-lead-select>
                                     </div>
                                 </div>
                             </div>

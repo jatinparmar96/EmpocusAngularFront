@@ -17,13 +17,12 @@ export class FullLayoutComponent {
         private router:Router){
             this.shareService.setVisibility(false);
         }
-        
+
 
     ngOnInit(){
     }
     ngOnChanges(): void {
       this.checkVisibility()
-        
     }
     checkVisibility()
     {
