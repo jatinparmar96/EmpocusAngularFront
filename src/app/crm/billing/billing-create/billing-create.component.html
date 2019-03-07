@@ -13,11 +13,9 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="customer_name">Customer Name</label>
-
-                                        <ng-select [searchable]="true" formControlName="customer_name" id="customer_name" name="customer_name">
-                                            <ng-option value="cus1">Customer 1</ng-option>
-                                            <ng-option value="cus2">Customer 2</ng-option>
-                                        </ng-select>
+                                        <app-account-select
+                    [parentForm]="quotation_data"
+                    [controlName]="'customer_name'"></app-account-select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">

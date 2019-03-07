@@ -66,36 +66,21 @@
                                     <div class="form-group">
                                         <label for="related_to">Related To:</label>
                                         <app-lead-select [parentForm]="task_data" [controlName]="'related_to'"></app-lead-select>
-                                        <!-- <select class="form-control" formControlName="related_to" id="related_to">
-                      <option>Link the Appointment to</option>
-                      <option>Option 1</option>
-                      <option>Option 1</option>
-                      <option>Option 1</option>
-                      <option>Option 1</option>
-                      <option>Option 1</option>
-                    </select> -->
+                                        
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="attendees">Attendees:</label>
                                         <app-contact-select [parentForm]="task_data" [controlName]="'attendees'"></app-contact-select>
-                                        <!-- <ng-select [items]="people" [ngModelOptions]="{standalone: true}" [multiple]="true" bindLabel="name" groupBy="brand" [selectableGroup]="true" [selectableGroupAsModel]="false" [closeOnSelect]="false" bindValue="id" [(ngModel)]="selectedPeople2">
-                                            <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
-                                                <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox" [ngModel]="item$.selected" /> {{item.brand | uppercase}}
-                                            </ng-template>
-                                            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                                                <input id="item-{{index}}" [ngModelOptions]="{standalone: true}" type="checkbox" [ngModel]="item$.selected" /> {{item.name}}
-                                            </ng-template>
-                                        </ng-select> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="task_desc">Description</label>
-                                        <input type="text" formControlName="task_desc" id="task_desc" class="form-control border-primary" name="task_desc">
+                                        <label for="description">Description</label>
+                                        <input type="text" formControlName="description" id="description" class="form-control border-primary" name="description">
                                     </div>
                                 </div>
                             </div>

@@ -55,7 +55,6 @@ export class AccountCreateComponent implements OnInit {
     });
     this.resetErrorMessages();
   }
-
   ngOnInit() {
 
     this.route.params.subscribe(params => {

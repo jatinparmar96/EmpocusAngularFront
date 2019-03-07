@@ -40,17 +40,15 @@ export class TaskCreateComponent implements OnInit {
   {
     this.shareService.setVisibility(false)
     this.task_data= this.fb.group({
-      "address_id":['new',Validators.required],
       "id":['new',Validators.required],
       "title":['',Validators.required],
       "due_date":['',Validators.required],
       "due_time":['',Validators.required],
       "task_type":['',Validators.required],
       "outcome":['',Validators.required],
+      "attendees":['',Validators.required],
       "related_to":['',Validators.required],
-      "task_desc":['',Validators.required],
-
-
+      "description":['',Validators.required],
     });
     this.resetErrorMessages();
   }
@@ -127,7 +125,8 @@ export class TaskCreateComponent implements OnInit {
       "task_type":[""],
       "outcome":[""],
       "related_to":[""],
-      "task_desc":[""],
+      "attendees":[""],
+      "description":[""],
 		}
   }
 
