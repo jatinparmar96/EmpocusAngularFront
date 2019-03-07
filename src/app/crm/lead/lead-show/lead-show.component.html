@@ -1,21 +1,5 @@
 <div class="row d-flex">
-    <div class="col-md-2">
-        <div class="card  text-center box-shadow-0 height-300">
-            <div class="card-body" *ngIf="data">
-                <div class="card-block">
-                    <img src="../assets/img/portrait/avatars/avatar-08.png" alt="element 05" width="250" class="mb-1 img-fluid">
-                    <div class="align-self-center mt-2">
-                        <a href="{{data.facebook_link}}"><i class="fa fa-facebook text-primary"></i></a>
-                        <a href="{{data.twitter_link}}"><i class="fa fa-twitter ml-2 mr-2 text-primary"></i></a>
-                        <a href="{{data.linkedin_link}}"><i class="text-primary fa fa-linkedin"></i></a>
-                    </div>
-                    <div class="align-self-center mt-3">
-                        <p> <strong>{{data.lead_status}}</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="col-10">
         <div class="card height-300" *ngIf="data">
             <div class="card-header pb-0">
@@ -34,7 +18,7 @@
             <div class="card-body" *ngIf="data">
                 <div class="card-block">
                     <div class="row">
-                        <div class="col-lg-3 d-flex flex-column ">
+                        <div class="col-lg-3 d-flex flex-column">
                             <span class="h6 text-bold-400  text-primary "><small>Client Name</small></span>
                             <span class="h6 text-grey text-bold-400 ">Pending</span>
                         </div>
@@ -65,6 +49,16 @@
                             <span class="h6 text-primary text-bold-400 "><small>Department</small></span>
                             <span class="h6 text-bold-400  text-grey ">Pending</span>
                         </div>
+                        <div class="col-lg-3 d-flex flex-column ">
+                                <span class="h6 text-primary text-bold-400 "><small>Social</small></span>
+                                <span class="h6 text-bold-400  text-grey "><div class="align-self-center">
+                                        <a href="https://www.facebook.com/{{data.lead[0].facebook_link}}" target="_blank"><i class="fa fa-facebook text-primary"></i></a>
+                                        <a href="https://twitter.com/{{data.lead[0].twitter_link}}" target="_blank"><i class="fa fa-twitter ml-2 mr-2 text-primary"></i></a>
+                                        <a href="https://www.linkedin.com/company/{{data.lead[0].linkedin_link}}" target="_blank"><i class="text-primary fa fa-linkedin"></i></a>
+                                    </div>
+                                </span>
+                            </div>
+                        
                     </div>
                 </div>
             </div>

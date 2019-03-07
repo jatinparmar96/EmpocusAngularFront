@@ -51,7 +51,7 @@ export class TaskViewComponent implements OnInit {
 
   getData(page = 1){
 
-		this.apiService.get('admin/crm/task'+page)
+		this.apiService.get('admin/crm/task/'+page)
 		.then( data => {
 
       let l_data:any = data;

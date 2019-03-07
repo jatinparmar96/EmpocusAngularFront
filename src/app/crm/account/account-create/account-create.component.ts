@@ -50,6 +50,8 @@ export class AccountCreateComponent implements OnInit {
       "facebook_link":['',Validators.required],
       "twitter_link":['',Validators.required],
       "linkedin_link":['',Validators.required],
+      "latitude":['',Validators.required],
+      "longitude":['',Validators.required],
     });
     this.resetErrorMessages();
   }
@@ -57,9 +59,15 @@ export class AccountCreateComponent implements OnInit {
   ngOnInit() {
 
     this.route.params.subscribe(params => {
-      console.log(params['id'])
+
 			if(params['id']=='new'){
-				this.id="new";
+        console.log(params['id'])
+        this.id="new";
+        navigator.geolocation.getCurrentPosition((position) => {
+          console.log("Got position", position.coords);
+          this.data.value.latitude = position.coords.latitude;
+          this.data.value.longitude = position.coords.longitude;
+        });
 			}else{
 				this.id = +params['id']; // (+) converts string 'id' to a number
         this.getData(this.id);

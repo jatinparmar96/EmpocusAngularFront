@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ContactService {
 
   url_list:string = 'admin/crm/contact'
-  url_full_list:string = 'admin/crm/contact/full_list'
+  url_full_list:string = 'admin/crm/contact_full_list'
   url_show:string = 'admin/crm/contact'
  constructor(
    private apiService:ApiService

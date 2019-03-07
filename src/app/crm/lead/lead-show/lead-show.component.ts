@@ -35,7 +35,8 @@ data:any
 		this.apiService.get("admin/crm/leads/"+id)
 		.then(data => { 
       let l_data: any = data;	
-     this.data = l_data.data
+     this.data = l_data.data;
+     console.log(this.data)
 		})
 	}
 }
