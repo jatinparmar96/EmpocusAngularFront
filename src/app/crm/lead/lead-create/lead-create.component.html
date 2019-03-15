@@ -273,23 +273,23 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane active" [class.active]="active=='social'" id="social" role="tabpanel">
-                                            <div class="row">
-                                                <div class="col-md-4">
+                                            <div class="row d-flex flex-column">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="facebook_link">https://facebook.com/</label>
-                                                        <input placeholder="empocus" type="text" formControlName="facebook_link" id="facebook_link" class="form-control border-primary" name="facebook_link">
+                                                        <label for="facebook_link">https://facebook.com/{{facebook}}</label>
+                                                        <input   [(ngModel)]="facebook" type="text" formControlName="facebook_link" id="facebook_link" class="form-control border-primary" name="facebook_link">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="twitter_link">https://twitter.com/</label>
-                                                        <input placeholder="empocus" type="text" formControlName="twitter_link" id="twitter_link" class="form-control border-primary" name="twitter_link">
+                                                        <label for="twitter_link">https://twitter.com/{{twitter}}</label>
+                                                        <input [(ngModel)]="twitter" type="text" formControlName="twitter_link" id="twitter_link" class="form-control border-primary" name="twitter_link">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="linkedin_link">https://linkedin.com/company/</label>
-                                                        <input placeholder="empocus" type="text" formControlName="linkedin_link" id="linkedin_link" class="form-control border-primary" name="linkedin_link">
+                                                        <label for="linkedin_link">https://linkedin.com/company/{{linkedin}}</label>
+                                                        <input [(ngModel)]="linkedin" type="text" formControlName="linkedin_link" id="linkedin_link" class="form-control border-primary" name="linkedin_link">
                                                     </div>
                                                 </div>
                                             </div>
