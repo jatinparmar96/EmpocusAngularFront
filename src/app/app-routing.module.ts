@@ -69,7 +69,7 @@ const appRoutes: Routes = [
       path:'',
       component:FullLayoutComponent,
       children:Full_ROUTES,
-      canActivate: [AuthGuard],
+      // canActivate: [AuthGuard],
   },
 
   {

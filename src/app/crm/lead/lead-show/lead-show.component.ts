@@ -10,34 +10,34 @@ import { ShareService } from 'app/shared/services/share.service';
   styleUrls: ['./lead-show.component.scss']
 })
 export class LeadShowComponent implements OnInit {
-active= 'today';
-id:any
-data:any
+  active: any = 'today';
+  id: any
+  data: any
   constructor(
     private apiService: ApiService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private shareService: ShareService,
-    private router:Router
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-			if(params['id']=='new'){
-        this.id="new";
-			}else{
-				this.id = +params['id']; // (+) converts string 'id' to a number
+      if (params['id'] == 'new') {
+        this.id = "new";
+      } else {
+        this.id = +params['id']; // (+) converts string 'id' to a number
         this.getData(this.id);
-			}
+      }
     });
   }
-  getData(id:any){
-		this.apiService.get("admin/crm/leads/"+id)
-		.then(data => { 
-      let l_data: any = data;	
-     this.data = l_data.data;
-     console.log(this.data)
-		})
-	}
+  getData(id: any) {
+    this.apiService.get("admin/crm/leads/" + id)
+      .then(data => {
+        let l_data: any = data;
+        this.data = l_data.data;
+        console.log(this.data)
+      })
+  }
 }
 

@@ -1,175 +1,184 @@
 <div class="row d-flex">
-    
-    <div class="col-10">
-        <div class="card height-300" *ngIf="data">
-            <div class="card-header pb-0">
-                <div class="row">
-                    <div class="col-lg-12" >
-                        <p class="text-left" style="text-transform: capitalize !important;font-weight: 500;font-size: 1.5rem;">{{data.lead.company_name}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6" *ngFor="let address of data.lead_addresses">
-                        <p class="text-left"> <i class="fa fa-map-marker"></i> {{address.building}}, {{address.road_name}}, {{address.landmark}}, {{address.city}}, {{address.state}}, {{address.country}}, {{address.pincode}}.</p>
-                    </div>
-                </div>
 
-            </div>
-            <div class="card-body" *ngIf="data">
-                <div class="card-block">
-                    <div class="row">
-                        <div class="col-lg-3 d-flex flex-column">
-                            <span class="h6 text-bold-400  text-primary "><small>Client Name</small></span>
-                            <span class="h6 text-grey text-bold-400 ">Pending</span>
-                        </div>
-                        <div class="col-lg-3 d-flex flex-column ">
-                            <span class="h6 text-bold-400  text-primary "><small>Email</small></span>
-                            <span class="h6 text-grey text-bold-400 ">{{data.lead.email}}</span>
-                        </div>
-                        <div class="col-lg-3 d-flex flex-column ">
-                            <span class="h6 text-primary text-bold-400 "><small>Phone Number</small></span>
-                            <span class="h6 text-bold-400  text-grey ">Pending</span>
-                        </div>
-                        <div class="col-lg-3 d-flex flex-column ">
-                            <span class="h6 text-primary text-bold-400 "><small>Website</small></span>
-                            <span class="h6 text-bold-400  text-grey ">{{data.lead.company_website}}</span>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 d-flex flex-column ">
-                            <span class="h6 text-bold-400  text-primary "><small>Product</small></span>
-                            <span class="h6 text-grey text-bold-400 ">{{data.lead.product_display_name}}</span>
-                        </div>
-                        <div class="col-lg-3 d-flex flex-column ">
-                            <span class="h6 text-bold-400  text-primary "><small>Sales Person</small></span>
-                            <span class="h6 text-grey text-bold-400 ">Pending</span>
-                        </div>
-                        <div class="col-lg-3 d-flex flex-column ">
-                            <span class="h6 text-primary text-bold-400 "><small>Department</small></span>
-                            <span class="h6 text-bold-400  text-grey ">Pending</span>
-                        </div>
-                        <div class="col-lg-3 d-flex flex-column ">
-                                <span class="h6 text-primary text-bold-400 "><small>Social</small></span>
-                                <span class="h6 text-bold-400  text-grey "><div class="align-self-center">
-                                        <a href="https://www.facebook.com/{{data.lead.facebook_link}}" target="_blank"><i class="fa fa-facebook text-primary"></i></a>
-                                        <a href="https://twitter.com/{{data.lead.twitter_link}}" target="_blank"><i class="fa fa-twitter ml-2 mr-2 text-primary"></i></a>
-                                        <a href="https://www.linkedin.com/company/{{data.lead.linkedin_link}}" target="_blank"><i class="text-primary fa fa-linkedin"></i></a>
-                                    </div>
-                                </span>
-                            </div>
-                        
-                    </div>
-                </div>
-            </div>
+  <div class="col-10">
+    <div class="card height-300" *ngIf="data">
+      <div class="card-header pb-0">
+        <div class="row">
+          <div class="col-lg-12">
+            <p class="text-left" style="text-transform: capitalize !important;font-weight: 500;font-size: 1.5rem;">
+              {{data.lead.company_name}}</p>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-6" *ngFor="let address of data.lead_addresses">
+            <p class="text-left"> <i class="fa fa-map-marker"></i> {{address.building}}, {{address.road_name}},
+              {{address.landmark}}, {{address.city}}, {{address.state}}, {{address.country}}, {{address.pincode}}.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-body" *ngIf="data">
+        <div class="card-block">
+          <div class="row">
+            <div class="col-lg-3 d-flex flex-column">
+              <span class="h6 text-bold-400  text-primary "><small>Client Name</small></span>
+              <span class="h6 text-grey text-bold-400 ">Pending</span>
+            </div>
+            <div class="col-lg-3 d-flex flex-column ">
+              <span class="h6 text-bold-400  text-primary "><small>Email</small></span>
+              <span class="h6 text-grey text-bold-400 ">{{data.lead.email}}</span>
+            </div>
+            <div class="col-lg-3 d-flex flex-column ">
+              <span class="h6 text-primary text-bold-400 "><small>Phone Number</small></span>
+              <span class="h6 text-bold-400  text-grey ">Pending</span>
+            </div>
+            <div class="col-lg-3 d-flex flex-column ">
+              <span class="h6 text-primary text-bold-400 "><small>Website</small></span>
+              <span class="h6 text-bold-400  text-grey ">{{data.lead.company_website}}</span>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-lg-3 d-flex flex-column ">
+              <span class="h6 text-bold-400  text-primary "><small>Product</small></span>
+              <span class="h6 text-grey text-bold-400 ">{{data.lead.product_display_name}}</span>
+            </div>
+            <div class="col-lg-3 d-flex flex-column ">
+              <span class="h6 text-bold-400  text-primary "><small>Sales Person</small></span>
+              <span class="h6 text-grey text-bold-400 ">Pending</span>
+            </div>
+            <div class="col-lg-3 d-flex flex-column ">
+              <span class="h6 text-primary text-bold-400 "><small>Department</small></span>
+              <span class="h6 text-bold-400  text-grey ">Pending</span>
+            </div>
+            <div class="col-lg-3 d-flex flex-column ">
+              <span class="h6 text-primary text-bold-400 "><small>Social</small></span>
+              <span class="h6 text-bold-400  text-grey ">
+                <div class="align-self-center">
+                  <a href="https://www.facebook.com/{{data.lead.facebook_link}}" target="_blank"><i
+                      class="fa fa-facebook text-primary"></i></a>
+                  <a href="https://twitter.com/{{data.lead.twitter_link}}" target="_blank"><i
+                      class="fa fa-twitter ml-2 mr-2 text-primary"></i></a>
+                  <a href="https://www.linkedin.com/company/{{data.lead.linkedin_link}}" target="_blank"><i
+                      class="text-primary fa fa-linkedin"></i></a>
+                </div>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 </div>
 
 <div class="row">
 
-    <div class="col-6">
-        <div class="card" *ngIf="data">
-            <div class="card-body">
-                <div class="card-block">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link" [class.active]="active=='today'" (click)="active='today'" role="tab"> Company Info</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" [class.active]="active=='missed'" (click)="active='missed'" role="tab">Deal</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" [class.active]="active=='future'" (click)="active='future'" role="tab">Source Info</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" [class.active]="active=='today'" id="today" role="tabpanel">
-                                    <div class="row">
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Number of Employee</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.company_employee_number}}</span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Company Annual Revenue</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.company_annual_revenue}}</span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Company Website</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.company_website}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2 ">
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Company Phone</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.company_phone}}</span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Industry Type</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">Pending</span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Business Type.</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">Pending</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="tab-pane" [class.active]="active=='missed'" id="missed" role="tabpanel">
-                                    <div class="row">
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Deal Name</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.deal_name}}</span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Deal Value</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.deal_value}}</span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Deal Expected Close Date</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.deal_expected_close_date}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Product</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.product_display_name}}</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="tab-pane" [class.active]="active=='future'" id="future" role="tabpanel">
-                                    <div class="row">
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Source</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.source}}</span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Campaign</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.campaign}}</span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Medium</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.medium}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4 d-flex flex-column ">
-                                            <span class="h6 text-primary text-bold-400 "><small>Keyword</small></span>
-                                            <span class="h6 text-bold-400  text-grey ">{{data.lead.keyword}}</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+  <div class="col-6">
+    <div class="card" *ngIf="data">
+      <div class="card-body">
+        <div class="card-block">
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link" [class.active]="active ==='today'" (click)="active='today'" role="tab"> Company
+                    Info</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" [class.active]="active=='missed'" (click)="active='missed'"
+                    role="tab">Deal</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [class.active]="active =='future'" (click)="active='future'" role="tab">Source
+                    Info</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" [class.active]="active=='today'" id="today" role="tabpanel">
+                  <div class="row">
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Number of Employee</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.company_employee_number}}</span>
                     </div>
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Company Annual Revenue</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.company_annual_revenue}}</span>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Company Website</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.company_website}}</span>
+                    </div>
+                  </div>
+                  <div class="row mt-2 ">
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Company Phone</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.company_phone}}</span>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Industry Type</small></span>
+                      <span class="h6 text-bold-400  text-grey ">Pending</span>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Business Type.</small></span>
+                      <span class="h6 text-bold-400  text-grey ">Pending</span>
+                    </div>
+                  </div>
+
                 </div>
+                <div class="tab-pane" [class.active]="active=='missed'" id="missed" role="tabpanel">
+                  <div class="row">
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Deal Name</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.deal_name}}</span>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Deal Value</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.deal_value}}</span>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Deal Expected Close Date</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.deal_expected_close_date}}</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Product</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.product_display_name}}</span>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="tab-pane" [class.active]="active=='future'" id="future" role="tabpanel">
+                  <div class="row">
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Source</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.source}}</span>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Campaign</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.campaign}}</span>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Medium</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.medium}}</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4 d-flex flex-column ">
+                      <span class="h6 text-primary text-bold-400 "><small>Keyword</small></span>
+                      <span class="h6 text-bold-400  text-grey ">{{data.lead.keyword}}</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="col-6"></div>
+  </div>
+  <div class="col-6"></div>
 </div>
