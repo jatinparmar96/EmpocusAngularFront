@@ -18,26 +18,28 @@
                                                                       itemsPerPage: paginationData.per_page,
                                                                       currentPage: paginationData.current_page,
                                                                       totalItems: paginationData.total,
-                                                                      id: 'get_list'}">
+                                                                      id: 'get_list'}" (click)="expandRow(i)">
                                         <td>{{lead.status}}</td>
                                         <td>{{lead.company_name}}</td>
                                         <td>
-                                            <a (click)="show(lead.id)" class="danger font-medium-1 p-0" placement="top" ngbTooltip="Show Detail"><i class="fa fa-eye"></i></a>
-                                            <a (click)="edit(lead.id)" class="success p-0 ml-2" placement="top" ngbTooltip="Edit Detail"><i class="fa fa-edit"></i></a>
+                                            <a (click)="show(lead.id)" class="danger font-medium-1 p-0" placement="top"
+                                                ngbTooltip="Show Detail"><i class="fa fa-eye"></i></a>
+                                            <a (click)="edit(lead.id)" class="success p-0 ml-2" placement="top"
+                                                ngbTooltip="Edit Detail"><i class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-                           
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="row pull-right pr-5">
-                <nav>
-                    <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls>
-                </nav>
+                    <nav>
+                        <pagination-controls id="get_list" (pageChange)='getData($event)'></pagination-controls>
+                    </nav>
                 </div>
             </div>
         </div>

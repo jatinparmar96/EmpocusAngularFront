@@ -12,7 +12,7 @@ import { NotifyService } from 'app/shared/services/notify.service';
   styleUrls: ['./lead-create.component.scss']
 })
 export class LeadCreateComponent implements OnInit {
-  active = 'today';
+  active: string = 'today';
   lead_data: FormGroup;
   Lead: FormGroup;
   formTouched: boolean = false;
@@ -80,14 +80,15 @@ export class LeadCreateComponent implements OnInit {
   createContactGroup() {
     return this.fb.group({
       "name": ['', Validators.required],
-      "email": ['', Validators.required],
+      "email": ['', [Validators.required, Validators.email]],
+      "designation": [''],
       "primary_contact_number": ['', Validators.required],
       "secondary_contact_number": ['']
     })
   }
   addContactGroup() {
     this.contactsFormArray.push(this.createContactGroup());
-    // console.log({ "formArray": this.contactsFormArray })
+    console.log({ "formArray": this.contactsFormArray })
   }
   removeContact(index) {
     this.contactsFormArray.removeAt(index);

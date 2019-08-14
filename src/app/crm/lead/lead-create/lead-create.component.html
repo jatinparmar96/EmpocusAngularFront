@@ -36,7 +36,7 @@
                           (click)=removeContact(i)><i class="ft-x danger"></i></a>
                       </h5>
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" formControlName="name" placeholder="Roxso LLP" id="name"
@@ -48,18 +48,43 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" formControlName="email" id="email" placeholder="Roxso"
                               class="form-control border-primary" name="email">
+                            <div *ngIf="contactsFormArray.controls[i].controls.email.errors">
+                              <div
+                                *ngIf="contactsFormArray.controls[i].controls.email.touched && contactsFormArray.controls[i].controls.email.errors.required">
+                                <small class="form-text text-muted danger">Please enter Email of the contact!</small>
+                              </div>
+                              <div
+                                *ngIf="contactsFormArray.controls[i].controls.email.touched && contactsFormArray.controls[i].controls.email.errors.email">
+                                <small class="form-text text-muted danger">Please enter Valid Email Address of the
+                                  contact!</small>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label for="primary_contact_number">Primary Contact Number</label>
                             <input type="number" formControlName="primary_contact_number" id="primary_contact_number"
                               class="form-control border-primary" name="primary_contact_number">
+                            <div
+                              *ngIf="contactsFormArray.controls[i].controls.primary_contact_number.touched && contactsFormArray.controls[i].controls.primary_contact_number.invalid">
+                              <small class="form-text text-muted danger">Please enter Primary Contact Number!</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="secondary_contact_number">Secondary Contact Number</label>
+                            <input type="number" formControlName="secondary_contact_number"
+                              id="secondary_contact_number" class="form-control border-primary"
+                              name="secondary_contact_number">
                           </div>
                         </div>
                       </div>
@@ -74,11 +99,6 @@
                   <div class="form-group">
                     <label for="assigned_to">Assigned To</label>
                     <app-contact-select [parentForm]="lead_data" [controlName]="'assigned_to'"></app-contact-select>
-                    <!-- <input type="text" formControlName="assigned" id="assigned" class="form-control border-primary" name="assigned"> -->
-                    <!-- <ng-select [searchable]="true" formControlName="assigned" id="assigned" name="assigned">
-                                            <ng-option value="cus1">One</ng-option>
-                                            <ng-option value="cus2">Two</ng-option>
-                                        </ng-select> -->
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -126,7 +146,7 @@
                         role="tab">Social</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" [class.active]="active=='future'" (click)="active='future'"
+                      <a class="nav-link" [class.active]="active =='future'" (click)="active='future'"
                         role="tab">Deal</a>
                     </li>
                     <li class="nav-item">
@@ -389,7 +409,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="tab-pane" [class.active]="active=='source'" id="source" role="tabpanel"
+                    <div class="tab-pane" [class.active]="active==='source'" id="source" role="tabpanel"
                       formGroupName="source_info">
                       <div class="row">
                         <div class="col-md-6">
