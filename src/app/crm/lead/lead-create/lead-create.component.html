@@ -38,9 +38,9 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" formControlName="name" placeholder="Roxso LLP" id="name"
-                              class="form-control border-primary" name="name">
+                            <label for="name-{{i}}">Name</label>
+                            <input type="text" formControlName="name" placeholder="Roxso LLP" id="name-{{i}}"
+                              class="form-control border-primary">
                             <div
                               *ngIf="contactsFormArray.controls[i].controls.name.touched && contactsFormArray.controls[i].controls.name.invalid">
                               <small class="form-text text-muted danger">Please enter Name of the contact!</small>
@@ -50,9 +50,9 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" formControlName="email" id="email" placeholder="Roxso"
-                              class="form-control border-primary" name="email">
+                            <label for="email-{{i}}">Email</label>
+                            <input type="text" formControlName="email" id="email-{{i}}" placeholder="Roxso"
+                              class="form-control border-primary">
                             <div *ngIf="contactsFormArray.controls[i].controls.email.errors">
                               <div
                                 *ngIf="contactsFormArray.controls[i].controls.email.touched && contactsFormArray.controls[i].controls.email.errors.required">
@@ -70,9 +70,10 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="primary_contact_number">Primary Contact Number</label>
-                            <input type="number" formControlName="primary_contact_number" id="primary_contact_number"
-                              class="form-control border-primary" name="primary_contact_number">
+                            <label for="primary_contact_number-{{i}}">Primary Contact Number</label>
+                            <input type="number" formControlName="primary_contact_number"
+                              id="primary_contact_number-{{i}}" class="form-control border-primary"
+                              name="primary_contact_number">
                             <div
                               *ngIf="contactsFormArray.controls[i].controls.primary_contact_number.touched && contactsFormArray.controls[i].controls.primary_contact_number.invalid">
                               <small class="form-text text-muted danger">Please enter Primary Contact Number!</small>
@@ -81,10 +82,9 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="secondary_contact_number">Secondary Contact Number</label>
+                            <label for="secondary_contact_number-{{i}}">Secondary Contact Number</label>
                             <input type="number" formControlName="secondary_contact_number"
-                              id="secondary_contact_number" class="form-control border-primary"
-                              name="secondary_contact_number">
+                              id="secondary_contact_number-{{i}}" class="form-control border-primary">
                           </div>
                         </div>
                       </div>
