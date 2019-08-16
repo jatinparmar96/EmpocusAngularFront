@@ -13,7 +13,7 @@ import { AccountCreateComponent } from './account/account-create/account-create.
 import { AccountShowComponent } from './account/account-show/account-show.component';
 import { AppointmentShowComponent } from './appointment/appointment-show/appointment-show.component';
 
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QuotationCreateComponent } from './quotation/quotation-create/quotation-create.component';
 
@@ -36,6 +36,8 @@ import { AccountSelectComponent } from './shared-components/account-select/accou
 import { LeadSelectComponent } from './shared-components/lead-select/lead-select.component';
 import { ContactSelectComponent } from './shared-components/contact-select/contact-select.component';
 import { ProductSelectComponent } from './shared-components/product-select/product-select.component';
+import { MaterialModulesModule } from 'app/material-modules/material-modules.module';
+import { LeadDataRowComponent } from './lead/lead-data-row/lead-data-row.component';
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { ProductSelectComponent } from './shared-components/product-select/produ
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    MaterialModulesModule,
   ],
   declarations: [
     LeadCreateComponent,
@@ -58,7 +61,17 @@ import { ProductSelectComponent } from './shared-components/product-select/produ
     DealCreateComponent,
     AccountCreateComponent,
     AccountShowComponent,
-    AppointmentShowComponent, QuotationCreateComponent, BillingCreateComponent, QuotationTableRowsComponent, BillingShowComponent, QuotationShowComponent, TaskShowComponent, ContactShowComponent, DealShowComponent, AppointmentViewComponent, TaskViewComponent, ContactViewComponent, DealViewComponent, AccountViewComponent, QuotationViewComponent, BillingViewComponent, AccountSelectComponent, LeadSelectComponent, ContactSelectComponent, ProductSelectComponent,
+    AppointmentShowComponent,
+    QuotationCreateComponent,
+    BillingCreateComponent,
+    QuotationTableRowsComponent,
+    BillingShowComponent,
+    QuotationShowComponent,
+    TaskShowComponent,
+    ContactShowComponent, DealShowComponent, AppointmentViewComponent, TaskViewComponent, ContactViewComponent, DealViewComponent, AccountViewComponent, QuotationViewComponent, BillingViewComponent, AccountSelectComponent, LeadSelectComponent, ContactSelectComponent, ProductSelectComponent, LeadDataRowComponent,
+  ],
+  entryComponents: [
+    LeadDataRowComponent
   ]
 })
 export class CrmModule { }
