@@ -37,6 +37,7 @@ export class LeadCreateComponent implements OnInit {
       "longitude": [''],
       "assigned_to": ['', Validators.required],
       "lead_status": ['', Validators.required],
+      "product": ['', Validators.required],
       "contact_persons": this.fb.array([
         this.createContactGroup()
       ]),
