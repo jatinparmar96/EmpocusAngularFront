@@ -99,23 +99,10 @@ export class LeadViewComponent implements OnInit {
   show(id) {
     this.router.navigateByUrl("/crm/lead/show/" + id);
   }
-  expandRow(index, row) {
-    //console.log(index, row);
-    if (this.expandedRow != null) {
-      // clear old message
-      //console.log(this.containers.toArray()[this.expandedRow]);
-      this.containers.toArray()[this.expandedRow].clear();
-    }
+  expandElement(element, expandedElement) {
 
-    if (this.expandedRow === index) {
-      this.expandedRow = null;
-    } else {
-      const container = this.containers.toArray()[index];
-      console.log(container);
-      const factory: ComponentFactory<any> = this.resolver.resolveComponentFactory(LeadDataRowComponent);
-      const messageComponent = container.createComponent(factory);
-      this.expandedRow = index;
-    }
+    this.visibility = expandedElement == element ? 'visible' : 'hidden';
+    console.log(this.visibility);
   }
   getData(page = 1) {
     this.apiService.get("admin/crm/leads?page=" + page).then((data: any) => {

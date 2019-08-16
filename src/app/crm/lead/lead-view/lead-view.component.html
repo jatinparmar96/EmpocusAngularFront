@@ -69,7 +69,7 @@
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
       <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-        <app-lead-data-row [data]=element>
+        <app-lead-data-row [data]=element [visibility]="visibility">
         </app-lead-data-row>
       </div>
     </td>
@@ -78,7 +78,7 @@
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
   <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
     [class.example-expanded-row]="expandedElement === element"
-    (click)="expandedElement = expandedElement === element ? null : element">
+    (click)=" expandedElement = expandedElement === element ? null : element;expandElement(element,expandedElement)">
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
