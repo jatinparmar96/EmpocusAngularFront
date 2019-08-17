@@ -201,6 +201,14 @@ export class LeadCreateComponent implements OnInit {
     }
   }
 
+  canDeactivate() {
+    if (this.lead_data.dirty) {
+      return confirm("Are You Sure you want to Discard the changes?");
+    }
+    else {
+      return true;
+    }
+  }
   cancel() {
     this.router.navigateByUrl('/crm/lead/create');
   }

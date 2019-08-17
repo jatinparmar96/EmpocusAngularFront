@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
- import { CommonModule } from "@angular/common";
- import { RouterModule } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
 
- import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { ToggleFullscreenDirective } from "./directives/toggle-fullscreen.directive";
 import { SpeedDialFabComponent } from './speed-dial-fab/speed-dial-fab.component';
+import { FormDitchGuard } from './guard/form-ditch.guard';
 
 
 
@@ -22,7 +23,7 @@ import { SpeedDialFabComponent } from './speed-dial-fab/speed-dial-fab.component
         NgbModule,
         SpeedDialFabComponent,
     ],
-    imports:[
+    imports: [
         RouterModule,
         CommonModule,
         NgbModule,
@@ -33,6 +34,6 @@ import { SpeedDialFabComponent } from './speed-dial-fab/speed-dial-fab.component
         SidebarComponent,
         ToggleFullscreenDirective,
         SpeedDialFabComponent,
-        ]
+    ]
 })
 export class SharedModule { }

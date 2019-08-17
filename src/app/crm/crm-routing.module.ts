@@ -24,11 +24,13 @@ import { DealViewComponent } from './deal/deal-view/deal-view.component';
 import { AccountViewComponent } from './account/account-view/account-view.component';
 import { QuotationViewComponent } from './quotation/quotation-view/quotation-view.component';
 import { BillingViewComponent } from './billing/billing-view/billing-view.component';
+import { FormDitchGuard } from 'app/shared/guard/form-ditch.guard';
 
 const routes: Routes = [
   {
     path: 'lead/:id',
-    component: LeadCreateComponent
+    component: LeadCreateComponent,
+    canDeactivate: [FormDitchGuard]
   },
   {
     path: 'lead',
