@@ -1,4 +1,4 @@
- <!-- <div class="row" *ngIf="checkVisibility()">
+<!-- <div class="row" *ngIf="checkVisibility()">
     <button class="fab-container btn-round btn-lg btn btn-microsoft" (click)='toLink()'>
         <span> <i class="fa fa-plus"></i></span>
     </button>
@@ -6,31 +6,31 @@
 
 
 
- <!-- <div class="row" [hidden]="visible">
+<!-- <div class="row" [hidden]="visible">
     <a class="btn btn-social-icon btn-round btn-raised mr-2 mb-2 btn-bitbucket">
         <span class="fa fa-plus"></span>
     </a>
 </div> -->
- <div class="wrapper" [dir]="options.direction">
-   <div data-active-color="black" data-background-color="white" data-image="" class="app-sidebar">
-     <app-sidebar></app-sidebar>
-     <div class="sidebar-background"></div>
-   </div>
-   <app-navbar></app-navbar>
-   <div class="main-panel" style="margin-top: 10px;">
-     <div class="main-content">
-       <div class="content-wrapper">
-         <div class="container-fluid">
-           <!-- Spinner-->
-           <div *ngIf="isLoading" class="lds-css ng-scope">
-             <div style="width:100%;height:100%" class="lds-eclipse">
-               <div></div>
-             </div>
-           </div>
-           <!--Spinner End-->
-           <router-outlet></router-outlet>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
+<div class="wrapper" [dir]="options.direction">
+  <div data-active-color="black" data-background-color="white" data-image="" class="app-sidebar">
+    <app-sidebar></app-sidebar>
+    <div class="sidebar-background"></div>
+  </div>
+  <app-navbar></app-navbar>
+  <div class="main-panel" style="margin-top: 10px;">
+    <div class="main-content">
+      <div class="content-wrapper">
+        <div class="container-fluid">
+          <!-- Spinner-->
+          <div class="lds-css ng-scope" *ngIf="isLoading">
+            <div style="width:100%;height:100%" class="lds-eclipse">
+              <div></div>
+            </div>
+          </div>
+          <!--Spinner End-->
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -41,56 +41,50 @@
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   50% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
-
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-
 @-webkit-keyframes lds-eclipse {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   50% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
-
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
-
 .lds-eclipse {
   position: absolute;
   top: 50%;
   left: 50%;
 }
-
 .lds-eclipse div {
   position: absolute;
-  -webkit-animation: lds-eclipse 1s linear infinite;
-  animation: lds-eclipse 1s linear infinite;
-  width: 160px;
-  height: 160px;
+  -webkit-animation: lds-eclipse 0.9s linear infinite;
+  animation: lds-eclipse 0.9s linear infinite;
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  left: 50%;
   border-radius: 50%;
-  box-shadow: 0 4px 0 0 #337ab7;
-  -webkit-transform-origin: 80px 82px;
-  transform-origin: 80px 82px;
+  box-shadow: 0 2px 0 0 #009DA0;
+  -webkit-transform-origin: 24px 25px;
+  transform-origin: 24px 25px;
 }
-
 .lds-eclipse {
-  width: 20px !important;
-  height: 20px !important;
+  width: 200px !important;
+  height: 200px !important;
   -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
   transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
 }
