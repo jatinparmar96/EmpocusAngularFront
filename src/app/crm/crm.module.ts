@@ -38,6 +38,7 @@ import { ContactSelectComponent } from './shared-components/contact-select/conta
 import { ProductSelectComponent } from './shared-components/product-select/product-select.component';
 import { MaterialModulesModule } from 'app/material-modules/material-modules.module';
 import { LeadDataRowComponent } from './lead/lead-data-row/lead-data-row.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({

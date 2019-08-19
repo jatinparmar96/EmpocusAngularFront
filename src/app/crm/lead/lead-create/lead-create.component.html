@@ -26,11 +26,11 @@
               <div class="row" formArrayName="contact_persons">
                 <div class="col-md-12">
                   <h4 class="form-section"><i class="ft-user danger"></i> Contact Persons <a
-                      (click)="addContactGroup()">
-                      <i class="ft-plus primary"></i>
+                      class="btn btn-raised btn-primary btn-sm" (click)="addContactGroup()">
+                      Add New
                     </a></h4>
-                  <div class="card" *ngFor="let contact of contactsFormArray.controls;let i = index"
-                    [formGroupName]="i">
+                  <div class="card" *ngFor="let contact of contactsFormArray.controls;let i = index" [formGroupName]="i"
+                    @fade>
                     <div class="card-body">
                       <h5 class="card-title">Contact Person-{{i+1}} <a *ngIf="contactsFormArray.controls.length!==1"
                           (click)=removeContact(i)><i class="ft-x danger"></i></a>

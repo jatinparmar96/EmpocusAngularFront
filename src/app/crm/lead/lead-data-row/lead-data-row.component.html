@@ -1,14 +1,15 @@
 <div class="card" [@fade]="localVisibility">
-  <div class="card-header">
+  <div class="card-header p-0 d-flex justify-content-between">
     <h4 class="card-title">Lead Details</h4>
     <div class="actions float-right">
       <i class="ft-edit cursor-pointer mr-1 info"></i>
       <i class="ft-trash-2 cursor-pointer danger"></i>
     </div>
   </div>
+  <hr>
   <div class="card-content">
     <div class="card-body">
-      <ngb-tabset [justify]="'fill'" type="pills">
+      <ngb-tabset [justify]="'fill'">
         <ngb-tab title="Basic Details">
           <ng-template ngbTabContent>
             <div class="row" matchHeight="card">

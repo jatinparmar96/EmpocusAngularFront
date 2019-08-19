@@ -5,11 +5,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormDataService } from 'app/shared/services/form-data.service';
 import { ShareService } from 'app/shared/services/share.service';
 import { NotifyService } from 'app/shared/services/notify.service';
+import { state, style, transition, trigger, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-lead-create',
   templateUrl: './lead-create.component.html',
-  styleUrls: ['./lead-create.component.scss']
+  styleUrls: ['./lead-create.component.scss'],
+  animations: [
+    trigger('fade', [
+      state('void, hidden', style({
+        transform: "scale(0)"
+      })),
+      state('visible', style({ opacity: 1 })),
+      transition('void <=> *', [
+        animate(150)
+      ])
+    ])
+  ]
 })
 export class LeadCreateComponent implements OnInit {
   active: string = 'today';
